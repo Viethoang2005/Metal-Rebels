@@ -1,0 +1,21 @@
+/[L|l]ibrary/
+/[T|t]emp/
+/[O|o]bj/
+/[B|b]uild/
+/[B|b]uilds/
+/[L|l]ogs/
+/[U|u]ser[S|s]etting[S|s]/
+
+.vs/
+.idea/
+*.csproj
+*.sln
+*.slnx
+*.unityproj
+
+.DS_Store
+thumbs.db
+
+# Scene test ca nhan, khong chia se qua Git
+Assets/_Project/Module_*/Sandbox_*.unity
+Assets/_Project/Module_*/Sandbox_*.unity.meta
