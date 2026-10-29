@@ -19,3 +19,4 @@ namespace MetalRebels.Core.Interfaces
         bool TryCollect(PickupType pickupType, int amount);
     }
 }
+

@@ -32,3 +32,4 @@
   - Các Prefab lính/quái cần được kéo vào danh sách `waves` trong `WaveManager` của từng Event Lock hoặc bố trí trực tiếp trên màn chơi.
 - **Với Lê Thái Hiếu (`Module_SystemUI`):**
   - UI HUD và Game Manager lắng nghe `GameEvents.OnEventLockStart` và `GameEvents.OnEventLockCleared` để bật nhạc cao trào hoặc thông báo "AREA LOCKED" / "CLEAR".
+
