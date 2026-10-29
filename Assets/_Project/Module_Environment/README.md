@@ -23,7 +23,31 @@
 
 ---
 
-## 2. Hướng dẫn phối hợp với các Module khác
+## 2. Danh sách Prefabs đã tạo sẵn (`Module_Environment/Prefabs`)
+
+- `Pickup_Health.prefab`: Hồi 30 HP
+- `Pickup_ShotgunAmmo.prefab`: +20 viên Shotgun
+- `Pickup_RifleAmmo.prefab`: +30 viên Rifle
+- `Pickup_Rocket.prefab`: Nhận súng Rocket + 1 viên
+- `Pickup_RocketAmmo.prefab`: +2 viên Rocket
+- `Pickup_Grenade.prefab`: +2 quả lựu đạn
+- `Breakable_Crate.prefab`: Thùng gỗ nhận sát thương, vỡ rơi máu/đạn
+- `Checkpoint.prefab`: Cột mốc lưu checkpoint
+- `DeathZone.prefab`: Trigger tử vong đáy vực
+- `Hostage.prefab`: Con tin giải cứu (phím E)
+- `EventLockBarrier.prefab`: Rào chắn chặn đường
+- `EventLockZone.prefab`: Vùng kích hoạt khóa màn hình hoàn chỉnh
+
+---
+
+## 3. Công cụ Editor Menu
+
+Trong Unity Editor, bạn có thể vào menu:
+`MetalRebels -> Environment -> Generate All Prefabs and Level 1 Scene` để tự động khởi tạo hoặc cập nhật lại toàn bộ Prefabs và Scene Màn 1 bất cứ lúc nào.
+
+---
+
+## 4. Hướng dẫn phối hợp với các Module khác
 
 - **Với Trương Quang Việt Hoàng (`Module_Player`):**
   - Component Marco Player cần implement giao diện `MetalRebels.Core.Interfaces.IPickupCollector` để tiếp nhận các loại vật phẩm từ `ItemPickup`.
