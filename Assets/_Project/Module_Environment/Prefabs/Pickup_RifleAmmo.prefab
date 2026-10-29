@@ -68,3 +68,4 @@ MonoBehaviour:
   bobFrequency: 3
   pickupEffectPrefab: {fileID: 0}
   pickupSound: {fileID: 0}
+

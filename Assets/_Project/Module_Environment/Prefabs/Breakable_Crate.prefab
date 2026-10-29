@@ -85,3 +85,4 @@ MonoBehaviour:
     itemPrefab: {fileID: 100000, guid: a03a1bfb097846838da850ccb4084445, type: 3}
     dropRate: 45
   spawnOffset: {x: 0, y: 0.2, z: 0}
+

@@ -75,3 +75,4 @@ MonoBehaviour:
   fleeDuration: 3
   fleeDirection: -1
   interactAction: {fileID: 0}
+

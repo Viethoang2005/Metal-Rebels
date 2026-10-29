@@ -68,3 +68,4 @@ MonoBehaviour:
   activateSound: {fileID: 0}
   activateEffectPrefab: {fileID: 0}
   respawnOffset: {x: 0, y: 0.5, z: 0}
+
