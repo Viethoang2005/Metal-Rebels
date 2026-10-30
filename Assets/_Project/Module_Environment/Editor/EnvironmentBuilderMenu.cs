@@ -13,7 +13,7 @@ namespace MetalRebels.Module_Environment.Editor
         private const string PrefabDir = "Assets/_Project/Module_Environment/Prefabs";
         private const string SceneDir = "Assets/_Project/Game/Scenes";
 
-        [MenuItem("MetalRebels/Environment/Generate All Prefabs and Level 1 Scene", false, 1)]
+        [MenuItem("MetalRebels/Environment/Generate All Prefabs and Scenes (Levels 1-3 & MainMenu)", false, 1)]
         public static void GenerateAll()
         {
             EnsureDirectories();
@@ -21,7 +21,7 @@ namespace MetalRebels.Module_Environment.Editor
             GenerateLevel01Scene();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            EditorUtility.DisplayDialog("Metal Rebels", "Đã tạo đầy đủ bộ Prefab Môi trường và Scene Level_01 thành công!", "OK");
+            EditorUtility.DisplayDialog("Metal Rebels", "Đã tạo/cập nhật đầy đủ bộ Prefab Môi trường và các Scene thành công!", "OK");
         }
 
         [MenuItem("MetalRebels/Environment/Generate Sandbox Scene (HuuHieu)", false, 2)]

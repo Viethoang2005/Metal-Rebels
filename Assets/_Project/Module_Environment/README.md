@@ -38,16 +38,32 @@
 - `EventLockBarrier.prefab`: Rào chắn chặn đường
 - `EventLockZone.prefab`: Vùng kích hoạt khóa màn hình hoàn chỉnh
 
+### Prefabs Mockup phục vụ Playtest độc lập (`Module_Environment/Prefabs/Mock`)
+- `Mock_Player.prefab`: Nhân vật test có di chuyển (A/D/W/Space), bắn đạn (J), nhặt vật phẩm (`IPickupCollector`), nhận sát thương (`IDamageable`) và hồi sinh tại Checkpoint.
+- `Mock_Bullet.prefab`: Đạn mockup của người chơi, bay thẳng và gây 20 sát thương.
+- `Mock_Enemy.prefab`: Kính quái lính 30 HP, có tuần tra, trúng đạn nhấp nháy đỏ, tự hủy khi chết để `WaveManager` ghi nhận.
+- `Mock_Boss_Viper.prefab`: Boss mockup 600 HP, bắn hạ sẽ phát `GameEvents.OnBossKilled` & `OnGameOver(true)`.
+
 ---
 
-## 3. Công cụ Editor Menu
+## 3. Danh sách Scene chính trong Game (`Assets/_Project/Game/Scenes`)
+
+Đã thiết lập sẵn và đăng ký theo thứ tự trong **Build Settings**:
+1. `MainMenu.unity`: Menu khởi động chính (Index 0).
+2. `Level_01.unity`: Màn 1 - Đột nhập bãi biển đảo Raven, Boss Viper-01 (Index 1).
+3. `Level_02.unity`: Màn 2 - Vượt rừng rậm tử thần, Boss Robot Hunter (Index 2).
+4. `Level_03.unity`: Màn 3 - Tổng tấn công căn cứ trung tâm, Boss PROJECT TITAN (Index 3).
+
+---
+
+## 4. Công cụ Editor Menu
 
 Trong Unity Editor, bạn có thể vào menu:
-`MetalRebels -> Environment -> Generate All Prefabs and Level 1 Scene` để tự động khởi tạo hoặc cập nhật lại toàn bộ Prefabs và Scene Màn 1 bất cứ lúc nào.
+`MetalRebels -> Environment -> Generate All Prefabs and Scenes (Levels 1-3 & MainMenu)` để tự động khởi tạo hoặc cập nhật lại toàn bộ Prefabs và các Scene bất cứ lúc nào.
 
 ---
 
-## 4. Hướng dẫn phối hợp với các Module khác
+## 5. Hướng dẫn phối hợp với các Module khác
 
 - **Với Trương Quang Việt Hoàng (`Module_Player`):**
   - Component Marco Player cần implement giao diện `MetalRebels.Core.Interfaces.IPickupCollector` để tiếp nhận các loại vật phẩm từ `ItemPickup`.
