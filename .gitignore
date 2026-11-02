@@ -10,12 +10,7 @@
 .idea/
 *.csproj
 *.sln
-*.slnx
 *.unityproj
 
 .DS_Store
 thumbs.db
-
-# Scene test ca nhan, khong chia se qua Git
-Assets/_Project/Module_*/Sandbox_*.unity
-Assets/_Project/Module_*/Sandbox_*.unity.meta
