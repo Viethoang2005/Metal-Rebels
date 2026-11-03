@@ -14,7 +14,7 @@ MonoBehaviour:
   weaponType: 0
   weaponName: Pistol
   weaponIcon: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 100000, guid: b1000000000000000000000000000001, type: 3}
   damage: 20
   fireRate: 2
   isAutomatic: 0

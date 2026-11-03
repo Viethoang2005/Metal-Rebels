@@ -14,7 +14,7 @@ MonoBehaviour:
   weaponType: 3
   weaponName: Rocket Launcher
   weaponIcon: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 100000, guid: b1000000000000000000000000000003, type: 3}
   damage: 100
   fireRate: 0.5
   isAutomatic: 0
