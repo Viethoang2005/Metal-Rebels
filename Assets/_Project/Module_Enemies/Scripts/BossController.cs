@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using MetalRebels.Core.Events;
 
-public class BossController : MonoBehaviour
-{
-   [RequireComponent(typeof(EnemyHealth))]
+[RequireComponent(typeof(EnemyHealth))]
 public class BossController : MonoBehaviour
 {
     public bool isPhase2 = false;
@@ -27,7 +26,12 @@ public class BossController : MonoBehaviour
     {
         bossHealth = GetComponent<EnemyHealth>();
         bossHealth.OnHealthPercentChanged += CheckPhaseTransition;
-        bossHealth.OnEnemyDied += () => Debug.Log("BOSS BỊ TIÊU DIỆT! QUA MÀN!");
+        bossHealth.OnEnemyDied += () =>
+        {
+            Debug.Log("BOSS BỊ TIÊU DIỆT! QUA MÀN!");
+            GameEvents.OnBossKilled?.Invoke();
+            GameEvents.OnGameOver?.Invoke(true);
+        };
 
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) player = p.transform;

@@ -93,7 +93,12 @@ public class BasicEnemyAI : MonoBehaviour
     {
         if (enemyType == EnemyType.MeleeOrVehicle && collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Lính xe húc trúng Marco! Gây " + contactDamage + " sát thương.");
+            var damageable = collision.gameObject.GetComponent<MetalRebels.Core.Interfaces.IDamageable>()
+                          ?? collision.gameObject.GetComponentInParent<MetalRebels.Core.Interfaces.IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(contactDamage);
+            }
         }
     }
 }

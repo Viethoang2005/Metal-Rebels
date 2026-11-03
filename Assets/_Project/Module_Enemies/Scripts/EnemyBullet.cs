@@ -27,10 +27,15 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Marco trúng đạn! Mất " + damage + " HP");
+            var damageable = collision.GetComponent<MetalRebels.Core.Interfaces.IDamageable>() 
+                          ?? collision.GetComponentInParent<MetalRebels.Core.Interfaces.IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Ground"))
+        else if (collision.CompareTag("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Destroy(gameObject);
         }

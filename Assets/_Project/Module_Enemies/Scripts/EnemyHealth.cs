@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using MetalRebels.Core.Interfaces;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [Header("Thông số HP (Lính: 30, Xe: 70, Boss1: 600, Boss2: 900, Titan: 1500)")]
     public int maxHP = 30;

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MetalRebels.Player
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-    public class PlayerController : MonoBehaviour, IDamageable
+    public class PlayerController : MonoBehaviour, IDamageable, IPickupCollector
     {
         [Header("Chỉ số di chuyển")]
         [SerializeField] private float moveSpeed = 1.5f;
@@ -355,6 +355,28 @@ namespace MetalRebels.Player
             }
             isInvincible = false;
             invincibilityCoroutine = null;
+        }
+
+        public bool TryCollect(MetalRebels.Core.Interfaces.PickupType pickupType, int amount)
+        {
+            var combat = GetComponent<PlayerCombat>();
+            switch (pickupType)
+            {
+                case MetalRebels.Core.Interfaces.PickupType.Health:
+                    return TryHeal(amount > 0 ? amount : 30);
+                case MetalRebels.Core.Interfaces.PickupType.ShotgunAmmo:
+                    return combat != null && combat.TryAddAmmo(MetalRebels.Core.Data.WeaponType.Shotgun, amount > 0 ? amount : 20);
+                case MetalRebels.Core.Interfaces.PickupType.RifleAmmo:
+                    return combat != null && combat.TryAddAmmo(MetalRebels.Core.Data.WeaponType.AssaultRifle, amount > 0 ? amount : 30);
+                case MetalRebels.Core.Interfaces.PickupType.RocketWeapon:
+                    return combat != null && combat.TryAddAmmo(MetalRebels.Core.Data.WeaponType.RocketLauncher, amount > 0 ? amount : 1);
+                case MetalRebels.Core.Interfaces.PickupType.RocketAmmo:
+                    return combat != null && combat.TryAddAmmo(MetalRebels.Core.Data.WeaponType.RocketLauncher, amount > 0 ? amount : 2);
+                case MetalRebels.Core.Interfaces.PickupType.Grenade:
+                    return combat != null && combat.TryAddGrenades(amount > 0 ? amount : 2);
+                default:
+                    return false;
+            }
         }
 
         private void OnDrawGizmosSelected()
