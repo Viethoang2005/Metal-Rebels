@@ -39,6 +39,7 @@ namespace MetalRebels.Player
 
         [Header("Lựu đạn")]
         [SerializeField] private GameObject grenadePrefab;
+        [SerializeField] private Sprite grenadeSprite;
         [SerializeField] private int maxGrenades = 5;
         [SerializeField] private float grenadeThrowForceX = 10f;
         [SerializeField] private float grenadeThrowForceY = 6f;
@@ -363,7 +364,7 @@ namespace MetalRebels.Player
                     PlayerGrenade grenade = grenadeObj.GetComponent<PlayerGrenade>();
                     if (grenade != null)
                     {
-                        grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab);
+                        grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite);
                     }
                 }
                 else
@@ -376,7 +377,7 @@ namespace MetalRebels.Player
                     Rigidbody2D rb = grenadeObj.AddComponent<Rigidbody2D>();
                     rb.gravityScale = 2.5f;
                     PlayerGrenade grenade = grenadeObj.AddComponent<PlayerGrenade>();
-                    grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab);
+                    grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite);
                 }
             }
         }

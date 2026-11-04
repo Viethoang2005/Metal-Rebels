@@ -27,7 +27,13 @@ namespace MetalRebels.Player.EditorTools
             GameObject explosionPrefab = CreateExplosionPrefab();
             GameObject bulletPrefab = CreateBulletPrefab();
             GameObject rocketPrefab = CreateRocketPrefab(explosionPrefab);
-            GameObject grenadePrefab = CreateGrenadePrefab(explosionPrefab);
+            Sprite grenadeSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Grenade.png");
+            if (grenadeSprite == null)
+            {
+                Debug.LogError($"[MetalRebels] Grenade sprite was not found at {SpritesDir}/Grenade.png");
+            }
+
+            GameObject grenadePrefab = CreateGrenadePrefab(explosionPrefab, grenadeSprite);
 
             // Gán prefab projectile vào WeaponData
             if (pistol != null && bulletPrefab != null)
@@ -51,7 +57,7 @@ namespace MetalRebels.Player.EditorTools
                 EditorUtility.SetDirty(rocket);
             }
 
-            CreatePlayerPrefab(pistol, shotgun, rifle, rocket, grenadePrefab, explosionPrefab);
+            CreatePlayerPrefab(pistol, shotgun, rifle, rocket, grenadePrefab, explosionPrefab, grenadeSprite);
             CreatePickupPrefabs(shotgun, rifle, rocket);
 
             AssetDatabase.SaveAssets();
@@ -298,11 +304,24 @@ namespace MetalRebels.Player.EditorTools
             return prefab;
         }
 
-        private static GameObject CreateGrenadePrefab(GameObject explosionPrefab)
+        private static GameObject CreateGrenadePrefab(GameObject explosionPrefab, Sprite grenadeSprite)
         {
             string path = $"{PrefabDir}/PlayerGrenade.prefab";
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                SpriteRenderer existingRenderer = existing.GetComponent<SpriteRenderer>();
+                if (existingRenderer != null && existingRenderer.sprite == null && grenadeSprite != null)
+                {
+                    existingRenderer.sprite = grenadeSprite;
+                    existingRenderer.color = Color.white;
+                    existingRenderer.sortingOrder = 2;
+                    EditorUtility.SetDirty(existing);
+                    PrefabUtility.SavePrefabAsset(existing);
+                }
+
+                return existing;
+            }
 
             GameObject obj = new GameObject("PlayerGrenade");
             CircleCollider2D col = obj.AddComponent<CircleCollider2D>();
@@ -311,7 +330,9 @@ namespace MetalRebels.Player.EditorTools
             rb.gravityScale = 2.5f;
             PlayerGrenade grenade = obj.AddComponent<PlayerGrenade>();
             SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
-            sr.color = new Color(0.2f, 0.6f, 0.2f, 1f);
+            sr.sprite = grenadeSprite;
+            sr.color = Color.white;
+            sr.sortingOrder = 2;
 
             var serializedObj = new SerializedObject(grenade);
             serializedObj.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
@@ -322,11 +343,27 @@ namespace MetalRebels.Player.EditorTools
             return prefab;
         }
 
-        private static GameObject CreatePlayerPrefab(WeaponData pistol, WeaponData shotgun, WeaponData rifle, WeaponData rocket, GameObject grenadePrefab, GameObject explosionPrefab)
+        private static GameObject CreatePlayerPrefab(WeaponData pistol, WeaponData shotgun, WeaponData rifle, WeaponData rocket, GameObject grenadePrefab, GameObject explosionPrefab, Sprite grenadeSprite)
         {
             string path = $"{PrefabDir}/Player_Marco.prefab";
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                PlayerCombat existingCombat = existing.GetComponent<PlayerCombat>();
+                if (existingCombat != null && grenadeSprite != null)
+                {
+                    SerializedObject existingCombatSO = new SerializedObject(existingCombat);
+                    SerializedProperty grenadeSpriteProperty = existingCombatSO.FindProperty("grenadeSprite");
+                    if (grenadeSpriteProperty != null && grenadeSpriteProperty.objectReferenceValue == null)
+                    {
+                        grenadeSpriteProperty.objectReferenceValue = grenadeSprite;
+                        existingCombatSO.ApplyModifiedProperties();
+                        PrefabUtility.SavePrefabAsset(existing);
+                    }
+                }
+
+                return existing;
+            }
 
             // ── Root: Player_Marco ──
             GameObject playerObj = new GameObject("Player_Marco");
@@ -436,6 +473,7 @@ namespace MetalRebels.Player.EditorTools
             combatSO.FindProperty("assaultRifleData").objectReferenceValue = rifle;
             combatSO.FindProperty("rocketLauncherData").objectReferenceValue = rocket;
             combatSO.FindProperty("grenadePrefab").objectReferenceValue = grenadePrefab;
+            combatSO.FindProperty("grenadeSprite").objectReferenceValue = grenadeSprite;
             combatSO.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
             combatSO.ApplyModifiedProperties();
 

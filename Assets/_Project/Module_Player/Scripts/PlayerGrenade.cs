@@ -24,11 +24,29 @@ namespace MetalRebels.Player
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void Init(Vector2 initialVelocity, int grenadeDamage = 30, float countdown = 3f, float radius = 3f, GameObject explosionObj = null)
+        public void Init(
+            Vector2 initialVelocity,
+            int grenadeDamage = 30,
+            float countdown = 3f,
+            float radius = 3f,
+            GameObject explosionObj = null,
+            Sprite visualSprite = null)
         {
             damage = grenadeDamage;
             fuseTime = countdown;
             explosionRadius = radius;
+            if (visualSprite != null)
+            {
+                if (spriteRenderer == null)
+                {
+                    spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+                }
+
+                spriteRenderer.sprite = visualSprite;
+                spriteRenderer.color = Color.white;
+                spriteRenderer.sortingOrder = 2;
+            }
+
             if (explosionObj != null)
             {
                 explosionPrefab = explosionObj;
