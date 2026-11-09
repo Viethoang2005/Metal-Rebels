@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace MetalRebels.Player
 {
+    [DefaultExecutionOrder(-100)]
     public class PlayerInputHandler : MonoBehaviour
     {
         public Vector2 MoveInput { get; private set; }
@@ -70,6 +71,7 @@ namespace MetalRebels.Player
                 else if (kb.digit4Key.wasPressedThisFrame) weaponSlot = 3;
 
                 if (kb.qKey.wasPressedThisFrame) prevWpn = true;
+                if (kb.tabKey.wasPressedThisFrame) nextWpn = true;
             }
 
             // Xử lý Mouse

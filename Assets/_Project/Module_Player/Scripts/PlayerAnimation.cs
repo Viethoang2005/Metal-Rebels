@@ -180,44 +180,25 @@ namespace MetalRebels.Player
 
         private Vector3 GetShootDownLockedPosition(Sprite currentSprite)
         {
-            bool isShotgun = currentSprite.name == "IdleShootDown_Shotgun_0";
-            Vector2 referenceSize = isShotgun ? new Vector2(36f, 43f) : new Vector2(19f, 35f);
-            Vector2 referencePivot = referenceSize * 0.5f;
-            Vector2 referenceAnchor = isShotgun ? new Vector2(17f, 18f) : new Vector2(11f, 15f);
             float pixelsPerUnit = currentSprite.pixelsPerUnit;
+            Vector2 upperAnchorPixels = TryGetUpperBodyAnchor(currentSprite, out Vector2 measuredAnchor)
+                ? measuredAnchor
+                : new Vector2(11f, 15f);
 
-            // Stable waist: idle legs, not the bouncing run silhouette.
             Vector3 idleLowerAnchorLocal =
                 (IdleLowerBodyAnchorPixels - IdleLowerBodyPivotPixels) / pixelsPerUnit;
-            Vector3 referenceUpperLocal = (referenceAnchor - referencePivot) / pixelsPerUnit;
+            Vector3 upperAnchorLocal = (upperAnchorPixels - currentSprite.pivot) / pixelsPerUnit;
             Transform positionParent = upperAnimator.transform.parent;
             Vector3 lowerWaistWorld = lowerBodyRenderer.transform.TransformPoint(idleLowerAnchorLocal);
-            Vector3 referenceUpperWorld = upperBodyRenderer.transform.TransformVector(referenceUpperLocal);
+            Vector3 upperAnchorWorld = upperBodyRenderer.transform.TransformVector(upperAnchorLocal);
             Vector3 lowerWaist = positionParent != null
                 ? positionParent.InverseTransformPoint(lowerWaistWorld)
                 : lowerWaistWorld;
-            Vector3 referenceUpperOffset = positionParent != null
-                ? positionParent.InverseTransformVector(referenceUpperWorld)
-                : referenceUpperWorld;
+            Vector3 upperAnchorOffset = positionParent != null
+                ? positionParent.InverseTransformVector(upperAnchorWorld)
+                : upperAnchorWorld;
 
-            Vector3 position = lowerWaist - referenceUpperOffset;
-
-            // Keep the same visual top/left as Idle_ShootDown so taller muzzle/leg frames
-            // extend downward instead of lifting the torso.
-            Vector3 referenceEdgeLocal = new Vector3(
-                -referencePivot.x / pixelsPerUnit,
-                (referenceSize.y - referencePivot.y) / pixelsPerUnit,
-                0f);
-            Vector3 currentEdgeLocal = new Vector3(
-                -currentSprite.pivot.x / pixelsPerUnit,
-                (currentSprite.rect.height - currentSprite.pivot.y) / pixelsPerUnit,
-                0f);
-            Vector3 edgeDeltaLocal = referenceEdgeLocal - currentEdgeLocal;
-            Vector3 edgeDeltaWorld = upperBodyRenderer.transform.TransformVector(edgeDeltaLocal);
-            Vector3 edgeDelta = positionParent != null
-                ? positionParent.InverseTransformVector(edgeDeltaWorld)
-                : edgeDeltaWorld;
-            position += edgeDelta;
+            Vector3 position = lowerWaist - upperAnchorOffset;
             position.z = upperBodyRestPosition.z;
             return position;
         }
@@ -455,6 +436,16 @@ namespace MetalRebels.Player
         /// </summary>
         public void PlayShootAnimation()
         {
+            if (upperAnimator != null && playerCombat != null && playerCombat.IsShotgunEquipped)
+            {
+                SetBoolIfAvailable(upperAnimator, "IsShotgun", true);
+                if (playerController != null && playerController.IsCrouching)
+                {
+                    SetBoolIfAvailable(upperAnimator, "IsCrouching", true);
+                    return;
+                }
+            }
+
             if (upperAnimator != null && HasTriggerParameter(upperAnimator, "Shoot"))
             {
                 upperAnimator.SetTrigger("Shoot");

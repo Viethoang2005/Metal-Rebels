@@ -1,0 +1,483 @@
+fileFormatVersion: 2
+guid: 836b7490131ac484a84c2b1b69adb84e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7948544573725770636
+    second: ShotgunExplosion_0
+  - first:
+      213: -7897321530888154613
+    second: ShotgunExplosion_1
+  - first:
+      213: 1273894742158599420
+    second: ShotgunExplosion_2
+  - first:
+      213: 1801912051739052762
+    second: ShotgunExplosion_3
+  - first:
+      213: 1044155189433366337
+    second: ShotgunExplosion_4
+  - first:
+      213: 5422202169492675954
+    second: ShotgunExplosion_5
+  - first:
+      213: -3907369824405623452
+    second: ShotgunExplosion_6
+  - first:
+      213: -4137186855393082208
+    second: ShotgunExplosion_7
+  - first:
+      213: -4809899712250612980
+    second: ShotgunExplosion_8
+  - first:
+      213: -4888801764692096844
+    second: ShotgunExplosion_9
+  - first:
+      213: -1461550120118057888
+    second: ShotgunExplosion_10
+  - first:
+      213: 2880565494732269216
+    second: ShotgunExplosion_11
+  - first:
+      213: -3364920991684013489
+    second: ShotgunExplosion_12
+  - first:
+      213: -2154568798380376711
+    second: ShotgunExplosion_13
+  - first:
+      213: 1849743400629178676
+    second: ShotgunExplosion_14
+  - first:
+      213: 373864039214490508
+    second: ShotgunExplosion_15
+  - first:
+      213: -2745139948174242878
+    second: ShotgunExplosion_16
+  - first:
+      213: -2911464326935137721
+    second: ShotgunExplosion_17
+  - first:
+      213: 2141514645021935814
+    second: ShotgunExplosion_18
+  - first:
+      213: -5320190387791732144
+    second: ShotgunExplosion_19
+  - first:
+      213: 7977697548351039368
+    second: ShotgunExplosion_20
+  - first:
+      213: -3914522573694109404
+    second: ShotgunExplosion_21
+  - first:
+      213: 6829810468158399727
+    second: ShotgunExplosion_22
+  - first:
+      213: -8568842094488987566
+    second: ShotgunExplosion_23
+  - first:
+      213: -7829408294816479050
+    second: ShotgunExplosion_24
+  - first:
+      213: 6660317119183887423
+    second: ShotgunExplosion_25
+  - first:
+      213: -3822342702752690003
+    second: ShotgunExplosion_26
+  - first:
+      213: -4840629868737854620
+    second: ShotgunExplosion_27
+  - first:
+      213: 5736410944762925658
+    second: ShotgunExplosion_28
+  - first:
+      213: 2276596855474382937
+    second: ShotgunExplosion_29
+  - first:
+      213: -2063319794737978270
+    second: ShotgunExplosion_30
+  - first:
+      213: -2110152951222494101
+    second: ShotgunExplosion_31
+  - first:
+      213: -7252815465187763352
+    second: ShotgunExplosion_32
+  - first:
+      213: -2048059551023828509
+    second: ShotgunExplosion_33
+  - first:
+      213: 4172073070643456284
+    second: ShotgunExplosion_34
+  - first:
+      213: -225286312801471186
+    second: ShotgunExplosion_35
+  - first:
+      213: 3422217770193521652
+    second: ShotgunExplosion_36
+  - first:
+      213: 9087835115739413220
+    second: ShotgunExplosion_37
+  - first:
+      213: 6283437730670872445
+    second: ShotgunExplosion_38
+  - first:
+      213: 2792438469922689126
+    second: ShotgunExplosion_39
+  - first:
+      213: -3324072397813755651
+    second: ShotgunExplosion_40
+  - first:
+      213: 6733248165996435250
+    second: ShotgunExplosion_41
+  - first:
+      213: 2474379121181631116
+    second: ShotgunExplosion_42
+  - first:
+      213: 952278505203983692
+    second: ShotgunExplosion_43
+  - first:
+      213: -956109124385871616
+    second: ShotgunExplosion_44
+  - first:
+      213: -3566061699495969763
+    second: ShotgunExplosion_45
+  - first:
+      213: -2826254300302377116
+    second: ShotgunExplosion_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShotgunExplosion_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 453
+        width: 120
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c77b9c2d811b190800000000000000
+      internalID: -7948544573725770636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_2
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 449
+        width: 192
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4e993c488cda110800000000000000
+      internalID: 1273894742158599420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 438
+        width: 195
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adac660d67da10910800000000000000
+      internalID: 1801912051739052762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_5
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 407
+        width: 198
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d96f425288f3b40800000000000000
+      internalID: 5422202169492675954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_6
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 406
+        width: 198
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46de83ac8db36c9c0800000000000000
+      internalID: -3907369824405623452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_8
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 416
+        width: 185
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c037c0612bdcf3db0800000000000000
+      internalID: -4809899712250612980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_9
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 406
+        width: 196
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b8893e62bc772cb0800000000000000
+      internalID: -4888801764692096844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShotgunExplosion_15
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 465
+        width: 141
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c832ca3ec5b303500800000000000000
+      internalID: 373864039214490508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 91be8399460ed72448085d599aedee2b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ShotgunExplosion_0: -7948544573725770636
+      ShotgunExplosion_1: -7897321530888154613
+      ShotgunExplosion_10: -1461550120118057888
+      ShotgunExplosion_11: 2880565494732269216
+      ShotgunExplosion_12: -3364920991684013489
+      ShotgunExplosion_13: -2154568798380376711
+      ShotgunExplosion_14: 1849743400629178676
+      ShotgunExplosion_15: 373864039214490508
+      ShotgunExplosion_16: -2745139948174242878
+      ShotgunExplosion_17: -2911464326935137721
+      ShotgunExplosion_18: 2141514645021935814
+      ShotgunExplosion_19: -5320190387791732144
+      ShotgunExplosion_2: 1273894742158599420
+      ShotgunExplosion_20: 7977697548351039368
+      ShotgunExplosion_21: -3914522573694109404
+      ShotgunExplosion_22: 6829810468158399727
+      ShotgunExplosion_23: -8568842094488987566
+      ShotgunExplosion_24: -7829408294816479050
+      ShotgunExplosion_25: 6660317119183887423
+      ShotgunExplosion_26: -3822342702752690003
+      ShotgunExplosion_27: -4840629868737854620
+      ShotgunExplosion_28: 5736410944762925658
+      ShotgunExplosion_29: 2276596855474382937
+      ShotgunExplosion_3: 1801912051739052762
+      ShotgunExplosion_30: -2063319794737978270
+      ShotgunExplosion_31: -2110152951222494101
+      ShotgunExplosion_32: -7252815465187763352
+      ShotgunExplosion_33: -2048059551023828509
+      ShotgunExplosion_34: 4172073070643456284
+      ShotgunExplosion_35: -225286312801471186
+      ShotgunExplosion_36: 3422217770193521652
+      ShotgunExplosion_37: 9087835115739413220
+      ShotgunExplosion_38: 6283437730670872445
+      ShotgunExplosion_39: 2792438469922689126
+      ShotgunExplosion_4: 1044155189433366337
+      ShotgunExplosion_40: -3324072397813755651
+      ShotgunExplosion_41: 6733248165996435250
+      ShotgunExplosion_42: 2474379121181631116
+      ShotgunExplosion_43: 952278505203983692
+      ShotgunExplosion_44: -956109124385871616
+      ShotgunExplosion_45: -3566061699495969763
+      ShotgunExplosion_46: -2826254300302377116
+      ShotgunExplosion_5: 5422202169492675954
+      ShotgunExplosion_6: -3907369824405623452
+      ShotgunExplosion_7: -4137186855393082208
+      ShotgunExplosion_8: -4809899712250612980
+      ShotgunExplosion_9: -4888801764692096844
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

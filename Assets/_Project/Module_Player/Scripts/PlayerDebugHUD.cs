@@ -138,15 +138,17 @@ namespace MetalRebels.Player
             GUILayout.EndArea();
 
             // Hướng dẫn phím điều khiển (Góc dưới bên trái)
-            GUI.Box(new Rect(10, Screen.height - 210, 380, 200), "<b>HƯỚNG DẪN ĐIỀU KHIỂN & TEST PLAYER</b>");
-            GUILayout.BeginArea(new Rect(20, Screen.height - 185, 360, 175));
+            GUI.Box(new Rect(10, Screen.height - 250, 400, 240), "<b>HƯỚNG DẪN ĐIỀU KHIỂN & TEST PLAYER</b>");
+            GUILayout.BeginArea(new Rect(20, Screen.height - 225, 380, 215));
             GUILayout.Label("• <b>A / D</b> hoặc <b>Mũi tên</b>: Di chuyển trái / phải");
             GUILayout.Label("• <b>Space</b>: Nhảy (có thể nhảy bắn mọi hướng)");
             GUILayout.Label("• <b>S / C</b>: Ngồi né đạn (hạ thấp hitbox) / Bắn thấp");
             GUILayout.Label("• <b>W</b>: Bắn hướng thẳng lên trời");
             GUILayout.Label("• <b>J / Chuột trái</b>: Bắn (Nhấp 1 phát hoặc giữ xả đạn)");
             GUILayout.Label("• <b>G</b>: Ném lựu đạn (Nổ sau 3s / bán kính 3m)");
-            GUILayout.Label("• <b>R</b>: Nạp đạn thủ công | <b>1/2/3/4</b>: Đổi vũ khí");
+            GUILayout.Label("• <b>R</b>: Nạp đạn | <b>1/2/3/4</b>: Chọn súng đã mở khóa");
+            GUILayout.Label("• <b>Q / Tab / Con lăn chuột</b>: Đổi súng | Gamepad: LB / RB");
+            GUILayout.Label("• Nhặt đạn/súng để mở khóa các loại vũ khí mới");
             GUILayout.Label("• <i>Phím test nhanh:</i> <b>T</b>: Nhận 20 dmg | <b>H</b>: Hồi 30 HP | <b>K</b>: Chết");
             GUILayout.EndArea();
         }

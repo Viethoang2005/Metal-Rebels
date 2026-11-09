@@ -27,11 +27,17 @@ namespace MetalRebels.Player.EditorTools
             GameObject explosionPrefab = CreateExplosionPrefab();
             GameObject bulletPrefab = CreateBulletPrefab();
             GameObject rocketPrefab = CreateRocketPrefab(explosionPrefab);
-            Sprite grenadeSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Grenade.png");
+            Sprite grenadeSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Grenade/Grenade.png");
             if (grenadeSprite == null)
             {
-                Debug.LogError($"[MetalRebels] Grenade sprite was not found at {SpritesDir}/Grenade.png");
+                grenadeSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Grenade.png");
             }
+            if (grenadeSprite == null)
+            {
+                Debug.LogWarning($"[MetalRebels] Grenade sprite was not found at {SpritesDir}/Grenade/Grenade.png");
+            }
+
+            Sprite bulletSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Bullet/PlayerBullet.png");
 
             GameObject grenadePrefab = CreateGrenadePrefab(explosionPrefab, grenadeSprite);
 
@@ -40,11 +46,6 @@ namespace MetalRebels.Player.EditorTools
             {
                 pistol.projectilePrefab = bulletPrefab;
                 EditorUtility.SetDirty(pistol);
-            }
-            if (shotgun != null && bulletPrefab != null)
-            {
-                shotgun.projectilePrefab = bulletPrefab;
-                EditorUtility.SetDirty(shotgun);
             }
             if (rifle != null && bulletPrefab != null)
             {
@@ -57,7 +58,7 @@ namespace MetalRebels.Player.EditorTools
                 EditorUtility.SetDirty(rocket);
             }
 
-            CreatePlayerPrefab(pistol, shotgun, rifle, rocket, grenadePrefab, explosionPrefab, grenadeSprite);
+            CreatePlayerPrefab(pistol, shotgun, rifle, rocket, grenadePrefab, explosionPrefab, grenadeSprite, bulletSprite);
             CreatePickupPrefabs(shotgun, rifle, rocket);
 
             AssetDatabase.SaveAssets();
@@ -196,10 +197,10 @@ namespace MetalRebels.Player.EditorTools
         {
             EnsureDirectories();
 
-            pistol = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Pistol.asset", WeaponType.Pistol, "Pistol", 20, 2f, false, true, 0, 0, 0f, 0, 20f, 3f, false, 0f, 0f);
-            shotgun = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Shotgun.asset", WeaponType.Shotgun, "Shotgun", 50, 1f, false, false, 30, 8, 3.0f, 20, 18f, 1.5f, false, 0f, 0f);
-            rifle = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_AssaultRifle.asset", WeaponType.AssaultRifle, "Assault Rifle", 15, 5f, true, false, 120, 30, 1.5f, 30, 22f, 3f, false, 0f, 0f);
-            rocket = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_RocketLauncher.asset", WeaponType.RocketLauncher, "Rocket Launcher", 100, 0.5f, false, false, 5, 1, 2.0f, 2, 14f, 4f, true, 3f, 0f);
+            pistol = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Pistol.asset", WeaponType.Pistol, "Pistol", 20, 2f, false, true, 0, 0, 0f, 0, 12f, 3f, false, 0f, 0f);
+            shotgun = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Shotgun.asset", WeaponType.Shotgun, "Shotgun", 50, 1f, false, false, 30, 8, 3.0f, 20, 12f, 1.5f, false, 0f, 0f);
+            rifle = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_AssaultRifle.asset", WeaponType.AssaultRifle, "Assault Rifle", 15, 5f, true, false, 120, 30, 1.5f, 30, 14f, 3f, false, 0f, 0f);
+            rocket = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_RocketLauncher.asset", WeaponType.RocketLauncher, "Rocket Launcher", 100, 0.5f, false, false, 5, 1, 2.0f, 2, 9f, 4f, true, 3f, 0f);
         }
 
         private static WeaponData GetOrCreateWeaponAsset(string path, WeaponType type, string name, int damage, float fireRate, bool isAuto, bool isInfinite, int maxAmmo, int magSize, float reloadTime, int ammoPerPickup, float speed, float lifetime, bool isExplosive, float explosionRadius, float fuseTime)
@@ -234,16 +235,41 @@ namespace MetalRebels.Player.EditorTools
         private static GameObject CreateExplosionPrefab()
         {
             string path = $"{PrefabDir}/ExplosionEffect.prefab";
+            List<Sprite> expSprites = LoadExplosionSprites();
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                ExplosionEffect existingEff = existing.GetComponent<ExplosionEffect>();
+                SpriteRenderer existingSr = existing.GetComponent<SpriteRenderer>();
+                if (existingSr != null && expSprites.Count > 0)
+                {
+                    existingSr.sprite = expSprites[0];
+                    existingSr.color = Color.white;
+                    existingSr.sortingOrder = 10;
+                }
+                if (existingEff != null && expSprites.Count > 0)
+                {
+                    SerializedObject effSO = new SerializedObject(existingEff);
+                    SerializedProperty listProp = effSO.FindProperty("explosionSprites");
+                    listProp.arraySize = expSprites.Count;
+                    for (int i = 0; i < expSprites.Count; i++)
+                    {
+                        listProp.GetArrayElementAtIndex(i).objectReferenceValue = expSprites[i];
+                    }
+                    effSO.ApplyModifiedProperties();
+                }
+                EditorUtility.SetDirty(existing);
+                PrefabUtility.SavePrefabAsset(existing);
+                return existing;
+            }
 
             GameObject obj = new GameObject("ExplosionEffect");
             ExplosionEffect eff = obj.AddComponent<ExplosionEffect>();
             SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
             sr.color = Color.white;
+            sr.sortingOrder = 10;
 
             // Load các sprite nổ
-            List<Sprite> expSprites = LoadSpritesFromFolder($"{SpritesDir}/Explosion");
             if (expSprites.Count > 0)
             {
                 sr.sprite = expSprites[0];
@@ -265,16 +291,45 @@ namespace MetalRebels.Player.EditorTools
         private static GameObject CreateBulletPrefab()
         {
             string path = $"{PrefabDir}/PlayerBullet.prefab";
+            Sprite bulletSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Bullet/PlayerBullet.png");
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                SpriteRenderer existingSr = existing.GetComponent<SpriteRenderer>();
+                if (existingSr != null && bulletSprite != null)
+                {
+                    existingSr.sprite = bulletSprite;
+                    existingSr.color = Color.white;
+                    existingSr.sortingOrder = 5;
+                }
+                PlayerBullet existingBullet = existing.GetComponent<PlayerBullet>();
+                if (existingBullet != null && bulletSprite != null)
+                {
+                    SerializedObject bSO = new SerializedObject(existingBullet);
+                    bSO.FindProperty("visualSprite").objectReferenceValue = bulletSprite;
+                    bSO.ApplyModifiedProperties();
+                }
+                EditorUtility.SetDirty(existing);
+                PrefabUtility.SavePrefabAsset(existing);
+                return existing;
+            }
 
             GameObject obj = new GameObject("PlayerBullet");
             CircleCollider2D col = obj.AddComponent<CircleCollider2D>();
-            col.radius = 0.12f;
+            col.radius = 0.15f;
             col.isTrigger = true;
-            obj.AddComponent<PlayerBullet>();
+            PlayerBullet bullet = obj.AddComponent<PlayerBullet>();
             SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
-            sr.color = Color.yellow;
+            sr.sprite = bulletSprite;
+            sr.color = Color.white;
+            sr.sortingOrder = 5;
+
+            if (bulletSprite != null)
+            {
+                var bulletSO = new SerializedObject(bullet);
+                bulletSO.FindProperty("visualSprite").objectReferenceValue = bulletSprite;
+                bulletSO.ApplyModifiedProperties();
+            }
 
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(obj, path);
             Object.DestroyImmediate(obj);
@@ -310,12 +365,45 @@ namespace MetalRebels.Player.EditorTools
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if (existing != null)
             {
+                bool changed = false;
                 SpriteRenderer existingRenderer = existing.GetComponent<SpriteRenderer>();
-                if (existingRenderer != null && existingRenderer.sprite == null && grenadeSprite != null)
+                if (existingRenderer != null && grenadeSprite != null && existingRenderer.sprite != grenadeSprite)
                 {
                     existingRenderer.sprite = grenadeSprite;
                     existingRenderer.color = Color.white;
                     existingRenderer.sortingOrder = 2;
+                    changed = true;
+                }
+
+                PlayerGrenade existingGrenade = existing.GetComponent<PlayerGrenade>();
+                if (existingGrenade != null)
+                {
+                    SerializedObject grenadeSO = new SerializedObject(existingGrenade);
+                    SetObjectReferenceIfChanged(grenadeSO, "explosionPrefab", explosionPrefab);
+                    SerializedProperty visualScale = grenadeSO.FindProperty("explosionVisualScale");
+                    if (visualScale.floatValue != 0.22f)
+                    {
+                        visualScale.floatValue = 0.22f;
+                    }
+                    changed |= grenadeSO.ApplyModifiedProperties();
+                }
+
+                Collider2D existingCollider = existing.GetComponent<Collider2D>();
+                if (existingCollider != null && existingCollider.isTrigger)
+                {
+                    existingCollider.isTrigger = false;
+                    changed = true;
+                }
+
+                Rigidbody2D existingBody = existing.GetComponent<Rigidbody2D>();
+                if (existingBody != null && existingBody.gravityScale != 2.5f)
+                {
+                    existingBody.gravityScale = 2.5f;
+                    changed = true;
+                }
+
+                if (changed)
+                {
                     EditorUtility.SetDirty(existing);
                     PrefabUtility.SavePrefabAsset(existing);
                 }
@@ -343,21 +431,45 @@ namespace MetalRebels.Player.EditorTools
             return prefab;
         }
 
-        private static GameObject CreatePlayerPrefab(WeaponData pistol, WeaponData shotgun, WeaponData rifle, WeaponData rocket, GameObject grenadePrefab, GameObject explosionPrefab, Sprite grenadeSprite)
+        private static GameObject CreatePlayerPrefab(WeaponData pistol, WeaponData shotgun, WeaponData rifle, WeaponData rocket, GameObject grenadePrefab, GameObject explosionPrefab, Sprite grenadeSprite, Sprite bulletSprite)
         {
             string path = $"{PrefabDir}/Player_Marco.prefab";
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if (existing != null)
             {
+                GameObject prefabContents = PrefabUtility.LoadPrefabContents(path);
+                PlayerCombat contentsCombat = prefabContents.GetComponent<PlayerCombat>();
+                if (contentsCombat != null)
+                {
+                    EnsureForwardFirePoints(prefabContents.transform, out Transform existingPistolFirePoint, out Transform existingShotgunFirePoint);
+                    SerializedObject contentsCombatSO = new SerializedObject(contentsCombat);
+                    contentsCombatSO.FindProperty("firePointForward1").objectReferenceValue = existingPistolFirePoint;
+                    contentsCombatSO.FindProperty("firePointForward2").objectReferenceValue = existingShotgunFirePoint;
+                    contentsCombatSO.ApplyModifiedProperties();
+                    PrefabUtility.SaveAsPrefabAsset(prefabContents, path);
+                }
+                PrefabUtility.UnloadPrefabContents(prefabContents);
+
+                existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
                 PlayerCombat existingCombat = existing.GetComponent<PlayerCombat>();
-                if (existingCombat != null && grenadeSprite != null)
+                if (existingCombat != null)
                 {
                     SerializedObject existingCombatSO = new SerializedObject(existingCombat);
-                    SerializedProperty grenadeSpriteProperty = existingCombatSO.FindProperty("grenadeSprite");
-                    if (grenadeSpriteProperty != null && grenadeSpriteProperty.objectReferenceValue == null)
+                    SetObjectReferenceIfChanged(existingCombatSO, "pistolData", pistol);
+                    SetObjectReferenceIfChanged(existingCombatSO, "shotgunData", shotgun);
+                    SetObjectReferenceIfChanged(existingCombatSO, "assaultRifleData", rifle);
+                    SetObjectReferenceIfChanged(existingCombatSO, "rocketLauncherData", rocket);
+                    SetObjectReferenceIfChanged(existingCombatSO, "grenadePrefab", grenadePrefab);
+                    SetObjectReferenceIfChanged(existingCombatSO, "grenadeSprite", grenadeSprite);
+                    SetObjectReferenceIfChanged(existingCombatSO, "explosionPrefab", explosionPrefab);
+                    SetObjectReferenceIfChanged(existingCombatSO, "bulletSprite", bulletSprite);
+                    SetObjectReferenceIfChanged(existingCombatSO, "grenadeExplosionSheet", LoadGrenadeExplosionSheet());
+                    SetObjectReferenceIfChanged(existingCombatSO, "shotgunExplosionSheet", LoadShotgunExplosionSheet());
+                    existingCombatSO.FindProperty("grenadeThrowForceX").floatValue = 5.5f;
+                    existingCombatSO.FindProperty("grenadeThrowForceY").floatValue = 5f;
+                    AssignSpriteArray(existingCombatSO, "explosionSprites", LoadExplosionSprites());
+                    if (existingCombatSO.ApplyModifiedProperties())
                     {
-                        grenadeSpriteProperty.objectReferenceValue = grenadeSprite;
-                        existingCombatSO.ApplyModifiedProperties();
                         PrefabUtility.SavePrefabAsset(existing);
                     }
                 }
@@ -427,9 +539,11 @@ namespace MetalRebels.Player.EditorTools
             ceilingCheck.transform.SetParent(playerObj.transform);
             ceilingCheck.transform.localPosition = new Vector2(0f, 1.30f);
 
-            GameObject firePointForward = new GameObject("Firepoint_Forward");
+            GameObject firePointForward = new GameObject("Firepoint_Forward_1");
             firePointForward.transform.SetParent(playerObj.transform);
             firePointForward.transform.localPosition = new Vector2(0.55f, 0.65f);
+
+            EnsureForwardFirePoints(playerObj.transform, out Transform pistolFirePoint, out Transform shotgunFirePoint);
 
             GameObject firePointUp = new GameObject("Firepoint_Up");
             firePointUp.transform.SetParent(playerObj.transform);
@@ -464,7 +578,8 @@ namespace MetalRebels.Player.EditorTools
             // PlayerCombat
             PlayerCombat combat = playerObj.AddComponent<PlayerCombat>();
             SerializedObject combatSO = new SerializedObject(combat);
-            combatSO.FindProperty("firePointForward").objectReferenceValue = firePointForward.transform;
+            combatSO.FindProperty("firePointForward1").objectReferenceValue = pistolFirePoint;
+            combatSO.FindProperty("firePointForward2").objectReferenceValue = shotgunFirePoint;
             combatSO.FindProperty("firePointUp").objectReferenceValue = firePointUp.transform;
             combatSO.FindProperty("firePointDown").objectReferenceValue = firePointDown.transform;
             combatSO.FindProperty("firePointCrouch").objectReferenceValue = firePointCrouch.transform;
@@ -475,6 +590,12 @@ namespace MetalRebels.Player.EditorTools
             combatSO.FindProperty("grenadePrefab").objectReferenceValue = grenadePrefab;
             combatSO.FindProperty("grenadeSprite").objectReferenceValue = grenadeSprite;
             combatSO.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
+            combatSO.FindProperty("bulletSprite").objectReferenceValue = bulletSprite;
+            combatSO.FindProperty("grenadeExplosionSheet").objectReferenceValue = LoadGrenadeExplosionSheet();
+            combatSO.FindProperty("shotgunExplosionSheet").objectReferenceValue = LoadShotgunExplosionSheet();
+            combatSO.FindProperty("grenadeThrowForceX").floatValue = 5.5f;
+            combatSO.FindProperty("grenadeThrowForceY").floatValue = 5f;
+            AssignSpriteArray(combatSO, "explosionSprites", LoadExplosionSprites());
             combatSO.ApplyModifiedProperties();
 
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(playerObj, path);
@@ -482,25 +603,90 @@ namespace MetalRebels.Player.EditorTools
             return prefab;
         }
 
-
-        private static List<Sprite> LoadSpritesFromFolder(string folderPath)
+        private static void EnsureForwardFirePoints(
+            Transform playerRoot,
+            out Transform pistolFirePoint,
+            out Transform shotgunFirePoint)
         {
-            List<Sprite> list = new List<Sprite>();
-            if (!Directory.Exists(folderPath)) return list;
-
-            string[] files = Directory.GetFiles(folderPath, "*.png");
-            System.Array.Sort(files);
-
-            foreach (string file in files)
+            pistolFirePoint = playerRoot.Find("Firepoint_Forward_1");
+            if (pistolFirePoint == null)
             {
-                string assetPath = file.Replace('\\', '/');
-                Sprite s = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
-                if (s != null)
+                pistolFirePoint = playerRoot.Find("Firepoint_Forward");
+                if (pistolFirePoint == null)
                 {
-                    list.Add(s);
+                    GameObject point = new GameObject("Firepoint_Forward_1");
+                    pistolFirePoint = point.transform;
+                    pistolFirePoint.SetParent(playerRoot, false);
+                    pistolFirePoint.localPosition = new Vector3(0.55f, 0.65f, 0f);
                 }
             }
+
+            pistolFirePoint.name = "Firepoint_Forward_1";
+
+            shotgunFirePoint = playerRoot.Find("Firepoint_Forward_2");
+            if (shotgunFirePoint == null)
+            {
+                shotgunFirePoint = playerRoot.Find("Firepoint_Forward_Shotgun");
+                if (shotgunFirePoint == null)
+                {
+                    GameObject point = new GameObject("Firepoint_Forward_2");
+                    shotgunFirePoint = point.transform;
+                    shotgunFirePoint.SetParent(playerRoot, false);
+                }
+            }
+
+            shotgunFirePoint.name = "Firepoint_Forward_2";
+            shotgunFirePoint.localPosition = new Vector3(
+                pistolFirePoint.localPosition.x,
+                0.07f,
+                pistolFirePoint.localPosition.z);
+        }
+
+        private static void SetObjectReferenceIfChanged(SerializedObject serializedObject, string propertyName, Object value)
+        {
+            SerializedProperty property = serializedObject.FindProperty(propertyName);
+            if (property != null && property.objectReferenceValue != value)
+            {
+                property.objectReferenceValue = value;
+            }
+        }
+
+
+        private static List<Sprite> LoadExplosionSprites()
+        {
+            List<Sprite> list = new List<Sprite>();
+            Sprite visibleFrame = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Explosion/Explosion_3.png");
+            if (visibleFrame != null)
+            {
+                list.Add(visibleFrame);
+            }
+            else
+            {
+                Debug.LogWarning($"[MetalRebels] Visible explosion sprite was not found at {SpritesDir}/Explosion/Explosion_3.png");
+            }
+
             return list;
+        }
+
+        private static Texture2D LoadGrenadeExplosionSheet()
+        {
+            return LoadExplosionSheet($"{SpritesDir}/Grenade/ExplosionGrenade.png");
+        }
+
+        private static Texture2D LoadShotgunExplosionSheet()
+        {
+            return LoadExplosionSheet($"{SpritesDir}/Shoot/ShotgunExplosion.png");
+        }
+
+        private static Texture2D LoadExplosionSheet(string assetPath)
+        {
+            Texture2D sheet = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
+            if (sheet == null)
+            {
+                Debug.LogWarning($"[MetalRebels] Explosion sprite sheet was not found at {assetPath}");
+            }
+
+            return sheet;
         }
 
         private static void AssignSpriteArray(SerializedObject so, string propertyName, List<Sprite> sprites)
@@ -608,7 +794,25 @@ namespace MetalRebels.Player.EditorTools
         private static void CreatePickupPrefab(string path, PickupType type, int amount, WeaponData wpnData, Color color)
         {
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return;
+            if (existing != null)
+            {
+                ItemPickup existingPickup = existing.GetComponent<ItemPickup>();
+                if (existingPickup != null)
+                {
+                    SerializedObject pickupSO = new SerializedObject(existingPickup);
+                    SerializedProperty typeProperty = pickupSO.FindProperty("pickupType");
+                    SerializedProperty amountProperty = pickupSO.FindProperty("amount");
+                    if (typeProperty != null) typeProperty.enumValueIndex = (int)type;
+                    if (amountProperty != null) amountProperty.intValue = amount;
+                    SetObjectReferenceIfChanged(pickupSO, "weaponDataReference", wpnData);
+                    if (pickupSO.ApplyModifiedProperties())
+                    {
+                        PrefabUtility.SavePrefabAsset(existing);
+                    }
+                }
+
+                return;
+            }
 
             GameObject obj = new GameObject(Path.GetFileNameWithoutExtension(path));
             BoxCollider2D col = obj.AddComponent<BoxCollider2D>();

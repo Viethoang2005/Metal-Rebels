@@ -13,9 +13,11 @@ namespace MetalRebels.Player
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private LayerMask hitLayers = ~0;
+        [SerializeField] private float explosionVisualScale = 0.22f;
 
         private Rigidbody2D rb;
         private SpriteRenderer spriteRenderer;
+        private Sprite[] explosionSprites;
         private bool hasExploded = false;
 
         private void Awake()
@@ -30,11 +32,14 @@ namespace MetalRebels.Player
             float countdown = 3f,
             float radius = 3f,
             GameObject explosionObj = null,
-            Sprite visualSprite = null)
+            Sprite visualSprite = null,
+            Sprite[] visualExplosionSprites = null,
+            float visualScale = 0.22f)
         {
             damage = grenadeDamage;
             fuseTime = countdown;
             explosionRadius = radius;
+            explosionVisualScale = Mathf.Max(0.01f, visualScale);
             if (visualSprite != null)
             {
                 if (spriteRenderer == null)
@@ -51,6 +56,7 @@ namespace MetalRebels.Player
             {
                 explosionPrefab = explosionObj;
             }
+            explosionSprites = visualExplosionSprites;
 
             if (rb != null)
             {
@@ -89,15 +95,46 @@ namespace MetalRebels.Player
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // Nếu va chạm trực tiếp với kẻ địch thì phát nổ ngay lập tức
-            if (!collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<PlayerController>() == null)
+            if (collision.gameObject.CompareTag("Player")
+                || collision.gameObject.GetComponentInParent<PlayerController>() != null)
             {
-                IDamageable damageable = collision.gameObject.GetComponent<IDamageable>() ?? collision.gameObject.GetComponentInParent<IDamageable>();
-                if (damageable != null)
+                return;
+            }
+
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>()
+                ?? collision.gameObject.GetComponentInParent<IDamageable>();
+            if (TryGetLandingPoint(collision, transform.position.y, out Vector2 landingPoint))
+            {
+                Explode(new Vector3(transform.position.x, landingPoint.y, transform.position.z));
+            }
+            else if (damageable != null)
+            {
+                Explode();
+            }
+        }
+
+        private static bool TryGetLandingPoint(Collision2D collision, float grenadeCenterY, out Vector2 landingPoint)
+        {
+            landingPoint = Vector2.zero;
+            int landingContacts = 0;
+
+            for (int i = 0; i < collision.contactCount; i++)
+            {
+                ContactPoint2D contact = collision.GetContact(i);
+                if (Mathf.Abs(contact.normal.y) > 0.5f && contact.point.y < grenadeCenterY)
                 {
-                    Explode();
+                    landingPoint += contact.point;
+                    landingContacts++;
                 }
             }
+
+            if (landingContacts == 0)
+            {
+                return false;
+            }
+
+            landingPoint /= landingContacts;
+            return true;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -112,21 +149,36 @@ namespace MetalRebels.Player
             }
         }
 
-        private void Explode()
+        private void Explode(Vector3? explosionPosition = null)
         {
             if (hasExploded) return;
             hasExploded = true;
 
             StopAllCoroutines();
+            Vector3 position = explosionPosition ?? transform.position;
 
             if (explosionPrefab != null)
             {
-                GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                GameObject exp = Instantiate(explosionPrefab, position, Quaternion.identity);
                 ExplosionEffect eff = exp.GetComponent<ExplosionEffect>();
                 if (eff != null)
                 {
-                    eff.Init(damage, explosionRadius, hitLayers);
+                    eff.Init(damage, explosionRadius, hitLayers, visualSprites: explosionSprites, visualScale: explosionVisualScale);
                 }
+            }
+            else
+            {
+                GameObject exp = new GameObject("GrenadeExplosion_Runtime");
+                exp.transform.position = position;
+                SpriteRenderer effectRenderer = exp.AddComponent<SpriteRenderer>();
+                effectRenderer.sortingOrder = 10;
+                if (explosionSprites != null && explosionSprites.Length > 0)
+                {
+                    effectRenderer.sprite = explosionSprites[0];
+                }
+
+                ExplosionEffect effect = exp.AddComponent<ExplosionEffect>();
+                effect.Init(damage, explosionRadius, hitLayers, visualSprites: explosionSprites, visualScale: explosionVisualScale);
             }
 
             Destroy(gameObject);

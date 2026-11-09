@@ -23,7 +23,7 @@ MonoBehaviour:
   magazineSize: 30
   reloadTime: 1.5
   ammoPerPickup: 30
-  bulletSpeed: 22
+  bulletSpeed: 14
   bulletLifetime: 3
   isExplosive: 0
   explosionRadius: 0

@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
@@ -21,13 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 8416198932969615310, guid: 1e3fde0f79126d740ad049204c9bced1, type: 3}
+      value: {fileID: -3110890613714007272, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - time: 0.125
+      value: {fileID: 225944953510969798, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - time: 0.25
+      value: {fileID: 7161296732599048285, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - time: 0.375
+      value: {fileID: -6068108882984059162, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,13 +51,16 @@ AnimationClip:
       isSerializeReferenceCurve: 0
       metaData: 0
     pptrCurveMapping:
-    - {fileID: 8416198932969615310, guid: 1e3fde0f79126d740ad049204c9bced1, type: 3}
+    - {fileID: -3110890613714007272, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - {fileID: 225944953510969798, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - {fileID: 7161296732599048285, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
+    - {fileID: -6068108882984059162, guid: 188b3364cfe35d547b88c20e060abe5f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

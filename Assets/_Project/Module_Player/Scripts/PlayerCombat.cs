@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using MetalRebels.Core.Data;
 using MetalRebels.Core.Events;
+using MetalRebels.Core.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MetalRebels.Player
 {
@@ -26,10 +28,13 @@ namespace MetalRebels.Player
         }
 
         [Header("Điểm bắn đạn")]
-        [SerializeField] private Transform firePointForward;
+        [FormerlySerializedAs("firePointForward")]
+        [SerializeField] private Transform firePointForward1;
         [SerializeField] private Transform firePointUp;
         [SerializeField] private Transform firePointDown;
         [SerializeField] private Transform firePointCrouch;
+        [FormerlySerializedAs("firePointShotgunForward")]
+        [SerializeField] private Transform firePointForward2;
 
         [Header("Cấu hình Dữ liệu Vũ khí")]
         [SerializeField] private WeaponData pistolData;
@@ -41,18 +46,26 @@ namespace MetalRebels.Player
         [SerializeField] private GameObject grenadePrefab;
         [SerializeField] private Sprite grenadeSprite;
         [SerializeField] private int maxGrenades = 5;
-        [SerializeField] private float grenadeThrowForceX = 10f;
-        [SerializeField] private float grenadeThrowForceY = 6f;
+        [SerializeField] private float grenadeThrowForceX = 5.5f;
+        [SerializeField] private float grenadeThrowForceY = 5f;
 
         [Header("Hiệu ứng nổ dùng chung")]
         [SerializeField] private GameObject explosionPrefab;
+        [SerializeField] private Sprite[] explosionSprites;
+        [SerializeField] private Sprite[] grenadeExplosionSprites;
+        [SerializeField] private Sprite[] shotgunExplosionSprites;
+        [SerializeField] private Texture2D grenadeExplosionSheet;
+        [SerializeField] private Texture2D shotgunExplosionSheet;
+
+        [Header("Hiệu ứng đạn bay")]
+        [SerializeField] private Sprite bulletSprite;
 
         private PlayerController playerController;
         private PlayerInputHandler inputHandler;
         private PlayerAnimation playerAnimation;
 
         private List<WeaponSlot> weaponSlots = new List<WeaponSlot>();
-        private int currentWeaponIndex = 0;
+        private int currentWeaponIndex = -1;
         private int currentGrenades;
         private float nextFireTime;
         private bool isReloading = false;
@@ -74,7 +87,77 @@ namespace MetalRebels.Player
                 inputHandler = gameObject.AddComponent<PlayerInputHandler>();
             }
 
+            if (firePointForward2 == null)
+            {
+                firePointForward2 = transform.Find("Firepoint_Forward_2");
+                if (firePointForward2 == null)
+                {
+                    GameObject point = new GameObject("Firepoint_Forward_2");
+                    firePointForward2 = point.transform;
+                    firePointForward2.SetParent(transform, false);
+                    Vector3 pistolPointPosition = firePointForward1 != null
+                        ? firePointForward1.localPosition
+                        : new Vector3(0.55f, 0.65f, 0f);
+                    firePointForward2.localPosition = new Vector3(pistolPointPosition.x, 0.07f, pistolPointPosition.z);
+                }
+            }
+            else if (firePointForward1 != null)
+            {
+                firePointForward2.localPosition = new Vector3(
+                    firePointForward1.localPosition.x,
+                    0.07f,
+                    firePointForward1.localPosition.z);
+            }
+            if (firePointForward1 != null && firePointForward1.name == "Firepoint_Forward")
+            {
+                firePointForward1.name = "Firepoint_Forward_1";
+            }
+
+            if (grenadeExplosionSheet != null)
+            {
+                grenadeExplosionSprites = CreateSheetFrames(
+                    grenadeExplosionSheet, 1621, 129, 72, 0, 129, 23, new Vector2(0.5f, 0f));
+            }
+            if (shotgunExplosionSheet != null)
+            {
+                shotgunExplosionSprites = CreateSheetFrames(
+                    shotgunExplosionSheet, 2400, 1018, 200, 400, 190, 12, new Vector2(1f, 0.5f));
+            }
+
             InitWeapons();
+        }
+
+        private static Sprite[] CreateSheetFrames(
+            Texture2D sheet,
+            int sourceWidth,
+            int sourceHeight,
+            int frameWidth,
+            int frameY,
+            int frameHeight,
+            int frameCount,
+            Vector2 framePivot)
+        {
+            float scaleX = sheet.width / (float)sourceWidth;
+            float scaleY = sheet.height / (float)sourceHeight;
+            Sprite[] frames = new Sprite[frameCount];
+
+            for (int i = 0; i < frameCount; i++)
+            {
+                float x = i * frameWidth * scaleX;
+                float y = frameY * scaleY;
+                float width = Mathf.Min(frameWidth * scaleX, sheet.width - x);
+                float height = Mathf.Min(frameHeight * scaleY, sheet.height - y);
+                frames[i] = Sprite.Create(
+                    sheet,
+                    new Rect(x, y, width, height),
+                    framePivot,
+                    32f,
+                    0,
+                    SpriteMeshType.FullRect);
+                frames[i].name = $"{sheet.name}_{i}";
+            }
+
+            return frames;
         }
 
         private void Start()
@@ -179,7 +262,7 @@ namespace MetalRebels.Player
             WeaponData weapon = slot.weaponData;
 
             Vector2 aimDirection = GetAimDirection();
-            Transform spawnPoint = GetSpawnPoint(aimDirection);
+            Transform spawnPoint = GetSpawnPoint(aimDirection, weapon.weaponType == WeaponType.Shotgun);
             Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : transform.position;
 
             playerAnimation?.PlayShootAnimation();
@@ -187,7 +270,7 @@ namespace MetalRebels.Player
             // Khởi tạo projectile
             if (weapon.weaponType == WeaponType.Shotgun)
             {
-                FireShotgunSpread(spawnPos, aimDirection, weapon);
+                FireShotgunExplosion(spawnPos, aimDirection, weapon);
             }
             else if (weapon.weaponType == WeaponType.RocketLauncher)
             {
@@ -228,39 +311,70 @@ namespace MetalRebels.Player
                 PlayerBullet bullet = bulletObj.GetComponent<PlayerBullet>();
                 if (bullet != null)
                 {
-                    bullet.Init(direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime);
+                    bullet.Init(direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime, default, bulletSprite, 0.55f);
                 }
             }
             else
             {
                 // Fallback đạn mặc định
-                CreateFallbackBullet(position, direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime);
+                CreateFallbackBullet(position, direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime, 0.55f);
             }
         }
 
-        private void FireShotgunSpread(Vector3 position, Vector2 direction, WeaponData weapon)
+        private void FireShotgunExplosion(Vector3 position, Vector2 direction, WeaponData weapon)
         {
-            // Bắn chùm 5 mảnh đạn tỏa góc nón (-12, -6, 0, 6, 12 độ)
-            float[] spreadAngles = { -12f, -6f, 0f, 6f, 12f };
-            int pelletDamage = Mathf.Max(1, weapon.damage / spreadAngles.Length); // Chia đều hoặc 10/pellet
+            Vector2 forward = direction.normalized;
+            int totalDamage = weapon.damage > 0 ? weapon.damage : 50;
+            float rotation = Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg;
+            SpawnShotgunBlastExplosion(position, Quaternion.Euler(0f, 0f, rotation), 1.5f, totalDamage);
+        }
 
-            foreach (float angle in spreadAngles)
+        private void SpawnShotgunBlastExplosion(
+            Vector3 position,
+            Quaternion rotation,
+            float radius,
+            int damage)
+        {
+            if (explosionPrefab != null)
             {
-                Vector2 spreadDir = Quaternion.Euler(0, 0, angle) * direction;
+                GameObject expObj = Instantiate(explosionPrefab, position, rotation);
+                ExplosionEffect eff = expObj.GetComponent<ExplosionEffect>();
+                if (eff != null)
+                {
+                    eff.Init(
+                        damage,
+                        radius,
+                        default,
+                        visualSprites: shotgunExplosionSprites,
+                        visualScale: 0.16f,
+                        visualDuration: 0.24f,
+                        visualDirection: Quaternion.Euler(0f, 0f, rotation.eulerAngles.z) * Vector2.right,
+                        visualDistance: 3f);
+                }
+            }
+            else
+            {
+                GameObject expObj = new GameObject("ShotgunBlast_Runtime");
+                expObj.transform.position = position;
+                expObj.transform.rotation = rotation;
+                SpriteRenderer spriteRenderer = expObj.AddComponent<SpriteRenderer>();
+                spriteRenderer.sortingOrder = 10;
+                if (shotgunExplosionSprites != null && shotgunExplosionSprites.Length > 0)
+                {
+                    spriteRenderer.sprite = shotgunExplosionSprites[0];
+                    spriteRenderer.color = Color.white;
+                }
 
-                if (weapon.projectilePrefab != null)
-                {
-                    GameObject bulletObj = Instantiate(weapon.projectilePrefab, position, Quaternion.identity);
-                    PlayerBullet bullet = bulletObj.GetComponent<PlayerBullet>();
-                    if (bullet != null)
-                    {
-                        bullet.Init(spreadDir, pelletDamage, weapon.bulletSpeed, weapon.bulletLifetime);
-                    }
-                }
-                else
-                {
-                    CreateFallbackBullet(position, spreadDir, pelletDamage, weapon.bulletSpeed, weapon.bulletLifetime);
-                }
+                ExplosionEffect eff = expObj.AddComponent<ExplosionEffect>();
+                eff.Init(
+                    damage,
+                    radius,
+                    default,
+                    visualSprites: shotgunExplosionSprites,
+                    visualScale: 0.16f,
+                    visualDuration: 0.24f,
+                    visualDirection: Quaternion.Euler(0f, 0f, rotation.eulerAngles.z) * Vector2.right,
+                    visualDistance: 3f);
             }
         }
 
@@ -281,15 +395,19 @@ namespace MetalRebels.Player
             }
         }
 
-        private void CreateFallbackBullet(Vector3 position, Vector2 direction, int damage, float speed, float lifetime)
+        private void CreateFallbackBullet(Vector3 position, Vector2 direction, int damage, float speed, float lifetime, float visualScale = 1f)
         {
             GameObject bulletObj = new GameObject("PlayerBullet_Runtime");
             bulletObj.transform.position = position;
             CircleCollider2D col = bulletObj.AddComponent<CircleCollider2D>();
             col.radius = 0.15f;
             col.isTrigger = true;
+            SpriteRenderer sr = bulletObj.AddComponent<SpriteRenderer>();
+            sr.sprite = bulletSprite;
+            sr.color = Color.white;
+            sr.sortingOrder = 5;
             PlayerBullet bullet = bulletObj.AddComponent<PlayerBullet>();
-            bullet.Init(direction, damage, speed, lifetime);
+            bullet.Init(direction, damage, speed, lifetime, default, bulletSprite, visualScale);
         }
 
         private void CreateFallbackRocket(Vector3 position, Vector2 direction, int damage, float speed, float lifetime, float radius)
@@ -320,6 +438,11 @@ namespace MetalRebels.Player
             if (isReloading) return;
             WeaponSlot slot = CurrentWeaponSlot;
             if (slot == null || slot.weaponData.isInfiniteAmmo || slot.reserveAmmo <= 0) return;
+
+            if (slot.weaponData.weaponType == WeaponType.Shotgun)
+            {
+                playerAnimation?.PlayChargeAnimation();
+            }
 
             if (reloadCoroutine != null)
             {
@@ -355,7 +478,7 @@ namespace MetalRebels.Player
                 PlayerEvents.OnGrenadeChanged?.Invoke(currentGrenades, maxGrenades);
                 playerAnimation?.PlayGrenadeAnimation();
 
-                Transform spawn = firePointForward != null ? firePointForward : transform;
+                Transform spawn = firePointForward1 != null ? firePointForward1 : transform;
                 Vector2 throwVelocity = new Vector2(playerController.FacingDirection * grenadeThrowForceX, grenadeThrowForceY);
 
                 if (grenadePrefab != null)
@@ -364,7 +487,7 @@ namespace MetalRebels.Player
                     PlayerGrenade grenade = grenadeObj.GetComponent<PlayerGrenade>();
                     if (grenade != null)
                     {
-                        grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite);
+                        grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite, grenadeExplosionSprites, 0.22f);
                     }
                 }
                 else
@@ -377,7 +500,7 @@ namespace MetalRebels.Player
                     Rigidbody2D rb = grenadeObj.AddComponent<Rigidbody2D>();
                     rb.gravityScale = 2.5f;
                     PlayerGrenade grenade = grenadeObj.AddComponent<PlayerGrenade>();
-                    grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite);
+                    grenade.Init(throwVelocity, 30, 3f, 3f, explosionPrefab, grenadeSprite, grenadeExplosionSprites, 0.22f);
                 }
             }
         }
@@ -385,9 +508,17 @@ namespace MetalRebels.Player
         private void HandleWeaponSwitch()
         {
             int slotSelected = inputHandler.WeaponSlotSelected;
-            if (slotSelected >= 0 && slotSelected < weaponSlots.Count)
+            if (slotSelected >= 0 && slotSelected <= (int)WeaponType.RocketLauncher)
             {
-                EquipWeaponByIndex(slotSelected);
+                WeaponType weaponType = (WeaponType)slotSelected;
+                for (int i = 0; i < weaponSlots.Count; i++)
+                {
+                    if (weaponSlots[i].weaponData != null && weaponSlots[i].weaponData.weaponType == weaponType)
+                    {
+                        EquipWeaponByIndex(i);
+                        return;
+                    }
+                }
             }
             else if (inputHandler.NextWeaponPressed)
             {
@@ -409,7 +540,7 @@ namespace MetalRebels.Player
             {
                 nextIndex = (nextIndex + direction + count) % count;
                 WeaponSlot slot = weaponSlots[nextIndex];
-                if (slot.isUnlocked && (slot.weaponData.isInfiniteAmmo || (slot.currentClip + slot.reserveAmmo) > 0))
+                if (CanEquipWeapon(slot))
                 {
                     EquipWeaponByIndex(nextIndex);
                     return;
@@ -422,7 +553,12 @@ namespace MetalRebels.Player
             if (index < 0 || index >= weaponSlots.Count) return;
 
             WeaponSlot slot = weaponSlots[index];
-            if (!slot.isUnlocked && !slot.weaponData.isInfiniteAmmo) return;
+            if (!CanEquipWeapon(slot)) return;
+            if (currentWeaponIndex == index)
+            {
+                PublishWeaponState(slot);
+                return;
+            }
 
             // Hủy nạp đạn của vũ khí trước
             if (isReloading)
@@ -433,7 +569,16 @@ namespace MetalRebels.Player
             }
 
             currentWeaponIndex = index;
+            PublishWeaponState(slot);
 
+            if (slot.weaponData != null && slot.weaponData.weaponType == WeaponType.Shotgun)
+            {
+                playerAnimation?.PlayChargeAnimation();
+            }
+        }
+
+        private static void PublishWeaponState(WeaponSlot slot)
+        {
             int displayClip = slot.weaponData.isInfiniteAmmo ? -1 : slot.currentClip;
             int displayReserve = slot.weaponData.isInfiniteAmmo ? -1 : slot.reserveAmmo;
 
@@ -441,10 +586,21 @@ namespace MetalRebels.Player
             PlayerEvents.OnAmmoChanged?.Invoke(displayClip, displayReserve);
         }
 
+        private static bool CanEquipWeapon(WeaponSlot slot)
+        {
+            return slot != null
+                && slot.weaponData != null
+                && slot.isUnlocked
+                && (slot.weaponData.isInfiniteAmmo || slot.currentClip + slot.reserveAmmo > 0);
+        }
+
         public bool TryAddAmmo(WeaponType weaponType, int amount)
         {
+            if (amount <= 0) return false;
+
             foreach (var slot in weaponSlots)
             {
+                if (slot.weaponData == null) continue;
                 if (slot.weaponData.weaponType == weaponType)
                 {
                     slot.isUnlocked = true;
@@ -484,15 +640,18 @@ namespace MetalRebels.Player
 
             for (int i = 0; i < weaponSlots.Count; i++)
             {
-                if (weaponSlots[i].weaponData.weaponType == newWeapon.weaponType)
+                if (weaponSlots[i].weaponData != null && weaponSlots[i].weaponData.weaponType == newWeapon.weaponType)
                 {
-                    weaponSlots[i].isUnlocked = true;
-                    weaponSlots[i].reserveAmmo = Mathf.Min(weaponSlots[i].reserveAmmo + initialAmmo, newWeapon.maxAmmo);
-                    if (weaponSlots[i].currentClip == 0)
+                    WeaponSlot slot = weaponSlots[i];
+                    slot.isUnlocked = true;
+                    slot.reserveAmmo = Mathf.Min(
+                        slot.reserveAmmo + Mathf.Max(0, initialAmmo),
+                        Mathf.Max(0, newWeapon.maxAmmo - slot.currentClip));
+                    if (slot.currentClip == 0 && slot.reserveAmmo > 0)
                     {
                         int load = Mathf.Min(newWeapon.magazineSize, weaponSlots[i].reserveAmmo);
-                        weaponSlots[i].currentClip += load;
-                        weaponSlots[i].reserveAmmo -= load;
+                        slot.currentClip += load;
+                        slot.reserveAmmo -= load;
                     }
                     EquipWeaponByIndex(i);
                     return true;
@@ -500,7 +659,7 @@ namespace MetalRebels.Player
             }
 
             // Nếu là vũ khí hoàn toàn mới chưa có trong list
-            WeaponSlot newSlot = new WeaponSlot(newWeapon, true, 0, initialAmmo);
+            WeaponSlot newSlot = new WeaponSlot(newWeapon, true, 0, Mathf.Max(0, initialAmmo));
             int clipLoad = Mathf.Min(newWeapon.magazineSize, newSlot.reserveAmmo);
             newSlot.currentClip = clipLoad;
             newSlot.reserveAmmo -= clipLoad;
@@ -553,7 +712,7 @@ namespace MetalRebels.Player
             return new Vector2(playerController.FacingDirection, 0f).normalized;
         }
 
-        private Transform GetSpawnPoint(Vector2 direction)
+        private Transform GetSpawnPoint(Vector2 direction, bool isShotgun = false)
         {
             if (playerController.IsCrouching && firePointCrouch != null)
             {
@@ -570,13 +729,19 @@ namespace MetalRebels.Player
                 return firePointDown;
             }
 
-            return firePointForward != null ? firePointForward : transform;
+            if (isShotgun && firePointForward2 != null)
+            {
+                return firePointForward2;
+            }
+
+            return firePointForward1 != null ? firePointForward1 : transform;
         }
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;
-            if (firePointForward != null) Gizmos.DrawWireSphere(firePointForward.position, 0.1f);
+            if (firePointForward1 != null) Gizmos.DrawWireSphere(firePointForward1.position, 0.1f);
+            if (firePointForward2 != null) Gizmos.DrawWireSphere(firePointForward2.position, 0.1f);
             if (firePointUp != null) Gizmos.DrawWireSphere(firePointUp.position, 0.1f);
             if (firePointDown != null) Gizmos.DrawWireSphere(firePointDown.position, 0.1f);
             if (firePointCrouch != null) Gizmos.DrawWireSphere(firePointCrouch.position, 0.1f);
