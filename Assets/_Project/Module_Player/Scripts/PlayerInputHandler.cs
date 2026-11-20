@@ -17,7 +17,7 @@ namespace MetalRebels.Player
         public bool GrenadePressed { get; private set; }
         public bool ReloadPressed { get; private set; }
         public bool InteractPressed { get; private set; }
-        public int WeaponSlotSelected { get; private set; } = -1; // 0: Pistol, 1: Shotgun, 2: Rifle, 3: Rocket
+        public int WeaponSlotSelected { get; private set; } = -1; // Number keys 1-4 select pistol, shotgun, rifle, and rocket.
         public bool NextWeaponPressed { get; private set; }
         public bool PrevWeaponPressed { get; private set; }
 

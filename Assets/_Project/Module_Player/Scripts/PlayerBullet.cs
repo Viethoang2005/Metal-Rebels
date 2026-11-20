@@ -130,8 +130,12 @@ namespace MetalRebels.Player
                 return;
             }
 
-            // Nếu trúng địa hình / vật cản
-            if (((1 << hitObj.layer) & hitLayers) != 0 || hitObj.layer != LayerMask.NameToLayer("Ignore Raycast"))
+            Collider2D hitCollider = hitObj.GetComponent<Collider2D>();
+            bool isConfiguredHitLayer = ((1 << hitObj.layer) & hitLayers) != 0;
+            bool isSolidObstacle = hitCollider != null
+                && !hitCollider.isTrigger
+                && hitObj.layer != LayerMask.NameToLayer("Ignore Raycast");
+            if (isConfiguredHitLayer || isSolidObstacle)
             {
                 hasHit = true;
                 SpawnHitEffect();

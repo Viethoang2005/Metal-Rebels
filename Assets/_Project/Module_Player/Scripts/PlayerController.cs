@@ -30,7 +30,8 @@ namespace MetalRebels.Player
         [SerializeField] private float respawnInvincibleTime = 2.0f;
 
         private Rigidbody2D rb;
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer[] characterSpriteRenderers;
+        private bool[] originalSpriteRendererStates;
         private BoxCollider2D boxCollider;
         private CapsuleCollider2D capsuleCollider;
         private PlayerInputHandler inputHandler;
@@ -66,7 +67,12 @@ namespace MetalRebels.Player
         {
             rb = GetComponent<Rigidbody2D>();
             defaultGravityScale = rb.gravityScale;
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            characterSpriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            originalSpriteRendererStates = new bool[characterSpriteRenderers.Length];
+            for (int i = 0; i < characterSpriteRenderers.Length; i++)
+            {
+                originalSpriteRendererStates[i] = characterSpriteRenderers[i].enabled;
+            }
             inputHandler = GetComponent<PlayerInputHandler>();
             if (inputHandler == null)
             {
@@ -329,6 +335,7 @@ namespace MetalRebels.Player
             if (invincibilityCoroutine != null)
             {
                 StopCoroutine(invincibilityCoroutine);
+                RestoreCharacterSpriteRendererStates();
             }
             invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(duration));
         }
@@ -338,23 +345,33 @@ namespace MetalRebels.Player
             isInvincible = true;
             float timer = 0f;
             float flashInterval = 0.1f;
+            bool characterVisible = true;
 
             while (timer < duration)
             {
-                if (spriteRenderer != null)
+                characterVisible = !characterVisible;
+                for (int i = 0; i < characterSpriteRenderers.Length; i++)
                 {
-                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                    characterSpriteRenderers[i].enabled = originalSpriteRendererStates[i] && characterVisible;
                 }
                 yield return new WaitForSeconds(flashInterval);
                 timer += flashInterval;
             }
 
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.enabled = true;
-            }
+            RestoreCharacterSpriteRendererStates();
             isInvincible = false;
             invincibilityCoroutine = null;
+        }
+
+        private void RestoreCharacterSpriteRendererStates()
+        {
+            for (int i = 0; i < characterSpriteRenderers.Length; i++)
+            {
+                if (characterSpriteRenderers[i] != null)
+                {
+                    characterSpriteRenderers[i].enabled = originalSpriteRendererStates[i];
+                }
+            }
         }
 
         private void OnDrawGizmosSelected()

@@ -146,6 +146,71 @@ namespace MetalRebels.Player.EditorTools
             Debug.Log($"<color=green>[MetalRebels]</color> Đã tạo scene kiểm thử cá nhân thành công tại: {SandboxScenePath}");
         }
 
+        [MenuItem("MetalRebels/Module Player/Add Weapon Damage Test Enemy %&e")]
+        public static void AddWeaponDamageTestEnemy()
+        {
+            const string enemyName = "Enemy_WeaponDamage_Test";
+            GameObject existingEnemy = GameObject.Find(enemyName);
+            bool created = existingEnemy == null;
+            PlayerController player = Object.FindAnyObjectByType<PlayerController>();
+            Vector3 position = player != null
+                ? player.transform.position + new Vector3(4f, 0.5f, 0f)
+                : new Vector3(4f, 0.5f, 0f);
+
+            if (created)
+            {
+                CreateDummy(null, enemyName, position, 1000);
+                existingEnemy = GameObject.Find(enemyName);
+            }
+            else
+            {
+                Undo.RecordObject(existingEnemy.transform, "Position Weapon Damage Test Enemy");
+                existingEnemy.transform.position = position;
+            }
+
+            existingEnemy.transform.localScale = Vector3.one;
+            BoxCollider2D collider = existingEnemy.GetComponent<BoxCollider2D>();
+            if (collider != null)
+            {
+                collider.size = new Vector2(1.5f, 2f);
+            }
+
+            SpriteRenderer spriteRenderer = existingEnemy.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                Sprite testTargetSprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+                if (testTargetSprite != null)
+                {
+                    spriteRenderer.sprite = testTargetSprite;
+                    spriteRenderer.color = new Color(0.9f, 0.25f, 0.2f);
+                    spriteRenderer.sortingOrder = 2;
+                }
+                else
+                {
+                    Debug.LogWarning($"[MetalRebels] Không tìm thấy sprite UI mặc định để hiển thị {enemyName}.");
+                }
+            }
+
+            GameObject enemy = existingEnemy;
+            TargetDummy target = enemy.GetComponent<TargetDummy>();
+            SerializedObject targetSO = new SerializedObject(target);
+            targetSO.FindProperty("maxHP").intValue = 1000;
+            targetSO.FindProperty("targetName").stringValue = enemyName;
+            targetSO.FindProperty("autoRespawn").boolValue = false;
+            targetSO.ApplyModifiedProperties();
+
+            if (created)
+            {
+                Undo.RegisterCreatedObjectUndo(enemy, "Add Weapon Damage Test Enemy");
+            }
+            Selection.activeGameObject = enemy;
+
+            var activeScene = EditorSceneManager.GetActiveScene();
+            EditorSceneManager.MarkSceneDirty(activeScene);
+            EditorSceneManager.SaveScene(activeScene);
+            Debug.Log($"<color=green>[MetalRebels]</color> Đã thêm/cập nhật {enemyName} (1000 HP) tại {position} để thử sát thương vũ khí.");
+        }
+
         private static void ConfigureSpriteImportSettings()
         {
             string[] pngFiles = Directory.GetFiles(SpritesDir, "*.png", SearchOption.AllDirectories);

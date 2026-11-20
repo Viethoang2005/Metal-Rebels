@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
 namespace MetalRebels.Player
@@ -74,6 +76,17 @@ namespace MetalRebels.Player
                 return;
             }
 
+            IDamageable damageable = hitObj.GetComponent<IDamageable>()
+                ?? hitObj.GetComponentInParent<IDamageable>();
+            if (damageable == null)
+            {
+                Collider2D hitCollider = hitObj.GetComponent<Collider2D>();
+                if (hitCollider != null && hitCollider.isTrigger)
+                {
+                    return;
+                }
+            }
+
             Explode();
         }
 
@@ -93,8 +106,33 @@ namespace MetalRebels.Player
                     eff.Init(damage, explosionRadius, hitLayers);
                 }
             }
+            else
+            {
+                ApplyFallbackExplosionDamage();
+            }
 
             Destroy(gameObject);
+        }
+
+        private void ApplyFallbackExplosionDamage()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, hitLayers);
+            HashSet<IDamageable> damagedTargets = new HashSet<IDamageable>();
+
+            foreach (Collider2D col in colliders)
+            {
+                if (col.CompareTag("Player") || col.GetComponentInParent<PlayerController>() != null)
+                {
+                    continue;
+                }
+
+                IDamageable damageable = col.GetComponent<IDamageable>()
+                    ?? col.GetComponentInParent<IDamageable>();
+                if (damageable != null && damagedTargets.Add(damageable))
+                {
+                    damageable.TakeDamage(damage);
+                }
+            }
         }
     }
 }

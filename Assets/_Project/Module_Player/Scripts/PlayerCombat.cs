@@ -74,6 +74,9 @@ namespace MetalRebels.Player
         public WeaponSlot CurrentWeaponSlot => (weaponSlots.Count > currentWeaponIndex && currentWeaponIndex >= 0) ? weaponSlots[currentWeaponIndex] : null;
         public WeaponData CurrentWeapon => CurrentWeaponSlot?.weaponData;
         public bool IsShotgunEquipped => CurrentWeapon?.weaponType == WeaponType.Shotgun;
+        public bool UsesShotgunAnimationSet =>
+            CurrentWeapon?.weaponType == WeaponType.Shotgun
+            || CurrentWeapon?.weaponType == WeaponType.AssaultRifle;
         public int CurrentGrenades => currentGrenades;
         public bool IsReloading => isReloading;
 
@@ -262,7 +265,10 @@ namespace MetalRebels.Player
             WeaponData weapon = slot.weaponData;
 
             Vector2 aimDirection = GetAimDirection();
-            Transform spawnPoint = GetSpawnPoint(aimDirection, weapon.weaponType == WeaponType.Shotgun);
+            bool usesShotgunForwardFirePoint =
+                weapon.weaponType == WeaponType.Shotgun
+                || weapon.weaponType == WeaponType.AssaultRifle;
+            Transform spawnPoint = GetSpawnPoint(aimDirection, usesShotgunForwardFirePoint);
             Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : transform.position;
 
             playerAnimation?.PlayShootAnimation();
@@ -399,6 +405,9 @@ namespace MetalRebels.Player
         {
             GameObject bulletObj = new GameObject("PlayerBullet_Runtime");
             bulletObj.transform.position = position;
+            Rigidbody2D rb = bulletObj.AddComponent<Rigidbody2D>();
+            rb.gravityScale = 0f;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             CircleCollider2D col = bulletObj.AddComponent<CircleCollider2D>();
             col.radius = 0.15f;
             col.isTrigger = true;
@@ -414,6 +423,9 @@ namespace MetalRebels.Player
         {
             GameObject rocketObj = new GameObject("PlayerRocket_Runtime");
             rocketObj.transform.position = position;
+            Rigidbody2D rb = rocketObj.AddComponent<Rigidbody2D>();
+            rb.gravityScale = 0f;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             CircleCollider2D col = rocketObj.AddComponent<CircleCollider2D>();
             col.radius = 0.2f;
             col.isTrigger = true;

@@ -74,7 +74,7 @@ namespace MetalRebels.Player
 
             SetBoolIfAvailable(upperAnimator, "IsCrouching", playerController.IsCrouching);
             SetBoolIfAvailable(upperAnimator, "IsGrounded", playerController.IsGrounded);
-            SetBoolIfAvailable(upperAnimator, "IsShotgun", playerCombat != null && playerCombat.IsShotgunEquipped);
+            SetBoolIfAvailable(upperAnimator, "IsShotgun", playerCombat != null && playerCombat.UsesShotgunAnimationSet);
         }
 
         /// <summary>
@@ -436,7 +436,7 @@ namespace MetalRebels.Player
         /// </summary>
         public void PlayShootAnimation()
         {
-            if (upperAnimator != null && playerCombat != null && playerCombat.IsShotgunEquipped)
+            if (upperAnimator != null && playerCombat != null && playerCombat.UsesShotgunAnimationSet)
             {
                 SetBoolIfAvailable(upperAnimator, "IsShotgun", true);
                 if (playerController != null && playerController.IsCrouching)
