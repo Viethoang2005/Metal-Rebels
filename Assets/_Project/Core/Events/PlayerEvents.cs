@@ -22,5 +22,18 @@ namespace MetalRebels.Core.Events
 
         // Thông báo khi số lượng đạn thay đổi: (Đạn hiện tại, Đạn dự trữ)
         public static Action<int, int> OnAmmoChanged;
+
+        // Thông báo khi số lựu đạn thay đổi: (Lựu đạn hiện tại, Tối đa)
+        public static Action<int, int> OnGrenadeChanged;
+
+        // Thông báo khi đang nạp đạn
+        public static Action<bool> OnReloadingChanged;
+
+        // Thông báo khi hết sạch mạng -> Game Over
+        public static Action OnAllLivesLost;
+
+        // Thông báo điểm số & hoàn thành màn chơi -> Victory
+        public static Action<int> OnScoreChanged;
+        public static Action OnMissionCompleted;
     }
 }
