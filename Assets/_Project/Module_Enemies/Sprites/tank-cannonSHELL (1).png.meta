@@ -1,0 +1,2511 @@
+fileFormatVersion: 2
+guid: 448da77ed49039b4e9e74b6cd6ff99e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3243735799913396246
+    second: tank-cannonSHELL (1)_0
+  - first:
+      213: -2938523001641865969
+    second: tank-cannonSHELL (1)_1
+  - first:
+      213: 3389516327756623727
+    second: tank-cannonSHELL (1)_2
+  - first:
+      213: -2624804824489820268
+    second: tank-cannonSHELL (1)_3
+  - first:
+      213: -1422613065895801213
+    second: tank-cannonSHELL (1)_4
+  - first:
+      213: -5863739226170079322
+    second: tank-cannonSHELL (1)_5
+  - first:
+      213: 249001633480265643
+    second: tank-cannonSHELL (1)_6
+  - first:
+      213: -3791574315023483556
+    second: tank-cannonSHELL (1)_7
+  - first:
+      213: 2893803663024570142
+    second: tank-cannonSHELL (1)_8
+  - first:
+      213: 6943034241173207943
+    second: tank-cannonSHELL (1)_9
+  - first:
+      213: -2255531915733662475
+    second: tank-cannonSHELL (1)_10
+  - first:
+      213: 2342984326311249379
+    second: tank-cannonSHELL (1)_11
+  - first:
+      213: -1810838777670525176
+    second: tank-cannonSHELL (1)_12
+  - first:
+      213: -8069579386835453888
+    second: tank-cannonSHELL (1)_13
+  - first:
+      213: 4396627631278469292
+    second: tank-cannonSHELL (1)_14
+  - first:
+      213: -5704501093026330076
+    second: tank-cannonSHELL (1)_15
+  - first:
+      213: -393205581900298394
+    second: tank-cannonSHELL (1)_16
+  - first:
+      213: 5431115111977991539
+    second: tank-cannonSHELL (1)_17
+  - first:
+      213: 7746545156721280273
+    second: tank-cannonSHELL (1)_18
+  - first:
+      213: -2613315552948023722
+    second: tank-cannonSHELL (1)_19
+  - first:
+      213: 2429858136110741474
+    second: tank-cannonSHELL (1)_20
+  - first:
+      213: -8922150532089362612
+    second: tank-cannonSHELL (1)_21
+  - first:
+      213: -2565069521785859788
+    second: tank-cannonSHELL (1)_22
+  - first:
+      213: 3445819238271182912
+    second: tank-cannonSHELL (1)_23
+  - first:
+      213: 6344660852026050320
+    second: tank-cannonSHELL (1)_24
+  - first:
+      213: 4537887818656126862
+    second: tank-cannonSHELL (1)_25
+  - first:
+      213: 3108639255776940760
+    second: tank-cannonSHELL (1)_26
+  - first:
+      213: 8059385801805713088
+    second: tank-cannonSHELL (1)_27
+  - first:
+      213: 6000556686086890774
+    second: tank-cannonSHELL (1)_28
+  - first:
+      213: -6644324486193486982
+    second: tank-cannonSHELL (1)_29
+  - first:
+      213: -3457994629106134622
+    second: tank-cannonSHELL (1)_30
+  - first:
+      213: -7268027626576880683
+    second: tank-cannonSHELL (1)_31
+  - first:
+      213: -7014204248210870878
+    second: tank-cannonSHELL (1)_32
+  - first:
+      213: -3377829679157920402
+    second: tank-cannonSHELL (1)_33
+  - first:
+      213: -4246858355572919576
+    second: tank-cannonSHELL (1)_34
+  - first:
+      213: -5350672505485876581
+    second: tank-cannonSHELL (1)_35
+  - first:
+      213: -9115280816109214003
+    second: tank-cannonSHELL (1)_36
+  - first:
+      213: -5778987128077919185
+    second: tank-cannonSHELL (1)_37
+  - first:
+      213: 1243771721275860885
+    second: tank-cannonSHELL (1)_38
+  - first:
+      213: -7592304571253058822
+    second: tank-cannonSHELL (1)_39
+  - first:
+      213: 6293570847929492655
+    second: tank-cannonSHELL (1)_40
+  - first:
+      213: 8560246983206459526
+    second: tank-cannonSHELL (1)_41
+  - first:
+      213: 3610721016204644879
+    second: tank-cannonSHELL (1)_42
+  - first:
+      213: -2973773443055803984
+    second: tank-cannonSHELL (1)_43
+  - first:
+      213: -1799397821920986105
+    second: tank-cannonSHELL (1)_44
+  - first:
+      213: -1864491197668040140
+    second: tank-cannonSHELL (1)_45
+  - first:
+      213: 2720129263182571607
+    second: tank-cannonSHELL (1)_46
+  - first:
+      213: -3397599660651328533
+    second: tank-cannonSHELL (1)_47
+  - first:
+      213: 2626552296757256627
+    second: tank-cannonSHELL (1)_48
+  - first:
+      213: -1987092130583063760
+    second: tank-cannonSHELL (1)_49
+  - first:
+      213: -768008028867511424
+    second: tank-cannonSHELL (1)_50
+  - first:
+      213: 8004219219998831476
+    second: tank-cannonSHELL (1)_51
+  - first:
+      213: 4372885655954562068
+    second: tank-cannonSHELL (1)_52
+  - first:
+      213: -4727396471952535241
+    second: tank-cannonSHELL (1)_53
+  - first:
+      213: -4138604514090560629
+    second: tank-cannonSHELL (1)_54
+  - first:
+      213: 1900360940246571484
+    second: tank-cannonSHELL (1)_55
+  - first:
+      213: 5805754113130365280
+    second: tank-cannonSHELL (1)_56
+  - first:
+      213: 5419191528048729011
+    second: tank-cannonSHELL (1)_57
+  - first:
+      213: 7545089529146995571
+    second: tank-cannonSHELL (1)_58
+  - first:
+      213: -5160143080135823157
+    second: tank-cannonSHELL (1)_59
+  - first:
+      213: 6507949761831486864
+    second: tank-cannonSHELL (1)_60
+  - first:
+      213: 6080212012127426016
+    second: tank-cannonSHELL (1)_61
+  - first:
+      213: -9075202557110665572
+    second: tank-cannonSHELL (1)_62
+  - first:
+      213: -7619004774374002231
+    second: tank-cannonSHELL (1)_63
+  - first:
+      213: -7882114523522684814
+    second: tank-cannonSHELL (1)_64
+  - first:
+      213: -6473596441791787162
+    second: tank-cannonSHELL (1)_65
+  - first:
+      213: -7946667966138049361
+    second: tank-cannonSHELL (1)_66
+  - first:
+      213: -3304100711556225768
+    second: tank-cannonSHELL (1)_67
+  - first:
+      213: 8646924510313915246
+    second: tank-cannonSHELL (1)_68
+  - first:
+      213: 5945603730400980658
+    second: tank-cannonSHELL (1)_69
+  - first:
+      213: -3027848223917530633
+    second: tank-cannonSHELL (1)_70
+  - first:
+      213: -3546413866234614050
+    second: tank-cannonSHELL (1)_71
+  - first:
+      213: 5452518372105854291
+    second: tank-cannonSHELL (1)_72
+  - first:
+      213: 7040909149328399153
+    second: tank-cannonSHELL (1)_73
+  - first:
+      213: 8517663030866670643
+    second: tank-cannonSHELL (1)_74
+  - first:
+      213: -4604325615374587579
+    second: tank-cannonSHELL (1)_75
+  - first:
+      213: 7240023351992850794
+    second: tank-cannonSHELL (1)_76
+  - first:
+      213: -1327921313987199392
+    second: tank-cannonSHELL (1)_77
+  - first:
+      213: -6565529438288594439
+    second: tank-cannonSHELL (1)_78
+  - first:
+      213: 8709460781127685705
+    second: tank-cannonSHELL (1)_79
+  - first:
+      213: 4404205348375241702
+    second: tank-cannonSHELL (1)_80
+  - first:
+      213: 1357229260269932452
+    second: tank-cannonSHELL (1)_81
+  - first:
+      213: -8919348141468458060
+    second: tank-cannonSHELL (1)_82
+  - first:
+      213: -2531285579350409696
+    second: tank-cannonSHELL (1)_83
+  - first:
+      213: 6503657231096866969
+    second: tank-cannonSHELL (1)_84
+  - first:
+      213: 221970031820962751
+    second: tank-cannonSHELL (1)_85
+  - first:
+      213: 8059516154965762228
+    second: tank-cannonSHELL (1)_86
+  - first:
+      213: 8718999269776401017
+    second: tank-cannonSHELL (1)_87
+  - first:
+      213: -5517789730896329351
+    second: tank-cannonSHELL (1)_88
+  - first:
+      213: -6458219225553011759
+    second: tank-cannonSHELL (1)_89
+  - first:
+      213: 724042566676236348
+    second: tank-cannonSHELL (1)_90
+  - first:
+      213: 1905575216567940491
+    second: tank-cannonSHELL (1)_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 166
+        width: 50
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7c1fcd97febf2d0800000000000000
+      internalID: -3243735799913396246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 166
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d62d226e44837d0800000000000000
+      internalID: -2938523001641865969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fe154442bf90f20800000000000000
+      internalID: 3389516327756623727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f7d8f3be1d29bd0800000000000000
+      internalID: -2624804824489820268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_4
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e837234fcd14ce0800000000000000
+      internalID: -1422613065895801213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7cb90cd30df9ea0800000000000000
+      internalID: -5863739226170079322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_6
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf45189aa1a47300800000000000000
+      internalID: 249001633480265643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5db785cf3f916bc0800000000000000
+      internalID: -3791574315023483556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_8
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1fbd48791bd82820800000000000000
+      internalID: 2893803663024570142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_9
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78bb0884bdc9a5060800000000000000
+      internalID: 6943034241173207943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f483274cadb2b0e0800000000000000
+      internalID: -2255531915733662475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_11
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 146
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e50714c4d3f38020800000000000000
+      internalID: 2342984326311249379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f1277d9bb9ed6e0800000000000000
+      internalID: -1810838777670525176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_13
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048bbd85d48130090800000000000000
+      internalID: -8069579386835453888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0350c4985f30d30800000000000000
+      internalID: 4396627631278469292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_15
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a8659ca7a85d0b0800000000000000
+      internalID: -5704501093026330076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_16
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667c1274b9d0b8af0800000000000000
+      internalID: -393205581900298394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_17
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d34b74b623f5b40800000000000000
+      internalID: 5431115111977991539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_18
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11505eee6c1418b60800000000000000
+      internalID: 7746545156721280273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_19
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e878cb953abbbd0800000000000000
+      internalID: -2613315552948023722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_20
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e73971d91798b120800000000000000
+      internalID: 2429858136110741474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_21
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 128
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c474046dc572e2480800000000000000
+      internalID: -8922150532089362612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_22
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431d5c93cda076cd0800000000000000
+      internalID: -2565069521785859788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_23
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0486c59275202df20800000000000000
+      internalID: 3445819238271182912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_24
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0170751fd63cc0850800000000000000
+      internalID: 6344660852026050320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_25
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e871295ade0d9fe30800000000000000
+      internalID: 4537887818656126862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_26
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d25b6fceea142b20800000000000000
+      internalID: 3108639255776940760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_27
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cec470bfa0b8df60800000000000000
+      internalID: 8059385801805713088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_28
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615edc08382464350800000000000000
+      internalID: 6000556686086890774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_29
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73e10c351e9ac3a0800000000000000
+      internalID: -6644324486193486982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_30
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a19be0c43cb200d0800000000000000
+      internalID: -3457994629106134622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_31
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 109
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbd82c9167c22b90800000000000000
+      internalID: -7268027626576880683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2adea5b266a88ae90800000000000000
+      internalID: -7014204248210870878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_33
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d3506adc98f11d0800000000000000
+      internalID: -3377829679157920402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_34
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e23da093d02015c0800000000000000
+      internalID: -4246858355572919576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_35
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92a01194b79eb5b0800000000000000
+      internalID: -5350672505485876581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_36
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc6a0ef7464008180800000000000000
+      internalID: -9115280816109214003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_37
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c5c5d43d9eccfa0800000000000000
+      internalID: -5778987128077919185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_38
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 597e25c6ac3c24110800000000000000
+      internalID: 1243771721275860885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_39
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af213ebd737b2a690800000000000000
+      internalID: -7592304571253058822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_40
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa467976751475750800000000000000
+      internalID: 6293570847929492655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_41
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68851afe64b1cc670800000000000000
+      internalID: 8560246983206459526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f025ae142abdb1230800000000000000
+      internalID: 3610721016204644879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_43
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b12b2c2fc80bb6d0800000000000000
+      internalID: -2973773443055803984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_44
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70cb9cee6314707e0800000000000000
+      internalID: -1799397821920986105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_45
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432672c522fff16e0800000000000000
+      internalID: -1864491197668040140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_46
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758642b2727dfb520800000000000000
+      internalID: 2720129263182571607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_47
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebc3e12c1d49d0d0800000000000000
+      internalID: -3397599660651328533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_48
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1e338d563637420800000000000000
+      internalID: 2626552296757256627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_49
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0335f9c3c3e6c64e0800000000000000
+      internalID: -1987092130583063760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_50
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b34be44cc7755f0800000000000000
+      internalID: -768008028867511424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_51
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4737260f8f2b41f60800000000000000
+      internalID: 8004219219998831476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_52
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c9296e55c9fac30800000000000000
+      internalID: 4372885655954562068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_53
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73195d0a4f9e46eb0800000000000000
+      internalID: -4727396471952535241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_54
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83ddc72f19b096c0800000000000000
+      internalID: -4138604514090560629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_55
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd99c64e4307f5a10800000000000000
+      internalID: 1900360940246571484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_56
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061066e0b9e229050800000000000000
+      internalID: 5805754113130365280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_57
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb962f8bf5d43b40800000000000000
+      internalID: 5419191528048729011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_58
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373735f73fa85b860800000000000000
+      internalID: 7545089529146995571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_59
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0705e453d7368b0800000000000000
+      internalID: -5160143080135823157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_60
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095cd0ae3d1e05a50800000000000000
+      internalID: 6507949761831486864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_61
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 56
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e51be55c90416450800000000000000
+      internalID: 6080212012127426016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_62
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9eb3b65b576e0280800000000000000
+      internalID: -9075202557110665572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_63
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1be61668bd34690800000000000000
+      internalID: -7619004774374002231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_64
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278ab722a9a1d9290800000000000000
+      internalID: -7882114523522684814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_65
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f84c3b55a2926a0800000000000000
+      internalID: -6473596441791787162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_66
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac9d5a8693c7b190800000000000000
+      internalID: -7946667966138049361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_67
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8156391a8e97522d0800000000000000
+      internalID: -3304100711556225768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_68
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6321ec570c000870800000000000000
+      internalID: 8646924510313915246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_69
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bea9c57717038250800000000000000
+      internalID: 5945603730400980658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_70
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f12993251ceaf5d0800000000000000
+      internalID: -3027848223917530633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_71
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 38
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edee09cd06b98cec0800000000000000
+      internalID: -3546413866234614050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_72
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d19ac129c3bab40800000000000000
+      internalID: 5452518372105854291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_73
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b5485219556b160800000000000000
+      internalID: 7040909149328399153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_74
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334f847e561d43670800000000000000
+      internalID: 8517663030866670643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_75
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549ad516f362a10c0800000000000000
+      internalID: -4604325615374587579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_76
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69111d11eab97460800000000000000
+      internalID: 7240023351992850794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_77
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e7f1eb996429de0800000000000000
+      internalID: -1327921313987199392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_78
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f93074f2cd82e4a0800000000000000
+      internalID: -6565529438288594439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_79
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946df4c8f683ed870800000000000000
+      internalID: 8709460781127685705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_80
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e328cb0e61ee1d30800000000000000
+      internalID: 4404205348375241702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_81
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 21
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afc72142d8d5d210800000000000000
+      internalID: 1357229260269932452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_82
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b36bbf3f1c183480800000000000000
+      internalID: -8919348141468458060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_83
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02effb94d211fdcd0800000000000000
+      internalID: -2531285579350409696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_84
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998ed683bc1a14a50800000000000000
+      internalID: 6503657231096866969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_85
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb78716198941300800000000000000
+      internalID: 221970031820962751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_86
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0a146ed3729df60800000000000000
+      internalID: 8059516154965762228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_87
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972a9eff3ab100970800000000000000
+      internalID: 8718999269776401017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_88
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97540a8697fdc63b0800000000000000
+      internalID: -5517789730896329351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_89
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db705bd4dbcf56a0800000000000000
+      internalID: -6458219225553011759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_90
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38cff4d0e05c0a00800000000000000
+      internalID: 724042566676236348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSHELL (1)_91
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 4
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85f1543096f17a10800000000000000
+      internalID: 1905575216567940491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tank-cannonSHELL (1)_0: -3243735799913396246
+      tank-cannonSHELL (1)_1: -2938523001641865969
+      tank-cannonSHELL (1)_10: -2255531915733662475
+      tank-cannonSHELL (1)_11: 2342984326311249379
+      tank-cannonSHELL (1)_12: -1810838777670525176
+      tank-cannonSHELL (1)_13: -8069579386835453888
+      tank-cannonSHELL (1)_14: 4396627631278469292
+      tank-cannonSHELL (1)_15: -5704501093026330076
+      tank-cannonSHELL (1)_16: -393205581900298394
+      tank-cannonSHELL (1)_17: 5431115111977991539
+      tank-cannonSHELL (1)_18: 7746545156721280273
+      tank-cannonSHELL (1)_19: -2613315552948023722
+      tank-cannonSHELL (1)_2: 3389516327756623727
+      tank-cannonSHELL (1)_20: 2429858136110741474
+      tank-cannonSHELL (1)_21: -8922150532089362612
+      tank-cannonSHELL (1)_22: -2565069521785859788
+      tank-cannonSHELL (1)_23: 3445819238271182912
+      tank-cannonSHELL (1)_24: 6344660852026050320
+      tank-cannonSHELL (1)_25: 4537887818656126862
+      tank-cannonSHELL (1)_26: 3108639255776940760
+      tank-cannonSHELL (1)_27: 8059385801805713088
+      tank-cannonSHELL (1)_28: 6000556686086890774
+      tank-cannonSHELL (1)_29: -6644324486193486982
+      tank-cannonSHELL (1)_3: -2624804824489820268
+      tank-cannonSHELL (1)_30: -3457994629106134622
+      tank-cannonSHELL (1)_31: -7268027626576880683
+      tank-cannonSHELL (1)_32: -7014204248210870878
+      tank-cannonSHELL (1)_33: -3377829679157920402
+      tank-cannonSHELL (1)_34: -4246858355572919576
+      tank-cannonSHELL (1)_35: -5350672505485876581
+      tank-cannonSHELL (1)_36: -9115280816109214003
+      tank-cannonSHELL (1)_37: -5778987128077919185
+      tank-cannonSHELL (1)_38: 1243771721275860885
+      tank-cannonSHELL (1)_39: -7592304571253058822
+      tank-cannonSHELL (1)_4: -1422613065895801213
+      tank-cannonSHELL (1)_40: 6293570847929492655
+      tank-cannonSHELL (1)_41: 8560246983206459526
+      tank-cannonSHELL (1)_42: 3610721016204644879
+      tank-cannonSHELL (1)_43: -2973773443055803984
+      tank-cannonSHELL (1)_44: -1799397821920986105
+      tank-cannonSHELL (1)_45: -1864491197668040140
+      tank-cannonSHELL (1)_46: 2720129263182571607
+      tank-cannonSHELL (1)_47: -3397599660651328533
+      tank-cannonSHELL (1)_48: 2626552296757256627
+      tank-cannonSHELL (1)_49: -1987092130583063760
+      tank-cannonSHELL (1)_5: -5863739226170079322
+      tank-cannonSHELL (1)_50: -768008028867511424
+      tank-cannonSHELL (1)_51: 8004219219998831476
+      tank-cannonSHELL (1)_52: 4372885655954562068
+      tank-cannonSHELL (1)_53: -4727396471952535241
+      tank-cannonSHELL (1)_54: -4138604514090560629
+      tank-cannonSHELL (1)_55: 1900360940246571484
+      tank-cannonSHELL (1)_56: 5805754113130365280
+      tank-cannonSHELL (1)_57: 5419191528048729011
+      tank-cannonSHELL (1)_58: 7545089529146995571
+      tank-cannonSHELL (1)_59: -5160143080135823157
+      tank-cannonSHELL (1)_6: 249001633480265643
+      tank-cannonSHELL (1)_60: 6507949761831486864
+      tank-cannonSHELL (1)_61: 6080212012127426016
+      tank-cannonSHELL (1)_62: -9075202557110665572
+      tank-cannonSHELL (1)_63: -7619004774374002231
+      tank-cannonSHELL (1)_64: -7882114523522684814
+      tank-cannonSHELL (1)_65: -6473596441791787162
+      tank-cannonSHELL (1)_66: -7946667966138049361
+      tank-cannonSHELL (1)_67: -3304100711556225768
+      tank-cannonSHELL (1)_68: 8646924510313915246
+      tank-cannonSHELL (1)_69: 5945603730400980658
+      tank-cannonSHELL (1)_7: -3791574315023483556
+      tank-cannonSHELL (1)_70: -3027848223917530633
+      tank-cannonSHELL (1)_71: -3546413866234614050
+      tank-cannonSHELL (1)_72: 5452518372105854291
+      tank-cannonSHELL (1)_73: 7040909149328399153
+      tank-cannonSHELL (1)_74: 8517663030866670643
+      tank-cannonSHELL (1)_75: -4604325615374587579
+      tank-cannonSHELL (1)_76: 7240023351992850794
+      tank-cannonSHELL (1)_77: -1327921313987199392
+      tank-cannonSHELL (1)_78: -6565529438288594439
+      tank-cannonSHELL (1)_79: 8709460781127685705
+      tank-cannonSHELL (1)_8: 2893803663024570142
+      tank-cannonSHELL (1)_80: 4404205348375241702
+      tank-cannonSHELL (1)_81: 1357229260269932452
+      tank-cannonSHELL (1)_82: -8919348141468458060
+      tank-cannonSHELL (1)_83: -2531285579350409696
+      tank-cannonSHELL (1)_84: 6503657231096866969
+      tank-cannonSHELL (1)_85: 221970031820962751
+      tank-cannonSHELL (1)_86: 8059516154965762228
+      tank-cannonSHELL (1)_87: 8718999269776401017
+      tank-cannonSHELL (1)_88: -5517789730896329351
+      tank-cannonSHELL (1)_89: -6458219225553011759
+      tank-cannonSHELL (1)_9: 6943034241173207943
+      tank-cannonSHELL (1)_90: 724042566676236348
+      tank-cannonSHELL (1)_91: 1905575216567940491
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,2719 @@
+fileFormatVersion: 2
+guid: a4ac278c905fbf34ba07c66e3bbd8088
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3161066812298360759
+    second: tank-cannonSFX_0
+  - first:
+      213: -3233339415864160089
+    second: tank-cannonSFX_1
+  - first:
+      213: 8578923044070366675
+    second: tank-cannonSFX_2
+  - first:
+      213: -5013667928748578928
+    second: tank-cannonSFX_3
+  - first:
+      213: -3371552844713395170
+    second: tank-cannonSFX_4
+  - first:
+      213: -3614250884526958878
+    second: tank-cannonSFX_5
+  - first:
+      213: -5363682000220854618
+    second: tank-cannonSFX_6
+  - first:
+      213: -5140339269154150306
+    second: tank-cannonSFX_7
+  - first:
+      213: -3353951216145576374
+    second: tank-cannonSFX_8
+  - first:
+      213: 7799169116551184131
+    second: tank-cannonSFX_9
+  - first:
+      213: -8485464411764857560
+    second: tank-cannonSFX_10
+  - first:
+      213: 731015787946867624
+    second: tank-cannonSFX_11
+  - first:
+      213: 2831339260123439172
+    second: tank-cannonSFX_12
+  - first:
+      213: -5375385912490472001
+    second: tank-cannonSFX_13
+  - first:
+      213: 468407962100089208
+    second: tank-cannonSFX_14
+  - first:
+      213: -1380045827260315383
+    second: tank-cannonSFX_15
+  - first:
+      213: -2660644059693344211
+    second: tank-cannonSFX_16
+  - first:
+      213: -8806166407285078660
+    second: tank-cannonSFX_17
+  - first:
+      213: 4675754020583160016
+    second: tank-cannonSFX_18
+  - first:
+      213: 1746782648910052448
+    second: tank-cannonSFX_19
+  - first:
+      213: 2214471915487455274
+    second: tank-cannonSFX_20
+  - first:
+      213: -8972708284238191002
+    second: tank-cannonSFX_21
+  - first:
+      213: -2101774213922689122
+    second: tank-cannonSFX_22
+  - first:
+      213: 6063476651654479653
+    second: tank-cannonSFX_23
+  - first:
+      213: 4272088246609744663
+    second: tank-cannonSFX_24
+  - first:
+      213: -4943561825038113212
+    second: tank-cannonSFX_25
+  - first:
+      213: 4236071708286623952
+    second: tank-cannonSFX_26
+  - first:
+      213: -775567290026519009
+    second: tank-cannonSFX_27
+  - first:
+      213: 2836618328497035195
+    second: tank-cannonSFX_28
+  - first:
+      213: -6145730997007658295
+    second: tank-cannonSFX_29
+  - first:
+      213: -1232753874128422028
+    second: tank-cannonSFX_30
+  - first:
+      213: 7890807102418586783
+    second: tank-cannonSFX_31
+  - first:
+      213: -3128333920552896674
+    second: tank-cannonSFX_32
+  - first:
+      213: 6764725104675582842
+    second: tank-cannonSFX_33
+  - first:
+      213: -5113828760620879620
+    second: tank-cannonSFX_34
+  - first:
+      213: -5163719134762360127
+    second: tank-cannonSFX_35
+  - first:
+      213: 9102279993420032320
+    second: tank-cannonSFX_36
+  - first:
+      213: 5159813246410586412
+    second: tank-cannonSFX_37
+  - first:
+      213: 8853255766208364343
+    second: tank-cannonSFX_38
+  - first:
+      213: -6721547818997805858
+    second: tank-cannonSFX_39
+  - first:
+      213: 7847090193555735845
+    second: tank-cannonSFX_40
+  - first:
+      213: -3954988139980311788
+    second: tank-cannonSFX_41
+  - first:
+      213: 7224729870262450552
+    second: tank-cannonSFX_42
+  - first:
+      213: -7542788144492999313
+    second: tank-cannonSFX_43
+  - first:
+      213: -2914587687636633115
+    second: tank-cannonSFX_44
+  - first:
+      213: -3648053818352799038
+    second: tank-cannonSFX_45
+  - first:
+      213: 279034611396562625
+    second: tank-cannonSFX_46
+  - first:
+      213: -6289249541285172296
+    second: tank-cannonSFX_47
+  - first:
+      213: -1082633141896134181
+    second: tank-cannonSFX_48
+  - first:
+      213: 5922799576315910191
+    second: tank-cannonSFX_49
+  - first:
+      213: -2768035190365647464
+    second: tank-cannonSFX_50
+  - first:
+      213: -6388030177293233510
+    second: tank-cannonSFX_51
+  - first:
+      213: 1222678629457687266
+    second: tank-cannonSFX_52
+  - first:
+      213: -903911836079164016
+    second: tank-cannonSFX_53
+  - first:
+      213: -317526853451829232
+    second: tank-cannonSFX_54
+  - first:
+      213: -5784135783991666880
+    second: tank-cannonSFX_55
+  - first:
+      213: -7603966115711881492
+    second: tank-cannonSFX_56
+  - first:
+      213: -2483062914315569901
+    second: tank-cannonSFX_57
+  - first:
+      213: -2565363703505262633
+    second: tank-cannonSFX_58
+  - first:
+      213: -3701671883639335491
+    second: tank-cannonSFX_59
+  - first:
+      213: -4666362132019623204
+    second: tank-cannonSFX_60
+  - first:
+      213: 1351546875735923141
+    second: tank-cannonSFX_61
+  - first:
+      213: -103372300924242922
+    second: tank-cannonSFX_62
+  - first:
+      213: 6132637051063000844
+    second: tank-cannonSFX_63
+  - first:
+      213: 9063784734564403099
+    second: tank-cannonSFX_64
+  - first:
+      213: -7794847753399250207
+    second: tank-cannonSFX_65
+  - first:
+      213: 2199434150087777192
+    second: tank-cannonSFX_66
+  - first:
+      213: 787245830332293937
+    second: tank-cannonSFX_67
+  - first:
+      213: 1379553261129464505
+    second: tank-cannonSFX_68
+  - first:
+      213: -570451490402269812
+    second: tank-cannonSFX_69
+  - first:
+      213: -261337649062990198
+    second: tank-cannonSFX_70
+  - first:
+      213: 1370834274404406275
+    second: tank-cannonSFX_71
+  - first:
+      213: -722148579201845464
+    second: tank-cannonSFX_72
+  - first:
+      213: -4658757445599920265
+    second: tank-cannonSFX_73
+  - first:
+      213: -2494845982288334348
+    second: tank-cannonSFX_74
+  - first:
+      213: 634284794334972332
+    second: tank-cannonSFX_75
+  - first:
+      213: 6849005836051904581
+    second: tank-cannonSFX_76
+  - first:
+      213: 5485581981637307836
+    second: tank-cannonSFX_77
+  - first:
+      213: 3162481893362365846
+    second: tank-cannonSFX_78
+  - first:
+      213: -1473456361935063713
+    second: tank-cannonSFX_79
+  - first:
+      213: 8183366375506708010
+    second: tank-cannonSFX_80
+  - first:
+      213: 4143124292591204330
+    second: tank-cannonSFX_81
+  - first:
+      213: -1509653877276743464
+    second: tank-cannonSFX_82
+  - first:
+      213: -5348000037596733476
+    second: tank-cannonSFX_83
+  - first:
+      213: -2717615949545361278
+    second: tank-cannonSFX_84
+  - first:
+      213: -7721501297489170876
+    second: tank-cannonSFX_85
+  - first:
+      213: 5569802506664065284
+    second: tank-cannonSFX_86
+  - first:
+      213: 5655754205235777422
+    second: tank-cannonSFX_87
+  - first:
+      213: -5865269632148592620
+    second: tank-cannonSFX_88
+  - first:
+      213: -6556151829476047918
+    second: tank-cannonSFX_89
+  - first:
+      213: 8555280399700589235
+    second: tank-cannonSFX_90
+  - first:
+      213: -7510456371072175349
+    second: tank-cannonSFX_91
+  - first:
+      213: 7665075756352795260
+    second: tank-cannonSFX_92
+  - first:
+      213: 3459272451274063790
+    second: tank-cannonSFX_93
+  - first:
+      213: 6351548244435471902
+    second: tank-cannonSFX_94
+  - first:
+      213: -8036114127853651903
+    second: tank-cannonSFX_95
+  - first:
+      213: -8692643415558308861
+    second: tank-cannonSFX_96
+  - first:
+      213: 6687006369678271773
+    second: tank-cannonSFX_97
+  - first:
+      213: -1866301548178142719
+    second: tank-cannonSFX_98
+  - first:
+      213: -638074902341498698
+    second: tank-cannonSFX_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tank-cannonSFX_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 287
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9480ea57b72a124d0800000000000000
+      internalID: -3161066812298360759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 287
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0d527aeeed023d0800000000000000
+      internalID: -3233339415864160089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 287
+        width: 50
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd1a353e057e0770800000000000000
+      internalID: 8578923044070366675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 287
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0972c25159fdb6ab0800000000000000
+      internalID: -5013667928748578928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 244
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c766d0d86d531d0800000000000000
+      internalID: -3371552844713395170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_5
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 247
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e611aa38f997ddc0800000000000000
+      internalID: -3614250884526958878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_6
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 253
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6eda883af5095b0800000000000000
+      internalID: -5363682000220854618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_7
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 245
+        width: 49
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58631d5ba8d9a8b0800000000000000
+      internalID: -5140339269154150306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 243
+        width: 51
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e47af832f5471d0800000000000000
+      internalID: -3353951216145576374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 243
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ffa3f5df63c3c60800000000000000
+      internalID: 7799169116551184131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 242
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825698e43139d3a80800000000000000
+      internalID: -8485464411764857560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_11
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 241
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab76cd6cf6152a00800000000000000
+      internalID: 731015787946867624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_12
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 241
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44066465e00fa4720800000000000000
+      internalID: 2831339260123439172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_13
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 243
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbdcd5b1efac665b0800000000000000
+      internalID: -5375385912490472001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_14
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 243
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871c0fe4f8e108600800000000000000
+      internalID: 468407962100089208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_15
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 245
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9098364c1a719dce0800000000000000
+      internalID: -1380045827260315383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_16
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 246
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a993c035e731bd0800000000000000
+      internalID: -2660644059693344211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_17
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 248
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c758bc44f463ac580800000000000000
+      internalID: -8806166407285078660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_18
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 249
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8b6fd228d93e040800000000000000
+      internalID: 4675754020583160016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_19
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 250
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c79187091dd3810800000000000000
+      internalID: 1746782648910052448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_20
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 263
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2865bf69726bbe10800000000000000
+      internalID: 2214471915487455274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_21
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 255
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66627ccda598a7380800000000000000
+      internalID: -8972708284238191002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_22
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 265
+        width: 50
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fef05fc7ff4d2e0800000000000000
+      internalID: -2101774213922689122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_23
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 186
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f7db593ebc52450800000000000000
+      internalID: 6063476651654479653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_24
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 190
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7139b4430a1894b30800000000000000
+      internalID: 4272088246609744663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_25
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 195
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446eb6556b0f46bb0800000000000000
+      internalID: -4943561825038113212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 187
+        width: 49
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d0a18766cc89ca30800000000000000
+      internalID: 4236071708286623952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_27
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 186
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f169e8aa8a1ac35f0800000000000000
+      internalID: -775567290026519009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_28
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 185
+        width: 53
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb79d693751bd5720800000000000000
+      internalID: 2836618328497035195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_29
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 183
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2504e383af5baa0800000000000000
+      internalID: -6145730997007658295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_30
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 182
+        width: 53
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47bb61502e064eee0800000000000000
+      internalID: -1232753874128422028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_31
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 182
+        width: 54
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c0aca9047c18d60800000000000000
+      internalID: 7890807102418586783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_32
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 189
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57b3a6bfdce594d0800000000000000
+      internalID: -3128333920552896674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_33
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 191
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73fa5344a121ed50800000000000000
+      internalID: 6764725104675582842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_34
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 192
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf0340126d70809b0800000000000000
+      internalID: -5113828760620879620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_35
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 194
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c22a943ec8c658b0800000000000000
+      internalID: -5163719134762360127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_36
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 194
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04922f59d6bc15e70800000000000000
+      internalID: 9102279993420032320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_37
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 194
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2978ab4fc65b9740800000000000000
+      internalID: 5159813246410586412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_38
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 212
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f378a76351dda70800000000000000
+      internalID: 8853255766208364343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_39
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 196
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc85d3fed348b2a0800000000000000
+      internalID: -6721547818997805858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_40
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 204
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525475394f676ec60800000000000000
+      internalID: 7847090193555735845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_41
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 120
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4133799bd3f0d19c0800000000000000
+      internalID: -3954988139980311788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_42
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 121
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879b52be985634460800000000000000
+      internalID: 7224729870262450552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_43
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 121
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d877f5522a25790800000000000000
+      internalID: -7542788144492999313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_44
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 120
+        width: 46
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9f0b3b0fd4d87d0800000000000000
+      internalID: -2914587687636633115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_45
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 119
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2f29361628f5dc0800000000000000
+      internalID: -3648053818352799038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_46
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 120
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cec45c20845fd300800000000000000
+      internalID: 279034611396562625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_47
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 119
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bba8e33dd818b8a0800000000000000
+      internalID: -6289249541285172296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_48
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 118
+        width: 49
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd1473bb4e6b9f0f0800000000000000
+      internalID: -1082633141896134181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_49
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 118
+        width: 49
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28d42695d2023250800000000000000
+      internalID: 5922799576315910191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_50
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 117
+        width: 48
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d8978f8a6f599d0800000000000000
+      internalID: -2768035190365647464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_51
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 127
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9216f326682957a0800000000000000
+      internalID: -6388030177293233510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_52
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 130
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e279474cb3d7f010800000000000000
+      internalID: 1222678629457687266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_53
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 132
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095fa3669f8a473f0800000000000000
+      internalID: -903911836079164016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_54
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 134
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0103b55520be79bf0800000000000000
+      internalID: -317526853451829232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_55
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 135
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0471d8e662f9abfa0800000000000000
+      internalID: -5784135783991666880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_56
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 154
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceee2e4fa19497690800000000000000
+      internalID: -7603966115711881492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_57
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 150
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315364d6f636a8dd0800000000000000
+      internalID: -2483062914315569901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_58
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 151
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d763e4bd4ff56cd0800000000000000
+      internalID: -2565363703505262633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_59
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 137
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db550acb80501acc0800000000000000
+      internalID: -3701671883639335491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_60
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 151
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdac2a74d50cd3fb0800000000000000
+      internalID: -4666362132019623204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_61
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 125
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9578109b8a1c210800000000000000
+      internalID: 1351546875735923141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_62
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 60
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614bbc3a07fb09ef0800000000000000
+      internalID: -103372300924242922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_63
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 62
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f5205e7e08b1550800000000000000
+      internalID: 6132637051063000844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_64
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 65
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97c150b13809cd70800000000000000
+      internalID: 9063784734564403099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_65
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 58
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2d264644323d390800000000000000
+      internalID: -7794847753399250207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_66
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 57
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab58d6d4b5f58e10800000000000000
+      internalID: 2199434150087777192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_67
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 57
+        width: 52
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1332dd369ebdcea00800000000000000
+      internalID: 787245830332293937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_68
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 59
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba7a5eb168252310800000000000000
+      internalID: 1379553261129464505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_69
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 59
+        width: 71
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c850bf054695518f0800000000000000
+      internalID: -570451490402269812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_70
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 60
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e2a25faca8f5cf0800000000000000
+      internalID: -261337649062990198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_71
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 61
+        width: 53
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3041ec3728e260310800000000000000
+      internalID: 1370834274404406275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_72
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 61
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827fe9d71b96af5f0800000000000000
+      internalID: -722148579201845464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_73
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 63
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f7f4059c4c85fb0800000000000000
+      internalID: -4658757445599920265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_74
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 63
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1b4602cc6806dd0800000000000000
+      internalID: -2494845982288334348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_75
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 65
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca984cce8ae6dc800800000000000000
+      internalID: 634284794334972332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_76
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 68
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5487372358e8c0f50800000000000000
+      internalID: 6849005836051904581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_77
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 69
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd66c99fb3b02c40800000000000000
+      internalID: 5485581981637307836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_78
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 82
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695f776c68463eb20800000000000000
+      internalID: 3162481893362365846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_79
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 7
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5532dade3b3d8be0800000000000000
+      internalID: -1473456361935063713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_80
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 7
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2604f67c58219170800000000000000
+      internalID: 8183366375506708010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_81
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 6
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7b038c7955f7930800000000000000
+      internalID: 4143124292591204330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_82
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8e02f0cc1ac0be0800000000000000
+      internalID: -1509653877276743464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_83
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf554cfc4618c5b0800000000000000
+      internalID: -5348000037596733476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_84
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 280b96341b6194ad0800000000000000
+      internalID: -2717615949545361278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_85
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ea07eea77b7d490800000000000000
+      internalID: -7721501297489170876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_86
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 0
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 409bac6aed9eb4d40800000000000000
+      internalID: 5569802506664065284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_87
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 34
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f0004fb764d7e40800000000000000
+      internalID: 5655754205235777422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_88
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418a5e758506a9ea0800000000000000
+      internalID: -5865269632148592620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_89
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d38d86a5aed305a0800000000000000
+      internalID: -6556151829476047918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_90
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 0
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3baf30a12367ab670800000000000000
+      internalID: 8555280399700589235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_91
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 0
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b037c2df8bf75c790800000000000000
+      internalID: -7510456371072175349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_92
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 0
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72fdd10ac1df5a60800000000000000
+      internalID: 7665075756352795260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_93
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf3c7767fdc10030800000000000000
+      internalID: 3459272451274063790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_94
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 2
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e0553f97b352850800000000000000
+      internalID: 6351548244435471902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_95
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 7
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 148f8c227ccf97090800000000000000
+      internalID: -8036114127853651903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_96
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 21
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c32808ed68d5780800000000000000
+      internalID: -8692643415558308861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_97
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 9
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15a27b2dd40dcc50800000000000000
+      internalID: 6687006369678271773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_98
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 14
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a841941a09916e0800000000000000
+      internalID: -1866301548178142719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank-cannonSFX_99
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 5
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8c7d9c14a1527f0800000000000000
+      internalID: -638074902341498698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tank-cannonSFX_0: -3161066812298360759
+      tank-cannonSFX_1: -3233339415864160089
+      tank-cannonSFX_10: -8485464411764857560
+      tank-cannonSFX_11: 731015787946867624
+      tank-cannonSFX_12: 2831339260123439172
+      tank-cannonSFX_13: -5375385912490472001
+      tank-cannonSFX_14: 468407962100089208
+      tank-cannonSFX_15: -1380045827260315383
+      tank-cannonSFX_16: -2660644059693344211
+      tank-cannonSFX_17: -8806166407285078660
+      tank-cannonSFX_18: 4675754020583160016
+      tank-cannonSFX_19: 1746782648910052448
+      tank-cannonSFX_2: 8578923044070366675
+      tank-cannonSFX_20: 2214471915487455274
+      tank-cannonSFX_21: -8972708284238191002
+      tank-cannonSFX_22: -2101774213922689122
+      tank-cannonSFX_23: 6063476651654479653
+      tank-cannonSFX_24: 4272088246609744663
+      tank-cannonSFX_25: -4943561825038113212
+      tank-cannonSFX_26: 4236071708286623952
+      tank-cannonSFX_27: -775567290026519009
+      tank-cannonSFX_28: 2836618328497035195
+      tank-cannonSFX_29: -6145730997007658295
+      tank-cannonSFX_3: -5013667928748578928
+      tank-cannonSFX_30: -1232753874128422028
+      tank-cannonSFX_31: 7890807102418586783
+      tank-cannonSFX_32: -3128333920552896674
+      tank-cannonSFX_33: 6764725104675582842
+      tank-cannonSFX_34: -5113828760620879620
+      tank-cannonSFX_35: -5163719134762360127
+      tank-cannonSFX_36: 9102279993420032320
+      tank-cannonSFX_37: 5159813246410586412
+      tank-cannonSFX_38: 8853255766208364343
+      tank-cannonSFX_39: -6721547818997805858
+      tank-cannonSFX_4: -3371552844713395170
+      tank-cannonSFX_40: 7847090193555735845
+      tank-cannonSFX_41: -3954988139980311788
+      tank-cannonSFX_42: 7224729870262450552
+      tank-cannonSFX_43: -7542788144492999313
+      tank-cannonSFX_44: -2914587687636633115
+      tank-cannonSFX_45: -3648053818352799038
+      tank-cannonSFX_46: 279034611396562625
+      tank-cannonSFX_47: -6289249541285172296
+      tank-cannonSFX_48: -1082633141896134181
+      tank-cannonSFX_49: 5922799576315910191
+      tank-cannonSFX_5: -3614250884526958878
+      tank-cannonSFX_50: -2768035190365647464
+      tank-cannonSFX_51: -6388030177293233510
+      tank-cannonSFX_52: 1222678629457687266
+      tank-cannonSFX_53: -903911836079164016
+      tank-cannonSFX_54: -317526853451829232
+      tank-cannonSFX_55: -5784135783991666880
+      tank-cannonSFX_56: -7603966115711881492
+      tank-cannonSFX_57: -2483062914315569901
+      tank-cannonSFX_58: -2565363703505262633
+      tank-cannonSFX_59: -3701671883639335491
+      tank-cannonSFX_6: -5363682000220854618
+      tank-cannonSFX_60: -4666362132019623204
+      tank-cannonSFX_61: 1351546875735923141
+      tank-cannonSFX_62: -103372300924242922
+      tank-cannonSFX_63: 6132637051063000844
+      tank-cannonSFX_64: 9063784734564403099
+      tank-cannonSFX_65: -7794847753399250207
+      tank-cannonSFX_66: 2199434150087777192
+      tank-cannonSFX_67: 787245830332293937
+      tank-cannonSFX_68: 1379553261129464505
+      tank-cannonSFX_69: -570451490402269812
+      tank-cannonSFX_7: -5140339269154150306
+      tank-cannonSFX_70: -261337649062990198
+      tank-cannonSFX_71: 1370834274404406275
+      tank-cannonSFX_72: -722148579201845464
+      tank-cannonSFX_73: -4658757445599920265
+      tank-cannonSFX_74: -2494845982288334348
+      tank-cannonSFX_75: 634284794334972332
+      tank-cannonSFX_76: 6849005836051904581
+      tank-cannonSFX_77: 5485581981637307836
+      tank-cannonSFX_78: 3162481893362365846
+      tank-cannonSFX_79: -1473456361935063713
+      tank-cannonSFX_8: -3353951216145576374
+      tank-cannonSFX_80: 8183366375506708010
+      tank-cannonSFX_81: 4143124292591204330
+      tank-cannonSFX_82: -1509653877276743464
+      tank-cannonSFX_83: -5348000037596733476
+      tank-cannonSFX_84: -2717615949545361278
+      tank-cannonSFX_85: -7721501297489170876
+      tank-cannonSFX_86: 5569802506664065284
+      tank-cannonSFX_87: 5655754205235777422
+      tank-cannonSFX_88: -5865269632148592620
+      tank-cannonSFX_89: -6556151829476047918
+      tank-cannonSFX_9: 7799169116551184131
+      tank-cannonSFX_90: 8555280399700589235
+      tank-cannonSFX_91: -7510456371072175349
+      tank-cannonSFX_92: 7665075756352795260
+      tank-cannonSFX_93: 3459272451274063790
+      tank-cannonSFX_94: 6351548244435471902
+      tank-cannonSFX_95: -8036114127853651903
+      tank-cannonSFX_96: -8692643415558308861
+      tank-cannonSFX_97: 6687006369678271773
+      tank-cannonSFX_98: -1866301548178142719
+      tank-cannonSFX_99: -638074902341498698
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

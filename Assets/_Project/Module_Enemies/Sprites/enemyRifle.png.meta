@@ -1,0 +1,2225 @@
+fileFormatVersion: 2
+guid: d508be01bf5b9ce428ddcb455066f60c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8651585817623419034
+    second: enemyRifle_0
+  - first:
+      213: 4009057109040237973
+    second: enemyRifle_1
+  - first:
+      213: -5821838187883103914
+    second: enemyRifle_2
+  - first:
+      213: -7205578466363343845
+    second: enemyRifle_3
+  - first:
+      213: -7231823767005098524
+    second: enemyRifle_4
+  - first:
+      213: -6157764977516461776
+    second: enemyRifle_5
+  - first:
+      213: 7329439232742009911
+    second: enemyRifle_6
+  - first:
+      213: 5979561555201604811
+    second: enemyRifle_7
+  - first:
+      213: -2344945117024041509
+    second: enemyRifle_8
+  - first:
+      213: 7773675831865670167
+    second: enemyRifle_9
+  - first:
+      213: 973287120278553425
+    second: enemyRifle_10
+  - first:
+      213: -1444178019313586862
+    second: enemyRifle_11
+  - first:
+      213: -4078935693158865130
+    second: enemyRifle_12
+  - first:
+      213: 3733560818908383764
+    second: enemyRifle_13
+  - first:
+      213: 4777541939704605222
+    second: enemyRifle_14
+  - first:
+      213: 3969700881765545430
+    second: enemyRifle_15
+  - first:
+      213: -8034076666740816828
+    second: enemyRifle_16
+  - first:
+      213: 4608687026045259123
+    second: enemyRifle_17
+  - first:
+      213: 3081689916399090054
+    second: enemyRifle_18
+  - first:
+      213: -6787754446803076328
+    second: enemyRifle_19
+  - first:
+      213: 2738080551808808145
+    second: enemyRifle_20
+  - first:
+      213: -5238994500182762861
+    second: enemyRifle_21
+  - first:
+      213: 3532933264661275817
+    second: enemyRifle_22
+  - first:
+      213: -7760997248179130581
+    second: enemyRifle_23
+  - first:
+      213: -8991140986020305740
+    second: enemyRifle_24
+  - first:
+      213: -5879840429616963940
+    second: enemyRifle_25
+  - first:
+      213: 8998262259558128830
+    second: enemyRifle_26
+  - first:
+      213: 3400485780172723582
+    second: enemyRifle_27
+  - first:
+      213: -3268894592554178882
+    second: enemyRifle_28
+  - first:
+      213: -7526399902851185541
+    second: enemyRifle_29
+  - first:
+      213: -2614002450773325575
+    second: enemyRifle_30
+  - first:
+      213: 6177088039592850666
+    second: enemyRifle_31
+  - first:
+      213: -5460709898111803816
+    second: enemyRifle_32
+  - first:
+      213: 6398799397319580587
+    second: enemyRifle_33
+  - first:
+      213: 4858937445780724021
+    second: enemyRifle_34
+  - first:
+      213: -5905315146478874149
+    second: enemyRifle_35
+  - first:
+      213: 8065474302573267813
+    second: enemyRifle_36
+  - first:
+      213: 5998438103266769587
+    second: enemyRifle_37
+  - first:
+      213: -6426519480206476085
+    second: enemyRifle_38
+  - first:
+      213: 6896902498098488637
+    second: enemyRifle_39
+  - first:
+      213: -7549185944928488966
+    second: enemyRifle_40
+  - first:
+      213: 9077570902211285592
+    second: enemyRifle_41
+  - first:
+      213: 4450956358951477237
+    second: enemyRifle_42
+  - first:
+      213: -2108157710293828303
+    second: enemyRifle_43
+  - first:
+      213: 1165090742467312795
+    second: enemyRifle_44
+  - first:
+      213: -3672272536962962457
+    second: enemyRifle_45
+  - first:
+      213: -549669854520520904
+    second: enemyRifle_46
+  - first:
+      213: 7582722887794128751
+    second: enemyRifle_47
+  - first:
+      213: 7320137538749876792
+    second: enemyRifle_48
+  - first:
+      213: 378444507537165394
+    second: enemyRifle_49
+  - first:
+      213: 5813753492288555819
+    second: enemyRifle_50
+  - first:
+      213: -7285073692533713665
+    second: enemyRifle_51
+  - first:
+      213: -5180881830688718950
+    second: enemyRifle_52
+  - first:
+      213: 8804639880260610916
+    second: enemyRifle_53
+  - first:
+      213: 8715244802805413986
+    second: enemyRifle_54
+  - first:
+      213: -3278658668336474464
+    second: enemyRifle_55
+  - first:
+      213: 1416797313366882948
+    second: enemyRifle_56
+  - first:
+      213: -2915198756329999513
+    second: enemyRifle_57
+  - first:
+      213: -5988502889925050241
+    second: enemyRifle_58
+  - first:
+      213: -3088169035549757756
+    second: enemyRifle_59
+  - first:
+      213: -3449453227207896863
+    second: enemyRifle_60
+  - first:
+      213: 282048474832955127
+    second: enemyRifle_61
+  - first:
+      213: 8296697189300199588
+    second: enemyRifle_62
+  - first:
+      213: -245363240300367061
+    second: enemyRifle_63
+  - first:
+      213: 9010207488843541897
+    second: enemyRifle_64
+  - first:
+      213: 1738499029622531948
+    second: enemyRifle_65
+  - first:
+      213: 5081836455517585177
+    second: enemyRifle_66
+  - first:
+      213: 7138080876270349314
+    second: enemyRifle_67
+  - first:
+      213: -962162331020302678
+    second: enemyRifle_68
+  - first:
+      213: -1987891059073437072
+    second: enemyRifle_69
+  - first:
+      213: 825040475866028943
+    second: enemyRifle_70
+  - first:
+      213: -6027669926794106682
+    second: enemyRifle_71
+  - first:
+      213: -7673293677675336737
+    second: enemyRifle_72
+  - first:
+      213: -8799252962269380373
+    second: enemyRifle_73
+  - first:
+      213: -6453047715107940799
+    second: enemyRifle_74
+  - first:
+      213: -8034171525001135485
+    second: enemyRifle_75
+  - first:
+      213: -3107318655387548593
+    second: enemyRifle_76
+  - first:
+      213: 8664651687476313626
+    second: enemyRifle_77
+  - first:
+      213: 1034007600119947196
+    second: enemyRifle_78
+  - first:
+      213: -7055372608445251337
+    second: enemyRifle_79
+  - first:
+      213: -7311035065490532909
+    second: enemyRifle_80
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemyRifle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 397
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98504b867b901870800000000000000
+      internalID: 8651585817623419034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 397
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d0994233803a730800000000000000
+      internalID: 4009057109040237973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 397
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6597c67730da43fa0800000000000000
+      internalID: -5821838187883103914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 397
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c7537cf84a00c90800000000000000
+      internalID: -7205578466363343845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 357
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed0f69899663ab90800000000000000
+      internalID: -7231823767005098524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 357
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0314ac0d0693b8aa0800000000000000
+      internalID: -6157764977516461776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 362
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c266e262667b560800000000000000
+      internalID: 7329439232742009911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_7
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 359
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccbf5aad8babf250800000000000000
+      internalID: 5979561555201604811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_8
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 358
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5cef117d4157fd0800000000000000
+      internalID: -2344945117024041509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_9
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 357
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a746d7bf4a1eb60800000000000000
+      internalID: 7773675831865670167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_10
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 357
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1538aacaa7fc18d00800000000000000
+      internalID: 973287120278553425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 358
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25de2663ebf35fbe0800000000000000
+      internalID: -1444178019313586862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_12
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 363
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617aa932995b467c0800000000000000
+      internalID: -4078935693158865130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_13
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 360
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ac95698c540d330800000000000000
+      internalID: 3733560818908383764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_14
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 358
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62aaf97e41d3d4240800000000000000
+      internalID: 4777541939704605222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_15
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 357
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5b03a6be5371730800000000000000
+      internalID: 3969700881765545430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 316
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444c8a486d9318090800000000000000
+      internalID: -8034076666740816828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_17
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 316
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d016cae6855ff30800000000000000
+      internalID: 4608687026045259123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 265
+        width: 45
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689fed6c6ac54ca20800000000000000
+      internalID: 3081689916399090054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 265
+        width: 49
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b79bf2b4d0dc1a0800000000000000
+      internalID: -6787754446803076328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_20
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 273
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d438f041cd9ff520800000000000000
+      internalID: 2738080551808808145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_21
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 276
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a916c624a5b47b0800000000000000
+      internalID: -5238994500182762861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_22
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 276
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4eb4ff510870130800000000000000
+      internalID: 3532933264661275817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_23
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 265
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2faf7f4f166b4490800000000000000
+      internalID: -7760997248179130581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_24
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 265
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4edca09ec093380800000000000000
+      internalID: -8991140986020305740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_25
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 265
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e53b0384c966ea0800000000000000
+      internalID: -5879840429616963940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 229
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc14c8a9df30ec70800000000000000
+      internalID: 8998262259558128830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_27
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 229
+        width: 49
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7556feecc3f03f20800000000000000
+      internalID: 3400485780172723582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_28
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 229
+        width: 50
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb6ec9affad82a2d0800000000000000
+      internalID: -3268894592554178882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_29
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 229
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7445093a2bdc8790800000000000000
+      internalID: -7526399902851185541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_30
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 229
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8c7afde9239bbd0800000000000000
+      internalID: -2614002450773325575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_31
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 229
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4fe3a28dc69b550800000000000000
+      internalID: 6177088039592850666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_32
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 229
+        width: 40
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e169d9749a734b0800000000000000
+      internalID: -5460709898111803816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_33
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 229
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab973a462a1dc850800000000000000
+      internalID: 6398799397319580587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_34
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 182
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5399a99fcd96e6340800000000000000
+      internalID: 4858937445780724021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_35
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 182
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd19467792b1c0ea0800000000000000
+      internalID: -5905315146478874149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_36
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 182
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56bcbed35225eef60800000000000000
+      internalID: 8065474302573267813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_37
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 182
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba32608cabbe3350800000000000000
+      internalID: 5998438103266769587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_38
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 182
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc3a28f49a60d6a0800000000000000
+      internalID: -6426519480206476085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_39
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 182
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d352aa9d748b6bf50800000000000000
+      internalID: 6896902498098488637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_40
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 182
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af17a216167eb3790800000000000000
+      internalID: -7549185944928488966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_41
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 182
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852d9b9f3a20afd70800000000000000
+      internalID: 9077570902211285592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_42
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 182
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff911ee939f4cd30800000000000000
+      internalID: 4450956358951477237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_43
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 182
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d7f636bb15eb2e0800000000000000
+      internalID: -2108157710293828303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_44
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 182
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c3cdb7bdb3b2010800000000000000
+      internalID: 1165090742467312795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_45
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 182
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb66eb8597790dc0800000000000000
+      internalID: -3672272536962962457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_46
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 182
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f4099fd2e2f58f0800000000000000
+      internalID: -549669854520520904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_47
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 152
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f67713d9a4e3b3960800000000000000
+      internalID: 7582722887794128751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 102
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a4038ce4a569560800000000000000
+      internalID: 7320137538749876792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_49
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 102
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c43f64641804500800000000000000
+      internalID: 378444507537165394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_50
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 102
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bcb87aff99ea050800000000000000
+      internalID: 5813753492288555819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_51
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 102
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff41cf9131836ea90800000000000000
+      internalID: -7285073692533713665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_52
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 93
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ff58aac6fc918b0800000000000000
+      internalID: -5180881830688718950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_53
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 102
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46beb26725d503a70800000000000000
+      internalID: 8804639880260610916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_54
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 102
+        width: 45
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26839c909f4c2f870800000000000000
+      internalID: 8715244802805413986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_55
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 102
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a69c0eef4ddf72d0800000000000000
+      internalID: -3278658668336474464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_56
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 102
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48af5f566a979a310800000000000000
+      internalID: 1416797313366882948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_57
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 102
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7633a4f2d222b87d0800000000000000
+      internalID: -2915198756329999513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_58
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 51
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f700e9d995094eca0800000000000000
+      internalID: -5988502889925050241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_59
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 51
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce22bdbf9e9425d0800000000000000
+      internalID: -3088169035549757756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_60
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 51
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0d2fad0941120d0800000000000000
+      internalID: -3449453227207896863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_61
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 88
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f6ebdfe7990ae300800000000000000
+      internalID: 282048474832955127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_62
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 51
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a06839c22ac32370800000000000000
+      internalID: 8296697189300199588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_63
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 51
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2335f4de6b489cf0800000000000000
+      internalID: -245363240300367061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_64
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 51
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d651519ffaa0d70800000000000000
+      internalID: 9010207488843541897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_65
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 51
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67230f08a3602810800000000000000
+      internalID: 1738499029622531948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_66
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 51
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f71c1e45f468640800000000000000
+      internalID: 5081836455517585177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_67
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 51
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c6a10ecbe8f0360800000000000000
+      internalID: 7138080876270349314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_68
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 51
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa6e54b2576b5a2f0800000000000000
+      internalID: -962162331020302678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_69
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072b0c33d979964e0800000000000000
+      internalID: -1987891059073437072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_70
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b505901f1237b00800000000000000
+      internalID: 825040475866028943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_71
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8e126332a695ca0800000000000000
+      internalID: -6027669926794106682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_72
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 0
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb29e41e0cf28590800000000000000
+      internalID: -7673293677675336737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_73
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0412f1d06c2e580800000000000000
+      internalID: -8799252962269380373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_74
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1465856fa4b2276a0800000000000000
+      internalID: -6453047715107940799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_75
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38abfbb9093e08090800000000000000
+      internalID: -8034171525001135485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_76
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f444ead652690e4d0800000000000000
+      internalID: -3107318655387548593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_77
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1eb38e6dc60f3870800000000000000
+      internalID: 8664651687476313626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_78
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 0
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf14341f68895e00800000000000000
+      internalID: 1034007600119947196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_79
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f0899b5ef7461e90800000000000000
+      internalID: -7055372608445251337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemyRifle_80
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 0
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5130de75cf98a90800000000000000
+      internalID: -7311035065490532909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      enemyRifle_0: 8651585817623419034
+      enemyRifle_1: 4009057109040237973
+      enemyRifle_10: 973287120278553425
+      enemyRifle_11: -1444178019313586862
+      enemyRifle_12: -4078935693158865130
+      enemyRifle_13: 3733560818908383764
+      enemyRifle_14: 4777541939704605222
+      enemyRifle_15: 3969700881765545430
+      enemyRifle_16: -8034076666740816828
+      enemyRifle_17: 4608687026045259123
+      enemyRifle_18: 3081689916399090054
+      enemyRifle_19: -6787754446803076328
+      enemyRifle_2: -5821838187883103914
+      enemyRifle_20: 2738080551808808145
+      enemyRifle_21: -5238994500182762861
+      enemyRifle_22: 3532933264661275817
+      enemyRifle_23: -7760997248179130581
+      enemyRifle_24: -8991140986020305740
+      enemyRifle_25: -5879840429616963940
+      enemyRifle_26: 8998262259558128830
+      enemyRifle_27: 3400485780172723582
+      enemyRifle_28: -3268894592554178882
+      enemyRifle_29: -7526399902851185541
+      enemyRifle_3: -7205578466363343845
+      enemyRifle_30: -2614002450773325575
+      enemyRifle_31: 6177088039592850666
+      enemyRifle_32: -5460709898111803816
+      enemyRifle_33: 6398799397319580587
+      enemyRifle_34: 4858937445780724021
+      enemyRifle_35: -5905315146478874149
+      enemyRifle_36: 8065474302573267813
+      enemyRifle_37: 5998438103266769587
+      enemyRifle_38: -6426519480206476085
+      enemyRifle_39: 6896902498098488637
+      enemyRifle_4: -7231823767005098524
+      enemyRifle_40: -7549185944928488966
+      enemyRifle_41: 9077570902211285592
+      enemyRifle_42: 4450956358951477237
+      enemyRifle_43: -2108157710293828303
+      enemyRifle_44: 1165090742467312795
+      enemyRifle_45: -3672272536962962457
+      enemyRifle_46: -549669854520520904
+      enemyRifle_47: 7582722887794128751
+      enemyRifle_48: 7320137538749876792
+      enemyRifle_49: 378444507537165394
+      enemyRifle_5: -6157764977516461776
+      enemyRifle_50: 5813753492288555819
+      enemyRifle_51: -7285073692533713665
+      enemyRifle_52: -5180881830688718950
+      enemyRifle_53: 8804639880260610916
+      enemyRifle_54: 8715244802805413986
+      enemyRifle_55: -3278658668336474464
+      enemyRifle_56: 1416797313366882948
+      enemyRifle_57: -2915198756329999513
+      enemyRifle_58: -5988502889925050241
+      enemyRifle_59: -3088169035549757756
+      enemyRifle_6: 7329439232742009911
+      enemyRifle_60: -3449453227207896863
+      enemyRifle_61: 282048474832955127
+      enemyRifle_62: 8296697189300199588
+      enemyRifle_63: -245363240300367061
+      enemyRifle_64: 9010207488843541897
+      enemyRifle_65: 1738499029622531948
+      enemyRifle_66: 5081836455517585177
+      enemyRifle_67: 7138080876270349314
+      enemyRifle_68: -962162331020302678
+      enemyRifle_69: -1987891059073437072
+      enemyRifle_7: 5979561555201604811
+      enemyRifle_70: 825040475866028943
+      enemyRifle_71: -6027669926794106682
+      enemyRifle_72: -7673293677675336737
+      enemyRifle_73: -8799252962269380373
+      enemyRifle_74: -6453047715107940799
+      enemyRifle_75: -8034171525001135485
+      enemyRifle_76: -3107318655387548593
+      enemyRifle_77: 8664651687476313626
+      enemyRifle_78: 1034007600119947196
+      enemyRifle_79: -7055372608445251337
+      enemyRifle_8: -2344945117024041509
+      enemyRifle_80: -7311035065490532909
+      enemyRifle_9: 7773675831865670167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

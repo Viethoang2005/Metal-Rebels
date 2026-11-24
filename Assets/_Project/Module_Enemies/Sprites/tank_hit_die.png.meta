@@ -1,0 +1,1185 @@
+fileFormatVersion: 2
+guid: 342c32f029cccb54296b89d5312ef979
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 402506681041177858
+    second: tank_hit_die_0
+  - first:
+      213: 882985161358939092
+    second: tank_hit_die_1
+  - first:
+      213: -2376424357877318460
+    second: tank_hit_die_2
+  - first:
+      213: -5070780414895231511
+    second: tank_hit_die_3
+  - first:
+      213: 4812719358770476372
+    second: tank_hit_die_4
+  - first:
+      213: 6965067474796687319
+    second: tank_hit_die_5
+  - first:
+      213: 6122708559318317094
+    second: tank_hit_die_6
+  - first:
+      213: -7565403353514809474
+    second: tank_hit_die_7
+  - first:
+      213: -7914664208148243196
+    second: tank_hit_die_8
+  - first:
+      213: -855125449133537365
+    second: tank_hit_die_9
+  - first:
+      213: 6087790567151997780
+    second: tank_hit_die_10
+  - first:
+      213: 8448386719382644895
+    second: tank_hit_die_11
+  - first:
+      213: -1703928190771449092
+    second: tank_hit_die_12
+  - first:
+      213: -5723952386056050236
+    second: tank_hit_die_13
+  - first:
+      213: -7333981929326504919
+    second: tank_hit_die_14
+  - first:
+      213: -5107594835794854313
+    second: tank_hit_die_15
+  - first:
+      213: -1240700533132451186
+    second: tank_hit_die_16
+  - first:
+      213: -8078035191241490987
+    second: tank_hit_die_17
+  - first:
+      213: -4723757955697613069
+    second: tank_hit_die_18
+  - first:
+      213: 4541873216035751471
+    second: tank_hit_die_19
+  - first:
+      213: -4904635478490078118
+    second: tank_hit_die_20
+  - first:
+      213: 6598206152038795925
+    second: tank_hit_die_21
+  - first:
+      213: 9002843763792762657
+    second: tank_hit_die_22
+  - first:
+      213: -5613221578614334539
+    second: tank_hit_die_23
+  - first:
+      213: 3243323381162679796
+    second: tank_hit_die_24
+  - first:
+      213: 2828775592671861960
+    second: tank_hit_die_25
+  - first:
+      213: -6279771697094661195
+    second: tank_hit_die_26
+  - first:
+      213: -3141653802832985822
+    second: tank_hit_die_27
+  - first:
+      213: 8074957289627426514
+    second: tank_hit_die_28
+  - first:
+      213: -1985053888682903121
+    second: tank_hit_die_29
+  - first:
+      213: -5152632186526615807
+    second: tank_hit_die_30
+  - first:
+      213: 1637180597908280489
+    second: tank_hit_die_31
+  - first:
+      213: 2928929374723851791
+    second: tank_hit_die_32
+  - first:
+      213: -5202969042890062528
+    second: tank_hit_die_33
+  - first:
+      213: -8426899384975998893
+    second: tank_hit_die_34
+  - first:
+      213: -6433792079950944219
+    second: tank_hit_die_35
+  - first:
+      213: 5514091330392591367
+    second: tank_hit_die_36
+  - first:
+      213: -1871478562484345419
+    second: tank_hit_die_37
+  - first:
+      213: 4530077988835667454
+    second: tank_hit_die_38
+  - first:
+      213: 1557377639040296788
+    second: tank_hit_die_39
+  - first:
+      213: -356819623624825909
+    second: tank_hit_die_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tank_hit_die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 217
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d4e2f91bdf59500800000000000000
+      internalID: 402506681041177858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 217
+        width: 78
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d39db4735ef04c00800000000000000
+      internalID: 882985161358939092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 217
+        width: 85
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccf22923ae350fd0800000000000000
+      internalID: -2376424357877318460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_3
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 217
+        width: 78
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed692c2418f0a9b0800000000000000
+      internalID: -5070780414895231511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_4
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 264
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455f82702c63ac240800000000000000
+      internalID: 4812719358770476372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_5
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 254
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df22ef37f3e8a060800000000000000
+      internalID: 6965067474796687319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_6
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 217
+        width: 81
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6287965cefa38f450800000000000000
+      internalID: 6122708559318317094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 255
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e776333bbb9420790800000000000000
+      internalID: -7565403353514809474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 217
+        width: 80
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d53dc16d6792290800000000000000
+      internalID: -7914664208148243196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_9
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 217
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7cff54febf124f0800000000000000
+      internalID: -855125449133537365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_10
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 217
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 453911e244d2c7450800000000000000
+      internalID: 6087790567151997780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 217
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f982ee5b5f2be3570800000000000000
+      internalID: 8448386719382644895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_12
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 217
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf23b4a965e6a58e0800000000000000
+      internalID: -1703928190771449092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_13
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 217
+        width: 64
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c921e5b1af6090b0800000000000000
+      internalID: -5723952386056050236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_14
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 217
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9241c59da46783a90800000000000000
+      internalID: -7333981929326504919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_15
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 217
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ef3dbde8d2e19b0800000000000000
+      internalID: -5107594835794854313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_16
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 249
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82a00a407528cee0800000000000000
+      internalID: -1240700533132451186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_17
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 252
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd32f6facd05ef80800000000000000
+      internalID: -8078035191241490987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_18
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 231
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f6e7b5ba27d17eb0800000000000000
+      internalID: -4723757955697613069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_19
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 230
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f260ca840a9f70f30800000000000000
+      internalID: 4541873216035751471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_20
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 238
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5422d7a40c3febb0800000000000000
+      internalID: -4904635478490078118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ac1175989819b50800000000000000
+      internalID: 6598206152038795925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_22
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 148
+        width: 64
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127553d34b680fc70800000000000000
+      internalID: 9002843763792762657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_23
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 148
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb9221e6b4d912b0800000000000000
+      internalID: -5613221578614334539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd9be96e69920d20800000000000000
+      internalID: 3243323381162679796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_25
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 66
+        width: 62
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc508ef964d14720800000000000000
+      internalID: 2828775592671861960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_26
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 108
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbee14c9e4c9d8a0800000000000000
+      internalID: -6279771697094661195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_27
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 115
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22182e2f28a9664d0800000000000000
+      internalID: -3141653802832985822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_28
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 120
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de91b83fd2001070800000000000000
+      internalID: 8074957289627426514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_29
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 66
+        width: 67
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa93c09610ca374e0800000000000000
+      internalID: -1985053888682903121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_30
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 124
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10736df735c2e78b0800000000000000
+      internalID: -5152632186526615807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_31
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 120
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a41c73641f68b610800000000000000
+      internalID: 1637180597908280489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_32
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 112
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f064f988fb5a5a820800000000000000
+      internalID: 2928929374723851791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_33
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 66
+        width: 74
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0450f25d8375bc7b0800000000000000
+      internalID: -5202969042890062528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_34
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 66
+        width: 69
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3504c8038a3ad0b80800000000000000
+      internalID: -8426899384975998893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_35
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 66
+        width: 66
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5286dc3e03496b6a0800000000000000
+      internalID: -6433792079950944219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_36
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 97
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c8c1f99dcf58c40800000000000000
+      internalID: 5514091330392591367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 68
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b5ac56b92c2706e0800000000000000
+      internalID: -1871478562484345419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_38
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efdad51fde11ede30800000000000000
+      internalID: 4530077988835667454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_39
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457222c16baec9510800000000000000
+      internalID: 1557377639040296788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_hit_die_40
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc324fc51725c0bf0800000000000000
+      internalID: -356819623624825909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tank_hit_die_0: 402506681041177858
+      tank_hit_die_1: 882985161358939092
+      tank_hit_die_10: 6087790567151997780
+      tank_hit_die_11: 8448386719382644895
+      tank_hit_die_12: -1703928190771449092
+      tank_hit_die_13: -5723952386056050236
+      tank_hit_die_14: -7333981929326504919
+      tank_hit_die_15: -5107594835794854313
+      tank_hit_die_16: -1240700533132451186
+      tank_hit_die_17: -8078035191241490987
+      tank_hit_die_18: -4723757955697613069
+      tank_hit_die_19: 4541873216035751471
+      tank_hit_die_2: -2376424357877318460
+      tank_hit_die_20: -4904635478490078118
+      tank_hit_die_21: 6598206152038795925
+      tank_hit_die_22: 9002843763792762657
+      tank_hit_die_23: -5613221578614334539
+      tank_hit_die_24: 3243323381162679796
+      tank_hit_die_25: 2828775592671861960
+      tank_hit_die_26: -6279771697094661195
+      tank_hit_die_27: -3141653802832985822
+      tank_hit_die_28: 8074957289627426514
+      tank_hit_die_29: -1985053888682903121
+      tank_hit_die_3: -5070780414895231511
+      tank_hit_die_30: -5152632186526615807
+      tank_hit_die_31: 1637180597908280489
+      tank_hit_die_32: 2928929374723851791
+      tank_hit_die_33: -5202969042890062528
+      tank_hit_die_34: -8426899384975998893
+      tank_hit_die_35: -6433792079950944219
+      tank_hit_die_36: 5514091330392591367
+      tank_hit_die_37: -1871478562484345419
+      tank_hit_die_38: 4530077988835667454
+      tank_hit_die_39: 1557377639040296788
+      tank_hit_die_4: 4812719358770476372
+      tank_hit_die_40: -356819623624825909
+      tank_hit_die_5: 6965067474796687319
+      tank_hit_die_6: 6122708559318317094
+      tank_hit_die_7: -7565403353514809474
+      tank_hit_die_8: -7914664208148243196
+      tank_hit_die_9: -855125449133537365
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

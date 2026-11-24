@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BossController : MonoBehaviour
-{
-   [RequireComponent(typeof(EnemyHealth))]
+[RequireComponent(typeof(EnemyHealth))]
 public class BossController : MonoBehaviour
 {
     public bool isPhase2 = false;

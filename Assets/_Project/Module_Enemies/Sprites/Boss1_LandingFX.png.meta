@@ -1,0 +1,913 @@
+fileFormatVersion: 2
+guid: 548ba35d14e01ba41af013e8ce69fab4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5396031783086026550
+    second: Boss1_LandingFX_0
+  - first:
+      213: 7503065240076279607
+    second: Boss1_LandingFX_1
+  - first:
+      213: -8529958767044811200
+    second: Boss1_LandingFX_2
+  - first:
+      213: 5004444014494304930
+    second: Boss1_LandingFX_3
+  - first:
+      213: -6579789579052244844
+    second: Boss1_LandingFX_4
+  - first:
+      213: -7731856486358135017
+    second: Boss1_LandingFX_5
+  - first:
+      213: -1327521848608733436
+    second: Boss1_LandingFX_6
+  - first:
+      213: 1560264467404511084
+    second: Boss1_LandingFX_7
+  - first:
+      213: -7764713917099915796
+    second: Boss1_LandingFX_8
+  - first:
+      213: 4724778014640752895
+    second: Boss1_LandingFX_9
+  - first:
+      213: 5714980080916116277
+    second: Boss1_LandingFX_10
+  - first:
+      213: -2739280250854961670
+    second: Boss1_LandingFX_11
+  - first:
+      213: -928185730464013638
+    second: Boss1_LandingFX_12
+  - first:
+      213: 2318958122437773311
+    second: Boss1_LandingFX_13
+  - first:
+      213: 1159814925319203228
+    second: Boss1_LandingFX_14
+  - first:
+      213: 2048587398664576180
+    second: Boss1_LandingFX_15
+  - first:
+      213: 2182033562576412350
+    second: Boss1_LandingFX_16
+  - first:
+      213: 8077751359168592041
+    second: Boss1_LandingFX_17
+  - first:
+      213: -4142721055936338113
+    second: Boss1_LandingFX_18
+  - first:
+      213: 1879018210161272647
+    second: Boss1_LandingFX_19
+  - first:
+      213: 3345244975731591180
+    second: Boss1_LandingFX_20
+  - first:
+      213: 2040355130596761133
+    second: Boss1_LandingFX_21
+  - first:
+      213: -8322848821071667178
+    second: Boss1_LandingFX_22
+  - first:
+      213: -5070027916566547677
+    second: Boss1_LandingFX_23
+  - first:
+      213: -3503901452573939063
+    second: Boss1_LandingFX_24
+  - first:
+      213: 1288461604249962071
+    second: Boss1_LandingFX_25
+  - first:
+      213: -5496811789426055340
+    second: Boss1_LandingFX_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss1_LandingFX_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 94
+        width: 18
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac09074cea17d15b0800000000000000
+      internalID: -5396031783086026550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 85
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73fd359351e302860800000000000000
+      internalID: 7503065240076279607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 82
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046a09de1bf7f9980800000000000000
+      internalID: -8529958767044811200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_3
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 93
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa4346015b537540800000000000000
+      internalID: 5004444014494304930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 85
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49026c33d34efa4a0800000000000000
+      internalID: -6579789579052244844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_5
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 80
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fc254ad7de2b490800000000000000
+      internalID: -7731856486358135017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 51
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4074b1689e1b39de0800000000000000
+      internalID: -1327521848608733436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 42
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c675f47344c27a510800000000000000
+      internalID: 1560264467404511084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_8
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 41
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce54ab4e4d13e3490800000000000000
+      internalID: -7764713917099915796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 28
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8cc354298c19140800000000000000
+      internalID: 4724778014640752895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_10
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 28
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5333075ba10bf4f40800000000000000
+      internalID: 5714980080916116277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_11
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 28
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd0c8b002f1cf9d0800000000000000
+      internalID: -2739280250854961670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 28
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab22b12fefb6e13f0800000000000000
+      internalID: -928185730464013638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_00
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 9
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff709e040289e2020800000000000000
+      internalID: 2318958122437773311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_01
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 6
+        width: 36
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99e8d4978d781010800000000000000
+      internalID: 1159814925319203228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_02
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 5
+        width: 49
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc5ebc926b0e6c10800000000000000
+      internalID: 2048587398664576180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_16
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 7
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebed859d6f3284e10800000000000000
+      internalID: 2182033562576412350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 16
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a83c2b3010f91070800000000000000
+      internalID: 8077751359168592041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_18
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 4
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37226116291286c0800000000000000
+      internalID: -4142721055936338113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 17
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747272f4b1d931a10800000000000000
+      internalID: 1879018210161272647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_20
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 8
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c084421e492bc6e20800000000000000
+      internalID: 3345244975731591180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_21
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 3
+        width: 43
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e9dd65e2cc05c10800000000000000
+      internalID: 2040355130596761133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_22
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 2
+        width: 69
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610aeb4f71d4f7c80800000000000000
+      internalID: -8322848821071667178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_23
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 7
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323bcb7d874a3a9b0800000000000000
+      internalID: -5070027916566547677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_24
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 4
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98aea5f7134af5fc0800000000000000
+      internalID: -3503901452573939063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_25
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 4
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7568c04a00981e110800000000000000
+      internalID: 1288461604249962071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_26
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 6
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457a4160dc667b3b0800000000000000
+      internalID: -5496811789426055340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_27
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 32
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b4f32ff97f8214fb54896665520b3f
+      internalID: 638983697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_03
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 3
+        width: 55
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a03e4a910a87fc488905eb5b0abb82c
+      internalID: 1089927673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_04
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2
+        width: 60
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6aeed5f3a310947a5c83a2fed0fe54
+      internalID: -845169642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1_LandingFX_05
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 62
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731286fc5601e2b46948d6be38be1be8
+      internalID: 975745347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2f9c34007cbb38e4cbc85fc6d3865f4c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss1_LandingFX_0: -5396031783086026550
+      Boss1_LandingFX_00: 2318958122437773311
+      Boss1_LandingFX_01: 1159814925319203228
+      Boss1_LandingFX_02: 2048587398664576180
+      Boss1_LandingFX_03: 1089927673
+      Boss1_LandingFX_04: -845169642
+      Boss1_LandingFX_05: 975745347
+      Boss1_LandingFX_1: 7503065240076279607
+      Boss1_LandingFX_10: 5714980080916116277
+      Boss1_LandingFX_11: -2739280250854961670
+      Boss1_LandingFX_12: -928185730464013638
+      Boss1_LandingFX_16: 2182033562576412350
+      Boss1_LandingFX_17: 8077751359168592041
+      Boss1_LandingFX_18: -4142721055936338113
+      Boss1_LandingFX_19: 1879018210161272647
+      Boss1_LandingFX_2: -8529958767044811200
+      Boss1_LandingFX_20: 3345244975731591180
+      Boss1_LandingFX_21: 2040355130596761133
+      Boss1_LandingFX_22: -8322848821071667178
+      Boss1_LandingFX_23: -5070027916566547677
+      Boss1_LandingFX_24: -3503901452573939063
+      Boss1_LandingFX_25: 1288461604249962071
+      Boss1_LandingFX_26: -5496811789426055340
+      Boss1_LandingFX_27: 638983697
+      Boss1_LandingFX_3: 5004444014494304930
+      Boss1_LandingFX_4: -6579789579052244844
+      Boss1_LandingFX_5: -7731856486358135017
+      Boss1_LandingFX_6: -1327521848608733436
+      Boss1_LandingFX_7: 1560264467404511084
+      Boss1_LandingFX_8: -7764713917099915796
+      Boss1_LandingFX_9: 4724778014640752895
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,794 @@
+fileFormatVersion: 2
+guid: 156d6b924c73b2347a1a8ff7938d5def
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5647148933772115930
+    second: Boss2_LaserBeam_0
+  - first:
+      213: -7292104734233398237
+    second: Boss2_LaserBeam_1
+  - first:
+      213: 653742223534461635
+    second: Boss2_LaserBeam_2
+  - first:
+      213: -2626220273581836664
+    second: Boss2_LaserBeam_3
+  - first:
+      213: 7550244222237237679
+    second: Boss2_LaserBeam_4
+  - first:
+      213: 181783623969933241
+    second: Boss2_LaserBeam_5
+  - first:
+      213: 6362127484601552634
+    second: Boss2_LaserBeam_6
+  - first:
+      213: 3031105401870236410
+    second: Boss2_LaserBeam_7
+  - first:
+      213: -5673160287390907995
+    second: Boss2_LaserBeam_8
+  - first:
+      213: 8685809791640322635
+    second: Boss2_LaserBeam_9
+  - first:
+      213: -4089623008447568261
+    second: Boss2_LaserBeam_10
+  - first:
+      213: -7608443086177958765
+    second: Boss2_LaserBeam_11
+  - first:
+      213: 1634430929499376977
+    second: Boss2_LaserBeam_12
+  - first:
+      213: -6210192570982445511
+    second: Boss2_LaserBeam_13
+  - first:
+      213: 2407398072509893542
+    second: Boss2_LaserBeam_14
+  - first:
+      213: 2180258964082580597
+    second: Boss2_LaserBeam_15
+  - first:
+      213: 625959650364994410
+    second: Boss2_LaserBeam_16
+  - first:
+      213: 998103374620995118
+    second: Boss2_LaserBeam_17
+  - first:
+      213: -3570014778880113193
+    second: Boss2_LaserBeam_18
+  - first:
+      213: -4483297552533628795
+    second: Boss2_LaserBeam_19
+  - first:
+      213: -1207555832156001491
+    second: Boss2_LaserBeam_20
+  - first:
+      213: 8509229669962923769
+    second: Boss2_LaserBeam_21
+  - first:
+      213: -6946244434473571819
+    second: Boss2_LaserBeam_22
+  - first:
+      213: -6687724128134083839
+    second: Boss2_LaserBeam_23
+  - first:
+      213: 188285981716898027
+    second: Boss2_LaserBeam_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 150
+        width: 39
+        height: 4
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf763f0904be5e40800000000000000
+      internalID: 5647148933772115930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 147
+        width: 43
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324f213216d3dca90800000000000000
+      internalID: -7292104734233398237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 147
+        width: 43
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c21270b61f821900800000000000000
+      internalID: 653742223534461635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_3
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 97
+        width: 55
+        height: 57
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886b933539acd8bd0800000000000000
+      internalID: -2626220273581836664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 75
+        width: 56
+        height: 79
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa165e10e1bd7c860800000000000000
+      internalID: 7550244222237237679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_5
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 97
+        width: 56
+        height: 57
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b706bc2e33d58200800000000000000
+      internalID: 181783623969933241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 69
+        width: 56
+        height: 85
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afecc6f3d31da4850800000000000000
+      internalID: 6362127484601552634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 55
+        width: 52
+        height: 98
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa3e33bd46a01a20800000000000000
+      internalID: 3031105401870236410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_8
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 0
+        width: 52
+        height: 153
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1463cb6c2e441b0800000000000000
+      internalID: -5673160287390907995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_9
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 15
+        width: 62
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42c4517cf13a8870800000000000000
+      internalID: 8685809791640322635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_10
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 15
+        width: 62
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76e734aa8dbe37c0800000000000000
+      internalID: -4089623008447568261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_11
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 15
+        width: 52
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 394069a0351696690800000000000000
+      internalID: -7608443086177958765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_12
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 15
+        width: 50
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15dc8b2554aaea610800000000000000
+      internalID: 1634430929499376977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_13
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 15
+        width: 50
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e42db72c6f0d9a0800000000000000
+      internalID: -6210192570982445511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_14
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 15
+        width: 50
+        height: 138
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab89e0cacbc86120800000000000000
+      internalID: 2407398072509893542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_15
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 25
+        width: 50
+        height: 128
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57cd080f9f5d14e10800000000000000
+      internalID: 2180258964082580597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_16
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 137
+        width: 88
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63bbbb4cfadfa800800000000000000
+      internalID: 625959650364994410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 114
+        width: 92
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e27652bb9f9dd00800000000000000
+      internalID: 998103374620995118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_18
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5729a13697ce32d458030f34e8e27186
+      internalID: -3570014778880113193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_19
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 107
+        width: 64
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12577378e4bc5184cbdb1d314a25a4be
+      internalID: -4483297552533628795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_20
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 91
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d009c8b4c97e10046a533c36eedb5a60
+      internalID: -1207555832156001491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_21
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 93
+        width: 76
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74e389f97bcc1643962be617ff8c6af
+      internalID: 8509229669962923769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_22
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 87
+        width: 64
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a4ad019845d714eb968e46e176cfb5
+      internalID: -6946244434473571819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_23
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 64
+        width: 92
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14e0482eb2bcbc4d8c3f2d10618b405
+      internalID: -6687724128134083839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_24
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 37
+        width: 96
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03c58a59e1103845a8c5d2f2cdc7c12
+      internalID: 188285981716898027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss2_LaserBeam_25
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 23
+        width: 105
+        height: 135
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dda8b7c88d04345aa4ee3747a0c14c
+      internalID: 1170143646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 67cf3c0dcb6ff5546aeeef16d776f9c4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":54.0,"y":154.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Boss2_LaserBeam_0: 5647148933772115930
+      Boss2_LaserBeam_1: -7292104734233398237
+      Boss2_LaserBeam_10: -4089623008447568261
+      Boss2_LaserBeam_11: -7608443086177958765
+      Boss2_LaserBeam_12: 1634430929499376977
+      Boss2_LaserBeam_13: -6210192570982445511
+      Boss2_LaserBeam_14: 2407398072509893542
+      Boss2_LaserBeam_15: 2180258964082580597
+      Boss2_LaserBeam_16: 625959650364994410
+      Boss2_LaserBeam_17: 998103374620995118
+      Boss2_LaserBeam_18: -3570014778880113193
+      Boss2_LaserBeam_19: -4483297552533628795
+      Boss2_LaserBeam_2: 653742223534461635
+      Boss2_LaserBeam_20: -1207555832156001491
+      Boss2_LaserBeam_21: 8509229669962923769
+      Boss2_LaserBeam_22: -6946244434473571819
+      Boss2_LaserBeam_23: -6687724128134083839
+      Boss2_LaserBeam_24: 188285981716898027
+      Boss2_LaserBeam_25: 1170143646
+      Boss2_LaserBeam_3: -2626220273581836664
+      Boss2_LaserBeam_4: 7550244222237237679
+      Boss2_LaserBeam_5: 181783623969933241
+      Boss2_LaserBeam_6: 6362127484601552634
+      Boss2_LaserBeam_7: 3031105401870236410
+      Boss2_LaserBeam_8: -5673160287390907995
+      Boss2_LaserBeam_9: 8685809791640322635
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

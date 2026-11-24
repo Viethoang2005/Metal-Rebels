@@ -1,0 +1,1004 @@
+fileFormatVersion: 2
+guid: bf98c0c6af0c12643ba206bac1c4a73c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1660404412345531618
+    second: Boss3_GroundExplosion_0
+  - first:
+      213: 5374917565469158018
+    second: Boss3_GroundExplosion_1
+  - first:
+      213: 1043674040904412040
+    second: Boss3_GroundExplosion_2
+  - first:
+      213: 7648812505607869622
+    second: Boss3_GroundExplosion_3
+  - first:
+      213: 1453714386434123457
+    second: Boss3_GroundExplosion_4
+  - first:
+      213: 7725024985384532032
+    second: Boss3_GroundExplosion_5
+  - first:
+      213: 4948826542984474208
+    second: Boss3_GroundExplosion_6
+  - first:
+      213: -5221912126742499194
+    second: Boss3_GroundExplosion_7
+  - first:
+      213: -3486747249604896571
+    second: Boss3_GroundExplosion_8
+  - first:
+      213: 857231454405487074
+    second: Boss3_GroundExplosion_9
+  - first:
+      213: -924200263598947372
+    second: Boss3_GroundExplosion_10
+  - first:
+      213: 4415682631720360112
+    second: Boss3_GroundExplosion_11
+  - first:
+      213: 7354696102826736326
+    second: Boss3_GroundExplosion_12
+  - first:
+      213: -5353620066227216956
+    second: Boss3_GroundExplosion_13
+  - first:
+      213: 6701777998271765521
+    second: Boss3_GroundExplosion_14
+  - first:
+      213: -972064917014923259
+    second: Boss3_GroundExplosion_15
+  - first:
+      213: 5155408916081896677
+    second: Boss3_GroundExplosion_16
+  - first:
+      213: 5774258601657057196
+    second: Boss3_GroundExplosion_17
+  - first:
+      213: -5951330237083260729
+    second: Boss3_GroundExplosion_18
+  - first:
+      213: 6925537884569173992
+    second: Boss3_GroundExplosion_19
+  - first:
+      213: 7933564498318425381
+    second: Boss3_GroundExplosion_20
+  - first:
+      213: 4918946240371925432
+    second: Boss3_GroundExplosion_21
+  - first:
+      213: -5894966578070890755
+    second: Boss3_GroundExplosion_22
+  - first:
+      213: 3581099259987861809
+    second: Boss3_GroundExplosion_23
+  - first:
+      213: -8746906395155884852
+    second: Boss3_GroundExplosion_24
+  - first:
+      213: -1923062558193200038
+    second: Boss3_GroundExplosion_25
+  - first:
+      213: -7835954761252402861
+    second: Boss3_GroundExplosion_26
+  - first:
+      213: -992465479028003538
+    second: Boss3_GroundExplosion_27
+  - first:
+      213: 1622862465594385970
+    second: Boss3_GroundExplosion_28
+  - first:
+      213: 1276409445513498080
+    second: Boss3_GroundExplosion_29
+  - first:
+      213: 5264509712839737484
+    second: Boss3_GroundExplosion_30
+  - first:
+      213: -8418966273991671019
+    second: Boss3_GroundExplosion_31
+  - first:
+      213: -649026644587027210
+    second: Boss3_GroundExplosion_32
+  - first:
+      213: -4084427549493595276
+    second: Boss3_GroundExplosion_33
+  - first:
+      213: -6440137338437959911
+    second: Boss3_GroundExplosion_34
+  - first:
+      213: -1353649292182234554
+    second: Boss3_GroundExplosion_35
+  - first:
+      213: 2566684378714204326
+    second: Boss3_GroundExplosion_36
+  - first:
+      213: 6749311373293631861
+    second: Boss3_GroundExplosion_37
+  - first:
+      213: 8899541403987264558
+    second: Boss3_GroundExplosion_38
+  - first:
+      213: -3979185944397956942
+    second: Boss3_GroundExplosion_39
+  - first:
+      213: 1674125709250285903
+    second: Boss3_GroundExplosion_40
+  - first:
+      213: 8431059486458747439
+    second: Boss3_GroundExplosion_41
+  - first:
+      213: -294769155559822219
+    second: Boss3_GroundExplosion_42
+  - first:
+      213: -55996981933344257
+    second: Boss3_GroundExplosion_43
+  - first:
+      213: 7981201483666691659
+    second: Boss3_GroundExplosion_44
+  - first:
+      213: 7841368110752143722
+    second: Boss3_GroundExplosion_45
+  - first:
+      213: 4357636071780053937
+    second: Boss3_GroundExplosion_46
+  - first:
+      213: -1984307552885324774
+    second: Boss3_GroundExplosion_47
+  - first:
+      213: 1648530531621933082
+    second: Boss3_GroundExplosion_48
+  - first:
+      213: 139241767631353080
+    second: Boss3_GroundExplosion_49
+  - first:
+      213: 2928299117997460449
+    second: Boss3_GroundExplosion_50
+  - first:
+      213: -755530618494455466
+    second: Boss3_GroundExplosion_51
+  - first:
+      213: 4026613899766023069
+    second: Boss3_GroundExplosion_52
+  - first:
+      213: 955973421472644426
+    second: Boss3_GroundExplosion_53
+  - first:
+      213: -2789016799628746043
+    second: Boss3_GroundExplosion_54
+  - first:
+      213: -2881936784971437985
+    second: Boss3_GroundExplosion_55
+  - first:
+      213: -8130449644764904793
+    second: Boss3_GroundExplosion_56
+  - first:
+      213: 3122707395907634744
+    second: Boss3_GroundExplosion_57
+  - first:
+      213: -5252943319528456643
+    second: Boss3_GroundExplosion_58
+  - first:
+      213: 1656879596720501771
+    second: Boss3_GroundExplosion_59
+  - first:
+      213: -5241905223326008373
+    second: Boss3_GroundExplosion_60
+  - first:
+      213: -4442348389872551539
+    second: Boss3_GroundExplosion_61
+  - first:
+      213: -2837069591359054207
+    second: Boss3_GroundExplosion_62
+  - first:
+      213: 2510367976393195440
+    second: Boss3_GroundExplosion_63
+  - first:
+      213: -4374903088110426590
+    second: Boss3_GroundExplosion_64
+  - first:
+      213: -6600308176018494292
+    second: Boss3_GroundExplosion_65
+  - first:
+      213: 4204094581142168580
+    second: Boss3_GroundExplosion_66
+  - first:
+      213: 6252083058235101334
+    second: Boss3_GroundExplosion_67
+  - first:
+      213: -6063448162782186355
+    second: Boss3_GroundExplosion_68
+  - first:
+      213: -5050035524230280941
+    second: Boss3_GroundExplosion_69
+  - first:
+      213: 3327480156382464475
+    second: Boss3_GroundExplosion_70
+  - first:
+      213: -319399986733212291
+    second: Boss3_GroundExplosion_71
+  - first:
+      213: 7771084521209881097
+    second: Boss3_GroundExplosion_72
+  - first:
+      213: -6327443272933604708
+    second: Boss3_GroundExplosion_73
+  - first:
+      213: 7241960017648504248
+    second: Boss3_GroundExplosion_74
+  - first:
+      213: 1006157240695656103
+    second: Boss3_GroundExplosion_75
+  - first:
+      213: 4751212064064258995
+    second: Boss3_GroundExplosion_76
+  - first:
+      213: 8572867090185098808
+    second: Boss3_GroundExplosion_77
+  - first:
+      213: 3197233447456689042
+    second: Boss3_GroundExplosion_78
+  - first:
+      213: -7440466730060635280
+    second: Boss3_GroundExplosion_79
+  - first:
+      213: 5078565115874683551
+    second: Boss3_GroundExplosion_80
+  - first:
+      213: 8241209532888416588
+    second: Boss3_GroundExplosion_81
+  - first:
+      213: -7676410298836352124
+    second: Boss3_GroundExplosion_82
+  - first:
+      213: -5419667563688099379
+    second: Boss3_GroundExplosion_83
+  - first:
+      213: 7832570595969302609
+    second: Boss3_GroundExplosion_84
+  - first:
+      213: 4492278283193062819
+    second: Boss3_GroundExplosion_85
+  - first:
+      213: 5544616429261115206
+    second: Boss3_GroundExplosion_86
+  - first:
+      213: 4578944953018356176
+    second: Boss3_GroundExplosion_87
+  - first:
+      213: 2712220800936088999
+    second: Boss3_GroundExplosion_88
+  - first:
+      213: 172774307500591985
+    second: Boss3_GroundExplosion_89
+  - first:
+      213: -8288712173974728521
+    second: Boss3_GroundExplosion_90
+  - first:
+      213: -939232135716263058
+    second: Boss3_GroundExplosion_91
+  - first:
+      213: 7715002442665893131
+    second: Boss3_GroundExplosion_92
+  - first:
+      213: -6289718576338905520
+    second: Boss3_GroundExplosion_93
+  - first:
+      213: -6863449258883934115
+    second: Boss3_GroundExplosion_94
+  - first:
+      213: -7154134196110324651
+    second: Boss3_GroundExplosion_95
+  - first:
+      213: -8208855818736265203
+    second: Boss3_GroundExplosion_96
+  - first:
+      213: 6019579515064240951
+    second: Boss3_GroundExplosion_97
+  - first:
+      213: -7400581530496668093
+    second: Boss3_GroundExplosion_98
+  - first:
+      213: -4381006281720843014
+    second: Boss3_GroundExplosion_99
+  - first:
+      213: 2170136765943699943
+    second: Boss3_GroundExplosion_100
+  - first:
+      213: -2501029549274963941
+    second: Boss3_GroundExplosion_101
+  - first:
+      213: -3115858759456872081
+    second: Boss3_GroundExplosion_102
+  - first:
+      213: 8390746587774209888
+    second: Boss3_GroundExplosion_103
+  - first:
+      213: -2696115792136686573
+    second: Boss3_GroundExplosion_104
+  - first:
+      213: -1691890329054902348
+    second: Boss3_GroundExplosion_105
+  - first:
+      213: -9021406155850855273
+    second: Boss3_GroundExplosion_106
+  - first:
+      213: -6129353862301528893
+    second: Boss3_GroundExplosion_107
+  - first:
+      213: -5764422471216269237
+    second: Boss3_GroundExplosion_108
+  - first:
+      213: -7667049615358845748
+    second: Boss3_GroundExplosion_109
+  - first:
+      213: 2535025105110712166
+    second: Boss3_GroundExplosion_110
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 9
+        width: 81
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1347a2fbfe05f8e0800000000000000
+      internalID: -1660404412345531618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 19
+        width: 68
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28aebca5c0b879a40800000000000000
+      internalID: 5374917565469158018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 21
+        width: 82
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88b6765b200eb7e00800000000000000
+      internalID: 1043674040904412040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_3
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 23
+        width: 101
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4925ed27a062a60800000000000000
+      internalID: 7648812505607869622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_4
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 23
+        width: 115
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6e7484881ac2410800000000000000
+      internalID: 1453714386434123457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_5
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 18
+        width: 121
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048bcd69b4dc43b60800000000000000
+      internalID: 7725024985384532032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_6
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 14
+        width: 126
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e2d955583cda440800000000000000
+      internalID: 4948826542984474208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 16
+        width: 131
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 680753d669a0887b0800000000000000
+      internalID: -5221912126742499194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_8
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 19
+        width: 133
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8dabd99d59c9fc0800000000000000
+      internalID: -3486747249604896571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_9
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 18
+        width: 134
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9612a477f75eb00800000000000000
+      internalID: 857231454405487074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_10
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 17
+        width: 134
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3ccd2c1c49c23f0800000000000000
+      internalID: -924200263598947372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_11
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 17
+        width: 127
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b8dd8055f7a74d30800000000000000
+      internalID: 4415682631720360112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_12
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 17
+        width: 135
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6caffef7321211660800000000000000
+      internalID: 7354696102826736326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_13
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 22
+        width: 134
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd9f1a1aee14b5b0800000000000000
+      internalID: -5353620066227216956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_14
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 22
+        width: 133
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c5486f49f710d50800000000000000
+      internalID: 6701777998271765521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_15
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 21
+        width: 132
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508b4b2bb188282f0800000000000000
+      internalID: -972064917014923259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_16
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 21
+        width: 138
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec61fa3811bb8740800000000000000
+      internalID: 5155408916081896677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_17
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 20
+        width: 132
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf3309da99422050800000000000000
+      internalID: 5774258601657057196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_18
+      rect:
+        serializedVersion: 2
+        x: 2162
+        y: 22
+        width: 129
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c86c9d4ea0a86da0800000000000000
+      internalID: -5951330237083260729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss3_GroundExplosion_19
+      rect:
+        serializedVersion: 2
+        x: 2291
+        y: 15
+        width: 142
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef714053047c1060800000000000000
+      internalID: 6925537884569173992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2ce4666fa919b3746aaaffc2404b7c00
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss3_GroundExplosion_0: -1660404412345531618
+      Boss3_GroundExplosion_00: -1691890329054902348
+      Boss3_GroundExplosion_01: -7667049615358845748
+      Boss3_GroundExplosion_1: 5374917565469158018
+      Boss3_GroundExplosion_10: -924200263598947372
+      Boss3_GroundExplosion_100: 2170136765943699943
+      Boss3_GroundExplosion_101: -2501029549274963941
+      Boss3_GroundExplosion_102: -3115858759456872081
+      Boss3_GroundExplosion_103: 8390746587774209888
+      Boss3_GroundExplosion_104: -2696115792136686573
+      Boss3_GroundExplosion_105: 1541982504
+      Boss3_GroundExplosion_106: -9021406155850855273
+      Boss3_GroundExplosion_107: -6129353862301528893
+      Boss3_GroundExplosion_108: -5764422471216269237
+      Boss3_GroundExplosion_11: 4415682631720360112
+      Boss3_GroundExplosion_110: 2535025105110712166
+      Boss3_GroundExplosion_12: 7354696102826736326
+      Boss3_GroundExplosion_13: -5353620066227216956
+      Boss3_GroundExplosion_14: 6701777998271765521
+      Boss3_GroundExplosion_15: -972064917014923259
+      Boss3_GroundExplosion_16: 5155408916081896677
+      Boss3_GroundExplosion_17: 5774258601657057196
+      Boss3_GroundExplosion_18: -5951330237083260729
+      Boss3_GroundExplosion_19: 6925537884569173992
+      Boss3_GroundExplosion_2: 1043674040904412040
+      Boss3_GroundExplosion_20: 7933564498318425381
+      Boss3_GroundExplosion_21: 4918946240371925432
+      Boss3_GroundExplosion_22: -5894966578070890755
+      Boss3_GroundExplosion_23: 3581099259987861809
+      Boss3_GroundExplosion_24: -8746906395155884852
+      Boss3_GroundExplosion_25: -1923062558193200038
+      Boss3_GroundExplosion_26: -7835954761252402861
+      Boss3_GroundExplosion_27: -992465479028003538
+      Boss3_GroundExplosion_28: 1622862465594385970
+      Boss3_GroundExplosion_29: 1276409445513498080
+      Boss3_GroundExplosion_3: 7648812505607869622
+      Boss3_GroundExplosion_30: 5264509712839737484
+      Boss3_GroundExplosion_31: -8418966273991671019
+      Boss3_GroundExplosion_32: -649026644587027210
+      Boss3_GroundExplosion_33: -4084427549493595276
+      Boss3_GroundExplosion_34: -6440137338437959911
+      Boss3_GroundExplosion_35: -1353649292182234554
+      Boss3_GroundExplosion_36: 2566684378714204326
+      Boss3_GroundExplosion_37: 6749311373293631861
+      Boss3_GroundExplosion_38: 8899541403987264558
+      Boss3_GroundExplosion_39: -3979185944397956942
+      Boss3_GroundExplosion_4: 1453714386434123457
+      Boss3_GroundExplosion_40: 1674125709250285903
+      Boss3_GroundExplosion_41: 8431059486458747439
+      Boss3_GroundExplosion_42: -294769155559822219
+      Boss3_GroundExplosion_43: -55996981933344257
+      Boss3_GroundExplosion_44: 7981201483666691659
+      Boss3_GroundExplosion_45: 7841368110752143722
+      Boss3_GroundExplosion_46: 4357636071780053937
+      Boss3_GroundExplosion_47: -1984307552885324774
+      Boss3_GroundExplosion_48: 1648530531621933082
+      Boss3_GroundExplosion_49: 139241767631353080
+      Boss3_GroundExplosion_5: 7725024985384532032
+      Boss3_GroundExplosion_50: 2928299117997460449
+      Boss3_GroundExplosion_51: -755530618494455466
+      Boss3_GroundExplosion_52: 4026613899766023069
+      Boss3_GroundExplosion_53: 955973421472644426
+      Boss3_GroundExplosion_54: -2789016799628746043
+      Boss3_GroundExplosion_55: -2881936784971437985
+      Boss3_GroundExplosion_56: -8130449644764904793
+      Boss3_GroundExplosion_57: 3122707395907634744
+      Boss3_GroundExplosion_58: -5252943319528456643
+      Boss3_GroundExplosion_59: 1656879596720501771
+      Boss3_GroundExplosion_6: 4948826542984474208
+      Boss3_GroundExplosion_60: -5241905223326008373
+      Boss3_GroundExplosion_61: -4442348389872551539
+      Boss3_GroundExplosion_62: -2837069591359054207
+      Boss3_GroundExplosion_63: 2510367976393195440
+      Boss3_GroundExplosion_64: -4374903088110426590
+      Boss3_GroundExplosion_65: -6600308176018494292
+      Boss3_GroundExplosion_66: 4204094581142168580
+      Boss3_GroundExplosion_67: 6252083058235101334
+      Boss3_GroundExplosion_68: -6063448162782186355
+      Boss3_GroundExplosion_69: -5050035524230280941
+      Boss3_GroundExplosion_7: -5221912126742499194
+      Boss3_GroundExplosion_70: 3327480156382464475
+      Boss3_GroundExplosion_71: -319399986733212291
+      Boss3_GroundExplosion_72: 7771084521209881097
+      Boss3_GroundExplosion_73: -6327443272933604708
+      Boss3_GroundExplosion_74: 7241960017648504248
+      Boss3_GroundExplosion_75: 1006157240695656103
+      Boss3_GroundExplosion_76: 4751212064064258995
+      Boss3_GroundExplosion_77: 8572867090185098808
+      Boss3_GroundExplosion_78: 3197233447456689042
+      Boss3_GroundExplosion_79: -7440466730060635280
+      Boss3_GroundExplosion_8: -3486747249604896571
+      Boss3_GroundExplosion_80: 5078565115874683551
+      Boss3_GroundExplosion_81: 8241209532888416588
+      Boss3_GroundExplosion_82: -7676410298836352124
+      Boss3_GroundExplosion_83: -5419667563688099379
+      Boss3_GroundExplosion_84: 7832570595969302609
+      Boss3_GroundExplosion_85: 4492278283193062819
+      Boss3_GroundExplosion_86: 5544616429261115206
+      Boss3_GroundExplosion_87: 4578944953018356176
+      Boss3_GroundExplosion_88: 2712220800936088999
+      Boss3_GroundExplosion_89: 172774307500591985
+      Boss3_GroundExplosion_9: 857231454405487074
+      Boss3_GroundExplosion_90: -8288712173974728521
+      Boss3_GroundExplosion_91: -939232135716263058
+      Boss3_GroundExplosion_92: 7715002442665893131
+      Boss3_GroundExplosion_93: -6289718576338905520
+      Boss3_GroundExplosion_94: -6863449258883934115
+      Boss3_GroundExplosion_95: -7154134196110324651
+      Boss3_GroundExplosion_96: -8208855818736265203
+      Boss3_GroundExplosion_97: 6019579515064240951
+      Boss3_GroundExplosion_98: -7400581530496668093
+      Boss3_GroundExplosion_99: -4381006281720843014
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
