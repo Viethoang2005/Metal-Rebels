@@ -5,8 +5,10 @@ using MetalRebels.Core.Data;
 using MetalRebels.Player;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace MetalRebels.Player.EditorTools
 {
@@ -60,6 +62,7 @@ namespace MetalRebels.Player.EditorTools
 
             CreatePlayerPrefab(pistol, shotgun, rifle, rocket, grenadePrefab, explosionPrefab, grenadeSprite, bulletSprite);
             CreatePickupPrefabs(shotgun, rifle, rocket);
+            EnsureSandboxTestObjects();
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -133,12 +136,8 @@ namespace MetalRebels.Player.EditorTools
             if (playerPrefab != null)
             {
                 GameObject playerInstance = (GameObject)PrefabUtility.InstantiatePrefab(playerPrefab);
-                playerInstance.transform.position = new Vector3(-8f, 0.5f, 0f);
+                playerInstance.transform.position = new Vector3(-8f, 0f, 0f);
             }
-
-            // 8. Debug HUD
-            GameObject hudObj = new GameObject("PlayerDebugHUD");
-            hudObj.AddComponent<PlayerDebugHUD>();
 
             EditorSceneManager.SaveScene(newScene, SandboxScenePath);
             AssetDatabase.Refresh();
@@ -152,10 +151,7 @@ namespace MetalRebels.Player.EditorTools
             const string enemyName = "Enemy_WeaponDamage_Test";
             GameObject existingEnemy = GameObject.Find(enemyName);
             bool created = existingEnemy == null;
-            PlayerController player = Object.FindAnyObjectByType<PlayerController>();
-            Vector3 position = player != null
-                ? player.transform.position + new Vector3(4f, 0.5f, 0f)
-                : new Vector3(4f, 0.5f, 0f);
+            Vector3 position = new Vector3(12f, 0.7f, 0f);
 
             if (created)
             {
@@ -265,7 +261,7 @@ namespace MetalRebels.Player.EditorTools
             pistol = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Pistol.asset", WeaponType.Pistol, "Pistol", 20, 2f, false, true, 0, 0, 0f, 0, 12f, 3f, false, 0f, 0f);
             shotgun = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_Shotgun.asset", WeaponType.Shotgun, "Shotgun", 50, 1f, false, false, 30, 8, 3.0f, 20, 12f, 1.5f, false, 0f, 0f);
             rifle = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_AssaultRifle.asset", WeaponType.AssaultRifle, "Assault Rifle", 15, 5f, true, false, 120, 30, 1.5f, 30, 14f, 3f, false, 0f, 0f);
-            rocket = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_RocketLauncher.asset", WeaponType.RocketLauncher, "Rocket Launcher", 100, 0.5f, false, false, 5, 1, 2.0f, 2, 9f, 4f, true, 3f, 0f);
+            rocket = GetOrCreateWeaponAsset($"{WeaponDataDir}/Weapon_RocketLauncher.asset", WeaponType.RocketLauncher, "Rocket Launcher", 100, 0.5f, false, false, 5, 1, 2.0f, 2, 7f, 4f, true, 3f, 0f);
         }
 
         private static WeaponData GetOrCreateWeaponAsset(string path, WeaponType type, string name, int damage, float fireRate, bool isAuto, bool isInfinite, int maxAmmo, int magSize, float reloadTime, int ammoPerPickup, float speed, float lifetime, bool isExplosive, float explosionRadius, float fuseTime)
@@ -300,12 +296,20 @@ namespace MetalRebels.Player.EditorTools
         private static GameObject CreateExplosionPrefab()
         {
             string path = $"{PrefabDir}/ExplosionEffect.prefab";
-            List<Sprite> expSprites = LoadExplosionSprites();
+            List<Sprite> expSprites = LoadRocketExplosionSprites();
+            RuntimeAnimatorController rocketExplosionController =
+                EnsureRocketExplosionController();
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if (existing != null)
             {
                 ExplosionEffect existingEff = existing.GetComponent<ExplosionEffect>();
                 SpriteRenderer existingSr = existing.GetComponent<SpriteRenderer>();
+                Animator existingAnimator = existing.GetComponent<Animator>();
+                if (existingAnimator == null)
+                {
+                    existingAnimator = existing.AddComponent<Animator>();
+                }
+                existingAnimator.runtimeAnimatorController = rocketExplosionController;
                 if (existingSr != null && expSprites.Count > 0)
                 {
                     existingSr.sprite = expSprites[0];
@@ -331,6 +335,8 @@ namespace MetalRebels.Player.EditorTools
             GameObject obj = new GameObject("ExplosionEffect");
             ExplosionEffect eff = obj.AddComponent<ExplosionEffect>();
             SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
+            Animator animator = obj.AddComponent<Animator>();
+            animator.runtimeAnimatorController = rocketExplosionController;
             sr.color = Color.white;
             sr.sortingOrder = 10;
 
@@ -405,7 +411,37 @@ namespace MetalRebels.Player.EditorTools
         {
             string path = $"{PrefabDir}/PlayerRocket.prefab";
             GameObject existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            Sprite rocketSprite = AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Bullet/DanRocket.png");
+            RuntimeAnimatorController rocketFlightController =
+                EnsureRocketProjectileController();
+            if (existing != null)
+            {
+                SpriteRenderer renderer = existing.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    renderer.sprite = rocketSprite;
+                    renderer.color = Color.white;
+                    renderer.sortingOrder = 10;
+                    existing.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+                }
+                Animator existingAnimator = existing.GetComponent<Animator>();
+                if (rocketFlightController != null)
+                {
+                    if (existingAnimator == null) existingAnimator = existing.AddComponent<Animator>();
+                    existingAnimator.runtimeAnimatorController = rocketFlightController;
+                }
+                PlayerRocket existingRocket = existing.GetComponent<PlayerRocket>();
+                if (existingRocket != null)
+                {
+                    SerializedObject rocketSO = new SerializedObject(existingRocket);
+                    rocketSO.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
+                    rocketSO.FindProperty("visualSprite").objectReferenceValue = rocketSprite;
+                    rocketSO.ApplyModifiedProperties();
+                }
+                EditorUtility.SetDirty(existing);
+                PrefabUtility.SavePrefabAsset(existing);
+                return existing;
+            }
 
             GameObject obj = new GameObject("PlayerRocket");
             BoxCollider2D col = obj.AddComponent<BoxCollider2D>();
@@ -414,9 +450,18 @@ namespace MetalRebels.Player.EditorTools
             PlayerRocket rocket = obj.AddComponent<PlayerRocket>();
             SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
             sr.color = new Color(0.9f, 0.2f, 0.1f, 1f);
+            sr.sprite = rocketSprite;
+            sr.sortingOrder = 10;
+            obj.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+            if (rocketFlightController != null)
+            {
+                Animator animator = obj.AddComponent<Animator>();
+                animator.runtimeAnimatorController = rocketFlightController;
+            }
 
             var serializedObj = new SerializedObject(rocket);
             serializedObj.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
+            serializedObj.FindProperty("visualSprite").objectReferenceValue = rocketSprite;
             serializedObj.ApplyModifiedProperties();
 
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(obj, path);
@@ -504,6 +549,28 @@ namespace MetalRebels.Player.EditorTools
             {
                 GameObject prefabContents = PrefabUtility.LoadPrefabContents(path);
                 PlayerCombat contentsCombat = prefabContents.GetComponent<PlayerCombat>();
+                PlayerController contentsController = prefabContents.GetComponent<PlayerController>();
+                if (contentsController != null)
+                {
+                    SerializedObject contentsControllerSO = new SerializedObject(contentsController);
+                    contentsControllerSO.FindProperty("moveSpeed").floatValue = 3.2f;
+                    contentsControllerSO.FindProperty("jumpForce").floatValue = 7.2f;
+                    contentsControllerSO.FindProperty("groundCheckRadius").floatValue = 0.12f;
+                    contentsControllerSO.FindProperty("ceilingCheckRadius").floatValue = 0.12f;
+                    contentsControllerSO.FindProperty("groundLayer").intValue = GetDefaultGroundMask();
+                    contentsControllerSO.ApplyModifiedProperties();
+                }
+                Transform existingVisualRoot = prefabContents.transform.Find("Visuals");
+                if (existingVisualRoot != null)
+                {
+                    Transform existingHipSocketTransform = existingVisualRoot.Find("HipSocket");
+                    if (existingHipSocketTransform == null)
+                    {
+                        GameObject socket = new GameObject("HipSocket");
+                        socket.transform.SetParent(existingVisualRoot, false);
+                        socket.transform.localPosition = new Vector3(-0.044f, 0.285f, 0f);
+                    }
+                }
                 if (contentsCombat != null)
                 {
                     EnsureForwardFirePoints(prefabContents.transform, out Transform existingPistolFirePoint, out Transform existingShotgunFirePoint);
@@ -528,6 +595,7 @@ namespace MetalRebels.Player.EditorTools
                     SetObjectReferenceIfChanged(existingCombatSO, "grenadeSprite", grenadeSprite);
                     SetObjectReferenceIfChanged(existingCombatSO, "explosionPrefab", explosionPrefab);
                     SetObjectReferenceIfChanged(existingCombatSO, "bulletSprite", bulletSprite);
+                    SetObjectReferenceIfChanged(existingCombatSO, "rocketSprite", AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Bullet/DanRocket.png"));
                     SetObjectReferenceIfChanged(existingCombatSO, "grenadeExplosionSheet", LoadGrenadeExplosionSheet());
                     SetObjectReferenceIfChanged(existingCombatSO, "shotgunExplosionSheet", LoadShotgunExplosionSheet());
                     existingCombatSO.FindProperty("grenadeThrowForceX").floatValue = 5.5f;
@@ -537,6 +605,24 @@ namespace MetalRebels.Player.EditorTools
                     {
                         PrefabUtility.SavePrefabAsset(existing);
                     }
+                }
+
+                PlayerAnimation existingAnimation = existing.GetComponent<PlayerAnimation>();
+                if (existingAnimation != null)
+                {
+                    Transform existingHipSocket = existing.transform.Find("Visuals/HipSocket");
+                    if (existingHipSocket == null)
+                    {
+                        existingHipSocket = existing.transform.Find("HipSocket");
+                    }
+                    SerializedObject existingAnimationSO = new SerializedObject(existingAnimation);
+                    AssignSpriteArray(existingAnimationSO, "rocketIdleSprites", LoadRocketIdleSprites());
+                    if (existingHipSocket != null)
+                    {
+                        existingAnimationSO.FindProperty("hipSocket").objectReferenceValue = existingHipSocket;
+                    }
+                    existingAnimationSO.ApplyModifiedProperties();
+                    PrefabUtility.SavePrefabAsset(existing);
                 }
 
                 return existing;
@@ -595,6 +681,10 @@ namespace MetalRebels.Player.EditorTools
             if (lowerAC != null) lowerAnimator.runtimeAnimatorController = lowerAC;
             lowerAnimator.updateMode = AnimatorUpdateMode.Normal;
 
+            GameObject hipSocket = new GameObject("HipSocket");
+            hipSocket.transform.SetParent(visuals.transform, false);
+            hipSocket.transform.localPosition = new Vector3(-0.044f, 0.285f, 0f);
+
             // ── Fire Points & Checks ──
             GameObject groundCheck = new GameObject("GroundCheck");
             groundCheck.transform.SetParent(playerObj.transform);
@@ -628,6 +718,11 @@ namespace MetalRebels.Player.EditorTools
             SerializedObject ctrlSO = new SerializedObject(controller);
             ctrlSO.FindProperty("groundCheck").objectReferenceValue = groundCheck.transform;
             ctrlSO.FindProperty("ceilingCheck").objectReferenceValue = ceilingCheck.transform;
+            ctrlSO.FindProperty("moveSpeed").floatValue = 3.2f;
+            ctrlSO.FindProperty("jumpForce").floatValue = 7.2f;
+            ctrlSO.FindProperty("groundCheckRadius").floatValue = 0.12f;
+            ctrlSO.FindProperty("ceilingCheckRadius").floatValue = 0.12f;
+            ctrlSO.FindProperty("groundLayer").intValue = GetDefaultGroundMask();
             ctrlSO.ApplyModifiedProperties();
 
             // PlayerInputHandler
@@ -638,6 +733,8 @@ namespace MetalRebels.Player.EditorTools
             SerializedObject animSO = new SerializedObject(anim);
             animSO.FindProperty("upperAnimator").objectReferenceValue = upperAnimator;
             animSO.FindProperty("lowerAnimator").objectReferenceValue = lowerAnimator;
+            animSO.FindProperty("hipSocket").objectReferenceValue = hipSocket.transform;
+            AssignSpriteArray(animSO, "rocketIdleSprites", LoadRocketIdleSprites());
             animSO.ApplyModifiedProperties();
 
             // PlayerCombat
@@ -656,6 +753,8 @@ namespace MetalRebels.Player.EditorTools
             combatSO.FindProperty("grenadeSprite").objectReferenceValue = grenadeSprite;
             combatSO.FindProperty("explosionPrefab").objectReferenceValue = explosionPrefab;
             combatSO.FindProperty("bulletSprite").objectReferenceValue = bulletSprite;
+            combatSO.FindProperty("rocketSprite").objectReferenceValue =
+                AssetDatabase.LoadAssetAtPath<Sprite>($"{SpritesDir}/Bullet/DanRocket.png");
             combatSO.FindProperty("grenadeExplosionSheet").objectReferenceValue = LoadGrenadeExplosionSheet();
             combatSO.FindProperty("shotgunExplosionSheet").objectReferenceValue = LoadShotgunExplosionSheet();
             combatSO.FindProperty("grenadeThrowForceX").floatValue = 5.5f;
@@ -717,6 +816,80 @@ namespace MetalRebels.Player.EditorTools
         }
 
 
+        private static RuntimeAnimatorController EnsureRocketProjectileController()
+        {
+            const string folder =
+                "Assets/_Project/Module_Player/Animations/ShootForward/Rocket";
+            const string controllerPath =
+                "Assets/_Project/Module_Player/Animations/ShootForward/Rocket/Rocket_Flight_AC.controller";
+            RuntimeAnimatorController existing =
+                AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(controllerPath);
+            if (existing != null) return existing;
+
+            string[] clips = AssetDatabase.FindAssets("t:AnimationClip", new[] { folder });
+            if (clips == null || clips.Length == 0) return null;
+
+            AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(
+                AssetDatabase.GUIDToAssetPath(clips[0]));
+            if (clip == null) return null;
+
+            AnimatorController controller =
+                AnimatorController.CreateAnimatorControllerAtPath(controllerPath);
+            AnimatorState state = controller.layers[0].stateMachine.AddState(
+                "RocketFlight",
+                new Vector3(260f, 0f, 0f));
+            state.motion = clip;
+            controller.layers[0].stateMachine.defaultState = state;
+            AssetDatabase.SaveAssets();
+            return controller;
+        }
+
+        private static RuntimeAnimatorController EnsureRocketExplosionController()
+        {
+            const string controllerPath =
+                "Assets/_Project/Module_Player/Animations/Explosion/Rocket_Explosion_AC.controller";
+            RuntimeAnimatorController existing =
+                AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(controllerPath);
+            if (existing != null) return existing;
+
+            AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(
+                "Assets/_Project/Module_Player/Animations/Explosion/Rocket_Explosion_Animation.anim");
+            if (clip == null)
+            {
+                Debug.LogWarning("[MetalRebels] Rocket explosion animation clip was not found.");
+                return null;
+            }
+
+            AnimatorController controller =
+                AnimatorController.CreateAnimatorControllerAtPath(controllerPath);
+            AnimatorState state = controller.layers[0].stateMachine.AddState(
+                "RocketExplosion",
+                new Vector3(260f, 0f, 0f));
+            state.motion = clip;
+            controller.layers[0].stateMachine.defaultState = state;
+            AssetDatabase.SaveAssets();
+            return controller;
+        }
+
+        private static List<Sprite> LoadRocketExplosionSprites()
+        {
+            string assetPath = $"{SpritesDir}/Bullet/rocket_explosion.png";
+            List<Sprite> sprites = new List<Sprite>();
+            foreach (Object asset in AssetDatabase.LoadAllAssetsAtPath(assetPath))
+            {
+                if (asset is Sprite sprite)
+                {
+                    sprites.Add(sprite);
+                }
+            }
+            sprites.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
+            if (sprites.Count == 0)
+            {
+                Debug.LogWarning($"[MetalRebels] Rocket explosion frames were not found at {assetPath}");
+            }
+            return sprites;
+        }
+
         private static List<Sprite> LoadExplosionSprites()
         {
             List<Sprite> list = new List<Sprite>();
@@ -766,6 +939,127 @@ namespace MetalRebels.Player.EditorTools
             }
         }
 
+        private static int GetDefaultGroundMask()
+        {
+            int mask = 1;
+            int ground = LayerMask.NameToLayer("Ground");
+            if (ground >= 0)
+            {
+                mask |= 1 << ground;
+            }
+            return mask;
+        }
+
+        [MenuItem("MetalRebels/Module Player/Ensure Sandbox Test Objects", priority = 12)]
+        public static void EnsureSandboxTestObjects()
+        {
+            if (!System.IO.File.Exists(SandboxScenePath))
+            {
+                Debug.LogWarning($"[MetalRebels] Sandbox scene not found: {SandboxScenePath}");
+                return;
+            }
+
+            Scene sandboxScene = EditorSceneManager.GetSceneByPath(SandboxScenePath);
+            if (!sandboxScene.IsValid() || !sandboxScene.isLoaded)
+            {
+                sandboxScene = EditorSceneManager.OpenScene(SandboxScenePath, OpenSceneMode.Single);
+            }
+            if (!sandboxScene.IsValid()) return;
+
+            GameObject hud = GameObject.Find("PlayerDebugHUD");
+            if (hud != null) Object.DestroyImmediate(hud);
+
+            Transform environment = GameObject.Find("Environment")?.transform;
+            if (environment == null)
+            {
+                environment = new GameObject("Environment").transform;
+            }
+
+            EnsureHazard(environment);
+            EnsureCheckpoint(environment);
+
+            Transform targetDummies = GameObject.Find("TargetDummies")?.transform;
+            if (targetDummies == null)
+            {
+                targetDummies = new GameObject("TargetDummies").transform;
+            }
+            EnsureDummy(targetDummies, "Dummy_Ground", new Vector3(8f, 0.7f, 0f), 100);
+            EnsureDummy(targetDummies, "Dummy_Elevated", new Vector3(0f, 5f, 0f), 80);
+            EnsureDummy(targetDummies, "Dummy_FarRight", new Vector3(15f, 0.7f, 0f), 150);
+
+            EditorSceneManager.MarkSceneDirty(sandboxScene);
+            EditorSceneManager.SaveScene(sandboxScene);
+            Debug.Log("<color=green>[MetalRebels]</color> Đã bổ sung Hazard, Checkpoint và Target Dummies vào Sandbox.");
+        }
+
+        private static void EnsureHazard(Transform environment)
+        {
+            Transform existing = environment.Find("Hazard_Spikes");
+            if (existing != null)
+            {
+                HazardTrigger hazard = existing.GetComponent<HazardTrigger>();
+                if (hazard != null) hazard.damage = 20;
+                existing.position = new Vector3(-12f, 0.2f, 0f);
+                return;
+            }
+            CreateHazardSpikes(environment, new Vector3(-12f, 0.2f, 0f));
+        }
+
+        private static void EnsureCheckpoint(Transform environment)
+        {
+            Transform existing = environment.Find("Checkpoint_Station");
+            if (existing != null)
+            {
+                existing.position = new Vector3(4f, 0.5f, 0f);
+                return;
+            }
+            CreateCheckpoint(environment, new Vector3(4f, 0.5f, 0f));
+        }
+
+        private static void EnsureDummy(Transform parent, string name, Vector3 position, int hp)
+        {
+            Transform existing = parent.Find(name);
+            if (existing == null)
+            {
+                CreateDummy(parent, name, position, hp);
+                return;
+            }
+            existing.position = position;
+            TargetDummy dummy = existing.GetComponent<TargetDummy>();
+            if (dummy != null)
+            {
+                SerializedObject so = new SerializedObject(dummy);
+                so.FindProperty("maxHP").intValue = hp;
+                so.FindProperty("targetName").stringValue = name;
+                so.ApplyModifiedProperties();
+            }
+        }
+
+        private static List<Sprite> LoadRocketIdleSprites()
+        {
+            string assetPath = $"{SpritesDir}/Idle/Idle_RocketLauncher.png";
+            List<Sprite> sprites = new List<Sprite>();
+            foreach (Object asset in AssetDatabase.LoadAllAssetsAtPath(assetPath))
+            {
+                if (asset is Sprite sprite)
+                {
+                    sprites.Add(sprite);
+                }
+            }
+            sprites.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
+            return sprites;
+        }
+
+        private static Sprite GetTestSquareSprite()
+        {
+            Sprite builtIn = Resources.GetBuiltinResource<Sprite>("UI/Skin/UISprite.psd");
+            if (builtIn != null) return builtIn;
+
+            Sprite idleSprite = AssetDatabase.LoadAssetAtPath<Sprite>(
+                $"{SpritesDir}/Idle/Idle_Sungluc.png");
+            return idleSprite;
+        }
+
         private static void CreatePlatform(Transform parent, string name, Vector3 pos, Vector2 size, Color color)
         {
             GameObject obj = new GameObject(name);
@@ -794,6 +1088,8 @@ namespace MetalRebels.Player.EditorTools
             SpriteRenderer sr = spikes.AddComponent<SpriteRenderer>();
             sr.color = new Color(0.8f, 0.1f, 0.1f, 0.9f);
             spikes.transform.localScale = new Vector3(2f, 0.5f, 1f);
+            sr.sprite = GetTestSquareSprite();
+            sr.sortingOrder = 3;
 
             HazardTrigger hazard = spikes.AddComponent<HazardTrigger>();
             hazard.damage = 20;
@@ -812,6 +1108,8 @@ namespace MetalRebels.Player.EditorTools
             SpriteRenderer sr = cp.AddComponent<SpriteRenderer>();
             sr.color = Color.white;
             cp.transform.localScale = new Vector3(0.8f, 1.5f, 1f);
+            sr.sprite = GetTestSquareSprite();
+            sr.sortingOrder = 3;
 
             cp.AddComponent<Checkpoint>();
         }
@@ -828,6 +1126,8 @@ namespace MetalRebels.Player.EditorTools
             SpriteRenderer sr = dummy.AddComponent<SpriteRenderer>();
             sr.color = new Color(0.8f, 0.4f, 0.2f);
             dummy.transform.localScale = new Vector3(0.8f, 1.6f, 1f);
+            sr.sprite = GetTestSquareSprite();
+            sr.sortingOrder = 3;
 
             TargetDummy td = dummy.AddComponent<TargetDummy>();
             var so = new SerializedObject(td);

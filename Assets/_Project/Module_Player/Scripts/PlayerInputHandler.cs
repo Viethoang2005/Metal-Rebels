@@ -9,7 +9,7 @@ namespace MetalRebels.Player
         public Vector2 MoveInput { get; private set; }
         public bool IsAimingUp { get; private set; }
         public bool IsAimingDown { get; private set; }
-        public bool CrouchHeld { get; private set; }
+        public bool CrouchPressed { get; private set; }
         public bool JumpPressed { get; private set; }
         public bool JumpHeld { get; private set; }
         public bool AttackPressed { get; private set; }
@@ -32,7 +32,7 @@ namespace MetalRebels.Player
             float vertical = 0f;
             bool jumpDown = false;
             bool jumpHold = false;
-            bool crouch = false;
+            bool crouchPressed = false;
             bool attackDown = false;
             bool attackHold = false;
             bool grenadeDown = false;
@@ -54,7 +54,7 @@ namespace MetalRebels.Player
                 if (kb.wKey.isPressed || kb.upArrowKey.isPressed) vertical += 1f;
                 if (kb.sKey.isPressed || kb.downArrowKey.isPressed) vertical -= 1f;
 
-                crouch = kb.cKey.isPressed;
+                crouchPressed = kb.cKey.wasPressedThisFrame;
                 jumpDown = kb.spaceKey.wasPressedThisFrame;
                 jumpHold = kb.spaceKey.isPressed;
 
@@ -65,10 +65,10 @@ namespace MetalRebels.Player
                 reloadDown = kb.rKey.wasPressedThisFrame;
                 interactDown = kb.eKey.wasPressedThisFrame;
 
-                if (kb.digit1Key.wasPressedThisFrame) weaponSlot = 0;
-                else if (kb.digit2Key.wasPressedThisFrame) weaponSlot = 1;
-                else if (kb.digit3Key.wasPressedThisFrame) weaponSlot = 2;
-                else if (kb.digit4Key.wasPressedThisFrame) weaponSlot = 3;
+                if (kb.digit1Key.wasPressedThisFrame || kb.numpad1Key.wasPressedThisFrame) weaponSlot = 0;
+                else if (kb.digit2Key.wasPressedThisFrame || kb.numpad2Key.wasPressedThisFrame) weaponSlot = 1;
+                else if (kb.digit3Key.wasPressedThisFrame || kb.numpad3Key.wasPressedThisFrame) weaponSlot = 2;
+                else if (kb.digit4Key.wasPressedThisFrame || kb.numpad4Key.wasPressedThisFrame) weaponSlot = 3;
 
                 if (kb.qKey.wasPressedThisFrame) prevWpn = true;
                 if (kb.tabKey.wasPressedThisFrame) nextWpn = true;
@@ -101,7 +101,7 @@ namespace MetalRebels.Player
                 if (gp.buttonSouth.wasPressedThisFrame) jumpDown = true;
                 if (gp.buttonSouth.isPressed) jumpHold = true;
 
-                if (gp.buttonEast.isPressed) crouch = true;
+                if (gp.buttonEast.wasPressedThisFrame) crouchPressed = true;
 
                 if (gp.buttonWest.wasPressedThisFrame || gp.rightTrigger.wasPressedThisFrame) attackDown = true;
                 if (gp.buttonWest.isPressed || gp.rightTrigger.isPressed) attackHold = true;
@@ -114,7 +114,7 @@ namespace MetalRebels.Player
             MoveInput = new Vector2(Mathf.Clamp(horizontal, -1f, 1f), Mathf.Clamp(vertical, -1f, 1f));
             IsAimingUp = vertical > 0.3f;
             IsAimingDown = vertical < -0.3f;
-            CrouchHeld = crouch;
+            CrouchPressed = crouchPressed;
             JumpPressed = jumpDown;
             JumpHeld = jumpHold;
             AttackPressed = attackDown;

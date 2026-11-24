@@ -7,6 +7,12 @@ namespace MetalRebels.Player
         [Header("Tham chiếu 2 Animator Thân & Chân")]
         [SerializeField] private Animator upperAnimator; // Animator của UpperBody
         [SerializeField] private Animator lowerAnimator; // Animator của LowerBody
+        [SerializeField] private Transform hipSocket;
+        [SerializeField] private Sprite[] rocketIdleSprites;
+
+        [Header("Tùy chỉnh Rocket Idle")]
+        [SerializeField, Min(0.05f)] private float rocketScale = 0.8f;
+        [SerializeField] private Vector2 rocketPositionOffset = Vector2.zero;
 
         private PlayerController playerController;
         private PlayerInputHandler inputHandler;
@@ -15,6 +21,8 @@ namespace MetalRebels.Player
         private SpriteRenderer lowerBodyRenderer;
         private Vector3 upperBodyRestPosition;
         private bool hasUpperBodyRestPosition;
+        private float rocketIdleFrameTime;
+        private int rocketIdleFrameIndex;
 
         private void Awake()
         {
@@ -22,7 +30,6 @@ namespace MetalRebels.Player
             inputHandler = GetComponent<PlayerInputHandler>();
             playerCombat = GetComponent<PlayerCombat>();
 
-            // Tự động tìm Animator ở con nếu chưa kéo trong Inspector
             if (upperAnimator == null)
             {
                 Transform upperTransform = transform.Find("Visuals/UpperBody");
@@ -46,6 +53,22 @@ namespace MetalRebels.Player
                 upperBodyRestPosition = upperAnimator.transform.localPosition;
                 hasUpperBodyRestPosition = true;
             }
+
+            if (hipSocket == null)
+            {
+                Transform visuals = transform.Find("Visuals");
+                if (visuals != null)
+                {
+                    hipSocket = visuals.Find("HipSocket");
+                    if (hipSocket == null)
+                    {
+                        GameObject socket = new GameObject("HipSocket");
+                        socket.transform.SetParent(visuals, false);
+                        socket.transform.localPosition = new Vector3(-0.044f, 0.29f, 0f);
+                        hipSocket = socket.transform;
+                    }
+                }
+            }
         }
 
         private void LateUpdate()
@@ -54,20 +77,64 @@ namespace MetalRebels.Player
 
             UpdateUpperBodyAnimation();
             UpdateLowerBodyAnimation();
+            UpdateRocketIdleSprite();
             UpdateFullBodyPosition();
             UpdateLowerBodyVisibility();
         }
 
-        /// <summary>
-        /// Cập nhật các Parameter cho Thân trên (UpperBody)
-        /// </summary>
+        private void UpdateRocketIdleSprite()
+        {
+            bool shouldUseRocketIdle =
+                playerCombat != null
+                && playerCombat.IsRocketLauncherEquipped
+                && playerController.IsGrounded
+                && !playerController.IsCrouching;
+
+            if (!shouldUseRocketIdle || rocketIdleSprites == null || rocketIdleSprites.Length == 0)
+            {
+                if (upperAnimator != null) upperAnimator.enabled = true;
+                return;
+            }
+
+            if (upperAnimator != null && upperAnimator.enabled)
+            {
+                if (IsFullBodyState(upperAnimator.GetCurrentAnimatorStateInfo(0)))
+                {
+                    upperAnimator.SetBool("IsCrouching", false);
+                    upperAnimator.Play("Idle", 0, 0f);
+                    upperAnimator.Update(0f);
+                }
+                upperAnimator.enabled = false;
+            }
+
+            if (upperBodyRenderer == null) return;
+
+            if (lowerBodyRenderer != null)
+            {
+                upperBodyRenderer.sortingLayerID = lowerBodyRenderer.sortingLayerID;
+                upperBodyRenderer.sortingOrder = lowerBodyRenderer.sortingOrder + 1;
+            }
+
+            rocketIdleFrameTime += Time.deltaTime;
+            const float frameDuration = 0.12f;
+            if (rocketIdleFrameTime >= frameDuration)
+            {
+                rocketIdleFrameTime -= frameDuration;
+                rocketIdleFrameIndex = (rocketIdleFrameIndex + 1) % rocketIdleSprites.Length;
+            }
+
+            if (rocketIdleSprites[rocketIdleFrameIndex] != null)
+            {
+                upperBodyRenderer.sprite = rocketIdleSprites[rocketIdleFrameIndex];
+            }
+        }
+
         private void UpdateUpperBodyAnimation()
         {
             if (upperAnimator == null) return;
 
             if (inputHandler != null)
             {
-                // Cập nhật hướng ngắm lên/xuống cho thân trên
                 SetBoolIfAvailable(upperAnimator, "IsAimingUp", inputHandler.IsAimingUp);
                 SetBoolIfAvailable(upperAnimator, "IsAimingDown", inputHandler.IsAimingDown);
             }
@@ -77,14 +144,10 @@ namespace MetalRebels.Player
             SetBoolIfAvailable(upperAnimator, "IsShotgun", playerCombat != null && playerCombat.UsesShotgunAnimationSet);
         }
 
-        /// <summary>
-        /// Cập nhật các Parameter cho Chân (LowerBody)
-        /// </summary>
         private void UpdateLowerBodyAnimation()
         {
             if (lowerAnimator == null) return;
 
-            // Truyền trạng thái chạm đất & ngồi
             SetBoolIfAvailable(lowerAnimator, "IsGrounded", playerController.IsGrounded);
             SetBoolIfAvailable(lowerAnimator, "IsCrouching", playerController.IsCrouching);
         }
@@ -92,7 +155,6 @@ namespace MetalRebels.Player
         private void UpdateLowerBodyVisibility()
         {
             if (lowerBodyRenderer == null) return;
-
             lowerBodyRenderer.enabled = !UsesFullBodySprite();
         }
 
@@ -100,60 +162,55 @@ namespace MetalRebels.Player
         {
             if (upperAnimator == null || lowerAnimator == null || !hasUpperBodyRestPosition) return;
 
-            bool usesFullBodySprite = UsesFullBodySprite();
-            Vector3 position = upperBodyRestPosition;
+            upperAnimator.transform.localScale = Vector3.one;
+            lowerAnimator.transform.localScale = Vector3.one;
+
             Sprite upperSprite = upperBodyRenderer != null ? upperBodyRenderer.sprite : null;
             Sprite lowerSprite = lowerBodyRenderer != null ? lowerBodyRenderer.sprite : null;
-            if (usesFullBodySprite)
-            {
-                position = GetFullBodySpritePosition();
-            }
-            else if (IsShootDownUpperSprite(upperSprite) && lowerBodyRenderer != null)
-            {
-                // Never follow run-hip anchors for shoot-down. Keep the same pose as standing aim-down.
-                position = GetShootDownLockedPosition(upperSprite);
-            }
-            else if (upperSprite != null
-                && lowerSprite != null
-                && TryGetUpperBodyAnchor(upperSprite, out Vector2 upperAnchorPixels))
-            {
-                Vector3 lowerAnchorLocal;
-                if (TryGetLowerBodyAnchor(lowerSprite, out Vector2 lowerAnchorPixels))
-                {
-                    lowerAnchorLocal = (lowerAnchorPixels - lowerSprite.pivot) / lowerSprite.pixelsPerUnit;
-                }
-                else
-                {
-                    Bounds lowerBounds = lowerSprite.bounds;
-                    lowerAnchorLocal = new Vector3(lowerBounds.center.x, lowerBounds.max.y, 0f);
-                }
 
+            if (IsRocketIdleSprite(upperSprite))
+            {
+                upperAnimator.transform.localScale = new Vector3(rocketScale, rocketScale, 1f);
+            }
+
+            if (UsesFullBodySprite())
+            {
+                Vector3 fullPos = GetFullBodySpritePosition();
+                fullPos.z = upperBodyRestPosition.z;
+                upperAnimator.transform.localPosition = fullPos;
+                return;
+            }
+
+            if (upperSprite != null && lowerSprite != null
+                && TryGetUpperBodyAnchor(upperSprite, out Vector2 upperAnchorPixels)
+                && TryGetLowerBodyAnchor(lowerSprite, out Vector2 lowerAnchorPixels))
+            {
+                Vector3 lowerAnchorLocal = (lowerAnchorPixels - lowerSprite.pivot) / lowerSprite.pixelsPerUnit;
                 Vector3 upperAnchorLocal = (upperAnchorPixels - upperSprite.pivot) / upperSprite.pixelsPerUnit;
-                Transform positionParent = upperAnimator.transform.parent;
-                Vector3 lowerAnchorWorld = lowerBodyRenderer.transform.TransformPoint(lowerAnchorLocal);
-                Vector3 upperAnchorOffsetWorld = upperBodyRenderer.transform.TransformVector(upperAnchorLocal);
-                Vector3 lowerAnchorPosition = positionParent != null
-                    ? positionParent.InverseTransformPoint(lowerAnchorWorld)
-                    : lowerAnchorWorld;
-                Vector3 upperAnchorOffset = positionParent != null
-                    ? positionParent.InverseTransformVector(upperAnchorOffsetWorld)
-                    : upperAnchorOffsetWorld;
-                position = lowerAnchorPosition - upperAnchorOffset;
-                position.z = upperBodyRestPosition.z;
 
-                if (IsRunLowerBody(lowerSprite))
+                Transform positionParent = upperAnimator.transform.parent;
+                Vector3 lowerWaistWorld = lowerBodyRenderer.transform.TransformPoint(lowerAnchorLocal);
+                Vector3 upperAnchorWorld = upperBodyRenderer.transform.TransformVector(upperAnchorLocal);
+
+                Vector3 alignedPosition = positionParent != null
+                    ? positionParent.InverseTransformPoint(lowerWaistWorld) - positionParent.InverseTransformVector(upperAnchorWorld)
+                    : lowerWaistWorld - upperAnchorWorld;
+
+                if (IsRocketIdleSprite(upperSprite))
                 {
-                    Vector3 idleUpperLocal = (IdleUpperBodyAnchorPixels - IdleUpperBodyPivotPixels)
-                        / upperSprite.pixelsPerUnit;
-                    Vector3 idleUpperWorld = upperBodyRenderer.transform.TransformVector(idleUpperLocal);
-                    Vector3 idleUpperOffset = positionParent != null
-                        ? positionParent.InverseTransformVector(idleUpperWorld)
-                        : idleUpperWorld;
-                    position.x = upperBodyRestPosition.x - (upperAnchorOffset.x - idleUpperOffset.x);
+                    float facingSign = Mathf.Sign(playerController.FacingDirection);
+                    alignedPosition += new Vector3(rocketPositionOffset.x * facingSign, rocketPositionOffset.y, 0f);
                 }
+
+                alignedPosition.z = upperBodyRestPosition.z;
+                upperAnimator.transform.localPosition = alignedPosition;
             }
 
-            upperAnimator.transform.localPosition = position;
+            if (lowerBodyRenderer != null)
+            {
+                upperBodyRenderer.sortingLayerID = lowerBodyRenderer.sortingLayerID;
+                upperBodyRenderer.sortingOrder = lowerBodyRenderer.sortingOrder + 1;
+            }
         }
 
         private Vector3 GetFullBodySpritePosition()
@@ -165,8 +222,6 @@ namespace MetalRebels.Player
                 return position;
             }
 
-            // Idle crouch is 31px wide with a center pivot. Extra width on shoot frames is the gun/muzzle
-            // extending forward, so keep that same body core instead of recentering the whole sprite.
             const float crouchBodyCoreX = 15.5f;
             Vector3 coreLocal = new Vector3((crouchBodyCoreX - sprite.pivot.x) / sprite.pixelsPerUnit, 0f, 0f);
             Transform positionParent = upperAnimator.transform.parent;
@@ -178,54 +233,14 @@ namespace MetalRebels.Player
             return position;
         }
 
-        private Vector3 GetShootDownLockedPosition(Sprite currentSprite)
+        private static bool IsRocketIdleSprite(Sprite sprite)
         {
-            float pixelsPerUnit = currentSprite.pixelsPerUnit;
-            Vector2 upperAnchorPixels = TryGetUpperBodyAnchor(currentSprite, out Vector2 measuredAnchor)
-                ? measuredAnchor
-                : new Vector2(11f, 15f);
-
-            Vector3 idleLowerAnchorLocal =
-                (IdleLowerBodyAnchorPixels - IdleLowerBodyPivotPixels) / pixelsPerUnit;
-            Vector3 upperAnchorLocal = (upperAnchorPixels - currentSprite.pivot) / pixelsPerUnit;
-            Transform positionParent = upperAnimator.transform.parent;
-            Vector3 lowerWaistWorld = lowerBodyRenderer.transform.TransformPoint(idleLowerAnchorLocal);
-            Vector3 upperAnchorWorld = upperBodyRenderer.transform.TransformVector(upperAnchorLocal);
-            Vector3 lowerWaist = positionParent != null
-                ? positionParent.InverseTransformPoint(lowerWaistWorld)
-                : lowerWaistWorld;
-            Vector3 upperAnchorOffset = positionParent != null
-                ? positionParent.InverseTransformVector(upperAnchorWorld)
-                : upperAnchorWorld;
-
-            Vector3 position = lowerWaist - upperAnchorOffset;
-            position.z = upperBodyRestPosition.z;
-            return position;
-        }
-
-        private static readonly Vector2 IdleUpperBodyAnchorPixels = new Vector2(9f, 8f);
-        private static readonly Vector2 IdleUpperBodyPivotPixels = new Vector2(15.5f, 15.5f);
-        private static readonly Vector2 IdleLowerBodyAnchorPixels = new Vector2(11.5f, 17f);
-        private static readonly Vector2 IdleLowerBodyPivotPixels = new Vector2(11.5f, 9f);
-
-        private static bool IsRunLowerBody(Sprite sprite)
-        {
-            return sprite != null && sprite.name.StartsWith("LowerBody_Run_");
-        }
-
-        private static bool IsShootDownUpperSprite(Sprite sprite)
-        {
-            if (sprite == null) return false;
-
-            string spriteName = sprite.name;
-            return spriteName.StartsWith("ShootDown_Sungluc")
-                || spriteName == "Idle_ShootDown_0"
-                || spriteName == "IdleShootDown_Shotgun_0";
+            return sprite != null
+                && sprite.name.StartsWith("Idle_RocketLauncher_", System.StringComparison.Ordinal);
         }
 
         private static bool TryGetUpperBodyAnchor(Sprite sprite, out Vector2 anchorPixels)
         {
-            // Sprite-local pixel coordinates for the waist seam, measured from each frame's lower-left.
             switch (sprite.name)
             {
                 case "Idle_NoAction_0":
@@ -233,6 +248,14 @@ namespace MetalRebels.Player
                     return true;
                 case "Idle_Shotgun_0":
                     anchorPixels = new Vector2(9f, 8f);
+                    return true;
+                case "Idle_RocketLauncher_0":
+                case "Idle_RocketLauncher_1":
+                case "Idle_RocketLauncher_2":
+                case "Idle_RocketLauncher_3":
+                case "Idle_RocketLauncher_4":
+                case "Idle_RocketLauncher_5":
+                    anchorPixels = new Vector2(32f, 4f);
                     return true;
                 case "Idle_ShootDown_0":
                     anchorPixels = new Vector2(11f, 15f);
@@ -251,17 +274,11 @@ namespace MetalRebels.Player
                     return true;
                 case "UpperBody_ShootForward_0":
                 case "UpperBody_ShootForward_1":
-                    anchorPixels = new Vector2(11f, 4f);
-                    return true;
                 case "UpperBody_ShootForward_2":
-                    anchorPixels = new Vector2(11f, 4f);
-                    return true;
                 case "UpperBody_ShootForward_4":
                 case "UpperBody_ShootForward_5":
                 case "UpperBody_ShootForward_6":
                 case "UpperBody_ShootForward_7":
-                    anchorPixels = new Vector2(11f, 4f);
-                    return true;
                 case "UpperBody_ShootForward_8":
                 case "UpperBody_ShootForward_9":
                 case "UpperBody_ShootForward_10":
@@ -271,8 +288,6 @@ namespace MetalRebels.Player
                     anchorPixels = new Vector2(8f, 8f);
                     return true;
                 case "UpperBody_ShootUp_0":
-                    anchorPixels = new Vector2(12f, 3f);
-                    return true;
                 case "UpperBody_ShootUp_3":
                 case "UpperBody_ShootUp_4":
                 case "UpperBody_ShootUp_5":
@@ -288,7 +303,6 @@ namespace MetalRebels.Player
                     anchorPixels = new Vector2(17f, 0f);
                     return true;
                 case "ShootDown_Sungluc_0":
-                    // Full-body frame (54px). Keep waist 20px from the top like Idle_ShootDown.
                     anchorPixels = new Vector2(11f, 34f);
                     return true;
                 case "ShootDown_Sungluc_1":
@@ -322,7 +336,6 @@ namespace MetalRebels.Player
 
         private static bool TryGetLowerBodyAnchor(Sprite sprite, out Vector2 anchorPixels)
         {
-            // These points follow the visible top contour of the waist, not the sprite rectangle.
             switch (sprite.name)
             {
                 case "LowerBody_Idle_0":
@@ -372,8 +385,14 @@ namespace MetalRebels.Player
 
         private bool UsesFullBodySprite()
         {
+            Sprite upperSprite = upperBodyRenderer != null ? upperBodyRenderer.sprite : null;
+            if (IsRocketIdleSprite(upperSprite))
+            {
+                return false;
+            }
+
             bool usesFullBodySprite = playerController.IsCrouching;
-            if (upperAnimator != null)
+            if (upperAnimator != null && upperAnimator.enabled)
             {
                 usesFullBodySprite |= IsFullBodyState(upperAnimator.GetCurrentAnimatorStateInfo(0));
                 if (upperAnimator.IsInTransition(0))
@@ -420,9 +439,6 @@ namespace MetalRebels.Player
             return false;
         }
 
-        /// <summary>
-        /// Hàm được gọi từ PlayerController để cập nhật tốc độ di chuyển cho chân
-        /// </summary>
         public void SetMovementSpeed(float speed)
         {
             if (lowerAnimator != null)
@@ -431,9 +447,6 @@ namespace MetalRebels.Player
             }
         }
 
-        /// <summary>
-        /// Hàm được gọi từ PlayerCombat khi người chơi bấm nút Bắn (J)
-        /// </summary>
         public void PlayShootAnimation()
         {
             if (upperAnimator != null && playerCombat != null && playerCombat.UsesShotgunAnimationSet)
@@ -452,9 +465,6 @@ namespace MetalRebels.Player
             }
         }
 
-        /// <summary>
-        /// Hàm được gọi từ PlayerCombat khi người chơi bấm nút Ném lựu đạn (G)
-        /// </summary>
         public void PlayGrenadeAnimation()
         {
             if (playerController != null
@@ -485,9 +495,6 @@ namespace MetalRebels.Player
             }
         }
 
-        /// <summary>
-        /// Hàm được gọi khi nhân vật bị trúng đạn
-        /// </summary>
         public void PlayHurtAnimation()
         {
             if (upperAnimator != null && HasTriggerParameter(upperAnimator, "Hurt")) upperAnimator.SetTrigger("Hurt");

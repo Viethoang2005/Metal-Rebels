@@ -105,12 +105,12 @@ TextureImporter:
       name: Idle_Shotgun_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 3
         y: 3
-        width: 38
+        width: 36
         height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.31897497, y: 0.27572232}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9dfe14784d1959e4d8d2eec87de7cbf4
     internalID: 0
     vertices: []
     indices: 

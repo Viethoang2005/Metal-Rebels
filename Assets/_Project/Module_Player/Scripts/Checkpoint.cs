@@ -15,6 +15,11 @@ namespace MetalRebels.Player
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            Collider2D checkpointCollider = GetComponent<Collider2D>();
+            if (checkpointCollider != null)
+            {
+                checkpointCollider.isTrigger = true;
+            }
             if (spriteRenderer != null)
             {
                 spriteRenderer.color = inactiveColor;
@@ -22,6 +27,21 @@ namespace MetalRebels.Player
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
+        {
+            TryActivate(collision);
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            TryActivate(collision);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            TryActivate(collision.collider);
+        }
+
+        private void TryActivate(Collider2D collision)
         {
             if (isActivated) return;
 

@@ -11,11 +11,18 @@ namespace MetalRebels.Player
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private int damage = 100;
         [SerializeField] private LayerMask targetLayers = ~0;
-        [SerializeField] private float effectDuration = 0.5f;
+        [SerializeField] private float effectDuration = 0.65f;
+
+        [Header("Căn chỉnh Vị trí & Kích thước")]
+        [SerializeField] private bool snapToGround = true;
+        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private float groundCheckDistance = 3f;
+        [SerializeField, Min(0.1f)] private float visualScaleMultiplier = 1.8f;
 
         [Header("Hiệu ứng thị giác")]
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite[] explosionSprites;
+        [SerializeField] private Animator animator;
 
         private bool damageApplied = false;
         private HashSet<IDamageable> sharedDamagedTargets = null;
@@ -35,18 +42,39 @@ namespace MetalRebels.Player
             }
             if (spriteRenderer != null)
             {
-                spriteRenderer.sortingOrder = 10;
+                spriteRenderer.sortingOrder = 15;
+            }
+            if (animator == null)
+            {
+                animator = GetComponent<Animator>();
             }
         }
 
         private void Start()
         {
+            // Tự động hạ chân vụ nổ chạm mặt đất phía dưới (nếu đang nổ gần sàn)
+            if (snapToGround && visualTravelDistance <= 0f)
+            {
+                SnapPositionToGround();
+            }
+
             float duration = Mathf.Max(effectDuration, 0.01f);
+            if (animator != null && animator.runtimeAnimatorController != null)
+            {
+                animator.Play("RocketExplosion", 0, 0f);
+                if (!damageApplied)
+                {
+                    ApplyExplosionDamage();
+                }
+                Destroy(gameObject, duration);
+                return;
+            }
+
             if (visualTravelDistance > 0f)
             {
                 if (explosionSprites != null && explosionSprites.Length > 0 && spriteRenderer != null)
                 {
-                    StartCoroutine(PlayExplosionAnimation(duration));
+                    StartCoroutine(PlayExplosionAnimation(duration, true));
                 }
                 else
                 {
@@ -62,11 +90,23 @@ namespace MetalRebels.Player
 
                 if (explosionSprites != null && explosionSprites.Length > 0 && spriteRenderer != null)
                 {
-                    StartCoroutine(PlayExplosionAnimation(duration));
+                    StartCoroutine(PlayExplosionAnimation(duration, false));
                 }
             }
 
             Destroy(gameObject, duration);
+        }
+
+        private void SnapPositionToGround()
+        {
+            LayerMask mask = groundLayer.value != 0 ? groundLayer : LayerMask.GetMask("Ground");
+            if (mask.value == 0) return;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * 0.2f, Vector2.down, groundCheckDistance, mask);
+            if (hit.collider != null)
+            {
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            }
         }
 
         public void Init(
@@ -85,6 +125,13 @@ namespace MetalRebels.Player
             transform.localScale *= Mathf.Max(0.01f, visualScale);
             visualTravelDirection = visualDirection.normalized;
             visualTravelDistance = visualTravelDirection == Vector2.zero ? 0f : Mathf.Max(0f, visualDistance);
+
+            // Shotgun có visualTravelDistance > 0 nên không hạ xuống đất
+            if (visualTravelDistance > 0f)
+            {
+                snapToGround = false;
+            }
+
             if (visualDuration > 0f)
             {
                 effectDuration = visualDuration;
@@ -104,12 +151,9 @@ namespace MetalRebels.Player
                 }
             }
 
-            if (!damageApplied)
+            if (!damageApplied && visualTravelDistance <= 0f)
             {
-                if (visualTravelDistance <= 0f)
-                {
-                    ApplyExplosionDamage();
-                }
+                ApplyExplosionDamage();
             }
         }
 
@@ -127,7 +171,7 @@ namespace MetalRebels.Player
             {
                 if (col.CompareTag("Player") || col.GetComponentInParent<PlayerController>() != null)
                 {
-                    continue; // Người chơi không bị sát thương bởi lựu đạn/rocket của chính mình
+                    continue;
                 }
 
                 IDamageable damageable = col.GetComponent<IDamageable>() ?? col.GetComponentInParent<IDamageable>();
@@ -139,13 +183,15 @@ namespace MetalRebels.Player
             }
         }
 
-        private IEnumerator PlayExplosionAnimation(float duration)
+        private IEnumerator PlayExplosionAnimation(float duration, bool isTravelingBlast)
         {
             float timePerFrame = duration / explosionSprites.Length;
-            Vector3 initialScale = transform.localScale;
+            Vector3 initialScale = transform.localScale * (isTravelingBlast ? 1f : visualScaleMultiplier);
             Vector3 initialPosition = transform.position;
             Color initialColor = spriteRenderer.color;
             float elapsed = 0f;
+
+            transform.localScale = initialScale;
 
             while (elapsed < duration)
             {
@@ -156,31 +202,33 @@ namespace MetalRebels.Player
                 }
 
                 float normalizedTime = elapsed / duration;
-                UpdateTravelPosition(initialPosition, normalizedTime);
-                transform.localScale = initialScale * Mathf.Lerp(0.35f, 1.35f, normalizedTime);
-                Color color = initialColor;
-                color.a *= 1f - normalizedTime;
-                spriteRenderer.color = color;
-
-                if (visualTravelDistance > 0f)
+                if (isTravelingBlast)
                 {
+                    UpdateTravelPosition(initialPosition, normalizedTime);
+                    transform.localScale = initialScale * Mathf.Lerp(0.35f, 1.35f, normalizedTime);
+                    Color color = initialColor;
+                    color.a *= 1f - normalizedTime;
+                    spriteRenderer.color = color;
                     ApplyExplosionDamageAt(transform.position);
+                }
+                else
+                {
+                    // Giữ rõ nét 15 frame pixel art của Rocket, chỉ làm mờ nhẹ ở 20% cuối khi khói tan
+                    Color color = initialColor;
+                    color.a = normalizedTime > 0.8f ? Mathf.Lerp(1f, 0f, (normalizedTime - 0.8f) / 0.2f) : 1f;
+                    spriteRenderer.color = color;
                 }
 
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            UpdateTravelPosition(initialPosition, 1f);
-            if (visualTravelDistance > 0f)
+            if (isTravelingBlast)
             {
+                UpdateTravelPosition(initialPosition, 1f);
                 ApplyExplosionDamageAt(transform.position);
                 damageApplied = true;
             }
-            transform.localScale = initialScale * 1.35f;
-            Color finalColor = initialColor;
-            finalColor.a = 0f;
-            spriteRenderer.color = finalColor;
         }
 
         private IEnumerator TravelExplosion(float duration)

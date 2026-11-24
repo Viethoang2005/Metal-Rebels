@@ -14,6 +14,7 @@ namespace MetalRebels.Player
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private GameObject explosionPrefab;
         [SerializeField] private LayerMask hitLayers = ~0;
+        [SerializeField] private Sprite visualSprite;
 
         private Vector2 moveDirection = Vector2.right;
         private Rigidbody2D rb;
@@ -22,6 +23,38 @@ namespace MetalRebels.Player
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            EnsureVisibleRocket();
+        }
+
+        private void EnsureVisibleRocket()
+        {
+            if (rb == null)
+            {
+                rb = gameObject.AddComponent<Rigidbody2D>();
+                rb.gravityScale = 0f;
+                rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            }
+
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            if (renderer == null)
+            {
+                renderer = gameObject.AddComponent<SpriteRenderer>();
+            }
+
+            if (renderer.sprite == null)
+            {
+                renderer.sprite = visualSprite;
+                renderer.color = Color.white;
+            }
+            else if (visualSprite != null)
+            {
+                renderer.sprite = visualSprite;
+            }
+
+            renderer.sortingOrder = 10;
+            transform.localScale = Vector3.one;
+
         }
 
         public void Init(Vector2 direction, int rocketDamage, float rocketSpeed, float rocketLifetime, float radius, GameObject explosionEffectObj = null)

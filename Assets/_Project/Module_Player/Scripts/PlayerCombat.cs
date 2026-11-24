@@ -59,6 +59,7 @@ namespace MetalRebels.Player
 
         [Header("Hiệu ứng đạn bay")]
         [SerializeField] private Sprite bulletSprite;
+        [SerializeField] private Sprite rocketSprite;
 
         private PlayerController playerController;
         private PlayerInputHandler inputHandler;
@@ -77,6 +78,8 @@ namespace MetalRebels.Player
         public bool UsesShotgunAnimationSet =>
             CurrentWeapon?.weaponType == WeaponType.Shotgun
             || CurrentWeapon?.weaponType == WeaponType.AssaultRifle;
+        public bool IsRocketLauncherEquipped =>
+            CurrentWeapon?.weaponType == WeaponType.RocketLauncher;
         public int CurrentGrenades => currentGrenades;
         public bool IsReloading => isReloading;
 
@@ -206,7 +209,11 @@ namespace MetalRebels.Player
             // 3: Rocket Launcher
             if (rocketLauncherData != null)
             {
-                weaponSlots.Add(new WeaponSlot(rocketLauncherData, false, 0, 0));
+                weaponSlots.Add(new WeaponSlot(
+                    rocketLauncherData,
+                    true,
+                    Mathf.Min(1, rocketLauncherData.magazineSize),
+                    Mathf.Max(0, rocketLauncherData.maxAmmo - 1)));
             }
         }
 
@@ -235,6 +242,10 @@ namespace MetalRebels.Player
             // Bắn theo nhịp: nhấn phát bắn ngay, hoặc giữ nút bắn theo nhịp tối đa
             if ((shootTriggered || shootHeld) && Time.time >= nextFireTime)
             {
+                if (slot.weaponData.weaponType == WeaponType.RocketLauncher)
+                {
+                    Debug.Log($"[Marco Combat] Firing rocket: clip={slot.currentClip}, reserve={slot.reserveAmmo}, projectile={slot.weaponData.projectilePrefab}");
+                }
                 if (slot.weaponData.isInfiniteAmmo)
                 {
                     FireCurrentWeapon();
@@ -252,8 +263,8 @@ namespace MetalRebels.Player
                     }
                     else
                     {
-                        // Hết sạch đạn dự trữ: tự động quay về súng lục
-                        EquipWeaponByIndex(0);
+                        // Giữ vũ khí đã cầm nhưng không còn khả năng bắn.
+                        // Không tự mất súng hoặc đổi về súng lục.
                     }
                 }
             }
@@ -303,7 +314,7 @@ namespace MetalRebels.Player
                     }
                     else
                     {
-                        EquipWeaponByIndex(0);
+                        // Giữ vũ khí đã cầm ở trạng thái hết đạn.
                     }
                 }
             }
@@ -386,19 +397,7 @@ namespace MetalRebels.Player
 
         private void FireRocket(Vector3 position, Vector2 direction, WeaponData weapon)
         {
-            if (weapon.projectilePrefab != null)
-            {
-                GameObject rocketObj = Instantiate(weapon.projectilePrefab, position, Quaternion.identity);
-                PlayerRocket rocket = rocketObj.GetComponent<PlayerRocket>();
-                if (rocket != null)
-                {
-                    rocket.Init(direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime, weapon.explosionRadius, explosionPrefab);
-                }
-            }
-            else
-            {
-                CreateFallbackRocket(position, direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime, weapon.explosionRadius);
-            }
+            CreateFallbackRocket(position, direction, weapon.damage, weapon.bulletSpeed, weapon.bulletLifetime, weapon.explosionRadius);
         }
 
         private void CreateFallbackBullet(Vector3 position, Vector2 direction, int damage, float speed, float lifetime, float visualScale = 1f)
@@ -426,9 +425,38 @@ namespace MetalRebels.Player
             Rigidbody2D rb = rocketObj.AddComponent<Rigidbody2D>();
             rb.gravityScale = 0f;
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             CircleCollider2D col = rocketObj.AddComponent<CircleCollider2D>();
             col.radius = 0.2f;
             col.isTrigger = true;
+
+            Sprite fallbackRocketSprite = rocketSprite;
+            if (fallbackRocketSprite == null)
+            {
+                foreach (Sprite loadedSprite in Resources.FindObjectsOfTypeAll<Sprite>())
+                {
+                    if (loadedSprite != null
+                        && (loadedSprite.name == "DanRocket_0"
+                            || loadedSprite.name == "DanRocket"))
+                    {
+                        fallbackRocketSprite = loadedSprite;
+                        break;
+                    }
+                }
+            }
+            if (fallbackRocketSprite == null)
+            {
+                Debug.LogError("[Marco Combat] DanRocket_0 sprite is not assigned.");
+                Destroy(rocketObj);
+                return;
+            }
+
+            SpriteRenderer renderer = rocketObj.AddComponent<SpriteRenderer>();
+            renderer.sprite = fallbackRocketSprite;
+            renderer.color = new Color(0.9f, 0.95f, 1f, 1f);
+            renderer.sortingOrder = 10;
+            rocketObj.transform.localScale = Vector3.one;
+
             PlayerRocket rocket = rocketObj.AddComponent<PlayerRocket>();
             rocket.Init(direction, damage, speed, lifetime, radius, explosionPrefab);
         }
@@ -682,15 +710,28 @@ namespace MetalRebels.Player
 
         public bool TryAddGrenades(int amount)
         {
-            if (currentGrenades >= maxGrenades) return false;
+            if (amount <= 0 || currentGrenades >= maxGrenades) return false;
 
             currentGrenades = Mathf.Min(currentGrenades + amount, maxGrenades);
             PlayerEvents.OnGrenadeChanged?.Invoke(currentGrenades, maxGrenades);
             return true;
         }
 
+        public void UnlockAllWeaponsForPlaytest()
+        {
+            TryAddAmmo(WeaponType.Shotgun, 30);
+            TryAddAmmo(WeaponType.AssaultRifle, 120);
+            TryAddAmmo(WeaponType.RocketLauncher, 5);
+        }
+
         public Vector2 GetAimDirection()
         {
+            // Rocket launcher is a horizontal-only weapon.
+            if (CurrentWeapon?.weaponType == WeaponType.RocketLauncher)
+            {
+                return new Vector2(playerController.FacingDirection, 0f).normalized;
+            }
+
             // Khi đang ngồi: bắn thấp về phía trước
             if (playerController.IsCrouching)
             {
