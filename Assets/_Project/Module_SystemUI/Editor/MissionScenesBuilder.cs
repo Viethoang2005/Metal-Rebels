@@ -73,7 +73,7 @@ public class MissionScenesBuilder
             hudInstance.name = "GameHUD_Canvas";
 
             // Cập nhật tên nhiệm vụ góc trên bên phải của HUD
-            Transform missionLabelTr = hudInstance.transform.Find("TopRight_ScoreBox/MissionTitleText");
+            Transform missionLabelTr = hudInstance.transform.Find("TopRight_MissionBox/MissionTitleText");
             if (missionLabelTr != null)
             {
                 var tmp = missionLabelTr.GetComponent<TextMeshProUGUI>();

@@ -35,5 +35,17 @@ namespace MetalRebels.Core.Events
         // Thông báo điểm số & hoàn thành màn chơi -> Victory
         public static Action<int> OnScoreChanged;
         public static Action OnMissionCompleted;
+
+        // Các hàm helper gọi sự kiện an toàn cho toàn bộ các module
+        public static void TriggerHealthChanged(int currentHp, int maxHp) => OnHealthChanged?.Invoke(currentHp, maxHp);
+        public static void TriggerLivesChanged(int lives) => OnLivesChanged?.Invoke(lives);
+        public static void TriggerPlayerDied() => OnPlayerDied?.Invoke();
+        public static void TriggerPlayerRespawned() => OnPlayerRespawned?.Invoke();
+        public static void TriggerWeaponChanged(string weaponName, int currentAmmo) => OnWeaponChanged?.Invoke(weaponName, currentAmmo);
+        public static void TriggerAmmoChanged(int currentAmmo, int reserveAmmo) => OnAmmoChanged?.Invoke(currentAmmo, reserveAmmo);
+        public static void TriggerGrenadeChanged(int currentGrenades, int maxGrenades) => OnGrenadeChanged?.Invoke(currentGrenades, maxGrenades);
+        public static void TriggerReloadingChanged(bool isReloading) => OnReloadingChanged?.Invoke(isReloading);
+        public static void TriggerAllLivesLost() => OnAllLivesLost?.Invoke();
+        public static void TriggerMissionCompleted() => OnMissionCompleted?.Invoke();
     }
 }

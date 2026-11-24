@@ -26,7 +26,6 @@ namespace MetalRebels.Core.Managers
         [SerializeField] private float gameOverPanelDelay = 1.2f;
 
         public GameState CurrentState { get; private set; } = GameState.Playing;
-        public int CurrentScore { get; private set; }
         public int UnlockedMissionIndex => PlayerPrefs.GetInt("UnlockedMission", 0);
 
         private void Awake()
@@ -44,7 +43,6 @@ namespace MetalRebels.Core.Managers
         {
             PlayerEvents.OnAllLivesLost += HandleGameOver;
             PlayerEvents.OnMissionCompleted += HandleVictory;
-            PlayerEvents.OnScoreChanged += AddScore;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -52,7 +50,6 @@ namespace MetalRebels.Core.Managers
         {
             PlayerEvents.OnAllLivesLost -= HandleGameOver;
             PlayerEvents.OnMissionCompleted -= HandleVictory;
-            PlayerEvents.OnScoreChanged -= AddScore;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -64,7 +61,6 @@ namespace MetalRebels.Core.Managers
 
         public void StartNewCampaign()
         {
-            CurrentScore = 0;
             LoadMission(0);
         }
 
@@ -114,17 +110,11 @@ namespace MetalRebels.Core.Managers
             Time.timeScale = paused ? 0f : 1f;
         }
 
-        private void AddScore(int points)
-        {
-            CurrentScore += points;
-        }
-
         private void HandleVictory()
         {
             if (CurrentState == GameState.Victory || CurrentState == GameState.GameOver) return;
             CurrentState = GameState.Victory;
 
-            // Mở khóa màn tiếp theo
             string currentScene = SceneManager.GetActiveScene().name;
             for (int i = 0; i < missionSceneNames.Length; i++)
             {
@@ -136,7 +126,6 @@ namespace MetalRebels.Core.Managers
                 }
             }
 
-            // Gọi animation chiến thắng qua SendMessage để không phụ thuộc nhánh player
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null)
             {
@@ -152,7 +141,7 @@ namespace MetalRebels.Core.Managers
             HUDController hud = FindFirstObjectByType<HUDController>();
             if (hud != null)
             {
-                hud.ShowVictoryPanel(CurrentScore);
+                hud.ShowVictoryPanel();
             }
         }
 
@@ -169,7 +158,7 @@ namespace MetalRebels.Core.Managers
             HUDController hud = FindFirstObjectByType<HUDController>();
             if (hud != null)
             {
-                hud.ShowGameOverPanel(CurrentScore);
+                hud.ShowGameOverPanel();
             }
         }
     }

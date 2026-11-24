@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace MetalRebels.UI
 {
@@ -15,18 +16,19 @@ namespace MetalRebels.UI
         [SerializeField] private TextMeshProUGUI livesText;
         [SerializeField] private TextMeshProUGUI weaponNameText;
         [SerializeField] private TextMeshProUGUI ammoText;
+        [SerializeField] private GameObject infinityAmmoIcon;
         [SerializeField] private TextMeshProUGUI grenadeText;
 
-        [Header("HUD Điểm số & Nhiệm vụ (Góc trên phải)")]
-        [SerializeField] private TextMeshProUGUI scoreText;
+        [Header("HUD Nhiệm vụ (Góc trên phải)")]
         [SerializeField] private TextMeshProUGUI missionTitleText;
 
         [Header("Các bảng Popup trong màn chơi")]
         [SerializeField] private GameObject pausePanel;
         [SerializeField] private GameObject gameOverPanel;
-        [SerializeField] private TextMeshProUGUI gameOverScoreText;
         [SerializeField] private GameObject victoryPanel;
-        [SerializeField] private TextMeshProUGUI victoryScoreText;
+        [SerializeField] private TextMeshProUGUI victoryTitleText;
+        [SerializeField] private TextMeshProUGUI victorySubtitleText;
+        [SerializeField] private GameObject nextMissionButton;
 
         private void OnEnable()
         {
@@ -35,7 +37,6 @@ namespace MetalRebels.UI
             PlayerEvents.OnWeaponChanged += UpdateWeaponUI;
             PlayerEvents.OnAmmoChanged += UpdateAmmoUI;
             PlayerEvents.OnGrenadeChanged += UpdateGrenadeUI;
-            PlayerEvents.OnScoreChanged += UpdateScoreUI;
         }
 
         private void OnDisable()
@@ -45,7 +46,6 @@ namespace MetalRebels.UI
             PlayerEvents.OnWeaponChanged -= UpdateWeaponUI;
             PlayerEvents.OnAmmoChanged -= UpdateAmmoUI;
             PlayerEvents.OnGrenadeChanged -= UpdateGrenadeUI;
-            PlayerEvents.OnScoreChanged -= UpdateScoreUI;
         }
 
         private void Start()
@@ -53,17 +53,10 @@ namespace MetalRebels.UI
             if (pausePanel != null) pausePanel.SetActive(false);
             if (gameOverPanel != null) gameOverPanel.SetActive(false);
             if (victoryPanel != null) victoryPanel.SetActive(false);
-
-            // Đồng bộ điểm số hiện tại khi vừa sang màn mới
-            if (scoreText != null && GameManager.Instance != null)
-            {
-                scoreText.text = GameManager.Instance.CurrentScore.ToString("D6");
-            }
         }
 
         private void Update()
         {
-            // Bắt phím ESC bằng Input System mới để bật/tắt Pause Menu
             if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 if (gameOverPanel != null && gameOverPanel.activeSelf) return;
@@ -102,31 +95,33 @@ namespace MetalRebels.UI
             if (GameManager.Instance != null) GameManager.Instance.ReturnToMainMenu();
         }
 
-        public void ShowGameOverPanel(int finalScore)
+        public void ShowGameOverPanel()
         {
             if (pausePanel != null) pausePanel.SetActive(false);
             if (victoryPanel != null) victoryPanel.SetActive(false);
-            if (gameOverPanel != null)
-            {
-                gameOverPanel.SetActive(true);
-                if (gameOverScoreText != null)
-                {
-                    gameOverScoreText.text = $"TỔNG ĐIỂM ĐẠT ĐƯỢC: <color=#FF9E2C>{finalScore:D6}</color>";
-                }
-            }
+            if (gameOverPanel != null) gameOverPanel.SetActive(true);
         }
 
-        public void ShowVictoryPanel(int finalScore)
+        public void ShowVictoryPanel()
         {
             if (pausePanel != null) pausePanel.SetActive(false);
             if (gameOverPanel != null) gameOverPanel.SetActive(false);
-            if (victoryPanel != null)
+            if (victoryPanel != null) 
             {
+                bool isFinalMission = SceneManager.GetActiveScene().name == "Mission_3";
+
+                if (victoryTitleText != null)
+                    victoryTitleText.text = isFinalMission ? "HOÀN THÀNH NHIỆM VỤ" : "CHIẾN THẮNG";
+
+                if (victorySubtitleText != null)
+                    victorySubtitleText.text = isFinalMission
+                        ? "TOÀN BỘ CHIẾN DỊCH ĐÃ THẮNG LỢI — MỤC TIÊU BỊ TIÊU DIỆT!"
+                        : "KHU VỰC ĐÃ ĐƯỢC KIỂM SOÁT — SẴN SÀNG CHO CHẶNG TIẾP THEO";
+
+                if (nextMissionButton != null)
+                    nextMissionButton.SetActive(!isFinalMission);
+
                 victoryPanel.SetActive(true);
-                if (victoryScoreText != null)
-                {
-                    victoryScoreText.text = $"ĐIỂM CHIẾN DỊCH: <color=#34D399>{finalScore:D6}</color>";
-                }
             }
         }
 
@@ -145,28 +140,34 @@ namespace MetalRebels.UI
             if (livesText != null) livesText.text = $"x{lives}";
         }
 
+        private bool isCurrentWeaponPistol = true;
         private void UpdateWeaponUI(string weaponName, int weaponIndex)
         {
             if (weaponNameText != null) weaponNameText.text = weaponName.ToUpper();
+            isCurrentWeaponPistol = weaponName.Trim().Equals("PISTOL", System.StringComparison.OrdinalIgnoreCase);
+
+            if (isCurrentWeaponPistol)
+            {
+                if (infinityAmmoIcon != null) infinityAmmoIcon.SetActive(true);
+                if (ammoText != null) ammoText.gameObject.SetActive(false);
+            }
         }
 
-        private void UpdateAmmoUI(int currentAmmo, int maxAmmo)
+        private void UpdateAmmoUI(int currentAmmo, int reserveAmmo)
         {
+            bool isInfinite = isCurrentWeaponPistol || reserveAmmo < 0;
+            if (infinityAmmoIcon != null) infinityAmmoIcon.SetActive(isInfinite);
             if (ammoText != null)
-                ammoText.text = maxAmmo < 0 ? "INF" : $"{currentAmmo}/{maxAmmo}";
+            {
+                ammoText.gameObject.SetActive(!isInfinite);
+                if (!isInfinite) ammoText.text = $"{currentAmmo}/{reserveAmmo}";
+            }
         }
 
         private void UpdateGrenadeUI(int currentGrenades, int maxGrenades)
         {
             if (grenadeText != null)
                 grenadeText.text = maxGrenades > 0 ? $"{currentGrenades}/{maxGrenades}" : $"{currentGrenades}";
-        }
-
-        private void UpdateScoreUI(int pointsAdded)
-        {
-            if (scoreText == null) return;
-            int totalScore = GameManager.Instance != null ? GameManager.Instance.CurrentScore : pointsAdded;
-            scoreText.text = totalScore.ToString("D6");
         }
     }
 }

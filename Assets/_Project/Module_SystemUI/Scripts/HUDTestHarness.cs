@@ -22,11 +22,10 @@ namespace MetalRebels.UI
         private int currentGrenades;
         private int currentWeaponIndex;
         private int currentAmmo;
-        private int testScore;
 
         private HUDController hud;
 
-        private readonly string[] weapons = { "PISTOL", "HEAVY MACHINE GUN", "SHOTGUN", "ROCKET LAUNCHER" };
+        private readonly string[] weapons = { "PISTOL", "RIFLE", "SHOTGUN", "ROCKET LAUNCHER" };
         private readonly int[] maxAmmos = { -1, 200, 30, 15 };
 
         private void Start()
@@ -38,7 +37,6 @@ namespace MetalRebels.UI
             currentGrenades = maxGrenades;
             currentWeaponIndex = 0;
             currentAmmo = maxAmmos[0];
-            testScore = GameManager.Instance != null ? GameManager.Instance.CurrentScore : 0;
 
             RefreshAllHUD();
         }
@@ -84,18 +82,6 @@ namespace MetalRebels.UI
                 }
             }
 
-            // F5: Cộng +500 điểm
-            if (Keyboard.current.f5Key.wasPressedThisFrame)
-            {
-                testScore += 500;
-                if (GameManager.Instance != null)
-                {
-                    var addScoreMethod = typeof(GameManager).GetMethod("AddScore", BindingFlags.Instance | BindingFlags.NonPublic);
-                    addScoreMethod?.Invoke(GameManager.Instance, new object[] { 500 });
-                    testScore = GameManager.Instance.CurrentScore;
-                }
-                InvokeHUD("UpdateScoreUI", testScore);
-            }
 
             // F6: Kích hoạt thẳng GAME OVER
             if (Keyboard.current.f6Key.wasPressedThisFrame)
@@ -121,7 +107,6 @@ namespace MetalRebels.UI
             InvokeHUD("UpdateWeaponUI", weapons[currentWeaponIndex], currentWeaponIndex);
             InvokeHUD("UpdateAmmoUI", currentAmmo, maxAmmos[currentWeaponIndex]);
             InvokeHUD("UpdateGrenadeUI", currentGrenades, maxGrenades);
-            InvokeHUD("UpdateScoreUI", testScore);
         }
 
         private void TakeTestDamage(int dmg)
@@ -156,7 +141,7 @@ namespace MetalRebels.UI
             }
             else if (hud != null)
             {
-                hud.ShowGameOverPanel(testScore);
+                hud.ShowGameOverPanel();
             }
         }
 
@@ -169,7 +154,7 @@ namespace MetalRebels.UI
             }
             else if (hud != null)
             {
-                hud.ShowVictoryPanel(testScore);
+                hud.ShowVictoryPanel();
             }
         }
 
