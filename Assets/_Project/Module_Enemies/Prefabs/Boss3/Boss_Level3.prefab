@@ -286,7 +286,7 @@ MonoBehaviour:
   beamWidth: 0.45
   beamColorStart: {r: 0.55, g: 1, b: 1, a: 1}
   beamColorEnd: {r: 1, g: 0.95, b: 0.35, a: 1}
-  damage: 30
+  damage: 45
   groundImpactPrefab: {fileID: 3326272884212211049, guid: f4c069f52961c9c44bd8abf9c33ec6b1, type: 3}
   farDistance: 13
   nearDistance: 2
