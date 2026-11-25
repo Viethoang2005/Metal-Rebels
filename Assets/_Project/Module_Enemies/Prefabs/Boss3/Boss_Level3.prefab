@@ -229,7 +229,6 @@ MonoBehaviour:
   wreckFacesLeft: 0
   dropItems: []
   dropRate: 25
-  flashRenderer: {fileID: 0}
 --- !u!114 &2851660863527993997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,28 +254,12 @@ MonoBehaviour:
   restPhase1: 2
   restPhase2: 1
   antiMeleeRange: 3.5
-  phase2HPPercent: 0.5
+  phase2HP: 750
   phaseTransitionTime: 1.5
-  phase2ActionSpeed: 1.25
-  transitionExplosionPrefab: {fileID: 0}
-  transitionExplosions: 3
-  tintIfNoPhase2Sprites: 1
-  phase2Tint: {r: 1, g: 0.6, b: 0.95, a: 1}
-  tintRenderers: []
-  criticalHPPercent: 0.2
-  smokePrefab: {fileID: 0}
-  smokePoints: []
-  sparkPrefab: {fileID: 0}
-  sparkInterval: {x: 0.5, y: 1.4}
-  deathExplosionPrefab: {fileID: 0}
-  deathExplosions: 5
-  deathSequenceTime: 2
-  collapseTime: 0.6
+  phaseTransitionEffectPrefab: {fileID: 0}
   onDefeated:
     m_PersistentCalls:
       m_Calls: []
-  bodyFxPoints: []
-  fxLifetime: 2
 --- !u!114 &5261605162230900898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +315,8 @@ MonoBehaviour:
   telegraphTime: 0.6
   hatchSmokePrefab: {fileID: 0}
   groundWarningPrefab: {fileID: 1965826155623342847, guid: 7bc8a885bfc85d94cbe806b1e9f74dee, type: 3}
-  missilesPhase1: 3
-  missilesPhase2: 5
+  missilesPhase1: 1
+  missilesPhase2: 3
   spacingPhase1: 3.5
   spacingPhase2: 3
   minSafeGap: 1
@@ -368,7 +351,7 @@ MonoBehaviour:
   height: 0.9
   verticalOffset: 0
   backReach: 0.5
-  damage: 40
+  damage: 10
   cooldown: 3
   recoveryTime: 0.5
 --- !u!95 &1631557724890008250

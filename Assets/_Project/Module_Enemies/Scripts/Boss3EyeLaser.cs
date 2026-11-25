@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
-// Chiêu 1 - Quét Laser Mắt.
-// Báo hiệu: mắt chớp sáng + tia ngắm mảnh trong telegraphTime (0.8s).
-// Ra đòn: tia dày bắn chéo xuống đất, điểm chạm quét từ xa về gần (hoặc ngược lại).
-// Phase 2: quét 2 nhịp (vào rồi ra). Tia dừng đúng ở mặt đất nên nhảy lên là né được.
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Boss3AI))]
 public class Boss3EyeLaser : MonoBehaviour

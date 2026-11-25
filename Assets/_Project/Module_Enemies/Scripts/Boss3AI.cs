@@ -1,15 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Boss 3 - Heavy Artillery Mech ("pháo đài di động").
-// Phase 1 (100% -> 50%): Laser mắt -> nghỉ 2s -> Mưa tên lửa (3) -> nghỉ 2s.
-// Phase 2 (< 50%): nghỉ 1s, hoạt ảnh nhanh 1.25x, laser quét 2 nhịp, 5 tên lửa.
-// Player áp sát (< antiMeleeRange) thì ngắt chu kỳ, tung Xung Điện.
-// Cần trên cùng object: Boss3EyeLaser, Boss3MissileBarrage, Boss3ShockArm (thiếu cái nào thì bỏ đòn đó).
-// Collider nhận đạn: chỉ đặt ở đầu + thân trên (xem Boss3 setup trong mô tả commit / README).
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D), typeof(EnemyHealth))]
 public class Boss3AI : MonoBehaviour
@@ -38,59 +32,28 @@ public class Boss3AI : MonoBehaviour
     [Tooltip("Khoảng nghỉ sau mỗi chiêu ở Phase 1 (cửa sổ xả đạn).")]
     [Min(0f)] public float restPhase1 = 2f;
     [Min(0f)] public float restPhase2 = 1f;
-    [Tooltip("Player trong tầm này (theo X) thì tung Xung Điện.")]
+    [Tooltip("Player trong tầm này theo trục X tính từ Shock Point thì tung Xung Điện.")]
     [Min(0f)] public float antiMeleeRange = 3.5f;
 
     [Header("Phase 2 - Quá tải")]
-    [Range(0.05f, 1f)] public float phase2HPPercent = 0.5f;
+    [Min(1)] public int phase2HP = 450;
     [Tooltip("Boss đứng yên, bất tử trong lúc chuyển phase.")]
     [Min(0f)] public float phaseTransitionTime = 1.5f;
-    [Tooltip("Tốc độ Animator và nhịp báo hiệu ở phase 2 (1.2 - 1.3).")]
-    [Range(1f, 2f)] public float phase2ActionSpeed = 1.25f;
-    public GameObject transitionExplosionPrefab;
-    [Min(0)] public int transitionExplosions = 3;
-    [Tooltip("Nhuộm màu nếu Animator không có Bool isPhase2 để đổi sang bộ sprite Tím/Hồng.")]
-    public bool tintIfNoPhase2Sprites = true;
-    public Color phase2Tint = new Color(1f, 0.6f, 0.95f);
-    [Tooltip("Các SpriteRenderer bị nhuộm. Trống = mọi SpriteRenderer con lúc Awake.")]
-    public SpriteRenderer[] tintRenderers;
+    public GameObject phaseTransitionEffectPrefab;
 
-    [Header("Sắp chết (dưới criticalHPPercent)")]
-    [Range(0f, 1f)] public float criticalHPPercent = 0.2f;
-    [Tooltip("Khói đen bám theo thân (prefab loop, KHÔNG cần AutoDestroyFX).")]
-    public GameObject smokePrefab;
-    [Tooltip("Chỗ gắn khói. Trống = 1 điểm ngẫu nhiên trên thân.")]
-    public Transform[] smokePoints;
-    public GameObject sparkPrefab;
-    [Tooltip("Khoảng thời gian ngẫu nhiên giữa hai lần lóe tia lửa điện (min, max).")]
-    public Vector2 sparkInterval = new Vector2(0.5f, 1.4f);
-
-    [Header("Tiêu diệt")]
-    public GameObject deathExplosionPrefab;
-    [Min(1)] public int deathExplosions = 5;
-    [Tooltip("Chuỗi nổ rải đều trong khoảng thời gian này.")]
-    [Min(0f)] public float deathSequenceTime = 2f;
-    [Tooltip("Chờ animation sụp đổ (Trigger Die) trước khi thay bằng xác (wreckPrefab của EnemyHealth).")]
-    [Min(0f)] public float collapseTime = 0.6f;
-    [Tooltip("Móc màn hình Mission Complete vào đây.")]
+    [Header("Sự kiện khi bị hạ")]
+    [Tooltip("Tùy chọn: gọi sự kiện Mission Complete khi boss bị hạ.")]
     public UnityEvent onDefeated;
     public static event Action<Boss3AI> FinalBossDefeated;
-
-    [Header("Điểm đặt FX trên thân (trống = ngẫu nhiên trong bounds collider)")]
-    public Transform[] bodyFxPoints;
-    [Tooltip("Chỉ dùng nếu prefab FX chưa có AutoDestroyFX.")]
-    [Min(0.1f)] public float fxLifetime = 2f;
 
     public bool IsEngaged { get; private set; }
     public bool IsAttacking { get; private set; }
     public bool IsPhase2 { get; private set; }
     public bool IsTransitioning { get; private set; }
-    public bool IsCritical { get; private set; }
     public bool IsDying { get; private set; }
     public bool IsFacingRight { get; private set; }
     public int FacingSign { get { return IsFacingRight ? 1 : -1; } }
-    // Hệ số tốc độ các component vũ khí dùng để rút ngắn báo hiệu/quét ở phase 2.
-    public float ActionSpeed { get { return IsPhase2 ? Mathf.Max(1f, phase2ActionSpeed) : 1f; } }
+    public float ActionSpeed { get { return 1f; } }
     public bool HasTarget { get { return target != null && target.gameObject.activeInHierarchy; } }
 
     private enum Attack { None, Laser, Missiles, Shock }
@@ -106,15 +69,16 @@ public class Boss3AI : MonoBehaviour
     private float startX;
     private float scaleMagnitude;
     private float nextSearchTime;
-    private float baseAnimSpeed = 1f;
     private int cycleIndex;
-    private readonly List<GameObject> attachedFx = new List<GameObject>();
+    private SpriteRenderer[] phaseTransitionRenderers;
+    private Color[] phaseTransitionOriginalColors;
 
-    // Animator (tất cả tùy chọn): Bool isMoving, Bool isPhase2, Trigger Die
+    // Animator (tất cả tùy chọn): Bool isMoving, Bool isPhase2
     private static readonly int MovingParam = Animator.StringToHash("isMoving");
     private static readonly int Phase2Param = Animator.StringToHash("isPhase2");
-    private static readonly int DieParam = Animator.StringToHash("Die");
-    private bool hasMoving, hasPhase2, hasDie;
+    private static readonly Color Phase2TransitionTint = new Color(0.72f, 0.18f, 1f, 1f);
+    private const float Phase2TransitionBlinkInterval = 0.12f;
+    private bool hasMoving, hasPhase2;
 
     void Awake()
     {
@@ -133,13 +97,9 @@ public class Boss3AI : MonoBehaviour
 
         if (anim != null)
         {
-            baseAnimSpeed = anim.speed;
             hasMoving = HasParam(anim, MovingParam, AnimatorControllerParameterType.Bool);
             hasPhase2 = HasParam(anim, Phase2Param, AnimatorControllerParameterType.Bool);
-            hasDie = HasParam(anim, DieParam, AnimatorControllerParameterType.Trigger);
         }
-        if (tintRenderers == null || tintRenderers.Length == 0)
-            tintRenderers = GetComponentsInChildren<SpriteRenderer>(true);
 
         if (eyeLaser == null && missiles == null)
             Debug.LogWarning("Boss3AI cần ít nhất Boss3EyeLaser hoặc Boss3MissileBarrage trên cùng object.", this);
@@ -147,15 +107,10 @@ public class Boss3AI : MonoBehaviour
             Debug.LogWarning("Boss3AI không có Boss3ShockArm: player đứng sát sẽ không bị đẩy lùi.", this);
     }
 
-    void OnEnable()
-    {
-        if (health != null) health.OnHealthPercentChanged += HandleHealthChanged;
-    }
-
     void OnDisable()
     {
-        if (health != null) health.OnHealthPercentChanged -= HandleHealthChanged;
         StopAllCoroutines();
+        RestorePhaseTransitionColors();
         CancelWeapons();
         combatRoutine = null;
         runningAttack = null;
@@ -173,6 +128,9 @@ public class Boss3AI : MonoBehaviour
             SetMoving(false);
             return;
         }
+
+        if (!IsPhase2 && health.currentHP <= phase2HP)
+            StartCoroutine(EnterPhase2());
 
         if (!HasTarget && Time.time >= nextSearchTime)
         {
@@ -269,8 +227,10 @@ public class Boss3AI : MonoBehaviour
 
     bool ShouldShock()
     {
-        return HasTarget && IsAvailable(Attack.Shock) &&
-            Mathf.Abs(target.position.x - rb.position.x) <= Mathf.Max(0f, antiMeleeRange);
+        if (!HasTarget || !IsAvailable(Attack.Shock)) return false;
+
+        float originX = shock.armPoint != null ? shock.armPoint.position.x : rb.position.x;
+        return Mathf.Abs(target.position.x - originX) <= Mathf.Max(0f, antiMeleeRange);
     }
 
     IEnumerator RunAttack(Attack attack)
@@ -311,16 +271,6 @@ public class Boss3AI : MonoBehaviour
         }
     }
 
-    void HandleHealthChanged(float percent)
-    {
-        if (IsDying || percent <= 0f) return;
-
-        if (!IsPhase2 && percent <= phase2HPPercent)
-            StartCoroutine(EnterPhase2());
-        if (!IsCritical && percent <= criticalHPPercent)
-            StartCoroutine(CriticalRoutine());
-    }
-
     IEnumerator EnterPhase2()
     {
         IsPhase2 = true;
@@ -329,56 +279,36 @@ public class Boss3AI : MonoBehaviour
 
         if (anim != null)
         {
-            anim.speed = baseAnimSpeed * Mathf.Max(1f, phase2ActionSpeed);
             if (hasPhase2) anim.SetBool(Phase2Param, true);
         }
-        if (!hasPhase2 && tintIfNoPhase2Sprites) ApplyTint(phase2Tint);
 
-        // Nổ nhỏ rải trên thân trong lúc đứng khựng.
         float duration = Mathf.Max(0f, phaseTransitionTime);
-        int count = Mathf.Max(0, transitionExplosions);
-        float gap = count > 0 ? duration / count : duration;
-        for (int i = 0; i < count; i++)
+        CapturePhaseTransitionColors();
+        SpawnFx(phaseTransitionEffectPrefab, transform.position, null, Mathf.Max(0.1f, duration));
+
+        float elapsed = 0f;
+        while (elapsed < duration)
         {
-            SpawnFx(transitionExplosionPrefab, RandomBodyPoint(), null, fxLifetime);
-            yield return new WaitForSeconds(gap);
+            bool purple = Mathf.FloorToInt(elapsed / Phase2TransitionBlinkInterval) % 2 == 0;
+            SetPhaseTransitionColor(purple);
+            yield return null;
+            elapsed += Time.deltaTime;
         }
-        if (count == 0) yield return new WaitForSeconds(duration);
+
+        RestorePhaseTransitionColors();
 
         IsTransitioning = false;
         if (!IsDying && health.currentHP > 0 && IsEngaged)
             combatRoutine = StartCoroutine(CombatLoop(0f));
     }
 
-    IEnumerator CriticalRoutine()
-    {
-        IsCritical = true;
-        if (smokePrefab != null)
-        {
-            if (smokePoints != null && smokePoints.Length > 0)
-            {
-                foreach (Transform point in smokePoints)
-                    if (point != null) attachedFx.Add(SpawnFx(smokePrefab, point.position, point, 0f));
-            }
-            else attachedFx.Add(SpawnFx(smokePrefab, RandomBodyPoint(), transform, 0f));
-        }
-
-        if (sparkPrefab == null) yield break;
-        while (!IsDying)
-        {
-            float min = Mathf.Max(0.05f, Mathf.Min(sparkInterval.x, sparkInterval.y));
-            float max = Mathf.Max(min, Mathf.Max(sparkInterval.x, sparkInterval.y));
-            yield return new WaitForSeconds(UnityEngine.Random.Range(min, max));
-            if (!IsDying) SpawnFx(sparkPrefab, RandomBodyPoint(), transform, fxLifetime);
-        }
-    }
-
-    // EnemyHealth gọi khi HP về 0 thay vì Destroy ngay.
-    public void BeginDeathSequence()
+    // EnemyHealth gọi trước khi tạo death FX/wreck và xóa boss.
+    public void HandleDefeated()
     {
         if (IsDying) return;
         IsDying = true;
         StopAllCoroutines();
+        RestorePhaseTransitionColors();
         CancelWeapons();
         combatRoutine = null;
         runningAttack = null;
@@ -389,32 +319,41 @@ public class Boss3AI : MonoBehaviour
 
         // Tên lửa còn bay sau khi boss chết thì hủy, tránh giết Marco sau khi đã thắng.
         Boss3Missile.ClearAll();
-        StartCoroutine(DeathRoutine());
-    }
-
-    IEnumerator DeathRoutine()
-    {
-        int count = Mathf.Max(1, deathExplosions);
-        float gap = Mathf.Max(0f, deathSequenceTime) / count;
-        for (int i = 0; i < count; i++)
-        {
-            SpawnFx(deathExplosionPrefab, RandomBodyPoint(), null, fxLifetime);
-            yield return new WaitForSeconds(gap);
-        }
-
-        if (anim != null && hasDie)
-        {
-            anim.SetTrigger(DieParam);
-            yield return new WaitForSeconds(Mathf.Max(0f, collapseTime));
-        }
-
-        foreach (GameObject fx in attachedFx)
-            if (fx != null) Destroy(fx);
-        attachedFx.Clear();
-
         onDefeated?.Invoke();
         FinalBossDefeated?.Invoke(this);
-        health.CompleteDeath(); // Nổ lớn + xác cháy + Destroy boss.
+    }
+
+    void CapturePhaseTransitionColors()
+    {
+        health.StopDamageFlash();
+        phaseTransitionRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+        phaseTransitionOriginalColors = new Color[phaseTransitionRenderers.Length];
+        for (int i = 0; i < phaseTransitionRenderers.Length; i++)
+            if (phaseTransitionRenderers[i] != null)
+                phaseTransitionOriginalColors[i] = phaseTransitionRenderers[i].color;
+    }
+
+    void SetPhaseTransitionColor(bool purple)
+    {
+        if (phaseTransitionRenderers == null || phaseTransitionOriginalColors == null) return;
+
+        for (int i = 0; i < phaseTransitionRenderers.Length; i++)
+        {
+            SpriteRenderer renderer = phaseTransitionRenderers[i];
+            if (renderer == null) continue;
+
+            Color original = phaseTransitionOriginalColors[i];
+            Color tint = new Color(Phase2TransitionTint.r, Phase2TransitionTint.g,
+                Phase2TransitionTint.b, original.a);
+            renderer.color = purple ? Color.Lerp(original, tint, 0.85f) : original;
+        }
+    }
+
+    void RestorePhaseTransitionColors()
+    {
+        SetPhaseTransitionColor(false);
+        phaseTransitionRenderers = null;
+        phaseTransitionOriginalColors = null;
     }
 
     void StopCombat()
@@ -442,13 +381,6 @@ public class Boss3AI : MonoBehaviour
         return !IsTransitioning && !IsDying;
     }
 
-    void ApplyTint(Color tint)
-    {
-        foreach (SpriteRenderer sr in tintRenderers)
-            if (sr != null) sr.color = tint;
-        health.SetBaseColor(tint);
-    }
-
     void Face(bool right)
     {
         if (IsFacingRight == right) return;
@@ -472,36 +404,6 @@ public class Boss3AI : MonoBehaviour
     void SetMoving(bool moving)
     {
         if (anim != null && hasMoving) anim.SetBool(MovingParam, moving);
-    }
-
-    public Vector3 RandomBodyPoint()
-    {
-        if (bodyFxPoints != null && bodyFxPoints.Length > 0)
-        {
-            Transform point = bodyFxPoints[UnityEngine.Random.Range(0, bodyFxPoints.Length)];
-            if (point != null) return point.position;
-        }
-
-        bool found = false;
-        Bounds bounds = new Bounds(transform.position, Vector3.zero);
-        foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
-        {
-            if (!col.enabled) continue;
-            if (!found) { bounds = col.bounds; found = true; }
-            else bounds.Encapsulate(col.bounds);
-        }
-        if (!found)
-        {
-            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
-            {
-                if (!found) { bounds = sr.bounds; found = true; }
-                else bounds.Encapsulate(sr.bounds);
-            }
-        }
-        return new Vector3(
-            UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
-            UnityEngine.Random.Range(bounds.min.y, bounds.max.y),
-            transform.position.z);
     }
 
     // lifetime <= 0: không tự hủy (dùng cho FX loop như khói).

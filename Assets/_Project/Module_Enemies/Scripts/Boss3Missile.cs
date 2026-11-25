@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
-// Tên lửa của Boss 3: vút thẳng lên trần -> ẩn ngoài màn hình -> cắm thẳng xuống điểm rơi đã khóa.
-// Chạm đất/Marco thì nổ lan mặt đất (vùng hộp blastSize, đáy đặt tại điểm nổ).
-// Prefab: SpriteRenderer (+Animator nếu có). Không cần Rigidbody/Collider.
+
 [DisallowMultipleComponent]
 public class Boss3Missile : MonoBehaviour
 {

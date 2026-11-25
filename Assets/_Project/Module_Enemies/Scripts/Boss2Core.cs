@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-// Lõi boss 2. Phase 2: lõi đỏ lên, nhấp nháy, và có đòn bắn tia laser tỏa tròn từ lõi.
-// Boss2AI gọi EnterPhase2() khi đổi phase và chờ BurstRoutine() khi chọn đòn này.
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Boss2AI))]
 public class Boss2Core : MonoBehaviour

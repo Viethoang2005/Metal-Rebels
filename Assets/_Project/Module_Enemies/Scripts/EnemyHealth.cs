@@ -16,30 +16,20 @@ public class EnemyHealth : MonoBehaviour
     public GameObject[] dropItems;
     [Range(0f, 100f)] public float dropRate = 25f;
 
-    [Header("Chớp đỏ khi trúng đạn")]
-    [Tooltip("SpriteRenderer chớp đỏ (Boss3: thân trên). Trống = SpriteRenderer con đầu tiên.")]
-    public SpriteRenderer flashRenderer;
-
     public event Action<float> OnHealthPercentChanged;
     public event Action OnEnemyDied;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+    private Coroutine flashRoutine;
     private bool bossLooksRight;
     private bool deathCompleted;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         currentHP = maxHP;
-        spriteRenderer = flashRenderer != null ? flashRenderer : GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (spriteRenderer != null) originalColor = spriteRenderer.color;
-    }
-
-    // Đổi màu gốc (ví dụ Boss3 nhuộm tím phase 2) để chớp đỏ xong trả về đúng màu mới.
-    public void SetBaseColor(Color color)
-    {
-        originalColor = color;
-        if (spriteRenderer != null) spriteRenderer.color = color;
     }
 
     public void TakeDamage(int damage)
@@ -57,7 +47,11 @@ public class EnemyHealth : MonoBehaviour
         currentHP -= damage;
         OnHealthPercentChanged?.Invoke((float)currentHP / maxHP);
 
-        if (spriteRenderer != null) StartCoroutine(FlashRed());
+        if (spriteRenderer != null)
+        {
+            StopDamageFlash();
+            flashRoutine = StartCoroutine(FlashRed());
+        }
 
         if (currentHP <= 0) Die();
     }
@@ -97,7 +91,18 @@ public class EnemyHealth : MonoBehaviour
     {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = originalColor;
+        if (spriteRenderer != null) spriteRenderer.color = originalColor;
+        flashRoutine = null;
+    }
+
+    public void StopDamageFlash()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+            flashRoutine = null;
+        }
+        if (spriteRenderer != null) spriteRenderer.color = originalColor;
     }
 
     private void Die()
@@ -108,17 +113,14 @@ public class EnemyHealth : MonoBehaviour
             ((transform.TransformVector(Vector3.right).x >= 0f) != boss.spriteFacesLeft);
         OnEnemyDied?.Invoke();
 
-        // Boss 3 tự chạy chuỗi nổ rồi gọi CompleteDeath() sau.
+        // Let Boss 3 stop its attacks before EnemyHealth creates the death FX and wreck.
         Boss3AI boss3 = GetComponent<Boss3AI>();
         if (boss3 != null && boss3.isActiveAndEnabled)
-        {
-            boss3.BeginDeathSequence();
-            return;
-        }
+            boss3.HandleDefeated();
         CompleteDeath();
     }
 
-    // Nổ, để xác, rơi đồ rồi xóa enemy. Gọi trực tiếp khi chết hoặc sau chuỗi nổ của Boss 3.
+    // Nổ, để xác, rơi đồ rồi xóa enemy.
     public void CompleteDeath()
     {
         if (deathCompleted) return;

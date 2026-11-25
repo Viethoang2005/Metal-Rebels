@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-// Boss 2 (cầu cơ khí lơ lửng). Phase 1: thả Pod, chỉ nhận sát thương khi mở nắp pháo.
-// Phase 2 (HP <= phase2HP): nhanh hơn, thêm laser dọc và tia tỏa từ lõi, lõi luôn lộ ra.
-// Rigidbody2D nên để Kinematic, Gravity Scale 0.
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D), typeof(EnemyHealth))]
 public class Boss2AI : MonoBehaviour

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
-// Chiêu 3 - Xung Điện (Anti-Melee). Chỉ dùng khi Marco đứng quá sát (Boss3AI.antiMeleeRange).
-// Báo hiệu: cánh tay co lại tích điện xanh trong chargeTime (0.5s).
-// Ra đòn: luồng sét ngang tầm thấp phía trước boss. Lùi ra ngoài tầm hoặc nhảy cao để né.
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Boss3AI))]
 public class Boss3ShockArm : MonoBehaviour
@@ -20,7 +18,7 @@ public class Boss3ShockArm : MonoBehaviour
     public GameObject chargeEffectPrefab;
 
     [Header("Luồng sét")]
-    [Tooltip("Prefab hiển thị luồng sét, vẽ hướng theo mặt gốc của boss. Sinh làm con của armPoint nên tự lật.")]
+    [Tooltip("Prefab hiển thị luồng sét. Mép đầu tia được canh vào armPoint và tự lật theo hướng boss.")]
     public GameObject lightningPrefab;
     [Min(0.05f)] public float activeTime = 0.35f;
     [Tooltip("Tầm với phía trước armPoint.")]
@@ -79,16 +77,23 @@ public class Boss3ShockArm : MonoBehaviour
         // --- Ra đòn ---
         IsActive = true;
         if (anim != null && hasShock) anim.SetTrigger(ShockParam);
+        GameObject bolt = null;
+        SpriteRenderer boltRenderer = null;
         if (lightningPrefab != null)
         {
             Transform parent = armPoint != null ? armPoint : transform;
-            GameObject bolt = Instantiate(lightningPrefab, parent);
-            bolt.transform.localPosition = lightningPrefab.transform.localPosition;
+            bolt = Instantiate(lightningPrefab, parent);
             bolt.transform.localRotation = lightningPrefab.transform.localRotation;
+            Vector3 scale = lightningPrefab.transform.localScale;
+            scale.x *= 0.5f;
+            bolt.transform.localScale = scale;
+            boltRenderer = bolt.GetComponent<SpriteRenderer>();
+            PositionBoltAtArmPoint(bolt.transform, boltRenderer);
             spawned.Add(bolt);
         }
         for (float t = 0f; t < activeTime; t += Time.deltaTime)
         {
+            PositionBoltAtArmPoint(bolt != null ? bolt.transform : null, boltRenderer);
             DamageZone();
             yield return null;
         }
@@ -123,6 +128,19 @@ public class Boss3ShockArm : MonoBehaviour
     Vector2 ArmPosition()
     {
         return armPoint != null ? (Vector2)armPoint.position : (Vector2)transform.position;
+    }
+
+    void PositionBoltAtArmPoint(Transform bolt, SpriteRenderer boltRenderer)
+    {
+        if (bolt == null || boltRenderer == null || boltRenderer.sprite == null) return;
+
+        Vector3 position = Vector3.zero;
+        Transform parent = bolt.parent;
+        float localDirection = parent != null
+            ? Mathf.Sign(parent.InverseTransformVector(Vector3.right * facing).x)
+            : facing;
+        position.x = localDirection * boltRenderer.sprite.bounds.extents.x * Mathf.Abs(bolt.localScale.x);
+        bolt.localPosition = position;
     }
 
     void ClearSpawned()

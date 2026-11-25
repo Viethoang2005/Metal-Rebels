@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Laser phase 2: vòng nạp báo trước tại X của Marco, sau đó tia laser đánh dọc xuống.
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Boss2AI))]
 public class Boss2Laser : MonoBehaviour

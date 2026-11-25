@@ -137,7 +137,6 @@ MonoBehaviour:
   wreckFacesLeft: 0
   dropItems: []
   dropRate: 25
-  flashRenderer: {fileID: 0}
 --- !u!114 &3307711475190931276
 MonoBehaviour:
   m_ObjectHideFlags: 0

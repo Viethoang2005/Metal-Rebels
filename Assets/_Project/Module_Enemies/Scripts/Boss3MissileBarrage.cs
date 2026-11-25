@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Chiêu 2 - Mưa Tên Lửa.
-// Báo hiệu: mở nắp vai/lưng, nhả khói trong telegraphTime (0.6s).
-// Ra đòn: phóng N quả vút lên trần, rồi cắm thẳng xuống rải rác quanh vị trí Marco.
-// Các điểm rơi luôn cách nhau đủ rộng để còn khe trống né được (minSafeGap).
+
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Boss3AI))]
 public class Boss3MissileBarrage : MonoBehaviour
