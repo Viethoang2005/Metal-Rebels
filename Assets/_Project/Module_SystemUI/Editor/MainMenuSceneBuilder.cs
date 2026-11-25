@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using System.Collections.Generic;
+using System.IO;
 using MetalRebels.Core.Managers;
 using MetalRebels.UI;
 using TMPro;
@@ -15,6 +17,36 @@ public class MainMenuSceneBuilder
     [MenuItem("MetalRebels/Tạo Scene MainMenu Hoàn Chỉnh")]
     public static void BuildMainMenuScene()
     {
+        // Lưu tạm AudioManager hiện có (nếu đang mở MainMenu) để không mất file nhạc/SFX đã gán
+        AudioClip savedMenuBgm = null;
+        AudioClip savedBossBgm = null;
+        List<SoundEntry> savedSfxList = new List<SoundEntry>();
+
+        AudioManager existingAudio = Object.FindFirstObjectByType<AudioManager>();
+        if (existingAudio != null)
+        {
+            SerializedObject oldAudioSo = new SerializedObject(existingAudio);
+            var menuProp = oldAudioSo.FindProperty("mainMenuBgm");
+            var bossProp = oldAudioSo.FindProperty("bossBgm");
+            if (menuProp != null) savedMenuBgm = menuProp.objectReferenceValue as AudioClip;
+            if (bossProp != null) savedBossBgm = bossProp.objectReferenceValue as AudioClip;
+
+            SerializedProperty oldList = oldAudioSo.FindProperty("sfxList");
+            if (oldList != null)
+            {
+                for (int i = 0; i < oldList.arraySize; i++)
+                {
+                    SerializedProperty elem = oldList.GetArrayElementAtIndex(i);
+                    savedSfxList.Add(new SoundEntry
+                    {
+                        soundName = elem.FindPropertyRelative("soundName").stringValue,
+                        clip = elem.FindPropertyRelative("clip").objectReferenceValue as AudioClip,
+                        volume = elem.FindPropertyRelative("volume").floatValue
+                    });
+                }
+            }
+        }
+
         var scene = EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects, NewSceneMode.Single);
 
         // 1. Camera nền tối
@@ -26,9 +58,32 @@ public class MainMenuSceneBuilder
             mainCam.orthographic = true;
         }
 
-        // 2. GameManager
+        // 2. GameManager & Khôi phục AudioManager
         GameObject gmObj = new GameObject("GameManager");
         gmObj.AddComponent<GameManager>();
+
+        GameObject audioObj = new GameObject("AudioManager");
+        AudioManager newAudio = audioObj.AddComponent<AudioManager>();
+        SerializedObject newAudioSo = new SerializedObject(newAudio);
+        var newMenuProp = newAudioSo.FindProperty("mainMenuBgm");
+        var newBossProp = newAudioSo.FindProperty("bossBgm");
+        if (newMenuProp != null) newMenuProp.objectReferenceValue = savedMenuBgm;
+        if (newBossProp != null) newBossProp.objectReferenceValue = savedBossBgm;
+
+        SerializedProperty newList = newAudioSo.FindProperty("sfxList");
+        if (newList != null)
+        {
+            newList.ClearArray();
+            for (int i = 0; i < savedSfxList.Count; i++)
+            {
+                newList.InsertArrayElementAtIndex(i);
+                SerializedProperty elem = newList.GetArrayElementAtIndex(i);
+                elem.FindPropertyRelative("soundName").stringValue = savedSfxList[i].soundName;
+                elem.FindPropertyRelative("clip").objectReferenceValue = savedSfxList[i].clip;
+                elem.FindPropertyRelative("volume").floatValue = savedSfxList[i].volume;
+            }
+        }
+        newAudioSo.ApplyModifiedProperties();
 
         // 3. EventSystem (Chuẩn Input System mới)
         GameObject esObj = new GameObject("EventSystem");
@@ -54,11 +109,22 @@ public class MainMenuSceneBuilder
         MainMenuController menuController = canvasObj.AddComponent<MainMenuController>();
         TMP_FontAsset fontAsset = FindBestFontAsset();
 
-        // 6. Nền tối + Lưới Grid công nghệ mờ
-        GameObject bg = CreatePanel(canvasObj.transform, "Background", Vector2.zero, Vector2.zero, new Color(0.055f, 0.078f, 0.12f, 0.90f), true, false);
+        // 6. Background (Tự nạp ảnh background.png / MainMenu_BG.png nếu có, không thì dùng nền lưới mặc định)
+        Sprite customBg = LoadCustomBackgroundSprite();
+        GameObject bg = CreatePanel(canvasObj.transform, "Background", Vector2.zero, Vector2.zero, Color.white, true, false);
         Image bgImg = bg.GetComponent<Image>();
-        bgImg.sprite = CreateGridBackgroundSprite();
-        bgImg.type = Image.Type.Tiled;
+        if (customBg != null)
+        {
+            bgImg.sprite = customBg;
+            bgImg.type = Image.Type.Simple;
+            bgImg.color = Color.white;
+        }
+        else
+        {
+            bgImg.color = new Color(0.055f, 0.078f, 0.12f, 0.90f);
+            bgImg.sprite = CreateGridBackgroundSprite();
+            bgImg.type = Image.Type.Tiled;
+        }
 
         // 7. Header Group
         GameObject headerGroup = CreateEmptyUI(canvasObj.transform, "Header_Group", new Vector2(0f, 345f), new Vector2(1300f, 350f));
@@ -127,7 +193,7 @@ public class MainMenuSceneBuilder
             new Color(0.65f, 0.72f, 0.80f, 1f), new Color(0.45f, 0.52f, 0.62f, 1f),
             CreateIconSprite("power"), new Color(0.55f, 0.62f, 0.72f, 1f), false, fontAsset);
 
-        // 9. Thanh Footer dưới đáy (Đã thêm icon dấu vô cực ∞ sắc nét cho Pistol)
+        // 9. Thanh Footer dưới đáy
         GameObject footer = CreatePanel(canvasObj.transform, "FooterInfo_Bar", new Vector2(0f, -468f), new Vector2(1180f, 50f), new Color(0.07f, 0.10f, 0.16f, 0.96f));
 
         CreateFooterItem(footer.transform, new Vector2(-385f, 0f), CreateIconSprite("hero"), new Color(0.95f, 0.45f, 0.20f, 1f),
@@ -151,12 +217,11 @@ public class MainMenuSceneBuilder
         missionPanel.SetActive(false);
 
         // =========================================================================
-        // 11. POPUP 2: CÀI ĐẶT & HƯỚNG DẪN (Chia 2 cột hiện đại)
+        // 11. POPUP 2: CÀI ĐẶT & HƯỚNG DẪN
         // =========================================================================
         GameObject settingsPanel = CreatePopupBase(canvasObj.transform, "SettingsPanel", "CÀI ĐẶT & HƯỚNG DẪN", new Vector2(1220f, 680f), fontAsset, menuController);
         Transform settingsWin = settingsPanel.transform.Find("Window");
 
-        // --- CỘT TRÁI: CÀI ĐẶT ÂM THANH ---
         GameObject leftCol = CreatePanel(settingsWin, "Left_AudioColumn", new Vector2(-295f, 10f), new Vector2(540f, 450f), new Color(0.10f, 0.15f, 0.23f, 1f));
         CreatePanel(leftCol.transform, "TopAccent", new Vector2(0f, 223f), new Vector2(540f, 4f), new Color(0.95f, 0.35f, 0.08f, 1f));
 
@@ -177,26 +242,25 @@ public class MainMenuSceneBuilder
             "• Thiết lập âm lượng sẽ được lưu tự động cho toàn bộ chiến dịch.</color>",
             17, FontStyles.Normal, Color.white, TextAlignmentOptions.TopLeft, fontAsset);
 
-        // --- CỘT PHẢI: HƯỚNG DẪN PHÍM THAO TÁC (Chuẩn phím của dự án) ---
         GameObject rightCol = CreatePanel(settingsWin, "Right_GuideColumn", new Vector2(295f, 10f), new Vector2(540f, 450f), new Color(0.10f, 0.15f, 0.23f, 1f));
         CreatePanel(rightCol.transform, "TopAccent", new Vector2(0f, 223f), new Vector2(540f, 4f), new Color(0.22f, 0.74f, 0.97f, 1f));
 
         GameObject guideTitleObj = CreateEmptyUI(rightCol.transform, "SectionTitle", new Vector2(0f, 180f), new Vector2(480f, 45f));
         CreateTMP(guideTitleObj.transform, "Text", "HƯỚNG DẪN PHÍM THAO TÁC", 23, FontStyles.Bold, new Color(0.22f, 0.74f, 0.97f, 1f), TextAlignmentOptions.Left, fontAsset);
 
-        CreateKeyRow(rightCol.transform, new Vector2(0f, 126f),  "A / D",       "Di chuyển sang trái / phải", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, 80f),   "W",           "Ngắm bắn lên trên", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, 34f),   "S",           "Ngắm bắn xuống dưới", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, -12f),  "C",           "Ngồi né đạn", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, -58f),  "SPACE",       "Nhảy vượt chướng ngại vật", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, -104f), "G",           "Ném lựu đạn", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, 126f),  "A / D",         "Di chuyển sang trái / phải", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, 80f),   "W",             "Ngắm bắn lên trên", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, 34f),   "S",             "Ngắm bắn xuống dưới", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, -12f),  "C",             "Ngồi né đạn", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, -58f),  "SPACE",         "Nhảy vượt chướng ngại vật", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, -104f), "G",             "Ném lựu đạn", fontAsset);
         CreateKeyRow(rightCol.transform, new Vector2(0f, -150f), "1 / 2 / 3 / 4", "Đổi vũ khí chiến đấu", fontAsset);
-        CreateKeyRow(rightCol.transform, new Vector2(0f, -196f), "J / R / ESC", "Bắn súng / Nạp đạn / Tạm dừng", fontAsset);
+        CreateKeyRow(rightCol.transform, new Vector2(0f, -196f), "J / R / ESC",   "Bắn súng / Nạp đạn / Tạm dừng", fontAsset);
 
         settingsPanel.SetActive(false);
 
         // =========================================================================
-        // 12. POPUP 3: THÔNG TIN NHÓM (3 Thẻ thành viên)
+        // 12. POPUP 3: THÔNG TIN NHÓM
         // =========================================================================
         GameObject teamPanel = CreatePopupBase(canvasObj.transform, "TeamInfoPanel", "THÔNG TIN NHÓM PHÁT TRIỂN", new Vector2(1040f, 640f), fontAsset, menuController);
         Transform teamWin = teamPanel.transform.Find("Window");
@@ -235,10 +299,41 @@ public class MainMenuSceneBuilder
         UnityEventTools.AddPersistentListener(btnExit.onClick, menuController.OnQuitGameClicked);
 
         string savePath = "Assets/_Project/Module_SystemUI/Scenes/MainMenu.unity";
-        System.IO.Directory.CreateDirectory("Assets/_Project/Module_SystemUI/Scenes");
+        Directory.CreateDirectory("Assets/_Project/Module_SystemUI/Scenes");
         EditorSceneManager.SaveScene(scene, savePath);
         AssetDatabase.Refresh();
         Debug.Log("Đã cập nhật hoàn chỉnh Scene MainMenu tại: " + savePath);
+    }
+
+    private static Sprite LoadCustomBackgroundSprite()
+    {
+        string spriteDir = "Assets/_Project/Module_SystemUI/Sprites";
+        string[] candidates =
+        {
+            $"{spriteDir}/background.png",
+            $"{spriteDir}/background.jpg",
+            $"{spriteDir}/MainMenu_BG.png",
+            $"{spriteDir}/MainMenu_BG.jpg"
+        };
+
+        foreach (string path in candidates)
+        {
+            if (!File.Exists(path)) continue;
+
+            TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (importer != null && (importer.textureType != TextureImporterType.Sprite || importer.filterMode != FilterMode.Point))
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.filterMode = FilterMode.Point;
+                importer.textureCompression = TextureImporterCompression.Uncompressed;
+                importer.SaveAndReimport();
+            }
+
+            Sprite sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            if (sp != null) return sp;
+        }
+        return null;
     }
 
     private static TMP_FontAsset FindBestFontAsset()
@@ -321,7 +416,6 @@ public class MainMenuSceneBuilder
         tmp.margin = new Vector4(42f, 0f, 0f, 0f);
     }
 
-    // Cụm Pistol ở Footer có Icon súng + Icon vô cực (∞) vẽ pixel-art sắc nét
     private static void CreatePistolFooterItem(Transform parent, Vector2 pos, TMP_FontAsset font)
     {
         GameObject item = CreateEmptyUI(parent, "FooterPistolItem", pos, new Vector2(360f, 40f));
@@ -330,7 +424,6 @@ public class MainMenuSceneBuilder
         var leftText = CreateTMP(item.transform, "PistolLabel", "<color=#94A3B8>PISTOL:</color>", 17, FontStyles.Bold, Color.white, TextAlignmentOptions.Left, font);
         leftText.margin = new Vector4(42f, 0f, 0f, 0f);
 
-        // Icon dấu vô cực ∞ nằm ngay sau chữ PISTOL:
         CreateIcon(item.transform, "InfinityIcon", new Vector2(-46f, 0f), new Vector2(24f, 14f), CreateIconSprite("infinity"), Color.white);
 
         var rightText = CreateTMP(item.transform, "AmmoLabel", "<color=#FFFFFF>AMMO (KEY: J)</color>", 17, FontStyles.Bold, Color.white, TextAlignmentOptions.Left, font);
@@ -573,16 +666,13 @@ public class MainMenuSceneBuilder
                 FillRect(7, 7, 16, 8); FillRect(7, 15, 16, 16);
                 FillRect(7, 7, 8, 16); FillRect(15, 7, 16, 16);
                 break;
-            case "infinity": // Vẽ biểu tượng vô cực ∞ sắc nét 2 vòng khép kín
-                // Vòng trái
+            case "infinity":
                 FillRect(3, 15, 8, 16);
                 FillRect(3, 7, 8, 8);
                 FillRect(2, 9, 3, 14);
-                // Vòng phải
                 FillRect(15, 15, 20, 16);
                 FillRect(15, 7, 20, 8);
                 FillRect(20, 9, 21, 14);
-                // Nhánh chéo giao nhau ở giữa
                 FillRect(9, 13, 10, 14);
                 FillRect(11, 11, 12, 12);
                 FillRect(13, 9, 14, 10);
