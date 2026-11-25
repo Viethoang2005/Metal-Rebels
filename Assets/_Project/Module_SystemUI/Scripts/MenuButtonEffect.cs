@@ -1,10 +1,12 @@
+using MetalRebels.Core.Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 namespace MetalRebels.UI
 {
-    public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Color normalColor = new Color(0.09f, 0.13f, 0.20f, 1f);
@@ -75,6 +77,13 @@ namespace MetalRebels.UI
         public void OnPointerUp(PointerEventData eventData)
         {
             targetScale = Vector3.one * hoverScale;
+        }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("ButtonClick");
+            }
         }
     }
 }

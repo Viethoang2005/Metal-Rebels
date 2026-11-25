@@ -47,5 +47,17 @@ namespace MetalRebels.Core.Events
         public static void TriggerReloadingChanged(bool isReloading) => OnReloadingChanged?.Invoke(isReloading);
         public static void TriggerAllLivesLost() => OnAllLivesLost?.Invoke();
         public static void TriggerMissionCompleted() => OnMissionCompleted?.Invoke();
+
+        // Sự kiện phát âm thanh hiệu ứng (SFX) & tiếng súng theo tên vũ khí
+        public static Action<string> OnPlaySFX;
+        public static Action<string> OnWeaponFired;
+
+        public static void TriggerPlaySFX(string sfxName) => OnPlaySFX?.Invoke(sfxName);
+        public static void TriggerWeaponFired(string weaponName) => OnWeaponFired?.Invoke(weaponName);
+
+        // Trạng thái đấu Boss: true = gặp Boss (bật nhạc), false = tiêu diệt Boss (tắt nhạc)
+        public static Action<bool> OnBossBattleChanged;
+
+        public static void TriggerBossBattleChanged(bool isFighting) => OnBossBattleChanged?.Invoke(isFighting);
     }
 }

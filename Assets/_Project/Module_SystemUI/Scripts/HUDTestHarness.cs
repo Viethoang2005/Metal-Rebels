@@ -22,6 +22,7 @@ namespace MetalRebels.UI
         private int currentGrenades;
         private int currentWeaponIndex;
         private int currentAmmo;
+        private bool isBossFighting;
 
         private HUDController hud;
 
@@ -97,6 +98,13 @@ namespace MetalRebels.UI
             if (Keyboard.current.f7Key.wasPressedThisFrame)
             {
                 TriggerVictory();
+            }
+
+            // F8: Bật/tắt trạng thái đấu Boss (bật nhạc nền Boss)
+            if (Keyboard.current.f8Key.wasPressedThisFrame)
+            {
+                isBossFighting = !isBossFighting;
+                PlayerEvents.TriggerBossBattleChanged(isBossFighting);
             }
         }
 
