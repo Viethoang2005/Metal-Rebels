@@ -137,9 +137,9 @@ namespace MetalRebels.Player
 
             GUILayout.EndArea();
 
-            // Hướng dẫn phím điều khiển (Góc dưới bên trái)
-            GUI.Box(new Rect(10, Screen.height - 210, 380, 200), "<b>HƯỚNG DẪN ĐIỀU KHIỂN & TEST PLAYER</b>");
-            GUILayout.BeginArea(new Rect(20, Screen.height - 185, 360, 175));
+            // Hướng dẫn phím điều khiển (Góc dưới bên phải để không che khuất nhân vật)
+            GUI.Box(new Rect(Screen.width - 390, Screen.height - 210, 380, 200), "<b>HƯỚNG DẪN ĐIỀU KHIỂN & TEST PLAYER</b>");
+            GUILayout.BeginArea(new Rect(Screen.width - 380, Screen.height - 185, 360, 175));
             GUILayout.Label("• <b>A / D</b> hoặc <b>Mũi tên</b>: Di chuyển trái / phải");
             GUILayout.Label("• <b>Space</b>: Nhảy (có thể nhảy bắn mọi hướng)");
             GUILayout.Label("• <b>S / C</b>: Ngồi né đạn (hạ thấp hitbox) / Bắn thấp");

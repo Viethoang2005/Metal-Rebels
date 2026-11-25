@@ -46,6 +46,8 @@ namespace MetalRebels.Player
         private Vector3 respawnPosition;
         private Coroutine invincibilityCoroutine;
         private float defaultGravityScale;
+        private Vector3 initialScale = Vector3.one;
+        private SpriteRenderer[] childRenderers;
 
         // Lưu kích thước collider ban đầu để thu nhỏ khi ngồi
         private Vector2 originalColliderSize;
@@ -66,7 +68,13 @@ namespace MetalRebels.Player
         {
             rb = GetComponent<Rigidbody2D>();
             defaultGravityScale = rb.gravityScale;
+            initialScale = transform.localScale;
+            if (Mathf.Approximately(initialScale.x, 0f)) initialScale.x = 1f;
+            if (Mathf.Approximately(initialScale.y, 0f)) initialScale.y = 1f;
+            if (Mathf.Approximately(initialScale.z, 0f)) initialScale.z = 1f;
+
             spriteRenderer = GetComponent<SpriteRenderer>();
+            childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
             inputHandler = GetComponent<PlayerInputHandler>();
             if (inputHandler == null)
             {
@@ -88,6 +96,53 @@ namespace MetalRebels.Player
                 originalColliderSize = capsuleCollider.size;
                 originalColliderOffset = capsuleCollider.offset;
             }
+
+            EnsureVisibleRenderer();
+        }
+
+        private void EnsureVisibleRenderer()
+        {
+            if (childRenderers == null || childRenderers.Length == 0)
+            {
+                childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            }
+
+            bool hasVisibleSprite = false;
+            if (childRenderers != null)
+            {
+                foreach (var sr in childRenderers)
+                {
+                    if (sr != null && sr.sprite != null)
+                    {
+                        hasVisibleSprite = true;
+                        sr.enabled = true;
+                        sr.color = Color.white;
+                    }
+                }
+            }
+
+            if (!hasVisibleSprite)
+            {
+                var upper = transform.Find("Visuals/UpperBody")?.GetComponent<SpriteRenderer>();
+                var lower = transform.Find("Visuals/LowerBody")?.GetComponent<SpriteRenderer>();
+
+                Texture2D tex = Texture2D.whiteTexture;
+                Sprite fallbackUpper = Sprite.Create(tex, new Rect(0, 0, 4, 4), new Vector2(0.5f, 0.5f), 4f);
+                Sprite fallbackLower = Sprite.Create(tex, new Rect(0, 0, 4, 4), new Vector2(0.5f, 0.5f), 4f);
+
+                if (upper != null && upper.sprite == null)
+                {
+                    upper.sprite = fallbackUpper;
+                    upper.color = new Color(0.95f, 0.75f, 0.25f, 1f);
+                    upper.enabled = true;
+                }
+                if (lower != null && lower.sprite == null)
+                {
+                    lower.sprite = fallbackLower;
+                    lower.color = new Color(0.2f, 0.55f, 0.3f, 1f);
+                    lower.enabled = true;
+                }
+            }
         }
 
         private void Start()
@@ -96,6 +151,8 @@ namespace MetalRebels.Player
             currentLives = maxLives;
             respawnPosition = transform.position;
             isAlive = true;
+
+            EnsureVisibleRenderer();
 
             PlayerEvents.OnHealthChanged?.Invoke(currentHP, maxHP);
             PlayerEvents.OnLivesChanged?.Invoke(currentLives);
@@ -251,7 +308,7 @@ namespace MetalRebels.Player
             if (Mathf.Abs(horizontal) > 0.01f)
             {
                 facingDirection = Mathf.Sign(horizontal);
-                transform.localScale = new Vector3(facingDirection, 1f, 1f);
+                transform.localScale = new Vector3(facingDirection * Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
             }
 
             // Vận tốc ngang
@@ -339,9 +396,21 @@ namespace MetalRebels.Player
             float timer = 0f;
             float flashInterval = 0.1f;
 
+            if (childRenderers == null || childRenderers.Length == 0)
+            {
+                childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            }
+
             while (timer < duration)
             {
-                if (spriteRenderer != null)
+                if (childRenderers != null && childRenderers.Length > 0)
+                {
+                    foreach (var sr in childRenderers)
+                    {
+                        if (sr != null) sr.enabled = !sr.enabled;
+                    }
+                }
+                else if (spriteRenderer != null)
                 {
                     spriteRenderer.enabled = !spriteRenderer.enabled;
                 }
@@ -349,7 +418,14 @@ namespace MetalRebels.Player
                 timer += flashInterval;
             }
 
-            if (spriteRenderer != null)
+            if (childRenderers != null && childRenderers.Length > 0)
+            {
+                foreach (var sr in childRenderers)
+                {
+                    if (sr != null) sr.enabled = true;
+                }
+            }
+            else if (spriteRenderer != null)
             {
                 spriteRenderer.enabled = true;
             }

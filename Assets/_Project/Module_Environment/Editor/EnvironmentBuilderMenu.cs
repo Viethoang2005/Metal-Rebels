@@ -17,14 +17,31 @@ namespace MetalRebels.Module_Environment.Editor
         public static void GenerateAll()
         {
             EnsureDirectories();
+            ReimportAllPlayerSprites();
             GenerateAllPrefabs();
-            GenerateLevel01Scene();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.DisplayDialog("Metal Rebels", "Đã tạo/cập nhật đầy đủ bộ Prefab Môi trường và các Scene thành công!", "OK");
         }
 
-        [MenuItem("MetalRebels/Environment/Generate Sandbox Scene (HuuHieu)", false, 2)]
+        [MenuItem("MetalRebels/Environment/Reimport All Player Sprites (Fix Invisible)", false, 2)]
+        public static void ReimportAllPlayerSprites()
+        {
+            string spritesDir = "Assets/_Project/Module_Player/Sprites";
+            if (System.IO.Directory.Exists(spritesDir))
+            {
+                string[] files = System.IO.Directory.GetFiles(spritesDir, "*.png", System.IO.SearchOption.AllDirectories);
+                foreach (string file in files)
+                {
+                    string path = file.Replace('\\', '/');
+                    AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+                }
+            }
+            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+            Debug.Log("[MetalRebels] Đã force re-import toàn bộ Sprite của Player thành công!");
+        }
+
+        [MenuItem("MetalRebels/Environment/Generate Sandbox Scene (HuuHieu)", false, 3)]
         public static void GenerateSandbox()
         {
             EnsureDirectories();
