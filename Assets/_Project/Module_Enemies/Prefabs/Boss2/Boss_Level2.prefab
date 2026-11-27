@@ -152,6 +152,7 @@ MonoBehaviour:
   target: {fileID: 0}
   detectRange: 12
   moveSpeed: 1.5
+  phase1ChaseSpeedMultiplier: 0.6
   phase2SpeedMultiplier: 1.5
   moveBounds: 5
   attackInterval: 2.5
@@ -164,6 +165,7 @@ MonoBehaviour:
   podsPhase2: 6
   phase2HP: 450
   phaseTransitionTime: 1.5
+  phase2LaserApproachTolerance: 0.5
   phaseTransitionEffectPrefab: {fileID: 0}
   testForceLaser: 0
   testForceCoreBurst: 0

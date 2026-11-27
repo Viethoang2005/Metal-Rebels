@@ -10,9 +10,11 @@ public class Boss2AI : MonoBehaviour
     public Transform target;
     [Min(0f)] public float detectRange = 12f;
 
-    [Header("Di chuyển ngang quanh vị trí ban đầu")]
+    [Header("Di chuyển")]
     [Min(0f)] public float moveSpeed = 1.5f;
+    [Min(0f)] public float phase1ChaseSpeedMultiplier = 0.6f;
     [Min(0f)] public float phase2SpeedMultiplier = 1.5f;
+    [Tooltip("Giới hạn di chuyển nếu không có camera Orthographic.")]
     [Min(0f)] public float moveBounds = 5f;
 
     [Header("Nhịp tấn công")]
@@ -35,6 +37,7 @@ public class Boss2AI : MonoBehaviour
     [Header("Phase 2")]
     [Min(1)] public int phase2HP = 450;
     [Min(0f)] public float phaseTransitionTime = 1.5f;
+    [Min(0f)] public float phase2LaserApproachTolerance = 0.5f;
     public GameObject phaseTransitionEffectPrefab;
 
     [Header("Test")]
@@ -53,12 +56,12 @@ public class Boss2AI : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private EnemyHealth health;
+    private Collider2D movementCollider;
     private Boss2Weapon weapon;
     private Boss2Laser laser;
     private Boss2Core core;
     private readonly System.Collections.Generic.List<int> attackPool = new System.Collections.Generic.List<int>();
     private float startX;
-    private int moveDirection = 1;
     private float nextSearchTime;
     private Coroutine attackRoutine;
     private int lastAttack = -1;
@@ -74,6 +77,7 @@ public class Boss2AI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<EnemyHealth>();
+        movementCollider = GetComponent<Collider2D>();
         weapon = GetComponent<Boss2Weapon>();
         laser = GetComponent<Boss2Laser>();
         core = GetComponent<Boss2Core>();
@@ -131,7 +135,7 @@ public class Boss2AI : MonoBehaviour
             SetWalking(false);
             return;
         }
-        Patrol();
+        ChaseTarget(IsPhase2 ? phase2SpeedMultiplier : phase1ChaseSpeedMultiplier);
     }
 
     bool HasTarget
@@ -139,17 +143,34 @@ public class Boss2AI : MonoBehaviour
         get { return target != null && target.gameObject.activeInHierarchy; }
     }
 
-    void Patrol()
+    void ChaseTarget(float speedMultiplier)
     {
-        float speed = Mathf.Max(0f, moveSpeed) * (IsPhase2 ? phase2SpeedMultiplier : 1f);
-        float bounds = Mathf.Max(0f, moveBounds);
-        if (moveDirection > 0 && rb.position.x >= startX + bounds) moveDirection = -1;
-        else if (moveDirection < 0 && rb.position.x <= startX - bounds) moveDirection = 1;
-
-        float destination = startX + moveDirection * bounds;
+        GetHorizontalMovementBounds(out float minX, out float maxX);
+        float destination = Mathf.Clamp(target.position.x, minX, maxX);
+        float speed = Mathf.Max(0f, moveSpeed) * Mathf.Max(0f, speedMultiplier);
         float nextX = Mathf.MoveTowards(rb.position.x, destination, speed * Time.fixedDeltaTime);
         SetWalking(nextX != rb.position.x);
         MoveTo(nextX);
+    }
+
+    void GetHorizontalMovementBounds(out float minX, out float maxX)
+    {
+        Camera camera = Camera.main;
+        if (camera != null && camera.orthographic)
+        {
+            float halfWidth = camera.orthographicSize * camera.aspect;
+            float bossHalfWidth = movementCollider != null ? movementCollider.bounds.extents.x : 0f;
+            const float edgePadding = 0.25f;
+            minX = camera.transform.position.x - halfWidth + bossHalfWidth + edgePadding;
+            maxX = camera.transform.position.x + halfWidth - bossHalfWidth - edgePadding;
+            if (minX > maxX)
+                minX = maxX = camera.transform.position.x;
+            return;
+        }
+
+        float bounds = Mathf.Max(0f, moveBounds);
+        minX = startX - bounds;
+        maxX = startX + bounds;
     }
 
     void MoveTo(float x)
@@ -181,10 +202,40 @@ public class Boss2AI : MonoBehaviour
 
             IsAttacking = true;
             if (pick == 0) yield return PodAttack();
-            else if (pick == 1) yield return LaserAttack();
+            else if (pick == 1)
+            {
+                if (laser.fireFromOrigin)
+                    yield return ApproachForLaser();
+                if (HasTarget) yield return LaserAttack();
+                else HoldPosition = false;
+            }
             else yield return CoreBurstAttack();
             IsAttacking = false;
         }
+    }
+
+    IEnumerator ApproachForLaser()
+    {
+        HoldPosition = true;
+        GetHorizontalMovementBounds(out float minX, out float maxX);
+        float tolerance = Mathf.Max(0f, phase2LaserApproachTolerance);
+        float speed = Mathf.Max(0f, moveSpeed) * Mathf.Max(0f, phase2SpeedMultiplier);
+
+        while (HasTarget && speed > 0f)
+        {
+            float destination = Mathf.Clamp(target.position.x, minX, maxX);
+            float diff = destination - rb.position.x;
+            if (Mathf.Abs(diff) <= tolerance) break;
+
+            float nextX = Mathf.MoveTowards(rb.position.x, destination, speed * Time.fixedDeltaTime);
+            SetWalking(nextX != rb.position.x);
+            MoveTo(nextX);
+            yield return new WaitForFixedUpdate();
+        }
+
+        SetWalking(false);
+        if (rb.bodyType == RigidbodyType2D.Dynamic)
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
     // Mở nắp, thả Pod chui ra từ cửa cannon, giữ nắp mở thêm để người chơi đánh trả rồi mới đóng.
