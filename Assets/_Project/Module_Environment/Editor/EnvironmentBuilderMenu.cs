@@ -37,8 +37,18 @@ namespace MetalRebels.Module_Environment.Editor
                     AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
                 }
             }
+            string mapsDir = "Assets/_Project/Module_Environment/Maps";
+            if (System.IO.Directory.Exists(mapsDir))
+            {
+                string[] mapFiles = System.IO.Directory.GetFiles(mapsDir, "*.png", System.IO.SearchOption.AllDirectories);
+                foreach (string file in mapFiles)
+                {
+                    string path = file.Replace('\\', '/');
+                    AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+                }
+            }
             AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
-            Debug.Log("[MetalRebels] Đã force re-import toàn bộ Sprite của Player thành công!");
+            Debug.Log("[MetalRebels] Đã force re-import toàn bộ Sprite Player & Maps thành công!");
         }
 
         [MenuItem("MetalRebels/Environment/Generate Sandbox Scene (HuuHieu)", false, 3)]

@@ -29,6 +29,11 @@ namespace MetalRebels.Module_Environment
         [SerializeField] private Vector3 rewardSpawnOffset = new Vector3(0.5f, 0.2f, 0f);
 
         [Header("Hiệu ứng & Âm thanh")]
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Sprite[] tiedSprites;
+        [SerializeField] private Sprite rescuedSprite;
+        [SerializeField] private Sprite[] fleeSprites;
+        [SerializeField] private float animFps = 8f;
         [SerializeField] private Animator animator;
         [SerializeField] private AudioClip rescueSound;
         [SerializeField] private GameObject rescueEffectPrefab;
@@ -42,9 +47,20 @@ namespace MetalRebels.Module_Environment
         [SerializeField] private InputActionReference interactAction; // Liên kết với Action "Interact" trong Input System
 
         private bool isPlayerNearby = false;
+        private float animTimer = 0f;
+        private int animIndex = 0;
 
         private void Start()
         {
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponent<SpriteRenderer>();
+            }
+            if (spriteRenderer != null && tiedSprites != null && tiedSprites.Length > 0 && tiedSprites[0] != null)
+            {
+                spriteRenderer.sprite = tiedSprites[0];
+            }
+
             if (promptUI != null)
             {
                 promptUI.SetActive(false);
@@ -59,6 +75,17 @@ namespace MetalRebels.Module_Environment
 
         private void Update()
         {
+            if (currentState == HostageState.TiedUp && spriteRenderer != null && tiedSprites != null && tiedSprites.Length > 1)
+            {
+                animTimer += Time.deltaTime;
+                if (animTimer >= 1f / Mathf.Max(1f, animFps))
+                {
+                    animTimer = 0f;
+                    animIndex = (animIndex + 1) % tiedSprites.Length;
+                    if (tiedSprites[animIndex] != null) spriteRenderer.sprite = tiedSprites[animIndex];
+                }
+            }
+
             if (currentState != HostageState.TiedUp || !isPlayerNearby) return;
 
             // Kiểm tra bấm phím Interact: hỗ trợ cả Unity Input System lẫn fallback phím E
@@ -115,6 +142,11 @@ namespace MetalRebels.Module_Environment
                 promptUI.SetActive(false);
             }
 
+            if (spriteRenderer != null && rescuedSprite != null)
+            {
+                spriteRenderer.sprite = rescuedSprite;
+            }
+
             if (animator != null)
             {
                 animator.SetTrigger("Rescue");
@@ -167,14 +199,38 @@ namespace MetalRebels.Module_Environment
             transform.localScale = scale;
 
             float elapsed = 0f;
+            float runTimer = 0f;
+            int runIdx = 0;
             while (elapsed < fleeDuration)
             {
                 transform.Translate(Vector3.right * (fleeDirection * fleeSpeed * Time.deltaTime));
+                if (spriteRenderer != null && fleeSprites != null && fleeSprites.Length > 0)
+                {
+                    runTimer += Time.deltaTime;
+                    if (runTimer >= 1f / Mathf.Max(1f, animFps))
+                    {
+                        runTimer = 0f;
+                        runIdx = (runIdx + 1) % fleeSprites.Length;
+                        if (fleeSprites[runIdx] != null) spriteRenderer.sprite = fleeSprites[runIdx];
+                    }
+                }
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             Destroy(gameObject);
+        }
+
+        private void OnGUI()
+        {
+            if (currentState != HostageState.TiedUp || !isPlayerNearby || Camera.main == null) return;
+
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0f, 1.1f, 0f));
+            if (screenPos.z <= 0f) return;
+
+            float x = screenPos.x - 65f;
+            float y = Screen.height - screenPos.y - 24f;
+            GUI.Box(new Rect(x, y, 130f, 24f), "<b>[E] Cứu con tin</b>");
         }
     }
 }
