@@ -24,6 +24,7 @@ namespace MetalRebels.Module_Environment
 
         [Header("Chế độ Đấu trường Boss")]
         [SerializeField] private bool isBossArena = false;
+        [SerializeField] private EnemySpawnMarker bossSpawnMarker;
 
         [Header("Thời gian khóa màn hình mẫu (khi chưa gắn quái)")]
         [SerializeField] private float fallbackLockDuration = 4f;
@@ -114,6 +115,7 @@ namespace MetalRebels.Module_Environment
             if (isBossArena)
             {
                 fallbackTimer = 0f;
+                SpawnArenaBoss();
             }
             else if (waveManager != null && waveManager.HasValidWaves())
             {
@@ -148,6 +150,27 @@ namespace MetalRebels.Module_Environment
             // Tắt collider để không kích hoạt lại
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.enabled = false;
+        }
+
+        private void SpawnArenaBoss()
+        {
+            EnemySpawnMarker marker = bossSpawnMarker;
+            if (marker == null)
+            {
+                foreach (var candidate in FindObjectsByType<EnemySpawnMarker>(FindObjectsSortMode.None))
+                {
+                    if (candidate.EnemyType == EnemySpawnCategory.Boss)
+                    {
+                        marker = candidate;
+                        break;
+                    }
+                }
+            }
+
+            if (marker != null)
+            {
+                marker.Spawn();
+            }
         }
 
         private void OnGUI()

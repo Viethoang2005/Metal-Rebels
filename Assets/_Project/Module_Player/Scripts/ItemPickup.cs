@@ -71,6 +71,11 @@ namespace MetalRebels.Player
             HandlePickup(collision.gameObject);
         }
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            HandlePickup(collision.gameObject);
+        }
+
         private void HandlePickup(GameObject target)
         {
             PlayerController controller = target.GetComponent<PlayerController>() ?? target.GetComponentInParent<PlayerController>();

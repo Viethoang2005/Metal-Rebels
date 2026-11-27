@@ -26,20 +26,35 @@ namespace MetalRebels.Module_Environment
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private bool autoSpawnOnStart = true;
 
+        private GameObject spawnedInstance;
+
         public EnemySpawnCategory EnemyType => enemyType;
         public Vector2 MoveDirection => moveDirection;
         public bool IsInsideLockZone => isInsideLockZone;
 
         private void Start()
         {
-            if (autoSpawnOnStart && !isInsideLockZone && enemyPrefab != null)
+            if (autoSpawnOnStart && !isInsideLockZone)
             {
-                Instantiate(enemyPrefab, transform.position, transform.rotation);
+                Spawn();
             }
+        }
+
+        public GameObject Spawn()
+        {
+            if (spawnedInstance != null || enemyPrefab == null)
+            {
+                return spawnedInstance;
+            }
+
+            spawnedInstance = Instantiate(enemyPrefab, transform.position, transform.rotation);
+            return spawnedInstance;
         }
 
         private void OnDrawGizmos()
         {
+            if (Application.isPlaying) return;
+
             Color gizmoColor = enemyType switch
             {
                 EnemySpawnCategory.Infantry => new Color(0.2f, 0.9f, 0.2f, 0.85f),

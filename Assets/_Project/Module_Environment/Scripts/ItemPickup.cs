@@ -48,6 +48,16 @@ namespace MetalRebels.Module_Environment
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            TryCollectFromCollider(other);
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            TryCollectFromCollider(other);
+        }
+
+        private void TryCollectFromCollider(Collider2D other)
+        {
             if (isCollected) return;
 
             // Kiểm tra xem đối tượng va chạm có hỗ trợ nhặt vật phẩm không

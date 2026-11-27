@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 21200000}
   - component: {fileID: 6100000}
   - component: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Breakable_Crate
   m_TagString: Breakable
   m_Icon: {fileID: 0}

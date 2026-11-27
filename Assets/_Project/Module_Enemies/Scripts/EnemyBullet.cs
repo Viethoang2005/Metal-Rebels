@@ -1,3 +1,4 @@
+using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -27,11 +28,15 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            var damageable = collision.GetComponent<MetalRebels.Core.Interfaces.IDamageable>() 
-                          ?? collision.GetComponentInParent<MetalRebels.Core.Interfaces.IDamageable>();
-            if (damageable != null)
+            IDamageable receiver = collision.GetComponent<IDamageable>()
+                                ?? collision.GetComponentInParent<IDamageable>();
+            if (receiver != null)
             {
-                damageable.TakeDamage(damage);
+                receiver.TakeDamage(damage);
+            }
+            else
+            {
+                Debug.LogWarning("Player cần component triển khai IDamageable để nhận sát thương.", collision);
             }
             Destroy(gameObject);
         }
