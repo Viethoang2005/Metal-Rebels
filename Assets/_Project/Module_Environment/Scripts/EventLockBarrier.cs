@@ -12,6 +12,7 @@ namespace MetalRebels.Module_Environment
         [Header("Thành phần")]
         [SerializeField] private Collider2D barrierCollider;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private bool showVisualBarrier = false;
 
         [Header("Hiệu ứng chuyển động (Trồi lên / Hạ xuống)")]
         [SerializeField] private bool useMovementAnimation = true;
@@ -65,7 +66,7 @@ namespace MetalRebels.Module_Environment
         {
             transform.position = closedPosition;
             if (barrierCollider != null) barrierCollider.enabled = true;
-            if (spriteRenderer != null) spriteRenderer.enabled = true;
+            if (spriteRenderer != null) spriteRenderer.enabled = showVisualBarrier;
         }
 
         private void SetOpenImmediate()
@@ -78,7 +79,7 @@ namespace MetalRebels.Module_Environment
         private IEnumerator MoveRoutine(Vector3 targetPos, bool enableColliderOnFinish)
         {
             if (enableColliderOnFinish && barrierCollider != null) barrierCollider.enabled = true;
-            if (spriteRenderer != null) spriteRenderer.enabled = true;
+            if (spriteRenderer != null) spriteRenderer.enabled = enableColliderOnFinish && showVisualBarrier;
 
             Vector3 startPos = transform.position;
             float elapsed = 0f;
