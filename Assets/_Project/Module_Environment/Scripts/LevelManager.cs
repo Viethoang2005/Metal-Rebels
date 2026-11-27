@@ -14,8 +14,8 @@ namespace MetalRebels.Module_Environment
 
         [Header("Camera & Ranh giới màn chơi")]
         [SerializeField] private CameraFollow2D cameraFollow;
-        [SerializeField] private Vector2 levelMinBounds = new Vector2(-10f, -5f);
-        [SerializeField] private Vector2 levelMaxBounds = new Vector2(150f, 15f);
+        [SerializeField] private Vector2 levelMinBounds = new Vector2(-10f, -0.85f);
+        [SerializeField] private Vector2 levelMaxBounds = new Vector2(150f, 6.15f);
 
         private void Awake()
         {

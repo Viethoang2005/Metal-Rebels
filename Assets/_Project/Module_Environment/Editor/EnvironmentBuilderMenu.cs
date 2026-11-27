@@ -13,7 +13,22 @@ namespace MetalRebels.Module_Environment.Editor
         private const string PrefabDir = "Assets/_Project/Module_Environment/Prefabs";
         private const string SceneDir = "Assets/_Project/Game/Scenes";
 
-        [MenuItem("MetalRebels/Environment/Generate All Prefabs and Scenes (Levels 1-3 & MainMenu)", false, 1)]
+        [MenuItem("MetalRebels/Environment/Reload Current Scene (Nap lai Map moi tu dia)", false, 1)]
+        public static void ReloadCurrentSceneFromDisk()
+        {
+            if (EditorApplication.isPlaying)
+            {
+                EditorApplication.isPlaying = false;
+            }
+            string activePath = EditorSceneManager.GetActiveScene().path;
+            if (!string.IsNullOrEmpty(activePath))
+            {
+                EditorSceneManager.OpenScene(activePath, OpenSceneMode.Single);
+                Debug.Log($"[MetalRebels] Đã nạp lại Scene mới nhất từ đĩa: {activePath}");
+            }
+        }
+
+        [MenuItem("MetalRebels/Environment/Generate All Prefabs and Scenes (Levels 1-3 & MainMenu)", false, 2)]
         public static void GenerateAll()
         {
             EnsureDirectories();

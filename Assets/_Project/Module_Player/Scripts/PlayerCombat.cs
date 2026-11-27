@@ -448,10 +448,7 @@ namespace MetalRebels.Player
                 {
                     slot.isUnlocked = true;
                     int maxReserve = slot.weaponData.maxAmmo;
-                    int currentTotal = slot.currentClip + slot.reserveAmmo;
-                    if (currentTotal >= maxReserve) return false;
-
-                    slot.reserveAmmo = Mathf.Min(slot.reserveAmmo + amount, maxReserve - slot.currentClip);
+                    slot.reserveAmmo = Mathf.Min(slot.reserveAmmo + amount, Mathf.Max(0, maxReserve - slot.currentClip));
 
                     // Nếu băng hiện tại trống và chưa cầm, nạp ngay vào băng
                     if (slot.currentClip == 0 && slot.reserveAmmo > 0)
@@ -510,8 +507,6 @@ namespace MetalRebels.Player
 
         public bool TryAddGrenades(int amount)
         {
-            if (currentGrenades >= maxGrenades) return false;
-
             currentGrenades = Mathf.Min(currentGrenades + amount, maxGrenades);
             PlayerEvents.OnGrenadeChanged?.Invoke(currentGrenades, maxGrenades);
             return true;

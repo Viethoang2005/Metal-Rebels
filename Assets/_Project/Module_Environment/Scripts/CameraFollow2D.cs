@@ -12,6 +12,7 @@ namespace MetalRebels.Module_Environment
         [SerializeField] private Transform target;
         [SerializeField] private Vector3 offset = new Vector3(2f, 1f, -10f);
         [SerializeField] private float smoothTime = 0.2f;
+        [SerializeField] private bool followY = false;
 
         [Header("Giới hạn ranh giới (Map Bounds)")]
         [SerializeField] private bool useBounds = false;
@@ -25,9 +26,11 @@ namespace MetalRebels.Module_Environment
 
         private Vector3 currentVelocity;
         private Camera cam;
+        private float fixedY;
 
         private void Awake()
         {
+            fixedY = transform.position.y;
             cam = GetComponent<Camera>();
             if (cam == null)
             {
@@ -60,7 +63,8 @@ namespace MetalRebels.Module_Environment
                 }
             }
 
-            destination = target.position + offset;
+            float targetY = followY ? (target.position.y + offset.y) : fixedY;
+            destination = new Vector3(target.position.x + offset.x, targetY, offset.z);
 
             // Áp dụng giới hạn ranh giới màn chơi nếu được bật
             if (useBounds && cam != null)

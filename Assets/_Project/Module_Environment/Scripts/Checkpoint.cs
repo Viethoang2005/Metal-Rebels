@@ -14,8 +14,10 @@ namespace MetalRebels.Module_Environment
 
         [Header("Trạng thái trực quan")]
         [SerializeField] private SpriteRenderer flagRenderer;
-        [SerializeField] private Color inactiveColor = Color.gray;
-        [SerializeField] private Color activeColor = Color.green;
+        [SerializeField] private Sprite inactiveSprite;
+        [SerializeField] private Sprite activeSprite;
+        [SerializeField] private Color inactiveColor = Color.white;
+        [SerializeField] private Color activeColor = Color.white;
 
         [Header("Hiệu ứng & Âm thanh")]
         [SerializeField] private AudioClip activateSound;
@@ -26,13 +28,23 @@ namespace MetalRebels.Module_Environment
 
         private bool isActivated = false;
 
+        private void Awake()
+        {
+            if (flagRenderer == null)
+            {
+                flagRenderer = GetComponent<SpriteRenderer>();
+            }
+        }
+
         private void Start()
         {
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.isTrigger = true;
 
+            if (flagRenderer == null) flagRenderer = GetComponent<SpriteRenderer>();
             if (flagRenderer != null)
             {
+                if (inactiveSprite != null) flagRenderer.sprite = inactiveSprite;
                 flagRenderer.color = inactiveColor;
             }
         }
@@ -53,9 +65,10 @@ namespace MetalRebels.Module_Environment
             LastActiveCheckpointPosition = transform.position + respawnOffset;
             HasActiveCheckpoint = true;
 
-            // Đổi màu trực quan cờ/đèn báo
+            // Đổi sprite & màu trực quan cờ/đèn báo
             if (flagRenderer != null)
             {
+                if (activeSprite != null) flagRenderer.sprite = activeSprite;
                 flagRenderer.color = activeColor;
             }
 

@@ -407,7 +407,7 @@ namespace MetalRebels.Player
 
         public bool TryHeal(int amount)
         {
-            if (!isAlive || currentHP >= maxHP) return false;
+            if (!isAlive) return false;
 
             currentHP = Mathf.Min(currentHP + amount, maxHP);
             PlayerEvents.OnHealthChanged?.Invoke(currentHP, maxHP);
