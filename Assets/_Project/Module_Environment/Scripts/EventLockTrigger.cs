@@ -62,6 +62,13 @@ namespace MetalRebels.Module_Environment
         {
             isTriggered = true;
 
+            // Nếu chưa gắn quái vào WaveManager (đang test map độc lập), không khóa đường người chơi
+            if (waveManager == null || !waveManager.HasValidWaves())
+            {
+                HandleWavesCleared();
+                return;
+            }
+
             // Khóa Camera
             if (cameraFollow != null)
             {
@@ -77,15 +84,7 @@ namespace MetalRebels.Module_Environment
             GameEvents.OnEventLockStart?.Invoke();
 
             // Kích hoạt các đợt quái
-            if (waveManager != null)
-            {
-                waveManager.StartWaves();
-            }
-            else
-            {
-                // Nếu không có waveManager thì tự mở sau vài giây
-                Invoke(nameof(HandleWavesCleared), 2f);
-            }
+            waveManager.StartWaves();
         }
 
         private void HandleWavesCleared()

@@ -37,19 +37,33 @@ namespace MetalRebels.Module_Environment
         private bool isSpawning = false;
         private bool isRunning = false;
 
+        public bool HasValidWaves()
+        {
+            if (waves == null || waves.Count == 0) return false;
+            foreach (var w in waves)
+            {
+                if (w.enemies == null) continue;
+                foreach (var e in w.enemies)
+                {
+                    if (e.enemyPrefab != null && e.spawnPoint != null) return true;
+                }
+            }
+            return false;
+        }
+
         public void StartWaves()
         {
             if (isRunning) return;
 
-            isRunning = true;
-            currentWaveIndex = 0;
-            activeEnemies.Clear();
-
-            if (waves.Count == 0)
+            if (!HasValidWaves())
             {
                 OnAllWavesCleared?.Invoke();
                 return;
             }
+
+            isRunning = true;
+            currentWaveIndex = 0;
+            activeEnemies.Clear();
 
             StartCoroutine(RunWaveRoutine());
         }

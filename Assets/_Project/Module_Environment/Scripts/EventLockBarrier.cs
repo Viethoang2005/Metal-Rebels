@@ -15,7 +15,7 @@ namespace MetalRebels.Module_Environment
 
         [Header("Hiệu ứng chuyển động (Trồi lên / Hạ xuống)")]
         [SerializeField] private bool useMovementAnimation = true;
-        [SerializeField] private float moveDistance = 3f;
+        [SerializeField] private float moveDistance = 6f;
         [SerializeField] private float moveDuration = 0.5f;
 
         private Vector3 closedPosition;
@@ -49,6 +49,7 @@ namespace MetalRebels.Module_Environment
 
         public void Open()
         {
+            if (barrierCollider != null) barrierCollider.enabled = false;
             if (moveCoroutine != null) StopCoroutine(moveCoroutine);
             if (useMovementAnimation && gameObject.activeInHierarchy)
             {

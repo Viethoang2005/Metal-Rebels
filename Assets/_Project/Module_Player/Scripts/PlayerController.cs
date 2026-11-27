@@ -48,6 +48,10 @@ namespace MetalRebels.Player
         private float defaultGravityScale;
         private Vector3 initialScale = Vector3.one;
         private SpriteRenderer[] childRenderers;
+        private float coyoteTimeCounter;
+        private float jumpBufferCounter;
+        private const float CoyoteTimeDuration = 0.12f;
+        private const float JumpBufferDuration = 0.12f;
 
         // Lưu kích thước collider ban đầu để thu nhỏ khi ngồi
         private Vector2 originalColliderSize;
@@ -199,13 +203,13 @@ namespace MetalRebels.Player
             if (boxCollider != null)
             {
                 Bounds bounds = boxCollider.bounds;
-                checkPosition = new Vector2(bounds.center.x, bounds.min.y + groundCheckRadius * 0.75f);
+                checkPosition = new Vector2(bounds.center.x, bounds.min.y);
                 hasGroundCheck = true;
             }
             else if (capsuleCollider != null)
             {
                 Bounds bounds = capsuleCollider.bounds;
-                checkPosition = new Vector2(bounds.center.x, bounds.min.y + groundCheckRadius * 0.75f);
+                checkPosition = new Vector2(bounds.center.x, bounds.min.y);
                 hasGroundCheck = true;
             }
             else if (groundCheck != null)
@@ -221,9 +225,19 @@ namespace MetalRebels.Player
                 return;
             }
 
-            isGrounded = rb.linearVelocity.y <= 0.01f
+            float radius = Mathf.Max(groundCheckRadius, 0.16f);
+            isGrounded = rb.linearVelocity.y <= 0.05f
                 && hasGroundCheck
-                && Physics2D.OverlapCircle(checkPosition, groundCheckRadius, groundLayer);
+                && Physics2D.OverlapCircle(checkPosition, radius, groundLayer);
+
+            if (isGrounded)
+            {
+                coyoteTimeCounter = CoyoteTimeDuration;
+            }
+            else
+            {
+                coyoteTimeCounter -= Time.deltaTime;
+            }
         }
 
         private void HandleCrouch()
@@ -285,10 +299,29 @@ namespace MetalRebels.Player
 
         private void HandleJump()
         {
-            if (inputHandler.JumpPressed && isGrounded && !isCrouching)
+            if (inputHandler.JumpPressed)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                jumpBufferCounter = JumpBufferDuration;
+            }
+            else
+            {
+                jumpBufferCounter -= Time.deltaTime;
+            }
+
+            if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && !isCrouching)
+            {
+                float horizontal = inputHandler.MoveInput.x;
+                float vx = Mathf.Abs(horizontal) > 0.01f ? horizontal * moveSpeed : rb.linearVelocity.x;
+                if (Mathf.Abs(horizontal) > 0.01f)
+                {
+                    facingDirection = Mathf.Sign(horizontal);
+                    transform.localScale = new Vector3(facingDirection * Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
+                }
+
+                rb.linearVelocity = new Vector2(vx, jumpForce);
                 isGrounded = false;
+                coyoteTimeCounter = 0f;
+                jumpBufferCounter = 0f;
             }
         }
 

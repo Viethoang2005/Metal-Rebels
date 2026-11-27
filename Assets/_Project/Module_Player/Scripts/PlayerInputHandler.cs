@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace MetalRebels.Player
 {
+    [DefaultExecutionOrder(-10)]
     public class PlayerInputHandler : MonoBehaviour
     {
         public Vector2 MoveInput { get; private set; }
