@@ -71,7 +71,7 @@ Asset `Assets/Settings/InputSystem_Actions.inputactions` có các action map `Pl
 | `Move` | WAD hoặc phím mũi tên |
 | `Attack` | J |
 | `Jump` | Space |
-| `Crouch` | S hoặc mũi tên xuống |
+| `Crouch` | C |
 | `Interact` | E | (cứu con tin)
 | `Grenade` | G |
 | `Select Weapon` | 1 / 2 / 3 / 4| (1: Súng lục, 2: Shotgun, 3: Súng trường, 4: Rocket(nếu có), 5: Lựu đạn )

@@ -292,12 +292,14 @@ Người chơi bắt đầu màn chơi với một khẩu súng cơ bản có l�
 
 Các loại vũ khí dự kiến gồm súng lục, súng trường, shotgun và súng phóng rocket. Mỗi loại có đặc điểm khác nhau về sát thương, tốc độ bắn và lượng đạn.
 
+Trên bàn phím, nhấn phím 1, 2, 3 hoặc 4 để chọn lần lượt súng lục, shotgun, súng trường hoặc rocket (nếu vũ khí đã được mở khóa và còn đạn). Súng trường dùng bộ animation thân trên của shotgun nhưng vẫn bắn đạn thường như súng lục.
+
 Việc lựa chọn vũ khí phù hợp giúp người chơi xử lý từng loại kẻ địch hiệu quả hơn. Ví dụ, shotgun phù hợp khi chiến đấu ở khoảng cách gần, trong khi rocket launcher có thể được sử dụng để gây sát thương lớn lên kẻ địch hoặc phương tiện bọc thép.
 ### <a name="_y32fm2nm43ga"></a>**Cơ chế nhặt và thay đổi vũ khí**
 Vũ khí có thể xuất hiện trong các thùng tiếp tế hoặc được nhận sau khi giải cứu con tin. Khi nhặt một vũ khí mới, Marco sẽ chuyển sang sử dụng loại vũ khí đó.
 
 Vũ khí đặc biệt có lượng đạn giới hạn. Khi hết đạn, người chơi có thể tìm thêm đạn trong màn chơi hoặc quay lại sử dụng khẩu súng cơ bản.
-### <a name="_b0fj2unywf51"></a>**Cơ chế máu và sát thương**
+### <a name="_b0fj2unywf51"></a>**Cơ chế máju và sát thương**
 Nhân vật Marco: 
 
 - Có 3 mạng
@@ -501,5 +503,4 @@ Marco đột nhập vào căn cứ quân sự, vượt qua các tuyến phòng t
 |Giải cứu con tin|Có |Có|Có|
 |Boss|Viper-01|Hunter|PROJECT TITAN|
 |Mục tiêu|Tiêu diệt địch và mở đường tiến vào đảo|Tiếp tục tiêu diệt dịch và tiến sâu hơn vào bên trong căn cứ trung tâm|Đánh bại PROJECT TITAN và phá hủy lõi|
-
 

@@ -12,6 +12,8 @@ namespace MetalRebels.Player
         [SerializeField] private float lifetime = 3f;
         [SerializeField] private LayerMask hitLayers;
         [SerializeField] private GameObject hitEffectPrefab;
+        [SerializeField] private Sprite visualSprite;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private Vector2 moveDirection = Vector2.right;
         private Rigidbody2D rb;
@@ -20,17 +22,68 @@ namespace MetalRebels.Player
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            if (rb == null)
+            {
+                // Đảm bảo đạn luôn có Rigidbody2D để OnTriggerEnter2D kích hoạt với vật cản/thùng tĩnh.
+                rb = gameObject.AddComponent<Rigidbody2D>();
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.useFullKinematicContacts = true;
+                rb.gravityScale = 0f;
+                rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponent<SpriteRenderer>();
+            }
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sortingOrder = 5;
+                if (visualSprite != null && spriteRenderer.sprite == null)
+                {
+                    spriteRenderer.sprite = visualSprite;
+                    spriteRenderer.color = Color.white;
+                }
+            }
         }
 
-        public void Init(Vector2 direction, int bulletDamage, float bulletSpeed, float bulletLifetime, LayerMask targetLayers = default)
+        public void Init(
+            Vector2 direction,
+            int bulletDamage,
+            float bulletSpeed,
+            float bulletLifetime,
+            LayerMask targetLayers = default,
+            Sprite overrideSprite = null,
+            float visualScale = 1f)
         {
             moveDirection = direction.normalized;
             damage = bulletDamage;
             speed = bulletSpeed;
             lifetime = bulletLifetime;
+            transform.localScale *= Mathf.Max(0.01f, visualScale);
             if (targetLayers != default)
             {
                 hitLayers = targetLayers;
+            }
+
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponent<SpriteRenderer>();
+            }
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sortingOrder = 5;
+                if (overrideSprite != null)
+                {
+                    spriteRenderer.sprite = overrideSprite;
+                    spriteRenderer.color = Color.white;
+                }
+                else if (visualSprite != null && spriteRenderer.sprite == null)
+                {
+                    spriteRenderer.sprite = visualSprite;
+                    spriteRenderer.color = Color.white;
+                }
             }
 
             // Xoay góc đạn theo hướng bắn
@@ -77,15 +130,22 @@ namespace MetalRebels.Player
             IDamageable damageable = hitObj.GetComponent<IDamageable>() ?? hitObj.GetComponentInParent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                if (damage > 0)
+                {
+                    damageable.TakeDamage(damage);
+                }
                 hasHit = true;
                 SpawnHitEffect();
                 Destroy(gameObject);
                 return;
             }
 
-            // Nếu trúng địa hình / vật cản
-            if (((1 << hitObj.layer) & hitLayers) != 0 || hitObj.layer != LayerMask.NameToLayer("Ignore Raycast"))
+            Collider2D hitCollider = hitObj.GetComponent<Collider2D>();
+            bool isConfiguredHitLayer = ((1 << hitObj.layer) & hitLayers) != 0;
+            bool isSolidObstacle = hitCollider != null
+                && !hitCollider.isTrigger
+                && hitObj.layer != LayerMask.NameToLayer("Ignore Raycast");
+            if (isConfiguredHitLayer || isSolidObstacle)
             {
                 hasHit = true;
                 SpawnHitEffect();

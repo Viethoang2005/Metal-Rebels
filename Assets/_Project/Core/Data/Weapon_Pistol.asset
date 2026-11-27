@@ -14,7 +14,7 @@ MonoBehaviour:
   weaponType: 0
   weaponName: Pistol
   weaponIcon: {fileID: 0}
-  projectilePrefab: {fileID: 100000, guid: b1000000000000000000000000000001, type: 3}
+  projectilePrefab: {fileID: 7767520276786537417, guid: b1000000000000000000000000000001, type: 3}
   damage: 20
   fireRate: 2
   isAutomatic: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   magazineSize: 0
   reloadTime: 0
   ammoPerPickup: 0
-  bulletSpeed: 20
+  bulletSpeed: 12
   bulletLifetime: 3
   isExplosive: 0
   explosionRadius: 0

@@ -9,11 +9,11 @@ namespace MetalRebels.Player
     public class PlayerController : MonoBehaviour, IDamageable, IPickupCollector
     {
         [Header("Chỉ số di chuyển")]
-        [SerializeField] private float moveSpeed = 1.5f;
-        [SerializeField] private float jumpForce = 7.5f;
+        [SerializeField, Min(0f)] private float moveSpeed = 3.2f;
+        [SerializeField, Min(0f)] private float jumpForce = 7.2f;
         [SerializeField] private Transform groundCheck;
-        [SerializeField] private float groundCheckRadius = 0.08f;
-        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private float groundCheckRadius = 0.12f;
+        [SerializeField] private LayerMask groundLayer = ~0;
 
         [Header("Điều chỉnh cung nhảy")]
         [SerializeField, Range(0.1f, 1f)] private float fallingGravityMultiplier = 0.65f;
@@ -21,7 +21,7 @@ namespace MetalRebels.Player
 
         [Header("Chỉ số Ngồi & Né tránh")]
         [SerializeField] private Transform ceilingCheck;
-        [SerializeField] private float ceilingCheckRadius = 0.2f;
+        [SerializeField] private float ceilingCheckRadius = 0.12f;
 
         [Header("Chỉ số Sinh tồn (HP & Mạng)")]
         [SerializeField] private int maxHP = 100;
@@ -30,11 +30,14 @@ namespace MetalRebels.Player
         [SerializeField] private float respawnInvincibleTime = 2.0f;
 
         private Rigidbody2D rb;
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer[] characterSpriteRenderers;
+        private bool[] originalSpriteRendererStates;
+        private Color[] originalSpriteRendererColors;
         private BoxCollider2D boxCollider;
         private CapsuleCollider2D capsuleCollider;
         private PlayerInputHandler inputHandler;
         private PlayerAnimation playerAnimation;
+        private PlayerCombat playerCombat;
 
         private int currentHP;
         private int currentLives;
@@ -48,10 +51,14 @@ namespace MetalRebels.Player
         private float defaultGravityScale;
         private Vector3 initialScale = Vector3.one;
         private SpriteRenderer[] childRenderers;
-        private float coyoteTimeCounter;
-        private float jumpBufferCounter;
-        private const float CoyoteTimeDuration = 0.12f;
+        
+        private bool crouchRequested;
+        private bool crouchToggleActive;
+        private float jumpBufferTimer;
+        private float coyoteTimer;
         private const float JumpBufferDuration = 0.12f;
+        private const float CoyoteDuration = 0.12f;
+        private readonly Collider2D[] overlapResults = new Collider2D[8];
 
         // Lưu kích thước collider ban đầu để thu nhỏ khi ngồi
         private Vector2 originalColliderSize;
@@ -77,8 +84,23 @@ namespace MetalRebels.Player
             if (Mathf.Approximately(initialScale.y, 0f)) initialScale.y = 1f;
             if (Mathf.Approximately(initialScale.z, 0f)) initialScale.z = 1f;
 
-            spriteRenderer = GetComponent<SpriteRenderer>();
             childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            if (groundLayer.value == 0)
+            {
+                int ground = LayerMask.NameToLayer("Ground");
+                int mask = 1;
+                if (ground >= 0) mask |= 1 << ground;
+                groundLayer = mask;
+            }
+            characterSpriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            originalSpriteRendererStates = new bool[characterSpriteRenderers.Length];
+            originalSpriteRendererColors = new Color[characterSpriteRenderers.Length];
+            for (int i = 0; i < characterSpriteRenderers.Length; i++)
+            {
+                originalSpriteRendererStates[i] = characterSpriteRenderers[i].enabled;
+                originalSpriteRendererColors[i] = characterSpriteRenderers[i].color;
+            }
             inputHandler = GetComponent<PlayerInputHandler>();
             if (inputHandler == null)
             {
@@ -86,6 +108,7 @@ namespace MetalRebels.Player
             }
 
             playerAnimation = GetComponent<PlayerAnimation>();
+            playerCombat = GetComponent<PlayerCombat>();
 
             boxCollider = GetComponent<BoxCollider2D>();
             capsuleCollider = GetComponent<CapsuleCollider2D>();
@@ -168,6 +191,7 @@ namespace MetalRebels.Player
 
             CheckGrounded();
             HandleCrouch();
+            UpdateJumpTimers();
             HandleJump();
         }
 
@@ -197,74 +221,102 @@ namespace MetalRebels.Player
 
         private void CheckGrounded()
         {
-            Vector2 checkPosition;
-            bool hasGroundCheck = false;
-
-            if (boxCollider != null)
-            {
-                Bounds bounds = boxCollider.bounds;
-                checkPosition = new Vector2(bounds.center.x, bounds.min.y);
-                hasGroundCheck = true;
-            }
-            else if (capsuleCollider != null)
-            {
-                Bounds bounds = capsuleCollider.bounds;
-                checkPosition = new Vector2(bounds.center.x, bounds.min.y);
-                hasGroundCheck = true;
-            }
-            else if (groundCheck != null)
-            {
-                checkPosition = groundCheck.position;
-                hasGroundCheck = true;
-            }
-            else
-            {
-                checkPosition = (Vector2)transform.position + Vector2.down * 0.9f;
-                isGrounded = rb.linearVelocity.y <= 0.01f
-                    && Physics2D.Raycast(checkPosition, Vector2.down, 0.2f, groundLayer);
-                return;
-            }
-
-            float radius = Mathf.Max(groundCheckRadius, 0.16f);
-            isGrounded = rb.linearVelocity.y <= 0.05f
-                && hasGroundCheck
-                && Physics2D.OverlapCircle(checkPosition, radius, groundLayer);
-
-            if (isGrounded)
-            {
-                coyoteTimeCounter = CoyoteTimeDuration;
-            }
-            else
-            {
-                coyoteTimeCounter -= Time.deltaTime;
-            }
+            Vector2 checkPosition = groundCheck != null
+                ? groundCheck.position
+                : GetColliderBounds().center + Vector3.down * (GetColliderBounds().extents.y + 0.02f);
+            isGrounded = rb.linearVelocity.y <= 0.15f
+                && HasValidOverlap(checkPosition, groundCheckRadius, groundLayer);
         }
 
         private void HandleCrouch()
         {
-            bool wantsToCrouch = isGrounded && inputHandler.CrouchHeld;
-
-            if (wantsToCrouch && !isCrouching)
+            bool isRocketEquipped = playerCombat != null
+                && playerCombat.IsRocketLauncherEquipped;
+            if (isRocketEquipped)
             {
-                // Bắt đầu ngồi xuống: giảm chiều cao collider đi một nửa để né đạn tầm cao
-                isCrouching = true;
-                ApplyColliderSize(isCrouching);
-            }
-            else if (!wantsToCrouch && isCrouching)
-            {
-                // Kiểm tra trần nhà trước khi đứng lên
-                bool hasCeiling = false;
-                if (ceilingCheck != null)
+                if (isCrouching)
                 {
-                    hasCeiling = Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, groundLayer);
-                }
-
-                if (!hasCeiling)
-                {
+                    crouchRequested = false;
+                    crouchToggleActive = false;
                     isCrouching = false;
-                    ApplyColliderSize(isCrouching);
+                    ApplyColliderSize(false);
+                }
+                return;
+            }
+
+            if (inputHandler.CrouchPressed && (isGrounded || isCrouching))
+            {
+                crouchToggleActive = !isCrouching;
+                crouchRequested = crouchToggleActive;
+            }
+            else if (!crouchToggleActive)
+            {
+                crouchRequested = false;
+            }
+
+            if (crouchRequested && isGrounded && !isCrouching)
+            {
+                isCrouching = true;
+                ApplyColliderSize(true);
+            }
+
+            if (isCrouching
+                && !crouchToggleActive
+                && !crouchRequested)
+            {
+                TryStandUp();
+            }
+        }
+
+        private bool TryStandUp()
+        {
+            if (HasCeilingObstruction()) return false;
+            isCrouching = false;
+            crouchRequested = false;
+            ApplyColliderSize(false);
+            return true;
+        }
+
+        private bool HasCeilingObstruction()
+        {
+            if (ceilingCheck != null)
+            {
+                return HasValidOverlap(ceilingCheck.position, ceilingCheckRadius, groundLayer);
+            }
+
+            Bounds bounds = GetColliderBounds();
+            Vector2 position = new Vector2(bounds.center.x, bounds.max.y + ceilingCheckRadius);
+            return HasValidOverlap(position, ceilingCheckRadius, groundLayer);
+        }
+
+        private bool HasValidOverlap(Vector2 position, float radius, LayerMask layerMask)
+        {
+            int count = Physics2D.OverlapCircle(position, radius, CreateSolidFilter(layerMask), overlapResults);
+            for (int i = 0; i < count; i++)
+            {
+                Collider2D hit = overlapResults[i];
+                overlapResults[i] = null;
+                if (hit != null && !hit.isTrigger && hit.attachedRigidbody != rb)
+                {
+                    return true;
                 }
             }
+            return false;
+        }
+
+        private static ContactFilter2D CreateSolidFilter(LayerMask layerMask)
+        {
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.SetLayerMask(layerMask);
+            filter.useTriggers = false;
+            return filter;
+        }
+
+        private Bounds GetColliderBounds()
+        {
+            if (boxCollider != null) return boxCollider.bounds;
+            if (capsuleCollider != null) return capsuleCollider.bounds;
+            return GetComponent<Collider2D>().bounds;
         }
 
         private void ApplyColliderSize(bool crouching)
@@ -297,32 +349,39 @@ namespace MetalRebels.Player
             }
         }
 
+        private void UpdateJumpTimers()
+        {
+            jumpBufferTimer = inputHandler.JumpPressed
+                ? JumpBufferDuration
+                : Mathf.Max(0f, jumpBufferTimer - Time.deltaTime);
+            coyoteTimer = isGrounded
+                ? CoyoteDuration
+                : Mathf.Max(0f, coyoteTimer - Time.deltaTime);
+        }
+
         private void HandleJump()
         {
-            if (inputHandler.JumpPressed)
+            if (jumpBufferTimer <= 0f || coyoteTimer <= 0f) return;
+
+            if (playerCombat != null
+                && playerCombat.IsRocketLauncherEquipped
+                && isCrouching)
             {
-                jumpBufferCounter = JumpBufferDuration;
-            }
-            else
-            {
-                jumpBufferCounter -= Time.deltaTime;
+                crouchRequested = false;
+                crouchToggleActive = false;
+                isCrouching = false;
+                ApplyColliderSize(false);
             }
 
-            if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && !isCrouching)
+            if (isCrouching)
             {
-                float horizontal = inputHandler.MoveInput.x;
-                float vx = Mathf.Abs(horizontal) > 0.01f ? horizontal * moveSpeed : rb.linearVelocity.x;
-                if (Mathf.Abs(horizontal) > 0.01f)
-                {
-                    facingDirection = Mathf.Sign(horizontal);
-                    transform.localScale = new Vector3(facingDirection * Mathf.Abs(initialScale.x), initialScale.y, initialScale.z);
-                }
-
-                rb.linearVelocity = new Vector2(vx, jumpForce);
-                isGrounded = false;
-                coyoteTimeCounter = 0f;
-                jumpBufferCounter = 0f;
+                if (!TryStandUp()) return;
             }
+
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            isGrounded = false;
+            jumpBufferTimer = 0f;
+            coyoteTimer = 0f;
         }
 
         private void HandleMovement()
@@ -393,6 +452,10 @@ namespace MetalRebels.Player
             rb.linearVelocity = Vector2.zero;
             isAlive = true;
             isCrouching = false;
+            crouchRequested = false;
+            crouchToggleActive = false;
+            jumpBufferTimer = 0f;
+            coyoteTimer = 0f;
             ApplyColliderSize(false);
 
             PlayerEvents.OnHealthChanged?.Invoke(currentHP, maxHP);
@@ -419,6 +482,7 @@ namespace MetalRebels.Player
             if (invincibilityCoroutine != null)
             {
                 StopCoroutine(invincibilityCoroutine);
+                RestoreCharacterSpriteRendererStates();
             }
             invincibilityCoroutine = StartCoroutine(InvincibilityRoutine(duration));
         }
@@ -428,6 +492,7 @@ namespace MetalRebels.Player
             isInvincible = true;
             float timer = 0f;
             float flashInterval = 0.1f;
+            bool characterVisible = true;
 
             if (childRenderers == null || childRenderers.Length == 0)
             {
@@ -436,32 +501,21 @@ namespace MetalRebels.Player
 
             while (timer < duration)
             {
-                if (childRenderers != null && childRenderers.Length > 0)
+                characterVisible = !characterVisible;
+                for (int i = 0; i < characterSpriteRenderers.Length; i++)
                 {
-                    foreach (var sr in childRenderers)
-                    {
-                        if (sr != null) sr.enabled = !sr.enabled;
-                    }
-                }
-                else if (spriteRenderer != null)
-                {
-                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                    SpriteRenderer renderer = characterSpriteRenderers[i];
+                    if (renderer == null) continue;
+                    renderer.enabled = originalSpriteRendererStates[i];
+                    Color flashColor = originalSpriteRendererColors[i];
+                    flashColor.a = characterVisible ? 1f : 0.35f;
+                    renderer.color = flashColor;
                 }
                 yield return new WaitForSeconds(flashInterval);
                 timer += flashInterval;
             }
 
-            if (childRenderers != null && childRenderers.Length > 0)
-            {
-                foreach (var sr in childRenderers)
-                {
-                    if (sr != null) sr.enabled = true;
-                }
-            }
-            else if (spriteRenderer != null)
-            {
-                spriteRenderer.enabled = true;
-            }
+            RestoreCharacterSpriteRendererStates();
             isInvincible = false;
             invincibilityCoroutine = null;
         }
@@ -485,6 +539,17 @@ namespace MetalRebels.Player
                     return combat != null && combat.TryAddGrenades(amount > 0 ? amount : 2);
                 default:
                     return false;
+            }
+        }
+        private void RestoreCharacterSpriteRendererStates()
+        {
+            for (int i = 0; i < characterSpriteRenderers.Length; i++)
+            {
+                if (characterSpriteRenderers[i] != null)
+                {
+                    characterSpriteRenderers[i].enabled = originalSpriteRendererStates[i];
+                    characterSpriteRenderers[i].color = originalSpriteRendererColors[i];
+                }
             }
         }
 

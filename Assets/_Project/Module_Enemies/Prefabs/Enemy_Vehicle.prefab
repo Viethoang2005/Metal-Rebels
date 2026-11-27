@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 70
   currentHP: 70
-  deathEffectPrefab: {fileID: 100000, guid: b1000000000000000000000000000002, type: 3}
+  deathEffectPrefab: {fileID: 6527246431569494285, guid: b1000000000000000000000000000002, type: 3}
   dropItems: []
   dropRate: 50
 --- !u!114 &11400001

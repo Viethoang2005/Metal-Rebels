@@ -556,11 +556,24 @@ MonoBehaviour:
   shotgunData: {fileID: 11400000, guid: a1100000000000000000000000000002, type: 2}
   assaultRifleData: {fileID: 11400000, guid: a1100000000000000000000000000003, type: 2}
   rocketLauncherData: {fileID: 11400000, guid: a1100000000000000000000000000004, type: 2}
-  grenadePrefab: {fileID: 100000, guid: b1000000000000000000000000000004, type: 3}
+  grenadePrefab: {fileID: 420582892864453503, guid: b1000000000000000000000000000004, type: 3}
+  grenadeSprite: {fileID: 7374725294872216382, guid: 21d24cc712424b744bcea4c299501dc3, type: 3}
   maxGrenades: 5
-  grenadeThrowForceX: 10
-  grenadeThrowForceY: 6
-  explosionPrefab: {fileID: 100000, guid: b1000000000000000000000000000002, type: 3}
+  grenadeThrowForceX: 5.5
+  grenadeThrowForceY: 5
+  explosionPrefab: {fileID: 6527246431569494285, guid: b1000000000000000000000000000002, type: 3}
+  explosionSprites:
+  - {fileID: 6020156697516338080, guid: bfe9924329a495b48803b533afcab234, type: 3}
+  - {fileID: 3011381719991355849, guid: bfe9924329a495b48803b533afcab234, type: 3}
+  - {fileID: 2294905616187942183, guid: bfe9924329a495b48803b533afcab234, type: 3}
+  - {fileID: 4260085117376840604, guid: bfe9924329a495b48803b533afcab234, type: 3}
+  - {fileID: 3780882009848875993, guid: bfe9924329a495b48803b533afcab234, type: 3}
+  grenadeExplosionSprites: []
+  shotgunExplosionSprites: []
+  grenadeExplosionSheet: {fileID: 2800000, guid: 22b6bf33dbbd5e54cb9a223f8551009a, type: 3}
+  shotgunExplosionSheet: {fileID: 2800000, guid: 836b7490131ac484a84c2b1b69adb84e, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 48be6ccda7454d6aa8243d43a8b05ff9, type: 3}
+  rocketSprite: {fileID: -4905444998996988130, guid: 4656d0087cf81f044a857874ff05c42c, type: 3}
 --- !u!114 &11400103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +588,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: MetalRebels.Player::PlayerAnimation
   upperAnimator: {fileID: 950111}
   lowerAnimator: {fileID: 950112}
+  hipSocket: {fileID: 0}
+  rocketIdleSprites:
+  - {fileID: -1231344769295368028, guid: caaa2ac675b043b428582527aef5cebe, type: 3}
+  - {fileID: -6048832363464011964, guid: caaa2ac675b043b428582527aef5cebe, type: 3}
+  - {fileID: -8603774768573034674, guid: caaa2ac675b043b428582527aef5cebe, type: 3}
+  rocketScale: 1
+  rocketPositionOffset: {x: 0, y: 0}
 --- !u!114 &11400104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 100111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0.012, y: 0.316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -754,7 +774,7 @@ Transform:
   m_GameObject: {fileID: 100112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.044, y: 0.004, z: 0}
+  m_LocalPosition: {x: -0.044, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -921,7 +941,7 @@ Transform:
   m_GameObject: {fileID: 100122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0.24, z: 0}
+  m_LocalPosition: {x: 0.273, y: 0.278, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -952,7 +972,7 @@ Transform:
   m_GameObject: {fileID: 100123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.48, z: 0}
+  m_LocalPosition: {x: -0.003, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -983,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 100124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.049, y: -0.065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1014,7 +1034,7 @@ Transform:
   m_GameObject: {fileID: 100125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.35, z: 0}
+  m_LocalPosition: {x: 0.328, y: 0.115, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

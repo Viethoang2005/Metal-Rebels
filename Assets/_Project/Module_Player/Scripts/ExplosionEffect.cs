@@ -11,74 +11,249 @@ namespace MetalRebels.Player
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private int damage = 100;
         [SerializeField] private LayerMask targetLayers = ~0;
-        [SerializeField] private float effectDuration = 0.5f;
+        [SerializeField] private float effectDuration = 0.65f;
+
+        [Header("Căn chỉnh Vị trí & Kích thước")]
+        [SerializeField] private bool snapToGround = true;
+        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private float groundCheckDistance = 3f;
+        [SerializeField, Min(0.1f)] private float visualScaleMultiplier = 1.8f;
 
         [Header("Hiệu ứng thị giác")]
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite[] explosionSprites;
+        [SerializeField] private Animator animator;
+
+        private bool damageApplied = false;
+        private HashSet<IDamageable> sharedDamagedTargets = null;
+        private Vector2 visualTravelDirection;
+        private float visualTravelDistance;
 
         private void Awake()
         {
+            if (sharedDamagedTargets == null)
+            {
+                sharedDamagedTargets = new HashSet<IDamageable>();
+            }
+
             if (spriteRenderer == null)
             {
                 spriteRenderer = GetComponent<SpriteRenderer>();
+            }
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sortingOrder = 15;
+            }
+            if (animator == null)
+            {
+                animator = GetComponent<Animator>();
             }
         }
 
         private void Start()
         {
-            ApplyExplosionDamage();
-
-            if (explosionSprites != null && explosionSprites.Length > 0 && spriteRenderer != null)
+            // Tự động hạ chân vụ nổ chạm mặt đất phía dưới (nếu đang nổ gần sàn)
+            if (snapToGround && visualTravelDistance <= 0f)
             {
-                StartCoroutine(PlayExplosionAnimation());
+                SnapPositionToGround();
             }
 
-            Destroy(gameObject, effectDuration);
+            float duration = Mathf.Max(effectDuration, 0.01f);
+            if (animator != null && animator.runtimeAnimatorController != null)
+            {
+                animator.Play("RocketExplosion", 0, 0f);
+                if (!damageApplied)
+                {
+                    ApplyExplosionDamage();
+                }
+                Destroy(gameObject, duration);
+                return;
+            }
+
+            if (visualTravelDistance > 0f)
+            {
+                if (explosionSprites != null && explosionSprites.Length > 0 && spriteRenderer != null)
+                {
+                    StartCoroutine(PlayExplosionAnimation(duration, true));
+                }
+                else
+                {
+                    StartCoroutine(TravelExplosion(duration));
+                }
+            }
+            else
+            {
+                if (!damageApplied)
+                {
+                    ApplyExplosionDamage();
+                }
+
+                if (explosionSprites != null && explosionSprites.Length > 0 && spriteRenderer != null)
+                {
+                    StartCoroutine(PlayExplosionAnimation(duration, false));
+                }
+            }
+
+            Destroy(gameObject, duration);
         }
 
-        public void Init(int explosionDamage, float radius, LayerMask layers = default)
+        private void SnapPositionToGround()
+        {
+            LayerMask mask = groundLayer.value != 0 ? groundLayer : LayerMask.GetMask("Ground");
+            if (mask.value == 0) return;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * 0.2f, Vector2.down, groundCheckDistance, mask);
+            if (hit.collider != null)
+            {
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+            }
+        }
+
+        public void Init(
+            int explosionDamage,
+            float radius,
+            LayerMask layers = default,
+            HashSet<IDamageable> sharedTargets = null,
+            Sprite[] visualSprites = null,
+            float visualScale = 1f,
+            float visualDuration = 0f,
+            Vector2 visualDirection = default,
+            float visualDistance = 0f)
         {
             damage = explosionDamage;
             explosionRadius = radius;
+            transform.localScale *= Mathf.Max(0.01f, visualScale);
+            visualTravelDirection = visualDirection.normalized;
+            visualTravelDistance = visualTravelDirection == Vector2.zero ? 0f : Mathf.Max(0f, visualDistance);
+
+            // Shotgun có visualTravelDistance > 0 nên không hạ xuống đất
+            if (visualTravelDistance > 0f)
+            {
+                snapToGround = false;
+            }
+
+            if (visualDuration > 0f)
+            {
+                effectDuration = visualDuration;
+            }
             if (layers != default)
             {
                 targetLayers = layers;
+            }
+            sharedDamagedTargets = sharedTargets ?? new HashSet<IDamageable>();
+
+            if (visualSprites != null && visualSprites.Length > 0)
+            {
+                explosionSprites = visualSprites;
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = explosionSprites[0];
+                }
+            }
+
+            if (!damageApplied && visualTravelDistance <= 0f)
+            {
+                ApplyExplosionDamage();
             }
         }
 
         private void ApplyExplosionDamage()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, targetLayers);
-            HashSet<IDamageable> damagedTargets = new HashSet<IDamageable>();
+            damageApplied = true;
+            ApplyExplosionDamageAt(transform.position);
+        }
+
+        private void ApplyExplosionDamageAt(Vector2 position)
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, explosionRadius, targetLayers);
 
             foreach (Collider2D col in colliders)
             {
                 if (col.CompareTag("Player") || col.GetComponentInParent<PlayerController>() != null)
                 {
-                    continue; // Người chơi không bị sát thương bởi lựu đạn/rocket của chính mình
+                    continue;
                 }
 
                 IDamageable damageable = col.GetComponent<IDamageable>() ?? col.GetComponentInParent<IDamageable>();
-                if (damageable != null && !damagedTargets.Contains(damageable))
+                if (damageable != null && !sharedDamagedTargets.Contains(damageable))
                 {
-                    damagedTargets.Add(damageable);
+                    sharedDamagedTargets.Add(damageable);
                     damageable.TakeDamage(damage);
                 }
             }
         }
 
-        private IEnumerator PlayExplosionAnimation()
+        private IEnumerator PlayExplosionAnimation(float duration, bool isTravelingBlast)
         {
-            float timePerFrame = effectDuration / explosionSprites.Length;
-            for (int i = 0; i < explosionSprites.Length; i++)
+            float timePerFrame = duration / explosionSprites.Length;
+            Vector3 initialScale = transform.localScale * (isTravelingBlast ? 1f : visualScaleMultiplier);
+            Vector3 initialPosition = transform.position;
+            Color initialColor = spriteRenderer.color;
+            float elapsed = 0f;
+
+            transform.localScale = initialScale;
+
+            while (elapsed < duration)
             {
-                if (explosionSprites[i] != null && spriteRenderer != null)
+                int frameIndex = Mathf.Min(Mathf.FloorToInt(elapsed / timePerFrame), explosionSprites.Length - 1);
+                if (explosionSprites[frameIndex] != null)
                 {
-                    spriteRenderer.sprite = explosionSprites[i];
+                    spriteRenderer.sprite = explosionSprites[frameIndex];
                 }
-                yield return new WaitForSeconds(timePerFrame);
+
+                float normalizedTime = elapsed / duration;
+                if (isTravelingBlast)
+                {
+                    UpdateTravelPosition(initialPosition, normalizedTime);
+                    transform.localScale = initialScale * Mathf.Lerp(0.35f, 1.35f, normalizedTime);
+                    Color color = initialColor;
+                    color.a *= 1f - normalizedTime;
+                    spriteRenderer.color = color;
+                    ApplyExplosionDamageAt(transform.position);
+                }
+                else
+                {
+                    // Giữ rõ nét 15 frame pixel art của Rocket, chỉ làm mờ nhẹ ở 20% cuối khi khói tan
+                    Color color = initialColor;
+                    color.a = normalizedTime > 0.8f ? Mathf.Lerp(1f, 0f, (normalizedTime - 0.8f) / 0.2f) : 1f;
+                    spriteRenderer.color = color;
+                }
+
+                elapsed += Time.deltaTime;
+                yield return null;
             }
+
+            if (isTravelingBlast)
+            {
+                UpdateTravelPosition(initialPosition, 1f);
+                ApplyExplosionDamageAt(transform.position);
+                damageApplied = true;
+            }
+        }
+
+        private IEnumerator TravelExplosion(float duration)
+        {
+            Vector3 initialPosition = transform.position;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                float normalizedTime = elapsed / duration;
+                UpdateTravelPosition(initialPosition, normalizedTime);
+                ApplyExplosionDamageAt(transform.position);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            UpdateTravelPosition(initialPosition, 1f);
+            ApplyExplosionDamageAt(transform.position);
+            damageApplied = true;
+        }
+
+        private void UpdateTravelPosition(Vector3 initialPosition, float normalizedTime)
+        {
+            transform.position = initialPosition
+                + (Vector3)(visualTravelDirection * visualTravelDistance * Mathf.Clamp01(normalizedTime));
         }
 
         private void OnDrawGizmosSelected()

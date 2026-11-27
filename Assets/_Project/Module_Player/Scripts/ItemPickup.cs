@@ -16,6 +16,8 @@ namespace MetalRebels.Player
     [RequireComponent(typeof(Collider2D))]
     public class ItemPickup : MonoBehaviour
     {
+        private static Sprite fallbackPickupSprite;
+
         [Header("Loại vật phẩm & Giá trị")]
         [SerializeField] private PickupType pickupType = PickupType.Health;
         [SerializeField] private int amount = 30;
@@ -31,6 +33,24 @@ namespace MetalRebels.Player
         [SerializeField] private float hoverSpeed = 3f;
 
         private Vector3 startPosition;
+
+        private void Awake()
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null && spriteRenderer.sprite == null)
+            {
+                if (fallbackPickupSprite == null)
+                {
+                    fallbackPickupSprite = Sprite.Create(
+                        Texture2D.whiteTexture,
+                        new Rect(0f, 0f, 1f, 1f),
+                        new Vector2(0.5f, 0.5f),
+                        4f);
+                }
+
+                spriteRenderer.sprite = fallbackPickupSprite;
+            }
+        }
 
         private void Start()
         {
