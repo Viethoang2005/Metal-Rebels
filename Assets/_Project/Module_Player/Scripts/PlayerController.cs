@@ -440,6 +440,7 @@ namespace MetalRebels.Player
                 isAlive = false;
                 rb.linearVelocity = Vector2.zero;
                 PlayerEvents.OnPlayerDied?.Invoke();
+                PlayerEvents.TriggerAllLivesLost();
                 GameEvents.OnGameOver?.Invoke(false);
                 gameObject.SetActive(false);
             }

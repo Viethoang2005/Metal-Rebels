@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MetalRebels.Core.Events;
 using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
@@ -129,6 +130,7 @@ namespace MetalRebels.Player
             hasExploded = true;
 
             CancelInvoke(nameof(Explode));
+            PlayerEvents.TriggerPlaySFX("Explosion");
 
             if (explosionPrefab != null)
             {

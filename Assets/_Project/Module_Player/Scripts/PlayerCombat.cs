@@ -293,6 +293,9 @@ namespace MetalRebels.Player
 
             nextFireTime = Time.time + (1f / Mathf.Max(0.1f, weapon.fireRate));
 
+            // Phát âm thanh bắn súng qua AudioManager
+            PlayerEvents.TriggerWeaponFired(weapon.weaponName);
+
             // Trừ đạn trong băng
             if (!weapon.isInfiniteAmmo)
             {
@@ -509,6 +512,7 @@ namespace MetalRebels.Player
             {
                 currentGrenades--;
                 PlayerEvents.OnGrenadeChanged?.Invoke(currentGrenades, maxGrenades);
+                PlayerEvents.TriggerPlaySFX("Grenade");
                 playerAnimation?.PlayGrenadeAnimation();
 
                 Transform spawn = firePointForward1 != null ? firePointForward1 : transform;

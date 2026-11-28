@@ -56,6 +56,14 @@ namespace MetalRebels.Module_Environment
             if (other.CompareTag("Player") || other.GetComponent<MetalRebels.Core.Interfaces.IPickupCollector>() != null)
             {
                 ActivateCheckpoint();
+
+                // Cập nhật vị trí hồi sinh của PlayerController
+                var player = other.GetComponent<MetalRebels.Player.PlayerController>()
+                    ?? other.GetComponentInParent<MetalRebels.Player.PlayerController>();
+                if (player != null)
+                {
+                    player.SetCheckpoint(transform.position + respawnOffset);
+                }
             }
         }
 

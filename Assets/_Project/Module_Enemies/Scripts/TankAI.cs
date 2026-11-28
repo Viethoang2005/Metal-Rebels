@@ -43,6 +43,8 @@ public class TankAI : MonoBehaviour
     private float smokeOffsetX;
     private bool facingRight = true;
     private bool muzzleReferenceFacesRight;
+    private bool isApproaching;
+    private float approachTargetX;
     private Vector3 muzzleReferencePosition;
     private Vector3 muzzleReferenceDirection;
 
@@ -81,11 +83,25 @@ public class TankAI : MonoBehaviour
         SetFacing(true);
     }
 
+    /// <summary>
+    /// Gọi sau khi spawn trong Event Lock để tank lái hẳn vào khung hình trước khi bắn/tuần tra.
+    /// </summary>
+    public void DriveToPosition(float targetX)
+    {
+        isApproaching = true;
+        approachTargetX = targetX;
+        if (rb != null)
+        {
+            patrolDirection = targetX >= rb.position.x ? 1 : -1;
+        }
+    }
+
     void FixedUpdate()
     {
         if (health.currentHP <= 0)
         {
             attacking = false;
+            isApproaching = false;
             UpdateShootingAnimation();
             MoveHorizontal(0f);
             return;
@@ -98,6 +114,31 @@ public class TankAI : MonoBehaviour
             GameObject found = GameObject.FindGameObjectWithTag("Player");
             target = found != null ? found.transform : null;
             nextTargetSearchTime = Time.time + 0.5f;
+        }
+
+        // Phase tiếp cận: lái vào arena trước khi tuần tra/tấn công
+        if (isApproaching)
+        {
+            attacking = false;
+            UpdateShootingAnimation();
+            float dist = Mathf.Abs(rb.position.x - approachTargetX);
+            if (dist <= 0.25f)
+            {
+                isApproaching = false;
+                startX = rb.position.x; // Cập nhật tâm tuần tra = vị trí đã đến
+                MoveHorizontal(0f);
+            }
+            else
+            {
+                float dir = approachTargetX > rb.position.x ? 1f : -1f;
+                SetFacing(dir > 0f);
+                float step = dir * moveSpeed * Time.fixedDeltaTime;
+                // Không vượt quá đích
+                if (Mathf.Abs(step) > dist) step = dir * dist;
+                MoveHorizontal(step);
+                UpdateSmoke(true);
+                return;
+            }
         }
 
         float range = Mathf.Max(0f, detectRange) +
@@ -236,6 +277,7 @@ public class TankAI : MonoBehaviour
     {
         UpdateSmoke(false);
         attacking = false;
+        isApproaching = false;
         UpdateShootingAnimation();
         if (rb != null && rb.bodyType == RigidbodyType2D.Dynamic)
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);

@@ -51,7 +51,7 @@ namespace MetalRebels.Module_Environment
             return spawnedInstance;
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if (Application.isPlaying) return;
 

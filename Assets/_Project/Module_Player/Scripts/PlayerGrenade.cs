@@ -1,4 +1,5 @@
 using System.Collections;
+using MetalRebels.Core.Events;
 using MetalRebels.Core.Interfaces;
 using UnityEngine;
 
@@ -155,6 +156,7 @@ namespace MetalRebels.Player
             hasExploded = true;
 
             StopAllCoroutines();
+            PlayerEvents.TriggerPlaySFX("Explosion");
             Vector3 position = explosionPosition ?? transform.position;
 
             if (explosionPrefab != null)

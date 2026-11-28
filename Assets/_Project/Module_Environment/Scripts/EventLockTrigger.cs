@@ -98,9 +98,9 @@ namespace MetalRebels.Module_Environment
             isLocked = true;
 
             // Khóa Camera
+            Vector3 lockPos = cameraLockPoint != null ? cameraLockPoint.position : transform.position;
             if (cameraFollow != null)
             {
-                Vector3 lockPos = cameraLockPoint != null ? cameraLockPoint.position : transform.position;
                 cameraFollow.LockAt(lockPos);
             }
 
@@ -115,10 +115,12 @@ namespace MetalRebels.Module_Environment
             if (isBossArena)
             {
                 fallbackTimer = 0f;
+                PlayerEvents.TriggerBossBattleChanged(true);
                 SpawnArenaBoss();
             }
             else if (waveManager != null && waveManager.HasValidWaves())
             {
+                waveManager.SetArenaCenter(lockPos.x);
                 waveManager.StartWaves();
             }
             else
@@ -145,6 +147,10 @@ namespace MetalRebels.Module_Environment
             }
 
             // Phát thông báo hoàn tất khu vực theo hợp đồng
+            if (isBossArena)
+            {
+                PlayerEvents.TriggerBossBattleChanged(false);
+            }
             GameEvents.OnEventLockCleared?.Invoke();
 
             // Tắt collider để không kích hoạt lại

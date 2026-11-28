@@ -6,6 +6,9 @@ namespace MetalRebels.Player
 {
     public class PlayerDebugHUD : MonoBehaviour
     {
+        [Header("Debug HUD")]
+        [SerializeField] private bool showLegacyHUD = false;
+
         private int currentHP = 100;
         private int maxHP = 100;
         private int currentLives = 3;
@@ -99,6 +102,8 @@ namespace MetalRebels.Player
 
         private void OnGUI()
         {
+            if (!showLegacyHUD) return;
+
             // Panel HUD người chơi (Góc trên bên trái)
             GUI.Box(new Rect(10, 10, 310, 190), "<b>MARCO - STATUS (MODULE PLAYER)</b>");
 

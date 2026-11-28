@@ -38,6 +38,18 @@ public class BasicEnemyAI : MonoBehaviour
     private bool hasCrashed;
     private bool shotPending;
     private bool hasShootTrigger;
+    private bool isApproaching;
+    private float approachTargetX;
+
+    /// <summary>
+    /// Gọi sau khi spawn trong Event Lock để địch đi vào khung hình trước khi bắn/tuần tra.
+    /// </summary>
+    public void DriveToPosition(float targetX)
+    {
+        isApproaching = true;
+        approachTargetX = targetX;
+        patrolDir = targetX >= transform.position.x ? 1 : -1;
+    }
 
     void Start()
     {
@@ -84,6 +96,33 @@ public class BasicEnemyAI : MonoBehaviour
 
     void TickAI(float deltaTime)
     {
+        if (isApproaching)
+        {
+            shotPending = false;
+            if (anim != null && enemyType == EnemyType.RangedSoldier)
+            {
+                anim.SetBool("isShooting", false);
+                if (hasShootTrigger) anim.ResetTrigger("Shoot");
+            }
+
+            float enterDiff = approachTargetX - Position.x;
+            if (Mathf.Abs(enterDiff) <= 0.25f)
+            {
+                isApproaching = false;
+                startPos = Position;
+                MoveHorizontal(0f, deltaTime);
+            }
+            else
+            {
+                float dir = enterDiff > 0f ? 1f : -1f;
+                SetFacing(dir > 0f);
+                float approachSpeed = Mathf.Max(2f, moveSpeed);
+                float step = dir * Mathf.Min(Mathf.Abs(enterDiff), approachSpeed * deltaTime);
+                MoveHorizontal(step, deltaTime);
+                return;
+            }
+        }
+
         bool isShooting = player != null && player.gameObject.activeInHierarchy && enemyType == EnemyType.RangedSoldier && Vector2.Distance(Position, player.position) <= attackRange;
         if (anim != null && enemyType == EnemyType.RangedSoldier){
             anim.SetBool("isShooting", isShooting);

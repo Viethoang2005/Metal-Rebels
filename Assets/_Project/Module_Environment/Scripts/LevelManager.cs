@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using MetalRebels.Core.Events;
 
 namespace MetalRebels.Module_Environment
@@ -19,8 +18,6 @@ namespace MetalRebels.Module_Environment
         [SerializeField] private Vector2 levelMinBounds = new Vector2(-10f, -0.85f);
         [SerializeField] private Vector2 levelMaxBounds = new Vector2(150f, 6.15f);
 
-        private bool showEndScreen = false;
-        private bool isVictory = false;
         private Coroutine victoryDelayCoroutine;
 
         private void Awake()
@@ -56,38 +53,33 @@ namespace MetalRebels.Module_Environment
 
         private void HandleBossKilled()
         {
-            if (showEndScreen || victoryDelayCoroutine != null) return;
+            if (victoryDelayCoroutine != null) return;
+
+            // Kích hoạt Victory qua GameManager
+            PlayerEvents.TriggerMissionCompleted();
+
             victoryDelayCoroutine = StartCoroutine(ShowVictoryDelayedRoutine());
         }
 
         private void HandleGameOver(bool victory)
         {
-            if (showEndScreen) return;
             if (victoryDelayCoroutine != null)
             {
                 StopCoroutine(victoryDelayCoroutine);
                 victoryDelayCoroutine = null;
             }
-            isVictory = victory;
-            showEndScreen = true;
+
+            // Kích hoạt Game Over qua GameManager
+            if (!victory)
+            {
+                PlayerEvents.TriggerAllLivesLost();
+            }
         }
 
         private IEnumerator ShowVictoryDelayedRoutine()
         {
             yield return new WaitForSeconds(2.2f);
-            isVictory = true;
-            showEndScreen = true;
             victoryDelayCoroutine = null;
-        }
-
-        private static string GetNextLevelSceneName(string currentSceneName)
-        {
-            return currentSceneName switch
-            {
-                "Level_01" => "Level_02",
-                "Level_02" => "Level_03",
-                _ => null
-            };
         }
 
         /// <summary>
@@ -102,60 +94,6 @@ namespace MetalRebels.Module_Environment
             }
 
             return initialPlayerSpawnPoint != null ? initialPlayerSpawnPoint.position : Vector3.zero;
-        }
-
-        private void OnGUI()
-        {
-            if (!showEndScreen) return;
-
-            int panelWidth = 380;
-            int panelHeight = 230;
-            int startX = (Screen.width - panelWidth) / 2;
-            int startY = (Screen.height - panelHeight) / 2;
-
-            GUI.Box(new Rect(startX, startY, panelWidth, panelHeight), "");
-            GUILayout.BeginArea(new Rect(startX + 20, startY + 20, panelWidth - 40, panelHeight - 40));
-
-            GUIStyle titleStyle = new GUIStyle(GUI.skin.label)
-            {
-                alignment = TextAnchor.MiddleCenter,
-                fontSize = 24,
-                fontStyle = FontStyle.Bold
-            };
-            titleStyle.normal.textColor = isVictory ? new Color(0.35f, 1f, 0.45f) : new Color(1f, 0.3f, 0.3f);
-
-            string currentScene = SceneManager.GetActiveScene().name;
-            string nextScene = isVictory ? GetNextLevelSceneName(currentScene) : null;
-            string title = isVictory
-                ? (nextScene != null ? "MISSION COMPLETE!" : "CHIẾN THẮNG TOÀN CHIẾN DỊCH!")
-                : "GAME OVER";
-
-            GUILayout.Label(title, titleStyle);
-            GUILayout.Space(18);
-
-            GUIStyle btnStyle = new GUIStyle(GUI.skin.button)
-            {
-                fontSize = 15,
-                fontStyle = FontStyle.Bold,
-                fixedHeight = 38
-            };
-
-            if (nextScene != null && GUILayout.Button("▶  MÀN TIẾP THEO", btnStyle))
-            {
-                SceneManager.LoadScene(nextScene);
-            }
-
-            if (GUILayout.Button("↻  CHƠI LẠI MÀN NÀY", btnStyle))
-            {
-                SceneManager.LoadScene(currentScene);
-            }
-
-            if (GUILayout.Button("⌂  MENU CHÍNH", btnStyle))
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
-
-            GUILayout.EndArea();
         }
 
         private void OnDrawGizmos()

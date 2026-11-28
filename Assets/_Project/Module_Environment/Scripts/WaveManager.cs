@@ -36,6 +36,12 @@ namespace MetalRebels.Module_Environment
         private List<GameObject> activeEnemies = new List<GameObject>();
         private bool isSpawning = false;
         private bool isRunning = false;
+        private float? arenaCenterX;
+
+        public void SetArenaCenter(float centerX)
+        {
+            arenaCenterX = centerX;
+        }
 
         public bool HasValidWaves()
         {
@@ -86,6 +92,7 @@ namespace MetalRebels.Module_Environment
                     if (info.enemyPrefab != null && info.spawnPoint != null)
                     {
                         GameObject spawned = Instantiate(info.enemyPrefab, info.spawnPoint.position, info.spawnPoint.rotation);
+                        EnsureEnemyEntersScreen(spawned);
                         activeEnemies.Add(spawned);
                     }
                 }
@@ -102,6 +109,35 @@ namespace MetalRebels.Module_Environment
 
             isRunning = false;
             OnAllWavesCleared?.Invoke();
+        }
+
+        private void EnsureEnemyEntersScreen(GameObject spawned)
+        {
+            if (spawned == null) return;
+
+            Camera cam = Camera.main;
+            float centerX = arenaCenterX ?? (cam != null ? cam.transform.position.x : transform.position.x);
+            float halfWidth = (cam != null && cam.orthographic) ? cam.orthographicSize * cam.aspect : 5.33f;
+            float innerHalfWidth = Mathf.Max(1.5f, halfWidth - 1.6f);
+            float leftTargetX = centerX - innerHalfWidth;
+            float rightTargetX = centerX + innerHalfWidth;
+            float spawnX = spawned.transform.position.x;
+
+            if (spawnX >= leftTargetX && spawnX <= rightTargetX) return;
+
+            float enterTargetX = spawnX < centerX ? leftTargetX : rightTargetX;
+
+            TankAI tank = spawned.GetComponent<TankAI>();
+            if (tank != null)
+            {
+                tank.DriveToPosition(enterTargetX);
+            }
+
+            BasicEnemyAI basicEnemy = spawned.GetComponent<BasicEnemyAI>();
+            if (basicEnemy != null)
+            {
+                basicEnemy.DriveToPosition(enterTargetX);
+            }
         }
 
         private bool HasAliveEnemies()
